@@ -12,7 +12,7 @@ A governed open-source Codex agent and skill bundle for AI4PROGRAMMING + AI4SCIE
 
 `myagent` packages the 10 agent definitions and 95 skills required by the AI4PROGRAMMING and AI4SCIENCE global Codex workflows into a publishable, verifiable, and reversible repository. It does not create business projects; it gives a new Codex user the same governance, delivery, research-evidence, and independent-review capabilities.
 
-The repository follows the useful parts of nature-skills—a repository-owned installer, plugin metadata, and validation—and extends them to install both agents and skills, offer three profiles, work across operating systems with the Python standard library, verify hashes, stage and roll back changes, keep backups, and touch only declared assets.
+You can install it with one command, choose the `ai4programming`, `ai4science`, or `all` profile, and use the same flow on Windows, macOS, and Linux. The installer verifies hashes, stages changes, rolls back on failure, keeps timestamped backups, and touches only assets declared by this repository.
 
 ## Install
 

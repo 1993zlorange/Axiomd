@@ -12,19 +12,19 @@
 
 ---
 
-## 项目定位
+## 你能用它做什么
 
-`myagent` 把全局 Codex 配置中 AI4PROGRAMMING 与 AI4SCIENCE 所需的 **10 个智能体定义** 和 **95 个 Skill** 整理成一个可发布、可校验、可回滚的开源仓库。它不是业务项目模板，而是让新 Codex 用户在自己的机器上快速获得同一套项目治理、软件交付、科研证据闭环和独立评审能力。
+如果你要在 Codex 里启动软件项目或推进科研工作，可以直接安装 MyAgent。它会把 **10 个智能体** 和 **95 个 Skill** 安装到你的 Codex 环境中，让你不需要手动复制文件，也不用自己判断每类任务应该交给哪个角色。
 
-安装器参考了 [nature-skills](https://github.com/Yuan1z0825/nature-skills) 的“仓库自带同步脚本 + 插件元数据 + 校验”组织方式，并针对本仓库扩展为：
+安装后，你可以：
 
-- 同时部署 `~/.codex/agents/*.toml` 与 `~/.codex/skills/<skill>/`；
-- 提供 `ai4programming`、`ai4science`、`all` 三个安装档案；
-- 使用 Python 标准库实现 Windows / macOS / Linux 通用安装；
-- 对每个资产计算 SHA-256，安装前后校验；
-- 先 staging、再原子激活，失败自动回滚；
-- 替换、清理或卸载前自动放入时间戳备份；
-- 只管理本仓库声明的资产名，不碰用户其他 Agent 或 Skill。
+- 在软件项目中按“监理 → 需求 → 架构 → 实现 → 独立测试”完成工作；
+- 在科研项目中按证据盘点、阶段判断、派单、成果卡、交接书和独立评审推进；
+- 选择 `ai4programming`、`ai4science` 或 `all` 档案，只安装你需要的部分；
+- 在 Windows、macOS 和 Linux 上使用同一条安装流程；
+- 随时校验安装结果，更新或卸载时保留时间戳备份。
+
+MyAgent 只管理本仓库声明的智能体和 Skill，不会删除或覆盖你手动保留的其他 Codex 配置。
 
 ## 一键安装
 
@@ -35,7 +35,7 @@
 - Git；
 - Node.js 18+ 和 `npx` 仅在需要 `playwright` 真实浏览器验证时必需。
 
-发布到 GitHub 后，把 `<your-org>/<your-repo>` 替换为实际仓库地址：
+将下面命令中的仓库地址替换为你实际获取 MyAgent 的地址：
 
 ```bash
 git clone https://github.com/<your-org>/<your-repo>.git myagent
@@ -247,7 +247,7 @@ myagent/
 ├── scripts/
 │   ├── install.py              # 跨平台安装 / 校验 / 卸载
 │   ├── build_inventory.py      # 重建 manifest 和资产索引
-│   └── validate.py             #仓库质量门禁
+│   └── validate.py             # 仓库质量门禁
 ├── docs/
 │   ├── agent-skill-map.md      # Agent 与 Skill 对应关系
 │   └── asset-index.md          # 全量资产索引
