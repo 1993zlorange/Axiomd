@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-Challenge-insight tree"
+  short_description: "SR-Challenge-insight tree：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-challenge-insight-tree to complete SR-Challenge-insight tree with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-上周任务验收"
+  short_description: "SR-上周任务验收：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-last-week-acceptance to complete SR-上周任务验收 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

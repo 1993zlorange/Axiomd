@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-一句话主张与贡献对齐"
+  short_description: "SR-一句话主张与贡献对齐：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-core-claim-alignment to complete SR-一句话主张与贡献对齐 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

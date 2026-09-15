@@ -1,0 +1,7 @@
+interface:
+  display_name: "高级工程师 Agent"
+  short_description: "按SRS、SDD与编程规范实施、测试和交付Python软件"
+  brand_color: "#275D47"
+  default_prompt: "Use $pr-en-02-senior-engineer to read this project's requirements, design, and coding standards, then implement the requested scope with traceable tests and verification."
+policy:
+  allow_implicit_invocation: true

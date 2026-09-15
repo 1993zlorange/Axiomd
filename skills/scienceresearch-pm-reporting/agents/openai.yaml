@@ -1,0 +1,7 @@
+interface:
+  display_name: "ScienceResearch 合并式项目汇报"
+  short_description: "在同一项目汇报中整合管理结论、完整需求链路与逐步证据"
+  default_prompt: "Use $scienceresearch-pm-reporting to generate an authoritative integrated project-stage HTML report containing the complete requirements journey evidence, maintain the compatibility evidence-book extract, and synchronize the user manual and logs."
+
+policy:
+  allow_implicit_invocation: true

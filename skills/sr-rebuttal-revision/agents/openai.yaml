@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-Rebuttal与修订"
+  short_description: "SR-Rebuttal与修订：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-rebuttal-revision to complete SR-Rebuttal与修订 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

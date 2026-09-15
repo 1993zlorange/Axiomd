@@ -1,0 +1,26 @@
+{
+  "name": "myagent",
+  "version": "0.1.0",
+  "description": "Codex skill bundle for governed programming and research workflows. Use scripts/install.py to install agents as well.",
+  "author": {
+    "name": "myagent contributors"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "MyAgent AI4 Workflows",
+    "shortDescription": "AI4PROGRAMMING and AI4SCIENCE skills",
+    "longDescription": "A compatibility bundle of governed project, engineering, research, evidence, and review skills. The repository installer also deploys the corresponding Codex agent TOML files.",
+    "developerName": "myagent contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Governed software delivery",
+      "Evidence-led research workflow",
+      "Browser verification"
+    ],
+    "defaultPrompt": [
+      "Use the AI4PROGRAMMING workflow to clarify requirements and plan implementation.",
+      "Use the AI4SCIENCE workflow to assess project evidence and recommend the next research task."
+    ]
+  }
+}

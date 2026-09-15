@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-里程碑与证据门管理"
+  short_description: "SR-里程碑与证据门管理：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-milestone-evidence-gate to complete SR-里程碑与证据门管理 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

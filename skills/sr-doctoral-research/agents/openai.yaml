@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-博士科研路由"
+  short_description: "沿科研证据链选择一个当前最该执行的 SR 分项 Skill"
+  default_prompt: "Use $sr-doctoral-research to identify my highest-value research unknown, route it to one SR leaf skill, and establish the human checkpoints and evidence gate."
+
+policy:
+  allow_implicit_invocation: true

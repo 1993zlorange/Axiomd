@@ -1,0 +1,7 @@
+interface:
+  display_name: "科研工作台目录治理"
+  short_description: "规划并校验源码、数据、测试、证据和临时文件的正确落盘位置"
+  default_prompt: "Use $scienceresearch-repository-layout to plan and verify every new, moved, generated, or archived file before completing this ScienceResearch engineering change."
+
+policy:
+  allow_implicit_invocation: true

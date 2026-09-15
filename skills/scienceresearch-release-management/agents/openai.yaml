@@ -1,0 +1,4 @@
+interface:
+  display_name: "ScienceResearch Release Management"
+  short_description: "Build and verify scoped ScienceResearch releases"
+  default_prompt: "Use $scienceresearch-release-management to prepare and verify a ScienceResearch release from the approved scope."

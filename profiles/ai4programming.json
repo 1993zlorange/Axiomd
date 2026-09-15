@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "description": "AI4PROGRAMMING core governance, requirements, architecture, engineering, QA, release, and browser verification workflow.",
+  "agents": [
+    "pr-ar-00-project-architect",
+    "pr-en-00-engineer",
+    "pr-pm-00-project-manager",
+    "pr-ps-00-project-supervisor",
+    "pr-qa-00-project-test"
+  ],
+  "skills": [
+    "playwright",
+    "pr-ar-01-project-architect",
+    "pr-en-01-fullstack-design-engineer",
+    "pr-en-02-senior-engineer",
+    "pr-pm-01-project-manager-socratic-discovery",
+    "pr-pm-02-project-manager",
+    "pr-pm-03-project-alignment-audit",
+    "pr-ps-00-project-supervision",
+    "pr-ps-01-project-governance",
+    "pr-ps-02-quality-gate",
+    "pr-ps-03-project-logging",
+    "pr-ps-04-reflection-loop",
+    "pr-ps-05-skill-authoring",
+    "pr-ps-06-script-tool-authoring",
+    "pr-ps-07-transfer-pilot",
+    "pr-ps-08-evolution-review",
+    "pr-qa-01-software-project-functional-qa",
+    "pr-rl-01-software-project-release-management"
+  ],
+  "optional_skills": [
+    "scienceresearch-functional-qa",
+    "scienceresearch-pm-reporting",
+    "scienceresearch-release-management",
+    "scienceresearch-repository-layout",
+    "scienceresearch-user-manual",
+    "pr-ps-09-daily-log-summary"
+  ]
+}

@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-复杂度与资源预算"
+  short_description: "SR-复杂度与资源预算：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-resource-budget to complete SR-复杂度与资源预算 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

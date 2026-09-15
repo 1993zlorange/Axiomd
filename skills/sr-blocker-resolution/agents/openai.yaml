@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-Blocker定位与清除"
+  short_description: "SR-Blocker定位与清除：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-blocker-resolution to complete SR-Blocker定位与清除 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

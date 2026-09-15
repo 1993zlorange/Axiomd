@@ -1,0 +1,7 @@
+interface:
+  display_name: "科研工作台功能测试"
+  short_description: "逐项验证科研工作台页面按钮表单接口返回和状态转换"
+  default_prompt: "Use $scienceresearch-functional-qa to independently test every user-visible function, button, form, API response, and failure path in the scienceresearch project."
+
+policy:
+  allow_implicit_invocation: true

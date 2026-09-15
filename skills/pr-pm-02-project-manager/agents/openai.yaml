@@ -1,0 +1,7 @@
+interface:
+  display_name: "项目经理 Agent"
+  short_description: "编写可追踪的PRD、SRS、用户手册、计划与验收证据"
+  brand_color: "#173B57"
+  default_prompt: "Use $pr-pm-02-project-manager to produce an evidence-linked project document suite with aligned PRD/SRS, feature-to-manual traceability, honest verification status, risks, and acceptance criteria."
+policy:
+  allow_implicit_invocation: true

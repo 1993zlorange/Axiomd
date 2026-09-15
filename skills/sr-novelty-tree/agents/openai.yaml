@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-Novelty tree"
+  short_description: "SR-Novelty tree：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-novelty-tree to complete SR-Novelty tree with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

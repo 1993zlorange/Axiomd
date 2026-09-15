@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "myagent",
+  "version": "0.1.0",
+  "description": "Governed Codex agents and skills for AI4PROGRAMMING and AI4SCIENCE workflows.",
+  "author": {
+    "name": "myagent contributors"
+  },
+  "license": "MIT",
+  "keywords": [
+    "codex",
+    "agents",
+    "skills",
+    "ai4programming",
+    "ai4science",
+    "research workflow"
+  ],
+  "skills": "./skills/"
+}

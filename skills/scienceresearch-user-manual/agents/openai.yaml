@@ -1,0 +1,7 @@
+interface:
+  display_name: "ScienceResearch 用户手册"
+  short_description: "依据当前实现与真实截图编写和校验科研工作台用户手册"
+  default_prompt: "Use $scienceresearch-user-manual to update the ScienceResearch user manual for the current implementation, place real result figures beside each workflow, add visible legends, and verify all evidence links."
+
+policy:
+  allow_implicit_invocation: true

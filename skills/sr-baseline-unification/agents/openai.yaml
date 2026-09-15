@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-Baseline统一实现"
+  short_description: "SR-Baseline统一实现：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-baseline-unification to complete SR-Baseline统一实现 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

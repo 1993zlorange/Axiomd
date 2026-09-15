@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-科研共享契约"
+  short_description: "为 SR 分项 Skill 提供证据、权限与周循环共享定义"
+  default_prompt: "Use $sr-research-shared only through an SR router or leaf skill to load the exact shared research contract needed."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-单篇深读与证据卡片"
+  short_description: "SR-单篇深读与证据卡片：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-paper-evidence-card to complete SR-单篇深读与证据卡片 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

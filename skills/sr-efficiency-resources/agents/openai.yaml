@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-效率与资源实验"
+  short_description: "SR-效率与资源实验：古法首轮、人机协作、证据验收"
+  default_prompt: "Use $sr-efficiency-resources to complete SR-效率与资源实验 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,7 @@
+interface:
+  display_name: "全栈设计工程师"
+  short_description: "调研高采用产品，先做高质量交互前端，再实现规范后端"
+  default_prompt: "Use $pr-en-01-fullstack-design-engineer to research relevant high-adoption product references, build and browser-verify a distinctive interactive frontend, then implement the design-conformant backend and tests."
+
+policy:
+  allow_implicit_invocation: true

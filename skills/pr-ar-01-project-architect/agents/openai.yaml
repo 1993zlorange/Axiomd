@@ -1,0 +1,5 @@
+interface:
+  display_name: "项目架构师 Agent"
+  short_description: "生成可追踪架构、可直接实现的数据库设计与SDD"
+  brand_color: "#1E5B6D"
+  default_prompt: "Use $pr-ar-01-project-architect to produce an evidence-linked architecture or SDD with implementation-ready database schemas, transactions, migrations, requirement traceability, user-manual impact, ADRs, and verification."

@@ -1,0 +1,18 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Python artifacts
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.py[cod]
+
+# Local install state and generated output
+.myagent-install.json
+.myagent-stage-*/
+.myagent-backups/
+/output/
+/tmp/

@@ -1,0 +1,7 @@
+interface:
+  display_name: "项目经理苏格拉底式需求发现"
+  short_description: "先查证再追问反证，确认需求契约后才进入规格和交付"
+  default_prompt: "Use $pr-pm-01-project-manager-socratic-discovery to challenge and deepen my project request, then obtain my explicit confirmation before writing requirements or handing work to engineering."
+
+policy:
+  allow_implicit_invocation: true

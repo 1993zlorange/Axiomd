@@ -1,0 +1,7 @@
+interface:
+  display_name: "SR-每周组会汇报"
+  short_description: "把已验收的科研证据整理成可决策的博士组会汇报"
+  default_prompt: "Use $sr-weekly-meeting to build this week's group-meeting report from my SR work contracts, artifacts, evidence, and unresolved decisions."
+
+policy:
+  allow_implicit_invocation: true

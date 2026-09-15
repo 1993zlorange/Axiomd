@@ -1,0 +1,4 @@
+interface:
+  display_name: "通用软件发布管理"
+  short_description: "准备受控版本候选、发布说明、烟测和回滚记录"
+  default_prompt: "使用 $pr-rl-01-software-project-release-management 在明确授权范围内准备当前项目发布。"
