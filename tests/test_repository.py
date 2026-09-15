@@ -35,7 +35,7 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(set(package["profiles"]), {"ai4programming", "ai4science", "all"})
 
     def test_installer_check_and_uninstall_in_temp_home(self) -> None:
-        with tempfile.TemporaryDirectory(prefix="myagent-codex-") as temporary:
+        with tempfile.TemporaryDirectory(prefix="axiom-codex-") as temporary:
             codex_home = Path(temporary)
             untouched = codex_home / "skills" / "user-owned-skill"
             untouched.mkdir(parents=True)
@@ -44,7 +44,7 @@ class RepositoryTests(unittest.TestCase):
             install = run("scripts/install.py", "--profile", "ai4programming", "--codex-home", str(codex_home))
             self.assertEqual(install.returncode, 0, install.stderr)
             self.assertEqual(len(list((codex_home / "agents").glob("*.toml"))), 5)
-            state = json.loads((codex_home / ".myagent-install.json").read_text(encoding="utf-8"))
+            state = json.loads((codex_home / ".axiom-install.json").read_text(encoding="utf-8"))
             self.assertEqual(state["profile"], "ai4programming")
             self.assertEqual(len(state["skills"]), 18)
 
@@ -56,7 +56,7 @@ class RepositoryTests(unittest.TestCase):
             self.assertFalse(list((codex_home / "agents").glob("*.toml")))
             self.assertFalse(list((codex_home / "skills").glob("pr-*")))
             self.assertTrue((untouched / "KEEP.txt").is_file())
-            self.assertFalse((codex_home / ".myagent-install.json").exists())
+            self.assertFalse((codex_home / ".axiom-install.json").exists())
 
 
 if __name__ == "__main__":

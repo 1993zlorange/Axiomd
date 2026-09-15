@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "name": "myagent",
+  "name": "axiom",
   "version": "0.1.0",
-  "description": "Governed Codex agents and skills for AI4PROGRAMMING and AI4SCIENCE workflows.",
+  "description": "Governed Codex agent and skill stack for AI4PROGRAMMING and AI4SCIENCE workflows.",
   "license": "MIT",
   "profiles": {
     "ai4programming": {

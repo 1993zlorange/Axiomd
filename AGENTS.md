@@ -1,4 +1,4 @@
-# MyAgent repository instructions
+# Axiom Agents repository instructions
 
 This repository is a redistributable Codex asset package. Keep the source repository portable: do not add machine-specific absolute paths, credentials, private project evidence, generated logs, or large binary artifacts.
 

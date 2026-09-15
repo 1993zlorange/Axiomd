@@ -11,8 +11,8 @@ __pycache__/
 *.py[cod]
 
 # Local install state and generated output
-.myagent-install.json
-.myagent-stage-*/
-.myagent-backups/
+.axiom-install.json
+.axiom-stage-*/
+.axiom-backups/
 /output/
 /tmp/

@@ -1,6 +1,6 @@
-# MyAgent
+# Axiom
 
-A governed open-source Codex agent and skill bundle for AI4PROGRAMMING + AI4SCIENCE.
+**Axiom Agents: Governed Codex Agent and Skill Stack**
 
 - [Install](#install)
 - [Profiles](#profiles)
@@ -10,7 +10,7 @@ A governed open-source Codex agent and skill bundle for AI4PROGRAMMING + AI4SCIE
 
 ## Purpose
 
-`myagent` packages the 10 agent definitions and 95 skills required by the AI4PROGRAMMING and AI4SCIENCE global Codex workflows into a publishable, verifiable, and reversible repository. It does not create business projects; it gives a new Codex user the same governance, delivery, research-evidence, and independent-review capabilities.
+Axiom packages the 10 agent definitions and 95 skills required by the AI4PROGRAMMING and AI4SCIENCE global Codex workflows into a publishable, verifiable, and reversible repository. It does not create business projects; it gives a new Codex user the same governance, delivery, research-evidence, and independent-review capabilities.
 
 You can install it with one command, choose the `ai4programming`, `ai4science`, or `all` profile, and use the same flow on Windows, macOS, and Linux. The installer verifies hashes, stages changes, rolls back on failure, keeps timestamped backups, and touches only assets declared by this repository.
 
@@ -19,8 +19,8 @@ You can install it with one command, choose the `ai4programming`, `ai4science`, 
 Requirements are Codex CLI or Desktop, Python 3.11+, and Git. Node.js 18+ and `npx` are needed only for Playwright browser verification.
 
 ```bash
-git clone https://github.com/<your-org>/<your-repo>.git myagent
-cd myagent
+git clone https://github.com/<your-org>/<your-repo>.git axiom
+cd axiom
 python scripts/install.py --profile all
 ```
 
@@ -33,7 +33,7 @@ python scripts/install.py --profile all --check
 python scripts/validate.py
 ```
 
-The installer writes to `~/.codex/agents/`, `~/.codex/skills/`, and `~/.codex/.myagent-install.json`. It honors `CODEX_HOME`; `--codex-home` can override it.
+The installer writes to `~/.codex/agents/`, `~/.codex/skills/`, and `~/.codex/.axiom-install.json`. It honors `CODEX_HOME`; `--codex-home` can override it.
 
 ## Profiles
 
@@ -85,7 +85,7 @@ High-cost work, external writes, deployments, removals, paid services, scientifi
 ## Update, verify, and uninstall
 
 ```bash
-cd myagent
+cd axiom
 git pull --ff-only
 python scripts/install.py --profile all
 python scripts/install.py --profile all --check
@@ -93,14 +93,14 @@ python scripts/validate.py
 python scripts/install.py --profile all --uninstall
 ```
 
-Uninstall removes only assets recorded in `.myagent-install.json`, after backing them up. Modified assets require `--force`.
+Uninstall removes only assets recorded in `.axiom-install.json`, after backing them up. Modified assets require `--force`.
 
 ## Plugin form and structure
 
 The repository includes portable plugin metadata and can be consumed as a local plugin or marketplace for skills. Agent TOML files are deployed by `scripts/install.py`; run that script for complete orchestration.
 
 ```text
-myagent/
+axiom/
 ├── agents/
 ├── skills/
 ├── profiles/

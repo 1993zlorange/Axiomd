@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate MyAgent package structure, metadata, profiles, hashes, and portability."""
+"""Validate Axiom Agents package structure, metadata, profiles, hashes, and portability."""
 from __future__ import annotations
 
 import hashlib
@@ -203,15 +203,15 @@ def validate_plugin_and_docs(errors: list[str], manifest: dict) -> None:
     except (OSError, json.JSONDecodeError):
         return
     for path, data in [(ROOT / "plugin.json", plugin), (ROOT / ".codex-plugin/plugin.json", overlay)]:
-        if data.get("name") != "myagent" or data.get("version") != manifest.get("version"):
+        if data.get("name") != "axiom" or data.get("version") != manifest.get("version"):
             fail(errors, f"package identity/version mismatch in {path.relative_to(ROOT)}")
         if data.get("skills") != "./skills/":
             fail(errors, f"{path.relative_to(ROOT)} must point skills to ./skills/")
     plugins = marketplace.get("plugins", [])
-    if not isinstance(plugins, list) or len(plugins) != 1 or plugins[0].get("name") != "myagent":
-        fail(errors, "marketplace must contain exactly one myagent plugin")
+    if not isinstance(plugins, list) or len(plugins) != 1 or plugins[0].get("name") != "axiom":
+        fail(errors, "marketplace must contain exactly one axiom plugin")
     elif plugins[0].get("source", {}).get("path") != "./":
-        fail(errors, "marketplace myagent source path must be ./")
+        fail(errors, "marketplace axiom source path must be ./")
     readme = ROOT / "README.md"
     if not readme.is_file():
         fail(errors, "README.md is missing")

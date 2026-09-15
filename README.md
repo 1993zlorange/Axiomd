@@ -1,8 +1,8 @@
 <div align="center">
 
-# MyAgent
+# Axiom
 
-**AI4PROGRAMMING + AI4SCIENCE 的可治理 Codex Agent 与 Skill 开源包**
+**Axiom Agents：治理型 Codex 智能体与技能栈**
 
 ![Agents](https://img.shields.io/badge/agents-10-111827) ![Skills](https://img.shields.io/badge/skills-95-0ea5e9) ![Profiles](https://img.shields.io/badge/profiles-3-8b5cf6) ![License](https://img.shields.io/badge/license-MIT-2ea44f)
 
@@ -12,9 +12,13 @@
 
 ---
 
+## 项目定位
+
+Axiom 的完整定位是 **Axiom Agents：治理型 Codex 智能体与技能栈**。Axiom 代表可依赖的公理、规则边界和可审计约束；Axiom Agents 把这层治理延伸到软件工程和科研工作流中的每个智能体与技能。
+
 ## 你能用它做什么
 
-如果你要在 Codex 里启动软件项目或推进科研工作，可以直接安装 MyAgent。它会把 **10 个智能体** 和 **95 个 Skill** 安装到你的 Codex 环境中，让你不需要手动复制文件，也不用自己判断每类任务应该交给哪个角色。
+如果你要在 Codex 里启动软件项目或推进科研工作，可以直接安装 Axiom Agents。它会把 **10 个智能体** 和 **95 个 Skill** 安装到你的 Codex 环境中，让你不需要手动复制文件，也不用自己判断每类任务应该交给哪个角色。
 
 安装后，你可以：
 
@@ -24,7 +28,7 @@
 - 在 Windows、macOS 和 Linux 上使用同一条安装流程；
 - 随时校验安装结果，更新或卸载时保留时间戳备份。
 
-MyAgent 只管理本仓库声明的智能体和 Skill，不会删除或覆盖你手动保留的其他 Codex 配置。
+Axiom Agents 只管理本仓库声明的智能体和 Skill，不会删除或覆盖你手动保留的其他 Codex 配置。
 
 ## 一键安装
 
@@ -35,19 +39,19 @@ MyAgent 只管理本仓库声明的智能体和 Skill，不会删除或覆盖你
 - Git；
 - Node.js 18+ 和 `npx` 仅在需要 `playwright` 真实浏览器验证时必需。
 
-将下面命令中的仓库地址替换为你实际获取 MyAgent 的地址：
+将下面命令中的仓库地址替换为你实际获取 Axiom Agents 的地址：
 
 ```bash
-git clone https://github.com/<your-org>/<your-repo>.git myagent
-cd myagent
+git clone https://github.com/<your-org>/<your-repo>.git axiom
+cd axiom
 python scripts/install.py --profile all
 ```
 
 Windows 用户也可以使用：
 
 ```powershell
-git clone https://github.com/<your-org>/<your-repo>.git myagent
-cd myagent
+git clone https://github.com/<your-org>/<your-repo>.git axiom
+cd axiom
 py -3 .\scripts\install.py --profile all
 # 或：
 powershell -ExecutionPolicy Bypass -File .\install.ps1 -Profile all
@@ -62,7 +66,7 @@ macOS / Linux 也可以使用：
 安装完成后 **重启 Codex，或开启一个新会话**，然后输入：
 
 ```text
-列出当前可用的 myagent 智能体，并说明 AI4PROGRAMMING 和 AI4SCIENCE 的入口角色。
+列出当前可用的 axiom 智能体，并说明 AI4PROGRAMMING 和 AI4SCIENCE 的入口角色。
 ```
 
 验证安装：
@@ -78,7 +82,7 @@ python scripts/validate.py
 ~/.codex/agents/pr-*.toml
 ~/.codex/agents/sr-*.toml
 ~/.codex/skills/<skill-name>/
-~/.codex/.myagent-install.json
+~/.codex/.axiom-install.json
 ```
 
 `CODEX_HOME` 已设置时，安装器使用该目录；也可以用 `--codex-home /path/to/codex-home` 覆盖。
@@ -111,7 +115,7 @@ python scripts/install.py --profile ai4programming --include-optional
 python scripts/install.py --profile ai4science --prune
 ```
 
-`--prune` 只会清理上一份 `.myagent-install.json` 记录且当前档案不再使用的 MyAgent 资产；用户手工修改过的旧资产默认跳过，除非显式使用 `--force`。
+`--prune` 只会清理上一份 `.axiom-install.json` 记录且当前档案不再使用的 Axiom Agents 资产；用户手工修改过的旧资产默认跳过，除非显式使用 `--force`。
 
 ### `all` 档案的 7 个附加资产
 
@@ -154,7 +158,7 @@ python scripts/install.py --profile ai4science --prune
 
 ## 使用方式
 
-`myagent` 安装的是全局 Agent 与 Skill，不会替你创建业务项目目录。请继续使用你的 AI4PROGRAMMING / AI4SCIENCE 项目模板作为项目根，并让模板中的 `AGENTS.md` 继续生效。
+`axiom` 安装的是全局 Agent 与 Skill，不会替你创建业务项目目录。请继续使用你的 AI4PROGRAMMING / AI4SCIENCE 项目模板作为项目根，并让模板中的 `AGENTS.md` 继续生效。
 
 ### AI4PROGRAMMING 路径
 
@@ -204,7 +208,7 @@ pr-ps-00-project-supervisor 登记科研操作
 更新：
 
 ```bash
-cd myagent
+cd axiom
 git pull --ff-only
 python scripts/install.py --profile all
 ```
@@ -222,7 +226,7 @@ python scripts/install.py --profile all --check
 python scripts/install.py --profile all --uninstall
 ```
 
-卸载只会读取 `.myagent-install.json`，备份并移除本次安装管理的 Agent / Skill；你手工保留的其他 Codex 配置不会被删除。安装后被你修改过的资产会拒绝静默删除，需使用 `--force` 才会先备份再移除。
+卸载只会读取 `.axiom-install.json`，备份并移除本次安装管理的 Agent / Skill；你手工保留的其他 Codex 配置不会被删除。安装后被你修改过的资产会拒绝静默删除，需使用 `--force` 才会先备份再移除。
 
 ## Codex 插件形式
 
@@ -240,7 +244,7 @@ skills/
 ## 仓库结构
 
 ```text
-myagent/
+axiom/
 ├── agents/                     # 10 个 Codex Agent TOML
 ├── skills/                     # 95 个 Skill 目录
 ├── profiles/                   # 3 个安装档案

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install MyAgent Codex agents and skills safely.
+"""Install Axiom Agents Codex agents and skills safely.
 
 The installer uses staged copies, transactional activation, SHA-256 verification,
 and timestamped backups. It only manages asset names declared by this repository.
@@ -22,7 +22,7 @@ from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 PACKAGE_MANIFEST = REPO_ROOT / "manifest.json"
-INSTALL_STATE_NAME = ".myagent-install.json"
+INSTALL_STATE_NAME = ".axiom-install.json"
 SAFE_NAME = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*$")
 
 
@@ -129,8 +129,8 @@ def default_codex_home() -> Path:
 
 def package_manifest() -> dict:
     data = read_json(PACKAGE_MANIFEST)
-    if data.get("name") != "myagent":
-        raise InstallError("manifest.json is not a myagent package manifest")
+    if data.get("name") != "axiom":
+        raise InstallError("manifest.json is not an Axiom package manifest")
     for key in ("agents", "skills", "profiles"):
         if not isinstance(data.get(key), dict):
             raise InstallError(f"manifest.json missing valid {key} section")
@@ -193,10 +193,10 @@ def state_path(codex_home: Path) -> Path:
 def read_state(codex_home: Path) -> dict:
     path = state_path(codex_home)
     if not path.is_file():
-        raise InstallError(f"No MyAgent install state found at {path}")
+        raise InstallError(f"No Axiom Agents install state found at {path}")
     state = read_json(path)
-    if state.get("package") != "myagent":
-        raise InstallError(f"{path} was not written by myagent")
+    if state.get("package") != "axiom":
+        raise InstallError(f"{path} was not written by axiom")
     return state
 
 
@@ -287,8 +287,8 @@ def install(profile: str, include_optional: bool, codex_home: Path, prune: bool,
         return 0
 
     codex_home.mkdir(parents=True, exist_ok=True)
-    stage_root = Path(tempfile.mkdtemp(prefix=".myagent-stage-", dir=codex_home))
-    backup_name = f".myagent-backups/{timestamp()}-{uuid.uuid4().hex[:8]}"
+    stage_root = Path(tempfile.mkdtemp(prefix=".axiom-stage-", dir=codex_home))
+    backup_name = f".axiom-backups/{timestamp()}-{uuid.uuid4().hex[:8]}"
     backup_root = codex_home / backup_name
     activated: list[tuple[str, Path]] = []
     state_tmp: Path | None = None
@@ -333,7 +333,7 @@ def install(profile: str, include_optional: bool, codex_home: Path, prune: bool,
 
         state = {
             "schema_version": 1,
-            "package": "myagent",
+            "package": "axiom",
             "package_version": package_manifest().get("version"),
             "profile": profile,
             "include_optional": include_optional,
@@ -384,7 +384,7 @@ def uninstall(codex_home: Path, force: bool, profile: str | None, include_option
     use_optional = include_optional if include_optional is not None else bool(state.get("include_optional"))
     _, _, selection = selected_profile(selected_name, use_optional)
     validate_sources(selection)
-    backup_name = f".myagent-backups/{timestamp()}-{uuid.uuid4().hex[:8]}"
+    backup_name = f".axiom-backups/{timestamp()}-{uuid.uuid4().hex[:8]}"
     backup_root = codex_home / backup_name
     removed: list[str] = []
     try:
@@ -423,10 +423,10 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument("--codex-home", type=Path, default=None, help="Codex home (default: $CODEX_HOME or ~/.codex)")
     parser.add_argument("--include-optional", action="store_true", help="also install the profile's optional compatibility skills")
     parser.add_argument("--core-only", action="store_true", help="with --check/--uninstall, use only the profile's core skills")
-    parser.add_argument("--prune", action="store_true", help="after a successful install, remove stale assets managed by the previous MyAgent install")
+    parser.add_argument("--prune", action="store_true", help="after a successful install, remove stale assets managed by the previous Axiom Agents install")
     parser.add_argument("--force", action="store_true", help="allow removal or pruning of assets changed after installation (they are backed up)")
     parser.add_argument("--check", action="store_true", help="verify an existing installation without changing files")
-    parser.add_argument("--uninstall", action="store_true", help="back up and remove only assets managed by MyAgent")
+    parser.add_argument("--uninstall", action="store_true", help="back up and remove only assets managed by Axiom Agents")
     parser.add_argument("--dry-run", action="store_true", help="show validation and intended operations without changing files")
     parser.add_argument("--list-profiles", action="store_true", help="list available profiles")
     args = parser.parse_args(argv)

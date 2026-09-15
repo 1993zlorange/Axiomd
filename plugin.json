@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
-  "name": "myagent",
+  "name": "axiom",
   "version": "0.1.0",
-  "description": "Governed Codex agents and skills for AI4PROGRAMMING and AI4SCIENCE workflows.",
+  "description": "Governed Codex agent and skill stack for AI4PROGRAMMING and AI4SCIENCE workflows.",
   "author": {
-    "name": "myagent contributors"
+    "name": "Axiom Agents contributors"
   },
   "license": "MIT",
   "keywords": [

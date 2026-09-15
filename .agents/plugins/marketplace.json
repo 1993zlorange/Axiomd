@@ -1,11 +1,11 @@
 {
-  "name": "myagent",
+  "name": "axiom",
   "interface": {
-    "displayName": "MyAgent AI4 Workflows"
+    "displayName": "Axiom Agents"
   },
   "plugins": [
     {
-      "name": "myagent",
+      "name": "axiom",
       "source": {
         "source": "local",
         "path": "./"

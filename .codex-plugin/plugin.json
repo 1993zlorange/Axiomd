@@ -1,17 +1,17 @@
 {
-  "name": "myagent",
+  "name": "axiom",
   "version": "0.1.0",
-  "description": "Codex skill bundle for governed programming and research workflows. Use scripts/install.py to install agents as well.",
+  "description": "Axiom Agents is a governed Codex agent and skill stack. Use scripts/install.py to install agents as well as skills.",
   "author": {
-    "name": "myagent contributors"
+    "name": "Axiom Agents contributors"
   },
   "license": "MIT",
   "skills": "./skills/",
   "interface": {
-    "displayName": "MyAgent AI4 Workflows",
+    "displayName": "Axiom Agents",
     "shortDescription": "AI4PROGRAMMING and AI4SCIENCE skills",
-    "longDescription": "A compatibility bundle of governed project, engineering, research, evidence, and review skills. The repository installer also deploys the corresponding Codex agent TOML files.",
-    "developerName": "myagent contributors",
+    "longDescription": "A governed agent and skill stack for software engineering and evidence-led research workflows. The repository installer deploys both skills and the corresponding Codex agent TOML files.",
+    "developerName": "Axiom Agents contributors",
     "category": "Productivity",
     "capabilities": [
       "Governed software delivery",
