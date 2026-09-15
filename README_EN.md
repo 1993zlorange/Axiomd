@@ -19,7 +19,7 @@ You can install it with one command, choose the `ai4programming`, `ai4science`, 
 Requirements are Codex CLI or Desktop, Python 3.11+, and Git. Node.js 18+ and `npx` are needed only for Playwright browser verification.
 
 ```bash
-git clone https://github.com/<your-org>/<your-repo>.git axiom
+git clone https://github.com/1993zlorange/Axiomd.git axiom
 cd axiom
 python scripts/install.py --profile all
 ```

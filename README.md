@@ -39,10 +39,10 @@ Axiom Agents 只管理本仓库声明的智能体和 Skill，不会删除或覆�
 - Git；
 - Node.js 18+ 和 `npx` 仅在需要 `playwright` 真实浏览器验证时必需。
 
-将下面命令中的仓库地址替换为你实际获取 Axiom Agents 的地址：
+使用以下命令一键克隆并安装：
 
 ```bash
-git clone https://github.com/<your-org>/<your-repo>.git axiom
+git clone https://github.com/1993zlorange/Axiomd.git axiom
 cd axiom
 python scripts/install.py --profile all
 ```
@@ -50,7 +50,7 @@ python scripts/install.py --profile all
 Windows 用户也可以使用：
 
 ```powershell
-git clone https://github.com/<your-org>/<your-repo>.git axiom
+git clone https://github.com/1993zlorange/Axiomd.git axiom
 cd axiom
 py -3 .\scripts\install.py --profile all
 # 或：
