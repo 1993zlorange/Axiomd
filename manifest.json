@@ -503,7 +503,7 @@
     },
     "sr-doctoral-research": {
       "description": "Route a doctoral research request to one focused ScienceResearch leaf skill across problem framing, literature, hypotheses, methods, experiments, analysis, papers, and weekly progress. Use when the user asks what research work to do next, requests an end-to-end research workflow, or has not named a specific SR leaf skill. Do not perform the leaf task inside this router.",
-      "hash": "c7079da824450f73cb1242c1217d78eeb05895406731c7ea403d8b563ee721d8",
+      "hash": "f709a351e0f4277c41454e4d8ffd94a3c853db44d0f1be9ddc575a0a4461e603",
       "profiles": [
         "all"
       ],
@@ -611,8 +611,8 @@
       "optional_profiles": []
     },
     "sr-literature-screening": {
-      "description": "SR-核心文献筛选：检索结果需要去重、初筛、全文复筛并留下可审计排除理由时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "25ab661639f77b80e066b634e1694ea0e30886ccaab88e92db60d749da104484",
+      "description": "SR-核心文献筛选：检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把人工确认纳入的文献批量导入 Zotero 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
+      "hash": "da7002f2661523245a6bb0a3aac4718264f8de85b3412a859da494803974656a",
       "profiles": [
         "ai4science",
         "all"
@@ -801,7 +801,7 @@
     },
     "sr-research-shared": {
       "description": "Internal shared-reference package for SR doctoral research skills, defining work contracts, human-AI authority, weekly evidence loops, and optional third-party adapters. Do not invoke as a standalone research workflow; load only the reference requested by an SR router or leaf skill.",
-      "hash": "157adc2bb4a392cf094e80760f56c99dce928be684be0dbdb77b873374b6ede9",
+      "hash": "9d6316735267e840d9f3e8f4f7f817e593590d923e4789a256e6d3e45ce5a3bc",
       "profiles": [
         "ai4science",
         "all"
@@ -881,8 +881,8 @@
       "optional_profiles": []
     },
     "sr-search-strategy": {
-      "description": "SR-检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议或降低漏检与噪声时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "89d97193a05104229e82b74ecb320eee66ed426518de67d5c2fe699ab03f88f2",
+      "description": "SR-检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
+      "hash": "0424cfeb57ebe6466f5a9db9030c1d12eab99712f394471721b062df02cf06ca",
       "profiles": [
         "ai4science",
         "all"

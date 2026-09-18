@@ -34,6 +34,36 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(len(package["skills"]), 95)
         self.assertEqual(set(package["profiles"]), {"ai4programming", "ai4science", "all"})
 
+    def test_sr07_authenticated_browser_contract_is_explicit(self) -> None:
+        skill = (ROOT / "skills" / "sr-search-strategy" / "SKILL.md").read_text(encoding="utf-8")
+        reference = (ROOT / "skills" / "sr-research-shared" / "references" / "browser-skill-literature-search.md").read_text(encoding="utf-8")
+        for required in ["bsk session", "bsk tab borrow", "bsk request-help", "bsk session stop", "L3"]:
+            self.assertIn(required, skill + reference)
+        for forbidden in ["Cookie", "令牌", "密码", "localStorage"]:
+            self.assertIn(forbidden, skill + reference)
+        self.assertIn("authenticated_content_observed", skill + reference)
+
+    def test_sr07_sr08_define_zotero_batch_exports(self) -> None:
+        catalog = json.loads(
+            (ROOT / "skills" / "sr-doctoral-research" / "catalog.json").read_text(encoding="utf-8")
+        )
+        by_id = {item["id"]: item for item in catalog["skills"]}
+        reference_path = ROOT / "skills" / "sr-research-shared" / "references" / "zotero-batch-import.md"
+        self.assertTrue(reference_path.is_file())
+
+        for sr_id, skill_name in [("SR-07", "sr-search-strategy"), ("SR-08", "sr-literature-screening")]:
+            export = by_id[sr_id]["bibliography_export"]
+            self.assertEqual(export["default_format"], "RIS")
+            self.assertIn("BibTeX", export["optional_formats"])
+            self.assertEqual(export["reference"], "../sr-research-shared/references/zotero-batch-import.md")
+
+            skill_root = ROOT / "skills" / skill_name
+            skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
+            template_text = (skill_root / "assets" / "output-template.md").read_text(encoding="utf-8")
+            self.assertIn("zotero-batch-import.md", skill_text)
+            self.assertIn("bibliography_exports:", template_text)
+            self.assertIn("Zotero 实机导入", template_text)
+
     def test_installer_check_and_uninstall_in_temp_home(self) -> None:
         with tempfile.TemporaryDirectory(prefix="axiom-codex-") as temporary:
             codex_home = Path(temporary)

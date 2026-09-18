@@ -74,17 +74,33 @@ source_contract: "<工作契约或证据路径>"
 ## 8. 交付与追踪
 
 - 产物路径：
+- Zotero 导入文件：
 - 代码/数据/配置/图表版本：
 - 需求或工作流追踪：
 - 下一步：
 - 人工判定：待定 / 接受 / 修改 / 暂停 / 拒绝
 
-## 9. 关闭记录
+## 9. Zotero 批量导入交付
+
+| 文件 | 格式 | 导出范围 | 记录数 | 去重前/后 | 来源数据库 | 结构检查 | Zotero 实机导入 |
+|---|---|---|---:|---:|---|---|---|
+|  | RIS / BibTeX |  |  |  |  | 通过 / 失败 / 未执行 | 成功 / 有警告 / 失败 / 未验证 |
+
+- 默认文件名：`YYYYMMDD-内容简述-Zotero导入.ris`
+- 实际采集记录数：
+- 页面显示总命中数（不得作为导出数）：
+- 稳定标识符覆盖：DOI / PMID / arXiv ID / ISBN / 无
+- 字段缺失与冲突：
+- 已知字段损失或导入警告：
+- 全文附件：未包含 / 已获单独授权并说明许可
+
+## 10. 关闭记录
 
 ```yaml
 closure:
   skill: "sr-search-strategy"
   artifact: "<YYYYMMDD-内容简述-成果卡.md>"
+  bibliography_exports: []
   evidence: []
   result: ""
   conclusion: ""

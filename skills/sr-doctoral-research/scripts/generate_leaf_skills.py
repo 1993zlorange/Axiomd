@@ -58,6 +58,29 @@ def leaf_skill_text(item: dict) -> str:
     adapters = item.get("recommended_adapters", [])
     adapter_text = ", ".join(f"`{value}`" for value in adapters) if adapters else "None; use available local tools."
     next_text = ", ".join(f"`$" + value + "`" for value in item["next"]) or "none"
+    browser = item.get("browser_workflow")
+    browser_section = ""
+    if browser:
+        safe_ops = "；".join(browser.get("safe_operations", []))
+        forbidden_ops = "；".join(browser.get("forbidden_operations", []))
+        browser_section = f"""
+## Authenticated browser retrieval (optional)
+
+When a source requires the researcher's existing login, follow [{browser['runtime']} workflow]({browser['reference']}) and obtain explicit authorization immediately before contacting the external site. Use `{browser['permission_level']}` for this path. Safe operations: {safe_ops}。
+
+Never {forbidden_ops}。 The browser session is a capability boundary, not a source of credentials. Record only page-visible research evidence and clean up the session and any borrowed tab when finished.
+"""
+    bibliography = item.get("bibliography_export")
+    bibliography_section = ""
+    if bibliography:
+        optional_formats = ", ".join(f"`{value}`" for value in bibliography.get("optional_formats", [])) or "none"
+        bibliography_section = f"""
+## Zotero batch import deliverable
+
+Alongside the achievement card, produce a UTF-8 `{bibliography['default_format']}` file named `{bibliography['filename']}`. Optional formats: {optional_formats}. Export scope: {bibliography['scope']}。
+
+Read [Zotero batch import contract]({bibliography['reference']}) before exporting. Prefer a database's native batch export over reconstructed metadata. Never invent missing bibliographic fields, attach restricted full text without authorization, or claim the displayed hit count as the exported record count. Record the file path, format, record count, deduplication basis, source coverage, and validation result in the achievement card.
+"""
     description = (
         f"{item['display_name']}：{item['use_when']}。"
         "Use for this specific doctoral research work package after routing; "
@@ -93,6 +116,8 @@ The old-school pass is the researcher's unaided reading, hand calculation, sketc
 **Human intervention:** {item['human_intervention']}
 
 Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+{browser_section}
+{bibliography_section}
 
 ## Deliverable
 
