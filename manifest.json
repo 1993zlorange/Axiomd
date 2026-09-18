@@ -110,7 +110,7 @@
   "skills": {
     "playwright": {
       "description": "Use when the task requires automating a real browser from the terminal (navigation, form filling, snapshots, screenshots, data extraction, UI-flow debugging) via `playwright-cli` or the bundled wrapper script.",
-      "hash": "dfb7d88b13821c3ceb636b5b4bc9f1eb59cb51292a4319f2713cf312fe404f57",
+      "hash": "0edf4472063717b4ea629393b04e2c37bd9c8b149dc5a9489edaeaf0c5e6cd95",
       "profiles": [
         "ai4programming",
         "all"
@@ -119,7 +119,7 @@
     },
     "pr-ar-01-project-architect": {
       "description": "Design or review evidence-linked software architectures, implementation-ready database designs, software design descriptions (SDD), and technical proposals, including boundaries, modules, APIs, physical schemas, transactions, migration, verification, and traceability to requirements and user manuals. Use for new systems, existing-project redesigns, detailed design, research/data tools, offline applications, architecture reviews, or implementation planning. Do not invent product requirements or implement the system unless explicitly asked.",
-      "hash": "63571861dc87729ac5d367363a8bdbee22111d152af2be30b480b68d831492e4",
+      "hash": "7ea019896c21c35f3110ca438a6a2111cbd51e7867e2b23ecaf841114ae18594",
       "profiles": [
         "ai4programming",
         "all"
@@ -128,7 +128,7 @@
     },
     "pr-en-01-fullstack-design-engineer": {
       "description": "Implement approved full-stack Web work by researching relevant high-adoption product references, defining an original design direction, building and browser-verifying a distinctive accessible interactive frontend, then implementing the architecture-conformant Python backend and end-to-end tests. Use for new pages, redesigns, dashboards, workflows, forms, or full-stack features. Do not use to invent requirements, copy another site's identity, or force frontend research onto a backend-only defect.",
-      "hash": "69f499b10a15bb162c74b53991752f6c3d9c5f354727e31dbc2f13aedeff3409",
+      "hash": "36dbde5f39ca4e270f1ff4bb06cf09c3d64800cf26e44ec572f5eb5ef15be65f",
       "profiles": [
         "ai4programming",
         "all"
@@ -137,7 +137,7 @@
     },
     "pr-en-02-senior-engineer": {
       "description": "Implement, debug, refactor, migrate, or review Python-first software from approved requirements, software design descriptions, repository evidence, and project coding standards. Use when a user asks to build or continue a software project, implement numbered SRS/SDD scope, fix a defect, perform a design-conformant refactor, or verify implementation readiness. Preserve requirement-to-code-to-test traceability; do not invent product scope or silently redesign approved architecture.",
-      "hash": "80a480300ba3e8999c3996698f718cb6daee3379ca26fb895951dd434757d206",
+      "hash": "3f9bb4e53c97fc7c32088484cc127f7a8d065f7dc6e00738b71c39fae6f6df6e",
       "profiles": [
         "ai4programming",
         "all"
@@ -146,7 +146,7 @@
     },
     "pr-pm-01-project-manager-socratic-discovery": {
       "description": "Conduct evidence-backed, interactive Socratic requirements discovery before a project manager writes or revises a PRD/SRS, defines scope, plans delivery, or hands work to architecture or engineering. Use for new or changed requirements, vague ideas, solution-first requests, scope expansion, conflicting stakeholder goals, or when the user asks to be challenged. Do not use for a simple factual status report or a fully approved, unambiguous execution request whose requirements are unchanged.",
-      "hash": "ae0d57f66be2f8d3facd2b302b262b272155af86ba2dbb0481d5fcb3baf12897",
+      "hash": "29b4b9da7d836b9a9e23e57c12a9a58885e6859299c84c709c2cf126ddaadbf7",
       "profiles": [
         "ai4programming",
         "all"
@@ -155,7 +155,7 @@
     },
     "pr-pm-02-project-manager": {
       "description": "Turn project ideas and repository evidence into decision-ready PRDs, SRSs, feature overviews, evidence-linked user manuals, plans, risks, acceptance criteria, and status reports. Use when defining, reviewing, documenting, planning, or tracking a software, data, research, or internal-tool project; do not use as a substitute for domain engineering or to mutate external systems without explicit authorization.",
-      "hash": "f8697c59f76c03dcde1e2e63eb3937568e2df934481f5572d560496d7e2ea5b1",
+      "hash": "a72ce8c9147606b7410b49da58fac77839e2e2dfbc93cdd67b09da54491b7034",
       "profiles": [
         "ai4programming",
         "all"
@@ -164,7 +164,7 @@
     },
     "pr-pm-03-project-alignment-audit": {
       "description": "Audit an existing software, data, or research project for drift from its approved requirements, architecture, and design using repository, test, runtime, and project-log evidence. Use when a project manager must determine whether implementation or current work has deviated, distinguish implementation drift from stale specifications or unapproved scope, and produce a prioritized correction plan. Do not use as authorization to implement the corrections.",
-      "hash": "f58122041864e913c794473dbb00389cf84f8c3278e407c83bf8f590de4a5140",
+      "hash": "cba7649685913d0d7e61ea0b7dc0c95e222dfea00d12eb0f234bac4c220234fe",
       "profiles": [
         "ai4programming",
         "all"
@@ -173,7 +173,7 @@
     },
     "pr-ps-00-project-supervision": {
       "description": "在软件、数据或科研项目的每次项目相关操作前后执行独立治理监控，登记用户需求与问题、检查文件命名和归属、维护项目日志与反思、实施质量门禁，并管理新技能和脚本工具的生成与演化。适用于项目启动、规划、设计、开发、测试、文档、数据、实验、发布和维护；不替代专业执行角色，也不自行批准高风险操作。",
-      "hash": "5de173be5ffaa3730aea5e891147635d49418312692c1609722d2068198fd179",
+      "hash": "834fa0f44cbbc7921f36bf27310171080e6855a598260231776215e360157eb8",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -183,7 +183,7 @@
     },
     "pr-ps-01-project-governance": {
       "description": "为每个新请求、范围变化或继续任务登记逐条需求、责任、文件放置、权限、验收和监督状态。适用于任何项目相关操作开始前；不替代专业角色执行任务。",
-      "hash": "fddaa22d629119a347e2ec12ebb32316f04cef6b8bce585c455bf742cb583168",
+      "hash": "16f20ad6e346d5a2c85920c145419b00fa74571f18ac69e5e9da918b897c6f6a",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -193,7 +193,7 @@
     },
     "pr-ps-02-quality-gate": {
       "description": "对项目代码、文档、数据、实验、迁移或发布变更执行风险匹配的分层质量门禁并保留证据。适用于修改前基线、实现后验证和交付前复核；不把未执行检查写成通过。",
-      "hash": "49ee1f7c569a72ebeed003303804c2c176d90d87574167d5344500174e0b4be7",
+      "hash": "10da0f6434559d7a07c75d6395121b6899c0fb4fd2badeee4079ce04bf89a15a",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -203,7 +203,7 @@
     },
     "pr-ps-03-project-logging": {
       "description": "在项目原子操作或运行批次结束后维护事实日志、用户可见变更和成本时间记录。适用于完成、失败、跳过和阻塞状态；不把计划、需求或推测混入事实日志。",
-      "hash": "b94232aec4dce9080bc886cead891a72574b2dd7a99d6e7a2eb85ca6118da366",
+      "hash": "2f2c273db35b9a67e5f6713b5af9102119dec7bd4bacc0b18f0cb4a60cbbb11c",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -213,7 +213,7 @@
     },
     "pr-ps-04-reflection-loop": {
       "description": "对用户指出的问题、确认缺陷、重复错误、质量阻塞或项目偏差进行证据驱动反思，形成最小可验证改进。一般成功不触发规则升级，也不自动修改 Skill。",
-      "hash": "f2f51ed31d011a65a6e61938386aac68e02a1211d38ee26f4e67f8a5efc7e209",
+      "hash": "a6bd73f28e2ee9609a5c4eb03935f69f19f855ea3b64cf6c5c73045b4d0e3ad6",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -223,7 +223,7 @@
     },
     "pr-ps-05-skill-authoring": {
       "description": "提议、创建或演化带代号的项目级 Codex Skill，并验证职责、触发、权限、脚本、模板和生命周期。适用于重复问题已具备证据时；不把单次项目特例直接升级为通用 Skill。",
-      "hash": "1756b547cff3ee2db81fe97b180f65ce5044a45dd283d7a70aa45122db204bc6",
+      "hash": "318b87b5cbac1844e87d066cd2d645357923eb9e574121e486c4f66ab8f226a6",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -233,7 +233,7 @@
     },
     "pr-ps-06-script-tool-authoring": {
       "description": "创建或审查项目脚本工具，并同步维护参数、输入输出、退出码、安全、幂等、测试和兼容性的中文 API 说明。适用于可重复确定性操作；不将一次性命令包装成无维护人的工具。",
-      "hash": "ce224dab3294527e600f0a6903a2c25da8f82aa6985d011028df9d274f28c096",
+      "hash": "24ad5b296fb6d12cc4a5e12b62efcaaa4e96677dc7a43fde1ec6f92d92e8ad84",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -243,7 +243,7 @@
     },
     "pr-ps-07-transfer-pilot": {
       "description": "将其他项目的规则、Skill、模板或脚本以可追溯、可回滚的小范围试点迁入当前项目。适用于通用经验复用和项目初始化；不直接复制固定路径、领域假设或高风险自动化。",
-      "hash": "1d78c6a10d81be4bec07f13a7ac88180081b475837da6d86ec20c1733cde0450",
+      "hash": "fb644a8bb3376d2862f56be1dceaf53f3bdd666ad2c9202f2ef12f3ec3f534ed",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -253,7 +253,7 @@
     },
     "pr-ps-08-evolution-review": {
       "description": "按项目周期汇总用户需求、问题、反思、质量、成本和 Skill 使用证据，评估是否优化、合并或淘汰规则与技能。适用于达到评估周期或重复问题阈值时；不自动修改全局能力。",
-      "hash": "bcf289894b1cdd53c6863a744a8aaa946d568d32ef8e6f54f669305b22a93a82",
+      "hash": "93731d60486b1779278af3e132d2938ccd7b22aebc32cc697e8a06cc2144c1c3",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -263,7 +263,7 @@
     },
     "pr-ps-09-daily-log-summary": {
       "description": "读取操作者指定的本地日志目录，按文件名前缀日期汇总为可追溯的中文项目日报。Use this skill when an operator asks to create a daily report for today, one named date, a date range, or all dated project logs. 默认读取当前项目 achieve/00-项目管理/logs 下文件名以“日志”结尾的文本文件，并将日报写入 dailylogs。不要用于修改源日志、按文件修改时间猜测日期或汇总未获准读取的目录。",
-      "hash": "4e847893700351d05d5974e627a0f3c2d804f37ee8d355959492a0dd488bd508",
+      "hash": "0037ac06f54cc4464c72b4fa019d264f6796b007caf8c96efb5a428ffbb2beeb",
       "profiles": [
         "all"
       ],
@@ -273,7 +273,7 @@
     },
     "pr-qa-01-software-project-functional-qa": {
       "description": "对通用软件项目执行独立、证据化的功能测试并输出中文测试报告。适用于功能验收、回归、发布前验证和用户路径测试；不用于实现修复或替代项目专用 QA 规则。",
-      "hash": "b9bbdaa8cd65f67a40dc4ee4ecddc0e125d7046b60385db2560901c247a6b9f5",
+      "hash": "c5236aa460c305814701577b8dbe7a2be87afeebb745250deb703d29a18b17d7",
       "profiles": [
         "ai4programming",
         "all"
@@ -282,7 +282,7 @@
     },
     "pr-rl-01-software-project-release-management": {
       "description": "在用户明确授权后准备、校验和记录通用软件项目的受控发布。适用于版本候选、发布包、发布说明、烟测和回滚；不用于自动部署、上传或替代项目专用发布流程。",
-      "hash": "a62e4c40dd86d2cb561090ca53cfd7f21132eaa182a1823f510e85e2f0b99bb1",
+      "hash": "500b57c7ad9a1234a0768cd761fd30a063ad2f14434635e16be08f240d5445df",
       "profiles": [
         "ai4programming",
         "all"
@@ -291,7 +291,7 @@
     },
     "scienceresearch-functional-qa": {
       "description": "Independently test the scienceresearch workbench end to end when asked to verify every function, find buttons or forms that do nothing, validate API and visible responses, run release regression, or produce an evidence-backed defect report. Do not use this skill to implement fixes unless the user separately authorizes changes.",
-      "hash": "89e29a8dc568ba0ea9a158d889c2d6b79626201f6ccff752b5277d207519f65b",
+      "hash": "5bf767ca917241d5cf9512d2bce77e7050252174f9b9c4ef0e30b650b36a6c73",
       "profiles": [
         "all"
       ],
@@ -301,7 +301,7 @@
     },
     "scienceresearch-pm-reporting": {
       "description": "Generate or refresh an integrated scienceresearch project-stage HTML report that contains both management status and complete requirements-linked, step-by-step screenshot evidence, while maintaining a compatibility evidence-book extract. Use when the project manager must report status, demonstrate implemented functions as user journeys, prepare acceptance evidence, or synchronize the report with the user manual. Do not produce a link-only management report or declare formal acceptance without an approved baseline and explicit customer sign-off.",
-      "hash": "8d5a522c1332e275938c131d027120cff8a0c594d43e5029a1a41569c39c90b6",
+      "hash": "26a6fcca6e97acb2db022473cd0e309aa8c6298447f0cb4c20ddf3c7f6de504a",
       "profiles": [
         "all"
       ],
@@ -311,7 +311,7 @@
     },
     "scienceresearch-release-management": {
       "description": "Prepare, correct, verify, and document versioned ScienceResearch release packages from an explicitly approved delivery scope. Use when the project manager is asked to publish, repackage, trim, add required documentation assets, or revise a release README; do not infer a release or include internal project material without authorization.",
-      "hash": "997d84abc3635adea1867c3dd8372ab1c9c15c0e6471c747298867f2e53c56fe",
+      "hash": "05de01a171c5ddeb29827ca9fa757dd286f2460ca6a062a6213a7bee5add0c2a",
       "profiles": [
         "all"
       ],
@@ -321,7 +321,7 @@
     },
     "scienceresearch-repository-layout": {
       "description": "Plan, validate, and document file placement for any scienceresearch implementation, refactor, test, browser-evidence, documentation, migration, or generated-artifact work. Use whenever the pr-en-00-engineer may create, move, rename, archive, or delete repository files. Prevent root-directory clutter, formal/test data mixing, broken evidence links, and unapproved directory structures; do not use it as authorization for an architecture migration.",
-      "hash": "402543a40b78159c1bd3dcd883a4252537e2f26e88d20715ecd55a6f77ca7230",
+      "hash": "ed6e6ecd3f145224adaecc7f343ccd125d8771c5c9be214c85fc4383c2e94ca9",
       "profiles": [
         "all"
       ],
@@ -331,7 +331,7 @@
     },
     "scienceresearch-user-manual": {
       "description": "Create, revise, and verify the scienceresearch user manual from the current requirements, design, implementation, tests, and real-browser evidence. Use when engineering changes user-visible behavior, commands, APIs, errors, installation, operations, or acceptance steps, or when the user asks to write/update `科研工作台用户手册_20260828.md`. Keep result screenshots and visible legends beside the relevant chapter workflow rather than in a separate screenshot chapter unless explicitly requested.",
-      "hash": "bf1df4c393b70710c88a9837679d3043a8674eaec89a1d0465425257f6e086ab",
+      "hash": "4311ebba6d07dd6fbb63f300603145808ec57dc99cf2ec2f1ec04dae3d25b3a8",
       "profiles": [
         "all"
       ],
@@ -341,7 +341,7 @@
     },
     "sr-ablation-study": {
       "description": "SR-消融实验：需要验证各方法组件的必要性、增益和声称机制时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "9ba2038c10d2f1b717e6bd2b1ee421eaa047bed14abbfa9239a40c734e27cfaf",
+      "hash": "6fbb32b628f2368a0ab329027523b40b9ed5a234f0076ec8eebd197c572e2652",
       "profiles": [
         "ai4science",
         "all"
@@ -350,7 +350,7 @@
     },
     "sr-abstract-introduction": {
       "description": "SR-摘要与引言重写：核心证据已稳定，需要用具体问题、精确缺口、方法、定量结果和有边界贡献重写摘要或引言时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "b5a8121a038a66c8cc4f72ce28f8e02cbeeffc88a960a88a7fa85883814bc2c5",
+      "hash": "de2921c4feec9181af49963e4c5825b8f6a795ae7895640a784e8bc2f9cbb04e",
       "profiles": [
         "ai4science",
         "all"
@@ -359,7 +359,7 @@
     },
     "sr-algorithm-implementation-plan": {
       "description": "SR-算法伪代码与实现计划：公式或方法需要转成可编码步骤、接口、不变量、复杂度和测试计划时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "8761537c09f8a9d801cabce76d389c6bafe1d7ae7fc0f654792eda3b5a71aa82",
+      "hash": "c1ac64f375d0c9a6e69f854c1db08f580196e25ccb6d945511df5dbf326cae61",
       "profiles": [
         "ai4science",
         "all"
@@ -368,7 +368,7 @@
     },
     "sr-baseline-landscape": {
       "description": "SR-Baseline与基准调研：需要选择公平、可运行且能代表低中强水平的比较基线时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "46775f887c397951a909e47ee28065dcfb30c289b210fa4829f31d23ddc5d27f",
+      "hash": "177e3fe15d07aeda5a5263a07481e01cdfeb6513e687f070fdc832f003f86686",
       "profiles": [
         "ai4science",
         "all"
@@ -377,7 +377,7 @@
     },
     "sr-baseline-reproduction": {
       "description": "SR-Baseline复现：需要在本地复现论文或官方基线并解释与报告值的差异时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "2996559b52fdd2c3b9d10700476639d64650a68969275b21ecaaa676298bfab5",
+      "hash": "34cb0a02a5b95f642ef6a61612048b2cccc508bd217fd9c2280a061cb55feee4",
       "profiles": [
         "ai4science",
         "all"
@@ -386,7 +386,7 @@
     },
     "sr-baseline-unification": {
       "description": "SR-Baseline统一实现：多个基线需要在同一数据、训练循环、预算、评价和日志接口下公平实现时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "848db7d841e8c36fa19a9fe4ad87256726e89f08f8beca861e7d26cb47e5a331",
+      "hash": "27dd7d8bf6691d05c4eee1de4e513bde8333fb344a80f18191ff510d8e87bb12",
       "profiles": [
         "ai4science",
         "all"
@@ -395,7 +395,7 @@
     },
     "sr-blocker-resolution": {
       "description": "SR-Blocker定位与清除：“进展慢”需要转成具体阻塞、根因、所需输入、责任人和期限时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "ae057674382d99362c2390f3765f9e9b3c3fb17cc6c0561efbbb5355fad5f7ba",
+      "hash": "7c12c9cb62cba5fb6bfcbaa3725c3fbb261b8a1c24f22a6d8605573c05fe6940",
       "profiles": [
         "ai4science",
         "all"
@@ -404,7 +404,7 @@
     },
     "sr-cause-tree": {
       "description": "SR-候选原因树：同一异常有多个候选原因，需要用差异预测和实验逐步排除时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "3a25565b7efff0523a35f27be27a0b39794e6de8c4c32013b3d1f8a3d5a222ca",
+      "hash": "0bb31ce1794f82fb14a7e99e46c4b98311e4e0561be2f834207c42aa9f6f76c0",
       "profiles": [
         "ai4science",
         "all"
@@ -413,7 +413,7 @@
     },
     "sr-challenge-insight-tree": {
       "description": "SR-Challenge-insight tree：需要把领域挑战追到根因，并把洞见、方法和证据连成可验证链时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "1227feeb1c09533f29ad40428a1fcb029f1b85d6754bacb52db5f9601803a5f4",
+      "hash": "4bb47d7e97484abb62cbb052201635151cbf1c51f4c0212cb958ea2e4e7f66cc",
       "profiles": [
         "ai4science",
         "all"
@@ -422,7 +422,7 @@
     },
     "sr-claim-boundary-decision": {
       "description": "SR-结论边界与决策：需要把全部证据映射到可说、不可说和下一步继续、修改、暂停或转向决定时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "2a483382558885c96fd214355615a794e00fabda1c4ad2f8ad453f1c704982b6",
+      "hash": "77cbe4965018893390cda3776be3a22012a895b1c04dfa3da3c16799b8ba2dfe",
       "profiles": [
         "ai4science",
         "all"
@@ -431,7 +431,7 @@
     },
     "sr-collaboration-interface": {
       "description": "SR-多人接口协调：多人或系统之间需要冻结字段、单位、目录、版本、样例和验收接口时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "e7ebcfa8b26d2a1118bf32133708e75826d298c93c6db13fccb79c619f8380af",
+      "hash": "5f6c45b49a4873c54a4f0e38f9a293324081b69282fd1ee52bc6127edb23398b",
       "profiles": [
         "ai4science",
         "all"
@@ -440,7 +440,7 @@
     },
     "sr-core-claim-alignment": {
       "description": "SR-一句话主张与贡献对齐：论文写作前需要确定读者最终应相信什么，并让每项贡献绑定证据时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "f12eebde3330b46200a222c838a9d7c16c50d07544d8a097b4f9178ab4c7f3c2",
+      "hash": "2b5c69a12a27cd7ba8f209adbdea9f30b9ad31d94b64886f664d80b744e0a7c6",
       "profiles": [
         "ai4science",
         "all"
@@ -449,7 +449,7 @@
     },
     "sr-core-figures": {
       "description": "SR-核心图表制作：需要让一张图只传达一个可证据支持的结论，并用诚实编码呈现不确定性时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "aeeea6dc59a4da5d90673096c17a376fc4705514af613054508bcb7d5563782c",
+      "hash": "ea11502083294aa7190f4651ba29343221b97aa8a9b584c33d6dcc13be9af30b",
       "profiles": [
         "ai4science",
         "all"
@@ -458,7 +458,7 @@
     },
     "sr-core-hypothesis": {
       "description": "SR-核心假设撰写：需要把观察或差距转成带机制、预测、竞争解释和证伪判据的科学假设时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "cb4f4d9e19bb8bd921809195b774be55bd473eefe91dda103e97ef78efe9ebf1",
+      "hash": "c64cf5edde38c1ca42e1a3e9c72c68254347c77d814fbe7ae9e0215e10c6cb30",
       "profiles": [
         "ai4science",
         "all"
@@ -467,7 +467,7 @@
     },
     "sr-data-generation-qc": {
       "description": "SR-数据生成与质量检查：需要生成实验或仿真数据并检查收敛、单位、范围、缺失、重复和失败样本时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "3209b5d805a8144e8317a9201313a24c86ab23bd5cc5d4fd2043919d41728560",
+      "hash": "64eaea94c7cc9112688c8fc01142590f02b023f649661052d60b9a280e2ac7ec",
       "profiles": [
         "ai4science",
         "all"
@@ -476,7 +476,7 @@
     },
     "sr-data-schema-freeze": {
       "description": "SR-数据接口与Schema冻结：数据字段、形状、单位、坐标、编码、缺失规则或版本需要冻结时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "1deec97fcbf90fcd105658aefd3c9aabac6a8cce8d01095562a22b5e3a9ec269",
+      "hash": "d4b98c3b7ca59bd70127ab0a9ef9286f914827380a9e392e8235b8a1766355ad",
       "profiles": [
         "ai4science",
         "all"
@@ -485,7 +485,7 @@
     },
     "sr-data-split": {
       "description": "SR-数据划分设计：训练验证测试或 ID/OOD 划分需要匹配目标 claim 并排除泄漏时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "56df875b35f3fc67a9235a137578b92cad9a76af839e4813b3ad579187b7e9fc",
+      "hash": "c1261e23273bc8ec32edca0e4509b60855b267aa949c70810697f085c06ebf2d",
       "profiles": [
         "ai4science",
         "all"
@@ -494,7 +494,7 @@
     },
     "sr-dataflow-architecture": {
       "description": "SR-数据流与系统架构设计：需要把数据来源、处理、模型、评价、存储和模块责任连成可实现数据流时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "a486e7cddafb33aee562652a7c2fd97bd349d6322b2047ad2bee7b3b06aa7e10",
+      "hash": "08b311e87b28fed94e9dc6f4e86a51acb8e76ddbd66940e9be4c2312169a0888",
       "profiles": [
         "ai4science",
         "all"
@@ -503,7 +503,7 @@
     },
     "sr-doctoral-research": {
       "description": "Route a doctoral research request to one focused ScienceResearch leaf skill across problem framing, literature, hypotheses, methods, experiments, analysis, papers, and weekly progress. Use when the user asks what research work to do next, requests an end-to-end research workflow, or has not named a specific SR leaf skill. Do not perform the leaf task inside this router.",
-      "hash": "f709a351e0f4277c41454e4d8ffd94a3c853db44d0f1be9ddc575a0a4461e603",
+      "hash": "592f15ddc411b8ceede2a8998a794b6abbbaff19fe708e2a6fa9a19039f318a3",
       "profiles": [
         "all"
       ],
@@ -513,7 +513,7 @@
     },
     "sr-efficiency-resources": {
       "description": "SR-效率与资源实验：需要量化数据生成、训练、推理、显存、能耗或端到端精度成本权衡时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "e9fa07e856f7ccf9193a973499693f9c53933ab370836d3c1c2d535a2336a228",
+      "hash": "220081cbd726e01720a63deb444b038d7878a927fe249844eb03fa0b95ba25fc",
       "profiles": [
         "ai4science",
         "all"
@@ -522,7 +522,7 @@
     },
     "sr-error-decomposition": {
       "description": "SR-误差来源分解：总误差需要拆成数据、离散、优化、近似、数值或评价来源并排序时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "2439262c67b22a4e3e3372cec97aad4433e9c8ece1b62808a4d3a13a4fe17ab4",
+      "hash": "d210c6193048a1297d37559f3dbf231d5f394d195d451ac92da73d2a60f12b50",
       "profiles": [
         "ai4science",
         "all"
@@ -531,7 +531,7 @@
     },
     "sr-experiments-writing": {
       "description": "SR-实验部分写作：实验已完成，需要按问题、设置、结果、解释、边界和复现信息组织章节时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "9476430ce6a7d45e085b9d31322c2f994cd78bd2f8089949f8420ec24e7cf064",
+      "hash": "f370b0541c82cadccbccdcf97e5faad57f96e3a75aa9e30d0645202f71a3dc8b",
       "profiles": [
         "ai4science",
         "all"
@@ -540,7 +540,7 @@
     },
     "sr-exploratory-experiment": {
       "description": "SR-探索性实验：需要在简化 setting 中一次验证一个机制，决定是否进入正式主实验时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "ce479d5ee8cdb3f77ea37f1d0513410a292a437571db8de0886b669bcb0525e2",
+      "hash": "28f49ae2db713637fa5055113797966a35d72a84b484bb34eb5c47ffbf515653",
       "profiles": [
         "ai4science",
         "all"
@@ -549,7 +549,7 @@
     },
     "sr-failure-fallback": {
       "description": "SR-失效与回退设计：方法可能出现数值、数据、OOD、资源或接口失效，需要提前设计触发器与回退时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "0272b3abbde5e022f7fe6825571385194cba74b9359de198f40b89020ab5bc1d",
+      "hash": "d5b463ed1c505a960820662053549f97e10402e89367e44e79e9dbc2ac4fd8fc",
       "profiles": [
         "ai4science",
         "all"
@@ -558,7 +558,7 @@
     },
     "sr-generalization-ood": {
       "description": "SR-泛化与OOD实验：需要区分跨参数、跨几何、跨类别、跨设备或其他 OOD 泛化 claim 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "bd67223825abfee359b686640a3f638e781ef7352d74442b9a02bf898edf790f",
+      "hash": "3e8740866f56f76739fda1a269183caf6480fb40d3ce80191e732b952a3959d1",
       "profiles": [
         "ai4science",
         "all"
@@ -567,7 +567,7 @@
     },
     "sr-good-failure-cases": {
       "description": "SR-Good与Failure case分析：需要用代表性成功、普通和失败案例理解模型行为与误差模式时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "05297d9d41dd8d708ea49a517fd51a804c6f8f9e12a2f8cc2931b2bbc380f209",
+      "hash": "9f23cf9269e83b6cff93018eecb2c8faf9c97ebd9e9b5739d09f5fe4ce61d6f3",
       "profiles": [
         "ai4science",
         "all"
@@ -576,7 +576,7 @@
     },
     "sr-idea-decomposition": {
       "description": "SR-Idea分解：Idea 含多个机制、增强模块和工程组件，需要收敛最小研究版本时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "77f5c41ebd897a77a0f493e5528f3e19e742a45251ce802b04d745f197e6e080",
+      "hash": "76a305cf5250b1b165ee2adf228ad91095883304dd6de32a072d6c3610a1adb8",
       "profiles": [
         "ai4science",
         "all"
@@ -585,7 +585,7 @@
     },
     "sr-idea-prioritization": {
       "description": "SR-Idea优先级评审：多个 Idea 或路线竞争，需要按价值、新颖性、可证伪性、数据、成本和风险排序时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "e1e564da54e36db1909400efd7a8e8a62b98342b47166e3a63bf194b6dc51ba1",
+      "hash": "84cd025512f2090e2ae8de7e3b188dd50ef54695a458d4bf4be753988842894e",
       "profiles": [
         "ai4science",
         "all"
@@ -594,7 +594,7 @@
     },
     "sr-internal-review": {
       "description": "SR-内部审稿：稿件或成果包需要在投稿前从创新、技术、实验和表达四个角度找拒稿风险时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "036b48d8ac5a0d9c8f85ae021e4fd54a7e2a5ec2ea4f490038316a0f87e07e65",
+      "hash": "8e60e1c77f93a39dcb02aa087929d7b99d0aa6c1edc98d0bf38a2f1bc6a3ac6c",
       "profiles": [
         "ai4science",
         "all"
@@ -603,7 +603,7 @@
     },
     "sr-last-week-acceptance": {
       "description": "SR-上周任务验收：新一周开始或组会前，需要按上周承诺和完成标准检查真实交付物时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "e57519d26ac85c225b2e8916feb3505c8e8ef67400a248e6c46aa2102b52f406",
+      "hash": "bf28060aa17041dc02d20dd41252607fa564b3fd1e125001ff9b6ab4427bd5e3",
       "profiles": [
         "ai4science",
         "all"
@@ -612,7 +612,7 @@
     },
     "sr-literature-screening": {
       "description": "SR-核心文献筛选：检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把人工确认纳入的文献批量导入 Zotero 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "da7002f2661523245a6bb0a3aac4718264f8de85b3412a859da494803974656a",
+      "hash": "437fe9df12bf551096e2abe19858282f222f37f3a813cb491a901f810f4871db",
       "profiles": [
         "ai4science",
         "all"
@@ -621,7 +621,7 @@
     },
     "sr-literature-tree": {
       "description": "SR-方法谱系树：文献堆积但缺少可解释的领域分类、继承关系和方法演化结构时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "ecfd13272f0c3e5bb14f111d6ae07f457a176a99dca69a15d325c8d9fdb15f05",
+      "hash": "d6b8dc27485aa89dd46db1f3e2d5bf0993f022fde0d6e27ec2005b186cb45f86",
       "profiles": [
         "ai4science",
         "all"
@@ -630,7 +630,7 @@
     },
     "sr-main-comparison": {
       "description": "SR-主对比实验：假设和实验协议已冻结，需要与低、主流和强基线做公平正式比较时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "40e36926b7ec6559de82270e8f392d7d828ed7d9102ca991a5f6c290accfd911",
+      "hash": "20777f4f8ad3bf8433523286d94fc23a666229c869a2c7a6590607d40c03258f",
       "profiles": [
         "ai4science",
         "all"
@@ -639,7 +639,7 @@
     },
     "sr-mathematical-model": {
       "description": "SR-数学模型定义：需要统一符号并明确映射、损失、约束、训练和推理公式时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "fbd077d7e7e1a6e2e609b7db75a6502f84776cb87da2a3f2a56cfb6a3bd0955d",
+      "hash": "d495db8b30f0b0ad29ae61bdc0719155eff69e2999801a29264e1a09de4f2327",
       "profiles": [
         "ai4science",
         "all"
@@ -648,7 +648,7 @@
     },
     "sr-mechanism-counterexample": {
       "description": "SR-机制推演与反例构造：需要从机制导出预测、用极端条件和反例挑战 Idea 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "8973d7812545d3be76839256a5f7d09ac71a5cc7fd69db3325242ad564f37d96",
+      "hash": "11434a82b2816a42741e1856fb76f4f4c882512f80c1241c4a04b5d3d35b6d50",
       "profiles": [
         "ai4science",
         "all"
@@ -657,7 +657,7 @@
     },
     "sr-mechanism-validation": {
       "description": "SR-机制验证：性能差异之外还需要用中间量、残差、守恒、探针或对照支持声称机制时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "23f4c9846cde989b7efe31cf4bb1de45cc842ca6a1583bd344082de45a3660d2",
+      "hash": "1f184936b2f16c056188e0df7f2c00a0a59fce218518c3e328de14ec4859c67b",
       "profiles": [
         "ai4science",
         "all"
@@ -666,7 +666,7 @@
     },
     "sr-methods-writing": {
       "description": "SR-方法部分写作：符号、方法和实现已冻结，需要写可理解、可复现且不过度包装的方法章节时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "ac427363329cf830525687cc9ba0bbc52aa023d234fbe66931274d71a005093c",
+      "hash": "36712f21f07f37bc80a44495d3da1f2d205a13f9748f9f179dbb307360f941bd",
       "profiles": [
         "ai4science",
         "all"
@@ -675,7 +675,7 @@
     },
     "sr-milestone-evidence-gate": {
       "description": "SR-里程碑与证据门管理：进入下一阶段前需要设置数据、基线、机制、性能或写作证据门槛时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "feb4379039e3404511a5a7e10f8c3a12e6d0664682308268241c143b1a96d983",
+      "hash": "38aadb483c3b51d4fc7637cfb77f3a0f2fab3bc7604ffeb7c7dcf00d3d6cd64b",
       "profiles": [
         "ai4science",
         "all"
@@ -684,7 +684,7 @@
     },
     "sr-minimal-diagnostic": {
       "description": "SR-最小诊断实验：需要用最低成本、单一改动区分两个主要原因时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "f28bc5ee10bd562de4f779b9f04ee6fe46ed32558829750ca518115e778280eb",
+      "hash": "22df688a306bfb173d7e47674847a75317327dbec85ca524be0aa0eb7f78a950",
       "profiles": [
         "ai4science",
         "all"
@@ -693,7 +693,7 @@
     },
     "sr-minimal-falsification": {
       "description": "SR-最小证伪实验设计：需要用最低成本实验决定假设继续、修改或停止，而非直接做大规模实验时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "71a6f1d55d8addee5f23770141faa5b6750552e69c620f89b42719ec58dbf4ba",
+      "hash": "9a0ca93217893b1187f85f1475fa9aee6c888b90875ad6c89724df441165d925",
       "profiles": [
         "ai4science",
         "all"
@@ -702,7 +702,7 @@
     },
     "sr-module-challenge-mapping": {
       "description": "SR-模块—挑战对应设计：方法模块较多，需要证明每个模块解决哪个挑战并预设消融时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "17fa2307b0703864804e8837f6c4ebfb8ddf2d678f9ad1b388d31f1aae9efddf",
+      "hash": "53c01d8fc37ca1789e90b6a23d5f5374f50caa6fcf8c31ee715d3110ae71bd02",
       "profiles": [
         "ai4science",
         "all"
@@ -711,7 +711,7 @@
     },
     "sr-nearest-neighbor-difference": {
       "description": "SR-最近邻差异分析：已有 Idea 需要与最接近工作逐维比较并确认哪些部分不构成创新时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "9d20bb4d316c36b23a37135cb0c3d80334da5b67ffb4bc213aff52055155149b",
+      "hash": "ab4684b2ce1e7f656471ca6ca14857eb1b27cb60cc3a2d6587b97fbb86938dd6",
       "profiles": [
         "ai4science",
         "all"
@@ -720,7 +720,7 @@
     },
     "sr-novelty-tree": {
       "description": "SR-Novelty tree：需要按问题、表示、模型、训练、评价或应用层定位创新空间时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "f9ac11884f28f20a7ade79458c89044779ab190e84f93ce80b1e9fb5cf62094c",
+      "hash": "c562af6e54285a63d576d53e3906eb967d6f8fc2852589c56e049627a0051336",
       "profiles": [
         "ai4science",
         "all"
@@ -729,7 +729,7 @@
     },
     "sr-observation-anomaly": {
       "description": "SR-观察与异常提炼：数据、实验或阅读中出现异常现象，需要先保存事实再形成问题时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "947c34a083a342b41c39413ee618065cd5b8a672375db534e274c601141854e3",
+      "hash": "1fefc61ee4dee8255ac64e923d4108f7c4b6acb2054316902c4ea2d7ddf1e9ea",
       "profiles": [
         "ai4science",
         "all"
@@ -738,7 +738,7 @@
     },
     "sr-paper-evidence-card": {
       "description": "SR-单篇深读与证据卡片：需要深读一篇关键论文并区分作者主张、直接证据、局限与可复现信息时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "a66ce9c937c546679f8bb1cbe2d36a3f221572533e46ccbcea62527070ae476e",
+      "hash": "78715641a9152b2f2d43cf0b80284f2e8d05658f4ac3e4bf35f1987a7fc7c175",
       "profiles": [
         "ai4science",
         "all"
@@ -747,7 +747,7 @@
     },
     "sr-paper-storyline": {
       "description": "SR-论文故事线设计：已有证据但稿件按代码模块或时间顺序堆积，需要形成问题到影响的论证主线时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "a0f2c409b03e76550c7e9595a81f102fd29be8151521e81ff2a80c4a86a8c9ad",
+      "hash": "6d2ee1f5f4a620ee06e8ea5e6cc1ef10e5f77371eef3211230ce1b19d7713939",
       "profiles": [
         "ai4science",
         "all"
@@ -756,7 +756,7 @@
     },
     "sr-problem-formalization": {
       "description": "SR-问题形式化：自然语言问题需要转成变量、映射、目标、约束与可测指标时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "58f9ea1ec1b9470ffa1f41a438313859be2776ae50dc1e87a57592bbf1926798",
+      "hash": "2397d65406dccd09efe3c77c430dcaaab5b19526346c9fe1fb84931bfd11d8ff",
       "profiles": [
         "ai4science",
         "all"
@@ -765,7 +765,7 @@
     },
     "sr-quantitative-analysis": {
       "description": "SR-总体定量分析：主结果需要均值、方差、区间、效应量、检验和实际阈值解释时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "edc6cb774a185998a5fbda687da61550c73a78c9617fad82a1f4b534e8606d49",
+      "hash": "b661682a41be711f369d95cf948535a3453c6469e671ac6fe148eeb3a2dcb101",
       "profiles": [
         "ai4science",
         "all"
@@ -774,7 +774,7 @@
     },
     "sr-rebuttal-revision": {
       "description": "SR-Rebuttal与修订：审稿意见已拆解，需要逐点回复、补证据、修改稿件并闭环追踪时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "fbe2a514965a3412368927fc2db1448bb69a53d4262b60b000be9e97fcd9ee02",
+      "hash": "907929c4cb9776047a7b8681dc974ea083a9bebe92307ce8976fe51fec2a286d",
       "profiles": [
         "ai4science",
         "all"
@@ -783,7 +783,7 @@
     },
     "sr-reproducible-run": {
       "description": "SR-可复现实验封装：实验需要保存代码、数据、环境、配置、种子、命令和输出并从空目录重跑时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "17e4a9cee1ada521b36ea87ae9e65e70ace4ca7c45e9a745ce3c2c25cc6def71",
+      "hash": "39466fed2eecb4cf2eb41789a8c439a8a2067196b0bdb557864202c7d3cc10a1",
       "profiles": [
         "ai4science",
         "all"
@@ -792,7 +792,7 @@
     },
     "sr-research-question-review": {
       "description": "SR-研究问题评审：研究问题准备冻结、需要从创新性、可证伪性、边界和资源角度接受挑战时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "130fd52f07210b32cd8826ce376d41e60992262cb89e8fb800419ef7b5b4416d",
+      "hash": "9e59b6b4789f80c42d9278a2bf77682d492998ec06b878c310f0c9a5d5b2088a",
       "profiles": [
         "ai4science",
         "all"
@@ -801,7 +801,7 @@
     },
     "sr-research-shared": {
       "description": "Internal shared-reference package for SR doctoral research skills, defining work contracts, human-AI authority, weekly evidence loops, and optional third-party adapters. Do not invoke as a standalone research workflow; load only the reference requested by an SR router or leaf skill.",
-      "hash": "2131f110b4dc742cb291796db80ad443c99ff37173085e5adb1f38e6ec5d3149",
+      "hash": "accefd2e62d0bfa496dcd4227aac9119f4d6a868b51c1a7e95c5fe96c46e806a",
       "profiles": [
         "ai4science",
         "all"
@@ -810,7 +810,7 @@
     },
     "sr-resource-budget": {
       "description": "SR-复杂度与资源预算：需要估算样本、GPU、CPU、仿真、存储、人时并设置缩减与停止条件时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "65e02306a92d9e0ca054b42c2eb563ba506ff48ec70828aea70183dfb784c6de",
+      "hash": "654020bada3f6d82ef5614d9f3be2b26df2092eec9b491d8249900a76b18a377",
       "profiles": [
         "ai4science",
         "all"
@@ -819,7 +819,7 @@
     },
     "sr-resource-scheduling": {
       "description": "SR-资源与运行调度：GPU、仿真、存储、人力或设备有限，需要按研究价值安排队列和停止条件时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "768578383f6bdda41bb99b628a3e513e9118da7e8ed549c7efd30fe7b283ed7a",
+      "hash": "61d26ce30c90a13538b51ea734a8a0e8c2b6a71be570cf709c7041fc7d17b4bc",
       "profiles": [
         "ai4science",
         "all"
@@ -828,7 +828,7 @@
     },
     "sr-result-integrity": {
       "description": "SR-结果完整性检查：分析前需要核对运行数、配置、日志、退出状态、checkpoint 和评价脚本是否完整时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "7f3a28cd58dfd16a7ef137d58e5825f4fbeb435357b3766b4452d25d038986b3",
+      "hash": "7c3c605490804e0dc8ad59084b3ec38f547443a7ec99256fe3c2af14d38a4f36",
       "profiles": [
         "ai4science",
         "all"
@@ -837,7 +837,7 @@
     },
     "sr-review-comment-analysis": {
       "description": "SR-审稿意见拆解：收到审稿意见，需要逐条识别表面问题、真实诉求、证据缺口和回应风险时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "e4821d39ea9eba0159d20dc421ac589e5b6582ff60a4701c06d5fc486f7e6c69",
+      "hash": "b519fbbdc4ab57d3cf4a844a06881d16b150e0eede90e3a75c72ab016c6913b2",
       "profiles": [
         "ai4science",
         "all"
@@ -846,7 +846,7 @@
     },
     "sr-risk-contingency": {
       "description": "SR-风险登记与预案：需要管理数据、方法、算力、合作、时间、伦理或投稿风险及 Plan B 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "c34fc6331a3223f981c2e06b639c0dd27c75f8f8b8a7cddc6f1fdd02ce596f0d",
+      "hash": "fbce24bbff0174a8f865be557287797abff110194fe6182faba943e588274171",
       "profiles": [
         "ai4science",
         "all"
@@ -855,7 +855,7 @@
     },
     "sr-route-retrospective": {
       "description": "SR-路线复盘与优先级调整：新证据改变原假设、任务价值或关键路径，需要继续、暂停、放弃或转向时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "84e365a15d44edfca51b8a7925908ce7aca94d60c454436c324119d83f761e3b",
+      "hash": "8b7528e557b6c120099dff0963dcd1020127f65999c5d162a7ffd49e46979bff",
       "profiles": [
         "ai4science",
         "all"
@@ -864,7 +864,7 @@
     },
     "sr-scenario-needs": {
       "description": "SR-场景与需求定义：课题来源、真实使用场景、对象、输入输出或约束尚不清楚时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "ed89a578be9b7940fcae7678bb82f74dccb3805012d548d946b7cb6ad1f8fbab",
+      "hash": "f8c2aaaed3d691c5b10cba43a52b01cdf2dc4f95decb84535bded7c27bbd8c17",
       "profiles": [
         "ai4science",
         "all"
@@ -873,7 +873,7 @@
     },
     "sr-scope-convergence": {
       "description": "SR-研究边界收敛：课题范围过大、变量过多或博士主线与资源不匹配时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "05bf1c9c74fd5fe054366991c51f79d0a547f99c0123d9ce150bdfb598c5aa34",
+      "hash": "bcfa07cb9e46a46890f313301d18047622a27e7d4dfb5697a0166a1e1c03b2bc",
       "profiles": [
         "ai4science",
         "all"
@@ -882,7 +882,7 @@
     },
     "sr-search-strategy": {
       "description": "SR-检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "57dcec95cc6369fa2d0026b06493ad8716ed031d8fb487cc7f0eadcd1dc349c8",
+      "hash": "6b10486eb79007987e8c68941160ce8ac7c70cf00cd4ea42cf6ac2fa1890f2ea",
       "profiles": [
         "ai4science",
         "all"
@@ -891,7 +891,7 @@
     },
     "sr-sensitivity-robustness": {
       "description": "SR-敏感性与鲁棒性实验：需要知道模型对超参、噪声、数据量或物理扰动的稳定区和失效阈值时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "d3a1f5fedadd266542d1a9cab450e7b21a8be30a8fbd401575a7067f7b9bd06b",
+      "hash": "7f6704eb378ab744f5c4ce02bab328a50140c14f4e0ea562cf0041b2f1f94569",
       "profiles": [
         "ai4science",
         "all"
@@ -900,7 +900,7 @@
     },
     "sr-slice-analysis": {
       "description": "SR-分组与切片分析：总体均值可能掩盖不同几何、参数、类别、难度或数据来源上的差异时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "73ef330272f76945a8564fca381847326eee396b57e7ccce3e87ea346b866901",
+      "hash": "eb9d4bf9bfe41411150af52627cc9fd2efc53ad002f2beb5e4fe7328c61f6fce",
       "profiles": [
         "ai4science",
         "all"
@@ -909,7 +909,7 @@
     },
     "sr-solution-gap-analysis": {
       "description": "SR-现有方案差距分析：需要证明现有方法在同一条件下存在可验证不足，而不是泛泛声称研究空白时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "d1cd93d7644328fa036732ec9d25b59dcac139c07637fbfe9d70697fd943885f",
+      "hash": "7de258fd776fbc40ae74252ed2b2d6d8cde9abab3bef158a5cfb24a578a7e3f0",
       "profiles": [
         "ai4science",
         "all"
@@ -918,7 +918,7 @@
     },
     "sr-stage-archive": {
       "description": "SR-阶段归档：阶段结束、路线暂停、论文提交或交接前，需要整理可接续的数据、代码、配置、结果、失败和未决问题时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "9e16a17ff4e54e8c8a4c2c0e19289f7918383dd3b1b6efd8d289b09c9538ae31",
+      "hash": "c3d7bee64422331d1e05768d91076fce2a98b1bfcb8d42dcd310f30d799e5bac",
       "profiles": [
         "ai4science",
         "all"
@@ -927,7 +927,7 @@
     },
     "sr-talk-open-source": {
       "description": "SR-学术报告与开源成果：需要面向特定听众准备报告、演示、README 或可复现公开成果时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "bc6145954a9cf313199ae3808c330d171422c0942511d4c18b6c5524d140071d",
+      "hash": "156c8f606da0e9cac7713d3c59dc3ac5ee4b0c4a621cc151474cd1482a6e1180",
       "profiles": [
         "ai4science",
         "all"
@@ -936,7 +936,7 @@
     },
     "sr-task-decomposition": {
       "description": "SR-研究任务拆解：里程碑或研究目标太大，需要拆成一至三天可完成、可验收且有依赖的工作包时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "9253890169a067accd1cb977b6ac5dd3f96063a4d87136ad64faf5167945b6c0",
+      "hash": "9dacc107b0679c7e1c30065336651a3baa9f77558d0bb7cd5163d8a0cbb25e69",
       "profiles": [
         "ai4science",
         "all"
@@ -945,7 +945,7 @@
     },
     "sr-value-feasibility": {
       "description": "SR-价值与可行性评估：需要决定课题是否值得做、能否做以及最低成本验证是什么时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "f66119e9475374cf3092ca4108e16fbc0107596429475cc764f441468d94a473",
+      "hash": "d882bcae006d8b9335f226a472c6deb736cceca91886c7a4b6fdf0936fe234c6",
       "profiles": [
         "ai4science",
         "all"
@@ -954,7 +954,7 @@
     },
     "sr-weekly-literature-update": {
       "description": "SR-周度文献增量更新：已有文献基线后需要每周增量发现会改变当前判断的新工作时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "3f9266d757f790b88d61c591fed7db6996a0fc0e179c709cf8c26c1f6aeb1ff4",
+      "hash": "7ac03bc4b79f27fc5bce1df554ec1ddada80c52d18d5887f838dc26e5d38afc0",
       "profiles": [
         "ai4science",
         "all"
@@ -963,7 +963,7 @@
     },
     "sr-weekly-meeting": {
       "description": "Build a doctoral weekly group-meeting report from closed or truthfully statused SR work contracts, artifacts, evidence, conclusion boundaries, blockers, and next-week decisions. Use after one or more SR leaf workflows have produced reviewable outputs. Do not invent progress from chat history or replace unfinished scientific work with polished slides.",
-      "hash": "086ab296afecde83772ff6b9eacadf36de70551f07c2d5dda297e13ac952e0b6",
+      "hash": "b8d7148ad7ce4212dd1ed5a170c2c025cc15d86384841abaf7a71e5640fa8f57",
       "profiles": [
         "ai4science",
         "all"
@@ -972,7 +972,7 @@
     },
     "sr-weekly-plan": {
       "description": "SR-周计划制定：需要从关键未知量制定下一周一个 P0、最多两个 P1 的可验收科研计划时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "3bce570b72f0d91f69a6f646b73a5342d3a31ae62714ad982586e19ba8b17ec4",
+      "hash": "d6b09b571b3ec216ed20b20dcece389bdea6604f06e5e25523f2b8e4701727b4",
       "profiles": [
         "ai4science",
         "all"
