@@ -44,6 +44,8 @@ Never 读取或提取密码、Cookie、令牌、localStorage/sessionStorage、�
 
 登录、验证码、OTP、条款、付费确认或下载许可出现时，调用 `bsk request-help` 让用户完成，随后重新观察页面；帮助被取消、禁用或超时不得重复绕过。将认证状态记录为 `authenticated_content_observed`、`login_required`、`human_completed_login` 或 `blocked`，不要记录用户名、邮箱或令牌。
 
+`bsk` 命令不可用、daemon 或扩展未连接时，报告阻塞原因，按参考文档的“Windows 安装与连接”章节提示用户安装，并确认“安装 BrowserSkill 后重试”或“切换到公开 API / 人工导出回退”；未经用户确认不得静默切换回退路径。
+
 ## Zotero batch import deliverable
 
 Alongside the achievement card, produce a UTF-8 `RIS` file named `YYYYMMDD-内容简述-Zotero导入.ris`. Optional format: `BibTeX`. Export scope: 实际采集并进入候选集的记录；不得用总命中数代替导出记录数。

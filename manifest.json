@@ -801,7 +801,7 @@
     },
     "sr-research-shared": {
       "description": "Internal shared-reference package for SR doctoral research skills, defining work contracts, human-AI authority, weekly evidence loops, and optional third-party adapters. Do not invoke as a standalone research workflow; load only the reference requested by an SR router or leaf skill.",
-      "hash": "9d6316735267e840d9f3e8f4f7f817e593590d923e4789a256e6d3e45ce5a3bc",
+      "hash": "2131f110b4dc742cb291796db80ad443c99ff37173085e5adb1f38e6ec5d3149",
       "profiles": [
         "ai4science",
         "all"
@@ -882,7 +882,7 @@
     },
     "sr-search-strategy": {
       "description": "SR-检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "0424cfeb57ebe6466f5a9db9030c1d12eab99712f394471721b062df02cf06ca",
+      "hash": "57dcec95cc6369fa2d0026b06493ad8716ed031d8fb487cc7f0eadcd1dc349c8",
       "profiles": [
         "ai4science",
         "all"

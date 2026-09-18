@@ -39,6 +39,8 @@ class RepositoryTests(unittest.TestCase):
         reference = (ROOT / "skills" / "sr-research-shared" / "references" / "browser-skill-literature-search.md").read_text(encoding="utf-8")
         for required in ["bsk session", "bsk tab borrow", "bsk request-help", "bsk session stop", "L3"]:
             self.assertIn(required, skill + reference)
+        for fallback_required in ["安装 BrowserSkill 后重试", "未经用户确认不得静默切换回退路径"]:
+            self.assertIn(fallback_required, skill + reference)
         for forbidden in ["Cookie", "令牌", "密码", "localStorage"]:
             self.assertIn(forbidden, skill + reference)
         self.assertIn("authenticated_content_observed", skill + reference)
