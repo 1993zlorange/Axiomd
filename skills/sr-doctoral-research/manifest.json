@@ -498,7 +498,7 @@
       "display_name": "SR-核心图表制作",
       "aspect": "paper",
       "intent": "communicate",
-      "detect": "需要让一张图只传达一个可证据支持的结论，并用诚实编码呈现不确定性时",
+      "detect": "需要让一张核心图只传达一个可证据支持的结论、用诚实编码呈现不确定性，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时",
       "path": "../sr-core-figures/SKILL.md"
     },
     {
@@ -543,7 +543,7 @@
       "display_name": "SR-学术报告与开源成果",
       "aspect": "paper",
       "intent": "communicate",
-      "detect": "需要面向特定听众准备报告、演示、README 或可复现公开成果时",
+      "detect": "需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成每页有一句总结性话的模板化学术/组会汇报 PPT 时",
       "path": "../sr-talk-open-source/SKILL.md"
     },
     {

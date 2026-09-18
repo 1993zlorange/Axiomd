@@ -1,7 +1,7 @@
 interface:
   display_name: "SR-学术报告与开源成果"
-  short_description: "SR-学术报告与开源成果：古法首轮、人机协作、证据验收"
-  default_prompt: "Use $sr-talk-open-source to complete SR-学术报告与开源成果 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+  short_description: "SR-学术报告与开源成果：每页一句总结的模板化 PPT、讲稿与可复现发布"
+  default_prompt: "Use $sr-talk-open-source to turn my reviewed documents into a template-based academic PPT with a per-page evidence map and one evidence-bounded summary sentence on every page, fixed font/color semantics, demo/reproducibility checks, explicit checkpoints, and an evidence-based closure record."
 
 policy:
   allow_implicit_invocation: false

@@ -448,8 +448,8 @@
       "optional_profiles": []
     },
     "sr-core-figures": {
-      "description": "SR-核心图表制作：需要让一张图只传达一个可证据支持的结论，并用诚实编码呈现不确定性时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "aeeea6dc59a4da5d90673096c17a376fc4705514af613054508bcb7d5563782c",
+      "description": "SR-核心图表制作：需要让一张核心图只传达一个可证据支持的结论、用诚实编码呈现不确定性，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
+      "hash": "55c17c7eb9bcae8d0e0da4947d2bf4449ce22a43b94769905879e01a01cf7b54",
       "profiles": [
         "ai4science",
         "all"
@@ -503,7 +503,7 @@
     },
     "sr-doctoral-research": {
       "description": "Route a doctoral research request to one focused ScienceResearch leaf skill across problem framing, literature, hypotheses, methods, experiments, analysis, papers, and weekly progress. Use when the user asks what research work to do next, requests an end-to-end research workflow, or has not named a specific SR leaf skill. Do not perform the leaf task inside this router.",
-      "hash": "f709a351e0f4277c41454e4d8ffd94a3c853db44d0f1be9ddc575a0a4461e603",
+      "hash": "7e1f54f1a1cfc00ef90fd0116b85bab537fe761448585961eb168a9c263923c1",
       "profiles": [
         "all"
       ],
@@ -926,8 +926,8 @@
       "optional_profiles": []
     },
     "sr-talk-open-source": {
-      "description": "SR-学术报告与开源成果：需要面向特定听众准备报告、演示、README 或可复现公开成果时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "bc6145954a9cf313199ae3808c330d171422c0942511d4c18b6c5524d140071d",
+      "description": "SR-学术报告与开源成果：需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成每页有一句总结性话的模板化学术/组会汇报 PPT 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
+      "hash": "3b4f85cee5fadadcc104d306ead726bf6316b9d7649046d430eb98d18b6995a7",
       "profiles": [
         "ai4science",
         "all"

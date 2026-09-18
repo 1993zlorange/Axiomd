@@ -1,7 +1,7 @@
 interface:
   display_name: "SR-核心图表制作"
-  short_description: "SR-核心图表制作：古法首轮、人机协作、证据验收"
-  default_prompt: "Use $sr-core-figures to complete SR-核心图表制作 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+  short_description: "SR-核心图表制作：科研图表与可编辑 draw.io 生成"
+  default_prompt: "Use $sr-core-figures to complete SR-核心图表制作 with my human baseline, an honest figure or editable draw.io source, source/export QA, explicit human checkpoints, and an evidence-based closure record."
 
 policy:
   allow_implicit_invocation: false

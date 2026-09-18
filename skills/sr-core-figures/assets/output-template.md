@@ -1,4 +1,4 @@
-﻿---
+---
 title: "<内容简述>成果卡"
 document_id: "sr-core-figures-<YYYYMMDD>"
 version: "v0.1"
@@ -17,6 +17,7 @@ source_contract: "<工作契约或证据路径>"
 - 关联 SR/工作流 ID：
 - 当前研究问题：
 - 本文档解决的未知量：
+- 目标图表类型与最终尺寸：
 - 不在范围内：
 
 ## 2. 输入与证据
@@ -32,54 +33,80 @@ source_contract: "<工作契约或证据路径>"
 - 权限级别：
 - 人工检查点与停止条件：
 
-## 4. 方法、过程与架构
+## 4. 图表契约
 
-### 4.1 方法/步骤
+- 唯一 message：
+- 原始数据/结果证据：
+- 数据到视觉编码映射：
+- 比较基线与公平性：
+- 不确定性/误差呈现：
+- 色彩、形状、单位和可读性检查：
+- 结论边界与图注草案：
+
+### 4.1 draw.io 契约（如适用）
+
+```yaml
+drawio:
+  source_path: ""
+  archetype: ""
+  topology_and_reading_order: ""
+  layout_grid_and_routing: ""
+  semantic_glyphs: []
+  formulas_and_units: []
+  source_qa: "pass / warnings-accepted / fail / not-run"
+  preview_export: "pass / fail / blocked"
+  visual_inspection: "pass / revisions-required / not-run"
+  reviewer_risks: []
+```
+
+## 5. 方法、过程与架构
+
+### 5.1 方法/步骤
 
 1.
 2.
 3.
 
-### 4.2 输入-处理-输出
+### 5.2 输入-处理-输出
 
 ```text
 输入 -> 处理/判定 -> 输出或失败边界
 ```
 
-### 4.3 关键假设、不变量与替代路径
+### 5.3 关键假设、不变量与替代路径
 
 | ID | 假设/不变量 | 证据 | 失效后的处理 |
 |---|---|---|---|
 |  |  |  |  |
 
-## 5. 结果与证据
+## 6. 结果与证据
 
 | 结果 ID | 结果/观察 | 证据路径 | 状态 |
 |---|---|---|---|
 |  |  |  | 建议 / 部分完成 / 阻塞 / 已接受 |
 
-## 6. 结论边界
+## 7. 结论边界
 
 - 可以得出的结论：
 - 不能得出的结论：
 - 仍需验证：
 - 潜在替代解释：
 
-## 7. 风险、偏差与人工决定
+## 8. 风险、偏差与人工决定
 
 | 风险/偏差 | 影响 | 缓解或补充证据 | 决策人 | 状态 |
 |---|---|---|---|---|
 |  |  |  |  |  |
 
-## 8. 交付与追踪
+## 9. 交付与追踪
 
-- 产物路径：
+- 产物路径（源文件 / 代码 / 导出预览）：
 - 代码/数据/配置/图表版本：
 - 需求或工作流追踪：
 - 下一步：
 - 人工判定：待定 / 接受 / 修改 / 暂停 / 拒绝
 
-## 9. 关闭记录
+## 10. 关闭记录
 
 ```yaml
 closure:
@@ -89,6 +116,8 @@ closure:
   result: ""
   conclusion: ""
   cannot_conclude: []
+  drawio_source_qa: "not-applicable"
+  drawio_preview_export: "not-applicable"
   human_verdict: "待定"
   next_skill: "无"
 ```
