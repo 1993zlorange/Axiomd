@@ -51,7 +51,7 @@
     },
     "pr-ps-00-project-supervisor": {
       "description": "全局项目监理：在软件、数据和科研项目的所有项目相关操作前后执行治理监控，维护需求、日志、反思、命名、文件归属、质量门禁以及 Skill 和脚本工具生命周期。",
-      "hash": "d674c6ff5efa316dd0a1cd711c08bdf08faa2d7a64b59961b29cb2c15f977f6a",
+      "hash": "a144a7167bb8d7af25488ee212b6b4bc2dd58d6821f74ea894acfc005f2f7129",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -173,7 +173,7 @@
     },
     "pr-ps-00-project-supervision": {
       "description": "在软件、数据或科研项目的每次项目相关操作前后执行独立治理监控，登记用户需求与问题、检查文件命名和归属、维护项目日志与反思、实施质量门禁，并管理新技能和脚本工具的生成与演化。适用于项目启动、规划、设计、开发、测试、文档、数据、实验、发布和维护；不替代专业执行角色，也不自行批准高风险操作。",
-      "hash": "5de173be5ffaa3730aea5e891147635d49418312692c1609722d2068198fd179",
+      "hash": "48bc5017b362cc4879c2904d87ae23a25e29541eeecf740bca3adb843723fcf8",
       "profiles": [
         "ai4programming",
         "ai4science",
