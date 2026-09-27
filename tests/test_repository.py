@@ -285,6 +285,96 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
         self.assertIn("PASS: 89 PR/SR interaction guides", checked.stdout)
 
+    def test_sr_record_templates_and_plain_language_validation(self) -> None:
+        catalog = json.loads(
+            (ROOT / "skills" / "sr-doctoral-research" / "catalog.json").read_text(encoding="utf-8")
+        )
+        items = catalog["skills"]
+        self.assertEqual(len(items), 68)
+        aspects = {item["aspect_key"] for item in items}
+        self.assertEqual(
+            aspects,
+            {"problem", "literature", "idea", "method", "experiment", "analysis", "paper", "progress"},
+        )
+        for item in items:
+            template = ROOT / "skills" / item["name"] / "assets" / "output-template.md"
+            text = template.read_text(encoding="utf-8")
+            for required in [
+                "# 一句话结论",
+                "## 1. 原来遇到什么问题",
+                "## 2. 问题原因分析",
+                "## 3. 当时有哪些可能做法",
+                "## 4. 本阶段做了什么",
+                "## 5. 遇到的困难和处理方式",
+                "## 6. 当前结果",
+                "## 7. 本阶段没有解决的问题",
+                "## 8. 下一步计划",
+                "## 9. 专业补充",
+                "## 附录A：支撑材料",
+                "## 附录B：系统记录",
+                f'sr_id: "{item["id"]}"',
+            ]:
+                self.assertIn(required, text, f"{item['name']} missing {required!r}")
+
+        for aspect in sorted(aspects):
+            self.assertTrue(
+                (ROOT / "skills" / "sr-research-shared" / "references" / "record-templates" / "aspects" / f"{aspect}.md").is_file()
+            )
+        for special in [
+            "sr-07-search-strategy.md",
+            "sr-08-literature-screening.md",
+            "sr-53-core-figures.md",
+            "sr-58-talk-open-source.md",
+            "sr-68-stage-archive.md",
+        ]:
+            path = ROOT / "skills" / "sr-research-shared" / "references" / "record-templates" / "special" / special
+            self.assertTrue(path.is_file(), f"missing special template {path}")
+        for handoff in ["explore.md", "execute.md", "express.md"]:
+            path = ROOT / "skills" / "sr-research-shared" / "references" / "record-templates" / "handoffs" / handoff
+            self.assertTrue(path.is_file(), f"missing handoff template {path}")
+        for stage in ["explore", "execute", "express"]:
+            path = ROOT / "skills" / "sr-research-shared" / "assets" / f"workflow-handoff-{stage}-template.md"
+            self.assertTrue(path.is_file(), f"missing assembled handoff template {path}")
+
+        generated = run("scripts/generate_sr_record_templates.py", "--check")
+        self.assertEqual(generated.returncode, 0, generated.stdout + generated.stderr)
+        self.assertIn("PASS: 68 SR record templates", generated.stdout)
+
+        base = (ROOT / "skills" / "sr-research-shared" / "assets" / "achievement-card-template.md").read_text(encoding="utf-8")
+        valid = base
+        replacements = {
+            "<这一阶段解决了什么问题，做到什么程度，还有什么没解决。>": "文献筛选已完成，核心文献从70篇收敛到10篇，全文复筛仍未完成。",
+            "|  |  | 是 / 否 / 待定 |  |": "| 检索词过宽 | 初筛发现大量无关主题 | 是 | 需要补充排除标准 |",
+            "| 方案A |  |  | 推荐 / 不推荐 |": "| 只按标题筛 | 速度快 | 可能漏掉相关论文 | 推荐 |",
+            "| 方案B |  |  | 推荐 / 不推荐 |": "| 直接全文复筛 | 判断更准 | 阅读时间约8小时 | 不推荐 |",
+            "推荐方案及原因：": "推荐方案及原因：先按标题摘要筛，因为当前文献量较大且主题边界清楚。",
+            "|  |  |  | 已解决 / 部分解决 / 未解决 |": "| 检索结果重复 | 影响计数 | 按 DOI 和题名去重 | 已解决 |",
+            "|  |  |  |  |": "| 全文获取受限 | 部分论文无法下载 | 需要馆际互借 | 影响复筛 |",
+            "- 下一步先做什么：": "- 下一步先做什么：补齐10篇核心文献全文。",
+            "- 做到什么程度算完成：": "- 做到什么程度算完成：每篇都有保留或排除理由。",
+            "<按本工作包所属研究阶段和专业需要填写，不作为领导阅读的主文。>": "### 文献调研补充\n- 数据库：Web of Science\n",
+        }
+        for old, new in replacements.items():
+            valid = valid.replace(old, new, 1)
+        bad = valid.replace("## 7. 本阶段没有解决的问题", "## 7. 遗留内容", 1)
+        bad = bad.replace("只按标题筛", "冻结后只按标题筛", 1)
+
+        with tempfile.TemporaryDirectory(prefix="sr-record-qa-") as temporary:
+            valid_path = Path(temporary) / "valid.md"
+            bad_path = Path(temporary) / "bad.md"
+            valid_path.write_text(valid, encoding="utf-8")
+            bad_path.write_text(bad, encoding="utf-8")
+            validator = ROOT / "skills" / "sr-research-shared" / "scripts" / "validate_sr_record.py"
+
+            passed = run(str(validator), str(valid_path))
+            self.assertEqual(passed.returncode, 0, passed.stdout + passed.stderr)
+            self.assertIn("QA=pass", passed.stdout)
+
+            failed = run(str(validator), str(bad_path))
+            self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
+            self.assertIn("missing section: ## 7. 本阶段没有解决的问题", failed.stdout)
+            self.assertIn("internal management term", failed.stdout)
+
     def test_installer_check_and_uninstall_in_temp_home(self) -> None:
         with tempfile.TemporaryDirectory(prefix="axiom-codex-") as temporary:
             codex_home = Path(temporary)

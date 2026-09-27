@@ -48,6 +48,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: PRISMA 台账：记录 ID / 阶段 / 决定 / 理由 / 复核人 / 日期 / Zotero 导出状态
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: `nature-literature-pipeline`, `nature-academic-search`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate

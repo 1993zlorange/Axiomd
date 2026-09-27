@@ -13,7 +13,7 @@ This contract defines the twelve specialist workflows, per-SR achievement cards,
 5. Put each card directly in its SR aspect folder. Supporting code, data, figures, and logs may remain in governed subfolders and must be linked from the card.
 6. A workflow handoff is separate from leaf cards. Put it in the workflow's designated subfolder and name it `YYYYMMDD-HHmmss-<工作简要>.md`.
 7. Create a handoff whenever control moves to another workflow/agent, the workflow pauses or is blocked, or the workflow closes. Multiple chronological handoffs are expected.
-8. A handoff must list every produced/updated SR card and keep the six required fields: 尝试了什么、发现了什么、支持证据、当前局限性、产出了什么、下一步该做什么.
+8. A handoff must list every produced/updated SR card and use the plain-language body: 原来遇到什么问题、问题原因分析、当时有哪些可能做法、本阶段做了什么、遇到的困难和处理方式、当前结果、本阶段没有解决的问题、下一步计划.
 9. Do not infer card acceptance from a filename. Use the card's status, evidence links, leaf closure, and named human verdict.
 10. Legacy files named with `SR-NN_` or other patterns are evidence candidates, not compliant cards. Link them when reconstructing a new card; do not rename or overwrite them silently.
 
@@ -188,77 +188,43 @@ For every listed workflow folder, read all `*.md` handoffs in chronological file
 
 Filename: `YYYYMMDD-<成果简称>-成果卡.md`
 
-```yaml
-achievement_card:
-  card_id: "SR-<NN>[-vN]"
-  sr_id: "SR-<NN>"
-  short_name: ""
-  skill: "sr-..."
-  agent: ""
-  workflow_id: ""
-  aspect_folder: ""
-  status: "accepted|partial|blocked|rejected"
-  human_baseline_ref: ""
-  work_contract_ref: ""
-  attempted: []
-  findings: []
-  evidence:
-    - label: "fact|source_claim|observation|calculation|interpretation|hypothesis|decision|plan"
-      locator: ""
-      supports: ""
-  artifacts: []
-  conclusion: ""
-  cannot_conclude: []
-  deviations: []
-  human_verdict:
-    owner: ""
-    verdict: "accepted|revise|pause|reject|pending"
-    rationale: ""
-  next_workflow: ""
-```
+Use the local SR leaf `assets/output-template.md`. Templates are generated from:
 
-A card is a reviewable record, not merely a wrapper around prose. A blocked or rejected leaf still receives a truthful card if its attempts and evidence matter.
+- `record-templates/achievement-card-base.md`
+- the applicable `record-templates/aspects/<aspect>.md`
+- any applicable `record-templates/special/<work-package>.md`
+
+The reader-facing body must answer, in order:
+
+1. 原来遇到什么问题；
+2. 问题原因分析；
+3. 当时有哪些可能做法；
+4. 本阶段做了什么；
+5. 遇到的困难和处理方式；
+6. 当前结果与结论边界；
+7. 本阶段没有解决的问题；
+8. 下一步计划。
+
+Professional details remain under “专业补充”. Supporting material goes to Appendix A. The machine-readable record goes to Appendix B, not the main narrative.
+
+A blocked or rejected leaf still receives a truthful card when its attempts and evidence matter.
 
 ## Workflow handoff template
 
 Filename: `YYYYMMDD-HHmmss-<工作简要>.md`
 
-```yaml
-handoff:
-  handoff_id: "HO-<workflow-id>-<YYYYMMDD-HHmmss>"
-  created_at: "YYYY-MM-DDTHH:mm:ss+08:00"
-  work_summary: ""
-  from_agent: ""
-  to_agent: ""
-  workflow_id: ""
-  workflow_status: "accepted|partial|blocked|rejected"
-  produced_or_updated_cards:
-    - "relative/path/YYYYMMDD-成果简称-成果卡.md"
-  cards_read:
-    - "relative/path/YYYYMMDD-成果简称-成果卡.md"
-  handoffs_read:
-    - "relative/path/YYYYMMDD-HHmmss-工作简要.md"
-  human_decision_required: false
-  human_decision_ref: ""
-  尝试了什么:
-    - ""
-  发现了什么:
-    - ""
-  支持证据:
-    - locator: ""
-      evidence_type: ""
-      supports: ""
-  当前局限性:
-    - ""
-  产出了什么:
-    - artifact: ""
-      purpose: ""
-  下一步该做什么:
-    - owner: ""
-      workflow: ""
-      action: ""
-      prerequisite: ""
-      definition_of_done: ""
-```
+Use `../sr-research-shared/assets/workflow-handoff-template.md`. Choose one stage supplement from `record-templates/handoffs/`:
 
-The receiving workflow first validates every listed card and handoff path, then opens its own work contract. “下一步该做什么” is a recommendation, not authorization.
+- `workflow-handoff-explore-template.md` for PI-E01, MB-E01, CR-E01, and EX-E01;
+- `workflow-handoff-execute-template.md` for MB-X01, EX-X01, CR-X01, and PI-X01;
+- `workflow-handoff-express-template.md` for EX-P01, MB-P01, CR-P01, and PI-P01.
+
+In addition to the shared eight-part body, a handoff records:
+
+1. produced or updated SR cards;
+2. cards and prior handoffs read;
+3. what the receiving workflow checks first;
+4. decisions required from the researcher or supervisor;
+5. one recommended next action and its completion criterion.
+
+“下一步计划” is a recommendation, not authorization for a costly run, external mutation, release, or claim decision.

@@ -40,6 +40,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 工作包卡：动词+对象 / 输入 / 输出 / DoD / 依赖 / owner / duration
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: `academic-research-skills/academic-pipeline`, `k-dense/mathematical-modeling`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate

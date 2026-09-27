@@ -125,6 +125,8 @@ Pause at that intervention point with options, evidence, uncertainty, and a reco
 
 Use this template: {item['template']}
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: {adapter_text}. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using an adapter. Missing adapters are not a blocker; disclose the manual or local fallback.
 
 ## Completion gate

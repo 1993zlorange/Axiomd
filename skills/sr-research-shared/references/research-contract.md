@@ -46,6 +46,26 @@ Permission levels:
 
 Label statements as one of: `fact`, `source_claim`, `observation`, `calculation`, `interpretation`, `hypothesis`, `decision`, or `plan`. Preserve source location, data version, code/config version, and uncertainty whenever they matter. Missing evidence becomes a placeholder or open item, never invented content.
 
+## Plain-language record standard
+
+Every SR achievement card and workflow handoff has a reader-facing body and a machine-readable appendix. The body uses the shared SCQA-inspired order:
+
+```text
+one-line conclusion
+→ original problem
+→ cause analysis
+→ possible options and recommendation
+→ what was done
+→ difficulties and handling
+→ current result and boundary
+→ unresolved problems
+→ next action
+```
+
+Write the body for a research leader who needs the scientific meaning, not the repository's internal process vocabulary. Keep internal IDs and system fields in frontmatter or Appendix B. Professional terms may remain when they belong to the research domain; explain one on first use when the likely reader may not know it.
+
+Use the local leaf `assets/output-template.md` for an achievement card and `../sr-research-shared/assets/workflow-handoff-template.md` for a workflow handoff. Run `../sr-research-shared/scripts/validate_sr_record.py <record.md>` when Python is available. Fix structural errors; do not replace missing evidence with polished prose.
+
 ## Closure record
 
 Do not call a work package complete because prose was produced. Close it only when the leaf completion gate is satisfied and the human-owned verdict has been recorded where required.

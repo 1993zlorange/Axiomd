@@ -16,3 +16,7 @@ The installer is safety-critical. Preserve path validation, staged activation, b
 ## PR/SR interaction guides
 
 The PR/SR skill-local `AGENTS.md` files are generated from `docs/pr-sr-interaction-standard.md`. To update them, edit that canonical file, run `python scripts/generate_pr_sr_interaction_guides.py`, then run `python scripts/generate_pr_sr_interaction_guides.py --check`. Do not edit individual generated copies directly.
+
+## SR record templates
+
+SR-01 through SR-68 use plain-language achievement-card templates generated from `skills/sr-research-shared/references/record-templates/`. To update them, edit the base/aspect/special/handoff module, run `python scripts/generate_sr_record_templates.py`, then run `python scripts/generate_sr_record_templates.py --check`. Do not edit the 68 generated local templates directly.

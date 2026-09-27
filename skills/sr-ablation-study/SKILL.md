@@ -40,6 +40,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 消融表：变体 / 唯一变化 / 机制预测 / 指标 / CI / 结论 / 边界
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: `k-dense/experimental-design`, `k-dense/statistical-analysis`, `nature-statistics`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate

@@ -1,154 +1,124 @@
 ---
 title: "<内容简述>成果卡"
 document_id: "sr-talk-open-source-<YYYYMMDD>"
+sr_id: "SR-58"
+skill: "sr-talk-open-source"
+workflow_id: ""
 version: "v0.1"
-status: "草稿"
+status: "draft|partial|blocked|accepted|rejected"
 produced_at: "YYYY-MM-DD"
 owner: "<负责人>"
-source_contract: "<工作契约或证据路径>"
+human_verdict: "pending|accepted|revise|pause|reject"
 ---
 
-# <内容简述>
+# 一句话结论
 
-> 空白模板：只填写已核验事实、来源、计算、观察、解释和人工决定；未知项保持“待定”，不得用占位内容伪装结论。
+<这一阶段解决了什么问题，做到什么程度，还有什么没解决。>
 
-## 1. 输出目的与范围
+## 1. 原来遇到什么问题
 
-- 关联 SR/工作流 ID：
-- 当前研究问题：
-- 本文档解决的未知量：
-- 听众、场合和希望记住的三点：
-- 不在范围内：
+- 研究对象：
+- 原来的做法：
+- 出现的问题：
+- 对研究目标的影响：
 
-## 2. 输入与证据
+## 2. 问题原因分析
 
-| 输入/证据 | 版本或时间 | 来源路径 | 可用性与限制 |
+| 可能原因 | 判断依据 | 是否成立 | 影响 |
 |---|---|---|---|
-|  |  |  |  |
+|  |  | 是 / 否 / 待定 |  |
 
-## 3. 人工基线与工作契约
+## 3. 当时有哪些可能做法
 
-- 人工基线：
-- 工作契约：
-- 权限级别：
-- 人工检查点与停止条件：
-- 模板 PPT 路径引用（不提交模板本身）：
+| 方案 | 好处 | 代价或风险 | 是否推荐 |
+|---|---|---|---|
+| 方案A |  |  | 推荐 / 不推荐 |
+| 方案B |  |  | 推荐 / 不推荐 |
 
-## 4. 方法、过程与架构
+推荐方案及原因：
 
-### 4.1 方法/步骤
+## 4. 本阶段做了什么
 
 1.
 2.
 3.
 
-### 4.2 输入-处理-输出
+## 5. 遇到的困难和处理方式
 
-```text
-源文档/证据 -> 主题与页计划 -> 模板化 PPT/讲稿/demo -> QA -> 人工排练与验收
-```
+| 困难 | 影响 | 处理方式 | 处理结果 |
+|---|---|---|---|
+|  |  |  | 已解决 / 部分解决 / 未解决 |
 
-### 4.3 关键假设、不变量与替代路径
+## 6. 当前结果
 
-| ID | 假设/不变量 | 证据 | 失效后的处理 |
+- 已经确认的结果：
+- 这些结果能支持的研究判断：
+- 这些结果不能支持的说法：
+- 检查方式：
+
+## 7. 本阶段没有解决的问题
+
+| 未解决问题 | 为什么没解决 | 需要什么条件 | 对下一步的影响 |
 |---|---|---|---|
 |  |  |  |  |
 
-## 5. PPT/Demo 发布计划
+## 8. 下一步计划
 
+- 下一步先做什么：
+- 为什么现在做：
+- 需要谁决定：
+- 做到什么程度算完成：
+
+## 9. 专业补充
+
+### 论文与表达补充
+
+- 目标读者：
+- 希望读者相信的一句话：
+- 原表达的问题：
+- 主要修改：
+- 图表或论文中的核心信息：
+- 读者可能误解的地方：
+- 审稿或内部检查风险：
+- 本次已解决：
+- 下一版仍需修改：
+
+### 本工作包完成要点
+
+- 交付结构：发布包：audience / presentation mode / three messages / evidence coverage / cognitive-object page plan / per-page summary sentence / slides / demo / README / license / privacy checklist
+- 完成要求：受众主线清楚，支撑材料覆盖可追踪，每页有唯一认知对象、结构化编号、结论式页题和一句支撑材料边界内的总结性话；排版布局、逻辑图、字体字号和红/蓝/黑语义通过检查或如实记录阻塞；人工修改已按规则复盘（如有）；demo 可运行，支撑材料与引用准确，许可隐私审查完成且发布获授权。
+### 汇报与公开发布补充
+
+- 听众和场合：
+- 三条关键信息：
 - 页计划路径：
-- 源文档到页的映射：
-- 证据覆盖矩阵：
-- 每页认知对象 / layout_pattern / kicker：
-- 模板版式检查：
-- 逻辑图节点、分支、人工门与回跳：
+- 逐页总结句检查：
+- 支撑材料覆盖矩阵：
 - 人工修改复盘记录：
-- 三条关键 message：
-- Demo/复现入口与环境：
-- 讲稿与备注路径：
+- 演示或复现入口：
+- 讲稿路径：
 - 公开范围：
+- 许可、隐私和引用检查：
 
-### 5.1 PPT 样式契约
+## 附录A：支撑材料
 
-```yaml
-ppt_style:
-  font: "Microsoft YaHei / 微软雅黑"
-  title_bold: true
-  summary_shape: "SR58-SUMMARY"
-  summary_font_pt: "20-22 preferred; >=18 hard minimum"
-  cognitive_object_rule: "one primary object per page"
-  layout_system: "12x6 grid; split by cognitive object before word count"
-  summary_per_page: "exactly one"
-  body_min_pt: 18
-  figure_table_label_min_pt: 14
-  red_per_page_max: 3
-  red_style: "bold+underline"
-  blue_style: "bold"
-  black_use: "normal facts; keywords may be bold"
-  repeated_module_diff_highlight: true
-  template_fidelity: "pass / partial / blocked"
-```
-
-### 5.2 逐页输出（摘要）
-
-| 页 | kicker | 结论式页题 | 认知对象 / 版式 | SR58-SUMMARY 一句总结 | [级别] 要点与颜色样式 | 视觉/表格 | 拆页检查 | 删减/降级及理由 | 红色数 |
-|---|---|---|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |
-
-## 6. 结果与证据
-
-| 结果 ID | 结果/观察 | 证据路径 | 状态 |
+| 材料 | 位置 | 版本或时间 | 支持哪条结论 |
 |---|---|---|---|
-|  |  |  | 建议 / 部分完成 / 阻塞 / 已接受 |
+|  |  |  |  |
 
-## 7. 结论边界
-
-- 可以得出的结论：
-- 不能得出的结论：
-- 仍需验证：
-- 潜在替代解释：
-
-## 8. 风险、偏差与人工决定
-
-| 风险/偏差 | 影响 | 缓解或补充证据 | 决策人 | 状态 |
-|---|---|---|---|---|
-|  |  |  |  |  |
-
-## 9. 许可、隐私与发布检查
-
-- 代码/数据/模型许可：
-- 第三方素材与引用：
-- 隐私、敏感信息、出口/合规约束：
-- 公开发布授权：
-- 仓库/归档路径：
-
-## 10. 交付与追踪
-
-- 产物路径（PPT / 页计划 / 讲稿 / README / demo）：
-- 代码/数据/配置/图表版本：
-- 需求或工作流追踪：
-- 下一步：
-- 人工判定：待定 / 接受 / 修改 / 暂停 / 拒绝
-
-## 11. 关闭记录
+## 附录B：系统记录
 
 ```yaml
 closure:
   skill: "sr-talk-open-source"
   artifact: "<YYYYMMDD-内容简述-成果卡.md>"
+  achievement_card: "project-relative path/YYYYMMDD-内容简述-成果卡.md"
   evidence: []
   result: ""
   conclusion: ""
   cannot_conclude: []
-  pptx_source_qa: "not-run"
-  summary_sentence_qa: "not-run"
-  template_fidelity: "not-applicable"
-  color_semantics_qa: "not-applicable"
-  font_size_qa: "not-applicable"
-  human_rehearsal: "pending"
-  public_release_approved: "pending"
-  human_verdict: "待定"
-  next_skill: "无"
+  deviations: []
+  human_verdict: "pending|accepted|revise|pause|reject"
+  next_skill: "sr-...|none"
+  next_question: ""
 ```
-
-文件命名：`YYYYMMDD-内容简述-文档类型.扩展名`；日期使用生产日期，内容简述使用稳定短语，文档类型使用“成果卡”“实验记录”“审查报告”或“PPT页计划”等中文名称。

@@ -1,125 +1,122 @@
 ---
 title: "<内容简述>成果卡"
 document_id: "sr-core-figures-<YYYYMMDD>"
+sr_id: "SR-53"
+skill: "sr-core-figures"
+workflow_id: ""
 version: "v0.1"
-status: "草稿"
+status: "draft|partial|blocked|accepted|rejected"
 produced_at: "YYYY-MM-DD"
 owner: "<负责人>"
-source_contract: "<工作契约或证据路径>"
+human_verdict: "pending|accepted|revise|pause|reject"
 ---
 
-# <内容简述>
+# 一句话结论
 
-> 空白模板：只填写已核验事实、来源、计算、观察、解释和人工决定；未知项保持“待定”，不得用占位内容伪装结论。
+<这一阶段解决了什么问题，做到什么程度，还有什么没解决。>
 
-## 1. 输出目的与范围
+## 1. 原来遇到什么问题
 
-- 关联 SR/工作流 ID：
-- 当前研究问题：
-- 本文档解决的未知量：
-- 目标图表类型与最终尺寸：
-- 不在范围内：
+- 研究对象：
+- 原来的做法：
+- 出现的问题：
+- 对研究目标的影响：
 
-## 2. 输入与证据
+## 2. 问题原因分析
 
-| 输入/证据 | 版本或时间 | 来源路径 | 可用性与限制 |
+| 可能原因 | 判断依据 | 是否成立 | 影响 |
 |---|---|---|---|
-|  |  |  |  |
+|  |  | 是 / 否 / 待定 |  |
 
-## 3. 人工基线与工作契约
+## 3. 当时有哪些可能做法
 
-- 人工基线：
-- 工作契约：
-- 权限级别：
-- 人工检查点与停止条件：
+| 方案 | 好处 | 代价或风险 | 是否推荐 |
+|---|---|---|---|
+| 方案A |  |  | 推荐 / 不推荐 |
+| 方案B |  |  | 推荐 / 不推荐 |
 
-## 4. 图表契约
+推荐方案及原因：
 
-- 唯一 message：
-- 原始数据/结果证据：
-- 数据到视觉编码映射：
-- 比较基线与公平性：
-- 不确定性/误差呈现：
-- 色彩、形状、单位和可读性检查：
-- 结论边界与图注草案：
-
-### 4.1 draw.io 契约（如适用）
-
-```yaml
-drawio:
-  source_path: ""
-  archetype: ""
-  topology_and_reading_order: ""
-  layout_grid_and_routing: ""
-  semantic_glyphs: []
-  formulas_and_units: []
-  source_qa: "pass / warnings-accepted / fail / not-run"
-  preview_export: "pass / fail / blocked"
-  visual_inspection: "pass / revisions-required / not-run"
-  reviewer_risks: []
-```
-
-## 5. 方法、过程与架构
-
-### 5.1 方法/步骤
+## 4. 本阶段做了什么
 
 1.
 2.
 3.
 
-### 5.2 输入-处理-输出
+## 5. 遇到的困难和处理方式
 
-```text
-输入 -> 处理/判定 -> 输出或失败边界
-```
+| 困难 | 影响 | 处理方式 | 处理结果 |
+|---|---|---|---|
+|  |  |  | 已解决 / 部分解决 / 未解决 |
 
-### 5.3 关键假设、不变量与替代路径
+## 6. 当前结果
 
-| ID | 假设/不变量 | 证据 | 失效后的处理 |
+- 已经确认的结果：
+- 这些结果能支持的研究判断：
+- 这些结果不能支持的说法：
+- 检查方式：
+
+## 7. 本阶段没有解决的问题
+
+| 未解决问题 | 为什么没解决 | 需要什么条件 | 对下一步的影响 |
 |---|---|---|---|
 |  |  |  |  |
 
-## 6. 结果与证据
+## 8. 下一步计划
 
-| 结果 ID | 结果/观察 | 证据路径 | 状态 |
+- 下一步先做什么：
+- 为什么现在做：
+- 需要谁决定：
+- 做到什么程度算完成：
+
+## 9. 专业补充
+
+### 论文与表达补充
+
+- 目标读者：
+- 希望读者相信的一句话：
+- 原表达的问题：
+- 主要修改：
+- 图表或论文中的核心信息：
+- 读者可能误解的地方：
+- 审稿或内部检查风险：
+- 本次已解决：
+- 下一版仍需修改：
+
+### 本工作包完成要点
+
+- 交付结构：Figure brief：message / data / encoding / comparison / uncertainty / drawio topology / export QA / caption
+- 完成要求：图的 message 唯一，数据可追溯，误差和单位完整，视觉未夸大差异；draw.io 源可打开、边端点有效、布局无遮挡，公式和导出预览按环境完成或如实记录阻塞，导出可复现。
+### 核心图表补充
+
+- 这张图要证明什么：
+- 原始数据或结果来源：
+- 数据到视觉元素的映射：
+- 比较对象：
+- 不确定性呈现：
+- 图题草稿：
+- 可编辑源文件路径：
+- 导出预览检查：
+
+## 附录A：支撑材料
+
+| 材料 | 位置 | 版本或时间 | 支持哪条结论 |
 |---|---|---|---|
-|  |  |  | 建议 / 部分完成 / 阻塞 / 已接受 |
+|  |  |  |  |
 
-## 7. 结论边界
-
-- 可以得出的结论：
-- 不能得出的结论：
-- 仍需验证：
-- 潜在替代解释：
-
-## 8. 风险、偏差与人工决定
-
-| 风险/偏差 | 影响 | 缓解或补充证据 | 决策人 | 状态 |
-|---|---|---|---|---|
-|  |  |  |  |  |
-
-## 9. 交付与追踪
-
-- 产物路径（源文件 / 代码 / 导出预览）：
-- 代码/数据/配置/图表版本：
-- 需求或工作流追踪：
-- 下一步：
-- 人工判定：待定 / 接受 / 修改 / 暂停 / 拒绝
-
-## 10. 关闭记录
+## 附录B：系统记录
 
 ```yaml
 closure:
   skill: "sr-core-figures"
   artifact: "<YYYYMMDD-内容简述-成果卡.md>"
+  achievement_card: "project-relative path/YYYYMMDD-内容简述-成果卡.md"
   evidence: []
   result: ""
   conclusion: ""
   cannot_conclude: []
-  drawio_source_qa: "not-applicable"
-  drawio_preview_export: "not-applicable"
-  human_verdict: "待定"
-  next_skill: "无"
+  deviations: []
+  human_verdict: "pending|accepted|revise|pause|reject"
+  next_skill: "sr-...|none"
+  next_question: ""
 ```
-
-文件命名：`YYYYMMDD-内容简述-文档类型.扩展名`；日期使用生产日期，内容简述使用稳定短语，文档类型使用“成果卡”“实验记录”或“审查报告”等中文名称。

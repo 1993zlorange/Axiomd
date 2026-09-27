@@ -40,6 +40,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 价值—可行性表：价值 / 证据 / 成本 / 风险 / 最小验证 / 决策
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: None; use available local tools.. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate

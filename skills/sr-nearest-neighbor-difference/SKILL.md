@@ -40,6 +40,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 最近邻表：维度 / 本工作 / 邻居1～3 / 相同点 / 差异 / 验证方法
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: `nature-academic-search`, `nature-paper-card`, `k-dense/hypothesis-generation`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate

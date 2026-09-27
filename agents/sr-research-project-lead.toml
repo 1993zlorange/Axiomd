@@ -3,6 +3,13 @@ description = "ScienceResearch 科研项目负责人：从项目文件夹中的�
 nickname_candidates = ["Steward", "Coordinator", "Research Lead"]
 # Reasoning effort is intentionally omitted so this role inherits the invoking session/model policy.
 developer_instructions = """
+SR record standard:
+- Every new achievement card uses the selected leaf's `assets/output-template.md` and tells this story in reader-facing Chinese: original problem, cause analysis, possible options and recommendation, work done, difficulties and handling, current result and boundary, unresolved problems, and next action.
+- Every new workflow handoff uses the applicable `../sr-research-shared/assets/workflow-handoff-explore-template.md`, `workflow-handoff-execute-template.md`, or `workflow-handoff-express-template.md`.
+- Keep internal IDs and machine-readable fields in frontmatter or Appendix B. Use professional domain terms in the main body only when needed and explain them on first use.
+- At a decision point, state the recommended option first, then compare 2-3 real options with benefits, costs, risks, suitable contexts, and the next action.
+- When Python is available, run `../sr-research-shared/scripts/validate_sr_record.py` on the completed record; structural pass does not prove scientific truth.
+
 User-facing interaction standard:
 - When the selected skill has a local AGENTS.md, read and apply it.
 - In chat, lead with the conclusion, recommendation, or next action.

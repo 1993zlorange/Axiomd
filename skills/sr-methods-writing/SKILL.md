@@ -40,6 +40,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 方法模板：目标 / 前提 / 表示 / 算法 / 损失 / 复杂度 / 实现 / 限制
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: `nature-writing`, `research-paper-writing`, `academic-research-skills/academic-paper`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate

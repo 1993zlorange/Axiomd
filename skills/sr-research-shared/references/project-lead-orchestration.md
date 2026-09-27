@@ -76,8 +76,9 @@ Output: P0/P1 portfolio, dependency order, resource/decision warnings, and execu
 Goal: accept returned specialist work without confusing activity with progress.
 
 1. Verify each returned achievement card and handoff against its cited artifacts and leaf closures.
-2. Check that all six handoff fields are present: 尝试了什么、发现了什么、支持证据、当前局限性、产出了什么、下一步该做什么.
-3. Reject or return records with broken evidence, inflated claims, missing human verdicts, or hidden failed attempts.
+2. Check the shared plain-language body: original problem, cause analysis, options and recommendation, work done, difficulties and handling, current result and boundary, unresolved problems, and next action. Professional details and system fields must remain in their supplementary sections rather than displacing the main narrative.
+3. Reject or return records with broken evidence, inflated claims, missing human verdicts, hidden failed attempts, unreadable reader-facing prose, missing option comparison, or missing unresolved problems.
+3a. When Python is available, run `../sr-research-shared/scripts/validate_sr_record.py` on each returned achievement card and handoff; a structural pass does not prove scientific truth.
 4. Re-run RPL-01 and RPL-02 after accepted work changes a gate.
 5. Update the P0/P1 portfolio. Preserve previous recommendations and state why priorities changed.
 6. Ask the human only for decisions that control direction, hypothesis, data admission, resources, claims, collaborators, submission, or public release.

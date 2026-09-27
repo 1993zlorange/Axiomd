@@ -60,6 +60,8 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 检索协议：问题 / 词组 / 完整检索式 / 数据库 / 日期 / 命中 / 实际采集数 / 纳排 / 来源 URL / Zotero 导出文件 / 会话与人工处理记录
 
+本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+
 Recommended optional adapters: `nature-academic-search`, `nature-literature-pipeline`, `academic-research-skills/deep-research`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 
 ## Completion gate
