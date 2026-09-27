@@ -3,6 +3,8 @@ name: pr-ps-07-transfer-pilot
 description: 将其他项目的规则、Skill、模板或脚本以可追溯、可回滚的小范围试点迁入当前项目。适用于通用经验复用和项目初始化；不直接复制固定路径、领域假设或高风险自动化。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-07 迁移试点
 
 盘点来源版本、许可证、依赖、路径、网络、凭据、子进程、写入、并发和领域假设，分类为直接复用、适配复用、重设计或不迁移。路径改为当前项目相对配置；删除项目专有数据、历史结论、自动提交/推送和隐式外部动作。

@@ -35,6 +35,28 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(len(package["skills"]), 95)
         self.assertEqual(set(package["profiles"]), {"ai4programming", "ai4science", "all"})
 
+    def test_sr_pr_agents_use_adaptive_reasoning_policy(self) -> None:
+        import tomllib
+
+        agent_names = sorted(path.stem for path in (ROOT / "agents").glob("*.toml"))
+        self.assertEqual(len(agent_names), 10)
+        for path in sorted((ROOT / "agents").glob("*.toml")):
+            data = tomllib.loads(path.read_text(encoding="utf-8"))
+            self.assertNotIn(
+                "model_reasoning_effort",
+                data,
+                f"{path.name} must inherit runtime reasoning instead of fixing an effort level",
+            )
+            instructions = data["developer_instructions"]
+            for required in [
+                "Adaptive reasoning policy:",
+                "Light path:",
+                "Standard path:",
+                "Deep path:",
+                "Deep triggers for this role:",
+            ]:
+                self.assertIn(required, instructions, f"{path.name} missing {required!r}")
+
     def test_sr07_authenticated_browser_contract_is_explicit(self) -> None:
         skill = (ROOT / "skills" / "sr-search-strategy" / "SKILL.md").read_text(encoding="utf-8")
         reference = (ROOT / "skills" / "sr-research-shared" / "references" / "browser-skill-literature-search.md").read_text(encoding="utf-8")
@@ -83,23 +105,52 @@ class RepositoryTests(unittest.TestCase):
         standard_text = (skill_root / "references" / "group-meeting-ppt-standard.md").read_text(encoding="utf-8")
         for required in [
             "## Document-to-PPT bridge",
+            "## Human revision retrospective",
             "references/document-to-ppt.md",
             "references/group-meeting-ppt-standard.md",
+            "references/ppt-layout-system.md",
+            "references/logic-diagram-style.md",
+            "references/human-revision-retrospective.md",
             "assets/ppt-page-plan.md",
             "scripts/qa_group_meeting_pptx.py",
             "one complete, visible `SR58-SUMMARY` sentence on every page",
+            "one primary `cognitive_type` per page",
             "red+bold+underline",
             "body ≥18pt",
         ]:
             self.assertIn(required, skill_text)
         for required in [
             "## One-sentence summary contract",
+            "## Cognitive-object and layout gate",
+            "## Structured titles and logic diagrams",
+            "## Human revision retrospective",
             "summary_sentence:",
             "summary_shape: \"SR58-SUMMARY\"",
             "Target 20–60 Chinese characters",
             "20–22pt bold Microsoft YaHei",
         ]:
             self.assertIn(required, standard_text)
+        document_text = (skill_root / "references" / "document-to-ppt.md").read_text(encoding="utf-8")
+        for required in [
+            "group-meeting-process-review",
+            "Evidence coverage matrix",
+            "Cognitive-object extraction",
+            "Split by cognitive object before considering word count",
+            "ppt-layout-system.md",
+            "logic-diagram-style.md",
+            "human-revision-retrospective.md",
+        ]:
+            self.assertIn(required, document_text)
+        page_plan_text = (skill_root / "assets" / "ppt-page-plan.md").read_text(encoding="utf-8")
+        for required in [
+            "presentation_mode:",
+            "Evidence coverage matrix",
+            "cognitive_type:",
+            "layout_pattern:",
+            "split_check:",
+            "Human revision feedback",
+        ]:
+            self.assertIn(required, page_plan_text)
 
         summary_shape = r"""<p:sp><p:nvSpPr><p:cNvPr id="4" name="SR58-SUMMARY"/><p:cNvSpPr/><p:nvPr/></p:nvSpPr><p:spPr/><p:txBody><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr sz="2000" b="1"><a:solidFill><a:srgbClr val="0070C0"/></a:solidFill><a:latin typeface="Microsoft YaHei"/><a:ea typeface="Microsoft YaHei"/></a:rPr><a:t>本页证明结论成立。</a:t></a:r></a:p></p:txBody></p:sp>"""
         slide_prefix = r"""<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -131,33 +182,72 @@ class RepositoryTests(unittest.TestCase):
             + xml_run("红三", 1800, "FF0000")
             + xml_run("红四", 1800, "FF0000")
         )
+        pending_body = xml_run("此内容待验证", 1800, "000000")
+        valid_plan = (
+            "# Page plan\n\n## Slide 1 — Claim\n\n"
+            "kicker: \"0.1 成果\"\n"
+            "title: \"结论\"\n"
+            "cognitive_type: \"claim\"\n"
+            "layout_pattern: \"claim\"\n"
+            "summary_sentence: \"本页证明结论成立。\"\n"
+            "one_cognitive_object: true\n"
+            "needs_two_summaries: false\n"
+            "split_recommended: false\n"
+            "density_exception_reason: \"\"\n"
+        )
+        invalid_plan = (
+            "# Page plan\n\n## Slide 1 — Mixed\n\n"
+            "kicker: \"2.2 机制②\"\n"
+            "title: \"结论\"\n"
+            "cognitive_type: \"mechanism\"\n"
+            "layout_pattern: \"claim\"\n"
+            "summary_sentence: \"另一句总结。\"\n"
+            "one_cognitive_object: false\n"
+            "needs_two_summaries: true\n"
+            "split_recommended: true\n"
+            "density_exception_reason: \"\"\n"
+        )
 
         with tempfile.TemporaryDirectory(prefix="sr58-pptx-") as temporary:
             valid = Path(temporary) / "valid.pptx"
             invalid = Path(temporary) / "invalid.pptx"
             missing = Path(temporary) / "missing-summary.pptx"
-            for target, body in [(valid, valid_body), (invalid, invalid_body), (missing, valid_body)]:
+            pending = Path(temporary) / "pending.pptx"
+            good_plan = Path(temporary) / "valid-plan.md"
+            bad_plan = Path(temporary) / "invalid-plan.md"
+            good_plan.write_text(valid_plan, encoding="utf-8")
+            bad_plan.write_text(invalid_plan, encoding="utf-8")
+            for target, body in [(valid, valid_body), (invalid, invalid_body), (missing, valid_body), (pending, pending_body)]:
                 with zipfile.ZipFile(target, "w") as package:
                     theme = '<a:theme xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main"><a:themeElements><a:fontScheme name="SR58"><a:majorFont><a:latin typeface="Microsoft YaHei"/><a:ea typeface="Microsoft YaHei"/><a:cs typeface=""/></a:majorFont><a:minorFont><a:latin typeface="Microsoft YaHei"/><a:ea typeface="Microsoft YaHei"/><a:cs typeface=""/></a:minorFont></a:fontScheme></a:themeElements></a:theme>'
                     package.writestr("ppt/theme/theme1.xml", theme)
                     prefix = slide_prefix if target is not missing else slide_prefix.replace(summary_shape, "")
                     package.writestr("ppt/slides/slide1.xml", prefix + body + slide_suffix)
 
-            passed = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(valid))
+            passed = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(valid), "--page-plan", str(good_plan))
             self.assertEqual(passed.returncode, 0, passed.stdout + passed.stderr)
             self.assertIn("QA=pass", passed.stdout)
 
             self.assertIn("summary_shapes=1", passed.stdout)
 
-            failed = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(invalid))
+            failed = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(invalid), "--page-plan", str(bad_plan))
             self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
             self.assertIn("red runs exceed the limit of 3", failed.stdout)
             self.assertIn("below the 14pt minimum", failed.stdout)
             self.assertIn("non-Microsoft-YaHei font", failed.stdout)
 
-            no_summary = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(missing))
+            no_summary = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(missing), "--page-plan", str(good_plan))
             self.assertEqual(no_summary.returncode, 2, no_summary.stdout + no_summary.stderr)
             self.assertIn("requires exactly one visible SR58-SUMMARY", no_summary.stdout)
+
+            pending_result = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(pending), "--page-plan", str(good_plan))
+            self.assertEqual(pending_result.returncode, 2, pending_result.stdout + pending_result.stderr)
+            self.assertIn("should move to backup or next-plan context", pending_result.stdout)
+            self.assertIn("page plan admits multiple cognitive objects", failed.stdout)
+            self.assertIn("page needs two summaries", failed.stdout)
+            self.assertIn("split_recommended is true", failed.stdout)
+            self.assertIn("SR58-SUMMARY does not match the page plan sentence", failed.stdout)
+            self.assertIn("page_plan_records=1", passed.stdout)
 
     def test_sr07_sr08_define_zotero_batch_exports(self) -> None:
         catalog = json.loads(
@@ -179,6 +269,21 @@ class RepositoryTests(unittest.TestCase):
             self.assertIn("zotero-batch-import.md", skill_text)
             self.assertIn("bibliography_exports:", template_text)
             self.assertIn("Zotero 实机导入", template_text)
+
+    def test_pr_sr_skills_have_plain_interaction_guides(self) -> None:
+        skill_dirs = sorted(path for path in (ROOT / "skills").iterdir() if path.is_dir() and path.name.startswith(("pr-", "sr-")))
+        self.assertEqual(len(skill_dirs), 89)
+        canonical = (ROOT / "docs" / "pr-sr-interaction-standard.md").read_text(encoding="utf-8")
+        for directory in skill_dirs:
+            guide = directory / "AGENTS.md"
+            self.assertTrue(guide.is_file(), f"missing {guide}")
+            self.assertEqual(guide.read_text(encoding="utf-8"), canonical)
+            skill_text = (directory / "SKILL.md").read_text(encoding="utf-8")
+            self.assertIn("[AGENTS.md](AGENTS.md)", skill_text)
+
+        checked = run("scripts/generate_pr_sr_interaction_guides.py", "--check")
+        self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
+        self.assertIn("PASS: 89 PR/SR interaction guides", checked.stdout)
 
     def test_installer_check_and_uninstall_in_temp_home(self) -> None:
         with tempfile.TemporaryDirectory(prefix="axiom-codex-") as temporary:

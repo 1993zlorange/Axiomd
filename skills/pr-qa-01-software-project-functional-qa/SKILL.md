@@ -3,6 +3,8 @@ name: pr-qa-01-software-project-functional-qa
 description: 对通用软件项目执行独立、证据化的功能测试并输出中文测试报告。适用于功能验收、回归、发布前验证和用户路径测试；不用于实现修复或替代项目专用 QA 规则。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # 通用软件项目功能测试
 
 在项目监理已登记范围后执行。读取项目根和目标目录 `AGENTS.md`、批准需求/设计、功能登记、现有实现、测试和近期记录；没有可用基线时报告 `BLOCKED`，不得以源码或页面存在推断功能完成。

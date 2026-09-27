@@ -3,6 +3,8 @@ name: pr-ps-01-project-governance
 description: 为每个新请求、范围变化或继续任务登记逐条需求、责任、文件放置、权限、验收和监督状态。适用于任何项目相关操作开始前；不替代专业角色执行任务。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-01 项目治理
 
 先读取当前项目全部适用的 `AGENTS.md`，再读取主监理规范中的[项目监理工作流程](../pr-ps-00-project-supervision/references/20260912-项目监理工作流程-管理规范.md)、[文件命名与归属规范](../pr-ps-00-project-supervision/references/20260912-文件命名与归属-管理规范.md)和[需求日志反思机制](../pr-ps-00-project-supervision/references/20260912-需求日志反思机制-管理规范.md)。

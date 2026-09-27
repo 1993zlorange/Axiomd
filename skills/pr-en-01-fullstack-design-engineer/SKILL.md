@@ -3,6 +3,8 @@ name: pr-en-01-fullstack-design-engineer
 description: Implement approved full-stack Web work by researching relevant high-adoption product references, defining an original design direction, building and browser-verifying a distinctive accessible interactive frontend, then implementing the architecture-conformant Python backend and end-to-end tests. Use for new pages, redesigns, dashboards, workflows, forms, or full-stack features. Do not use to invent requirements, copy another site's identity, or force frontend research onto a backend-only defect.
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # Full-Stack Design Engineer
 
 Deliver a complete product surface, not a styled mockup and not a backend with a token UI. For UI-bearing work, frontend design and interaction are established first; backend implementation follows the approved interaction, data, and state contracts.

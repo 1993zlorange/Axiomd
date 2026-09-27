@@ -3,6 +3,8 @@ name: pr-rl-01-software-project-release-management
 description: 在用户明确授权后准备、校验和记录通用软件项目的受控发布。适用于版本候选、发布包、发布说明、烟测和回滚；不用于自动部署、上传或替代项目专用发布流程。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # 通用软件项目发布管理
 
 仅在用户明确要求发布、打包或准备发布候选时使用。先由项目监理登记版本范围、权限、外部副作用和发布目标；读取已批准需求/设计、变更、质量门、测试结论、迁移/配置、许可证和项目发布约定。

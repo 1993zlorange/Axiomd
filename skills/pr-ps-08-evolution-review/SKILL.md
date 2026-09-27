@@ -3,6 +3,8 @@ name: pr-ps-08-evolution-review
 description: 按项目周期汇总用户需求、问题、反思、质量、成本和 Skill 使用证据，评估是否优化、合并或淘汰规则与技能。适用于达到评估周期或重复问题阈值时；不自动修改全局能力。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-08 进化评估
 
 读取项目 `AGENTS.md` 中的评估周期和重复问题阈值，以及主监理[需求日志反思机制](../pr-ps-00-project-supervision/references/20260912-需求日志反思机制-管理规范.md)和[进化策略](../pr-ps-00-project-supervision/references/20260912-质量门禁与进化策略-管理规范.md)。

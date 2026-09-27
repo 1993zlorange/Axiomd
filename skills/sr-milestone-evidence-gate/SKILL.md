@@ -7,6 +7,8 @@ metadata:
   short-description: "SR-里程碑与证据门管理"
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 <!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
 
 # SR-里程碑与证据门管理

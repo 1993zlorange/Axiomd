@@ -3,6 +3,8 @@ name: pr-ps-06-script-tool-authoring
 description: 创建或审查项目脚本工具，并同步维护参数、输入输出、退出码、安全、幂等、测试和兼容性的中文 API 说明。适用于可重复确定性操作；不将一次性命令包装成无维护人的工具。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-06 脚本工具编写
 
 读取项目编程规范和主监理[Skill 与脚本生成规范](../pr-ps-00-project-supervision/references/20260912-技能与脚本工具生成-技术规范.md)。脚本源文件及标识符按项目语言规范命名；路径必须参数化并限定在项目边界，写入默认预览，拒绝隐式联网、凭据、提交、发布和覆盖。

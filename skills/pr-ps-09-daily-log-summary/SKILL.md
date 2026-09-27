@@ -3,6 +3,8 @@ name: pr-ps-09-daily-log-summary
 description: 读取操作者指定的本地日志目录，按文件名前缀日期汇总为可追溯的中文项目日报。Use this skill when an operator asks to create a daily report for today, one named date, a date range, or all dated project logs. 默认读取当前项目 achieve/00-项目管理/logs 下文件名以“日志”结尾的文本文件，并将日报写入 dailylogs。不要用于修改源日志、按文件修改时间猜测日期或汇总未获准读取的目录。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # 项目日志日报汇总
 
 ## 唯一职责

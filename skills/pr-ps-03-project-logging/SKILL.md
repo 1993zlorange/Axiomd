@@ -3,6 +3,8 @@ name: pr-ps-03-project-logging
 description: 在项目原子操作或运行批次结束后维护事实日志、用户可见变更和成本时间记录。适用于完成、失败、跳过和阻塞状态；不把计划、需求或推测混入事实日志。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-03 项目记账
 
 读取主监理[需求日志反思机制](../pr-ps-00-project-supervision/references/20260912-需求日志反思机制-管理规范.md)和[文件命名与归属规范](../pr-ps-00-project-supervision/references/20260912-文件命名与归属-管理规范.md)。从当前操作的任务 ID、实际变更、命令、证据和时间数据生成日志；用户可见变化同步变更记录，可观测成本同步成本时间记录。

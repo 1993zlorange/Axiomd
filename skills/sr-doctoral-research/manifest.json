@@ -543,7 +543,7 @@
       "display_name": "SR-学术报告与开源成果",
       "aspect": "paper",
       "intent": "communicate",
-      "detect": "需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成每页有一句总结性话的模板化学术/组会汇报 PPT 时",
+      "detect": "需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成结构化编号、按认知对象拆页、每页有一句总结性话的模板化学术/组会汇报 PPT 时",
       "path": "../sr-talk-open-source/SKILL.md"
     },
     {

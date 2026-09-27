@@ -7,6 +7,8 @@ metadata:
   short-description: "SR-Rebuttal与修订"
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 <!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
 
 # SR-Rebuttal与修订

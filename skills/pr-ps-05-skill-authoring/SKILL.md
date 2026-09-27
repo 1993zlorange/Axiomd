@@ -3,6 +3,8 @@ name: pr-ps-05-skill-authoring
 description: 提议、创建或演化带代号的项目级 Codex Skill，并验证职责、触发、权限、脚本、模板和生命周期。适用于重复问题已具备证据时；不把单次项目特例直接升级为通用 Skill。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-05 Skill 编写与演化
 
 读取主监理[Skill 与脚本生成规范](../pr-ps-00-project-supervision/references/20260912-技能与脚本工具生成-技术规范.md)、[进化策略](../pr-ps-00-project-supervision/references/20260912-质量门禁与进化策略-管理规范.md)及项目 `AGENTS.md`。

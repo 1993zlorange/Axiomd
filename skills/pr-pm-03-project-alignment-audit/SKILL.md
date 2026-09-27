@@ -3,6 +3,8 @@ name: pr-pm-03-project-alignment-audit
 description: Audit an existing software, data, or research project for drift from its approved requirements, architecture, and design using repository, test, runtime, and project-log evidence. Use when a project manager must determine whether implementation or current work has deviated, distinguish implementation drift from stale specifications or unapproved scope, and produce a prioritized correction plan. Do not use as authorization to implement the corrections.
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # Project Alignment Audit
 
 For a retained audit document, start from [assets/output-template.md](assets/output-template.md) and name it `YYYYMMDD-内容简述-对齐审计.md`.

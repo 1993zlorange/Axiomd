@@ -3,6 +3,8 @@ name: pr-ps-02-quality-gate
 description: 对项目代码、文档、数据、实验、迁移或发布变更执行风险匹配的分层质量门禁并保留证据。适用于修改前基线、实现后验证和交付前复核；不把未执行检查写成通过。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-02 质量门禁
 
 读取项目质量命令和主监理[质量门禁规范](../pr-ps-00-project-supervision/references/20260912-质量门禁与进化策略-管理规范.md)。按风险执行 L1 静态、L2 单元/契约、L3 集成、L4 用户路径、L5 交付/发布；项目不存在的层级标为“不适用”，不能虚构。

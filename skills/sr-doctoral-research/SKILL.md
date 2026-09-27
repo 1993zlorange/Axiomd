@@ -5,6 +5,8 @@ metadata:
   short-description: Route doctoral work to one evidence-led SR skill
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # SR Doctoral Research Router
 
 如需保存路由记录，使用本目录的 [中文空白模板](assets/output-template.md)，文件名遵循 `YYYYMMDD-内容简述-路由记录.md`。

@@ -7,6 +7,8 @@ metadata:
   short-description: "SR-现有方案差距分析"
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 <!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
 
 # SR-现有方案差距分析

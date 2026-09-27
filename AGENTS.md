@@ -12,3 +12,7 @@ Before changing agents or skills:
 6. Write every commit message as a Chinese `类型: 说明` summary (for example `修复: ...`); complex changes add a body listing the change reason, affected profiles/assets, and verification commands with actual results.
 
 The installer is safety-critical. Preserve path validation, staged activation, backups, verification, and uninstall behavior.
+
+## PR/SR interaction guides
+
+The PR/SR skill-local `AGENTS.md` files are generated from `docs/pr-sr-interaction-standard.md`. To update them, edit that canonical file, run `python scripts/generate_pr_sr_interaction_guides.py`, then run `python scripts/generate_pr_sr_interaction_guides.py --check`. Do not edit individual generated copies directly.

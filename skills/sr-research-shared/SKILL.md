@@ -5,6 +5,8 @@ metadata:
   short-description: Shared contracts for the SR research skill family
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # SR Research Shared References
 
 如需保存共享契约加载记录，使用本目录的 [中文空白模板](assets/output-template.md)；本包仍不可作为独立科研工作流调用。

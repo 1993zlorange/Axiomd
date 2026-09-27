@@ -58,7 +58,11 @@ source_contract: "<工作契约或证据路径>"
 
 - 页计划路径：
 - 源文档到页的映射：
+- 证据覆盖矩阵：
+- 每页认知对象 / layout_pattern / kicker：
 - 模板版式检查：
+- 逻辑图节点、分支、人工门与回跳：
+- 人工修改复盘记录：
 - 三条关键 message：
 - Demo/复现入口与环境：
 - 讲稿与备注路径：
@@ -72,6 +76,8 @@ ppt_style:
   title_bold: true
   summary_shape: "SR58-SUMMARY"
   summary_font_pt: "20-22 preferred; >=18 hard minimum"
+  cognitive_object_rule: "one primary object per page"
+  layout_system: "12x6 grid; split by cognitive object before word count"
   summary_per_page: "exactly one"
   body_min_pt: 18
   figure_table_label_min_pt: 14
@@ -85,8 +91,8 @@ ppt_style:
 
 ### 5.2 逐页输出（摘要）
 
-| 页 | 结论式页题 | SR58-SUMMARY 一句总结 | [级别] 要点与颜色样式 | 视觉/表格 | 删减/降级及理由 | 红色数 |
-|---|---|---|---|---|---|---|
+| 页 | kicker | 结论式页题 | 认知对象 / 版式 | SR58-SUMMARY 一句总结 | [级别] 要点与颜色样式 | 视觉/表格 | 拆页检查 | 删减/降级及理由 | 红色数 |
+|---|---|---|---|---|---|---|---|---|---|
 |  |  |  |  |  |  |
 
 ## 6. 结果与证据

@@ -5,6 +5,8 @@ metadata:
   short-description: Turn verified SR outputs into a weekly group-meeting report
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # SR Weekly Meeting
 
 Read [../sr-research-shared/references/weekly-loop.md](../sr-research-shared/references/weekly-loop.md) and the weekly template in `idea/科研工作分解与每周组会汇报模板_20260828.md`.

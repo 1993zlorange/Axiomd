@@ -3,6 +3,8 @@ name: pr-pm-01-project-manager-socratic-discovery
 description: Conduct evidence-backed, interactive Socratic requirements discovery before a project manager writes or revises a PRD/SRS, defines scope, plans delivery, or hands work to architecture or engineering. Use for new or changed requirements, vague ideas, solution-first requests, scope expansion, conflicting stakeholder goals, or when the user asks to be challenged. Do not use for a simple factual status report or a fully approved, unambiguous execution request whose requirements are unchanged.
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # Project Manager Socratic Discovery
 
 For a retained Requirements Understanding Contract, start from [assets/requirements-understanding-contract-template.md](assets/requirements-understanding-contract-template.md) and name it `YYYYMMDD-内容简述-需求理解契约.md`.

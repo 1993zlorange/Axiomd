@@ -62,6 +62,31 @@ Adapt this order to the template and audience. Every listed page, including cove
 
 Avoid consecutive same-layout, same-density pages. Change layout or split content to create a memory point on the most important page.
 
+## Cognitive-object and layout gate
+
+Before choosing a layout, assign exactly one primary `cognitive_type` and one `layout_pattern`. Read [ppt-layout-system.md](ppt-layout-system.md). Split a page when it contains multiple cognitive objects, needs two summaries, has more than 12 diagram nodes or three branches, or mixes any of these:
+
+- role mapping and chronological flow;
+- abstract mechanism and concrete screenshot;
+- result and reflection;
+- verified output and unverified plan;
+- architecture and process history.
+
+Word count is a secondary signal: normal is `<220` visible characters, watch is `220–320`, and blocking is `>320` unless the page plan records a reviewed exception.
+
+## Structured titles and logic diagrams
+
+Use a separate kicker for numbering and a claim title for the conclusion:
+
+```text
+kicker: 2.2 机制②
+title: 角色制衡避免单模型自我强化
+```
+
+Number by narrative section and cognitive object, not merely page order. Continuation pages share the main kicker and name their subobject. Do not reuse a generic title across unrelated cases.
+
+Before drawing a flowchart, mechanism map, architecture, or case loop, read [logic-diagram-style.md](logic-diagram-style.md). Nodes use 4–10 character phrases; human gates and rework loops are explicit; color and dash patterns carry fixed meaning.
+
 ## Typography
 
 - Use Microsoft YaHei for Latin and East Asian text; write explicit run fonts rather than relying on a theme that may not travel.
@@ -118,19 +143,34 @@ Before building the deck, produce a page plan. For every slide record the optimi
 ```yaml
 slide:
   no: 1
-  template_layout: ""
+  kicker: "2.2 机制②"
   title: "完成了 XX ｜ 用 XX 方法 ｜ 实现了 XX"
+  cognitive_type: "claim | context | artifact | mechanism | role | process | architecture | case | metric | risk | reflection | decision | backup"
+  layout_pattern: "claim | evidence-screenshot | mechanism-map | process-flow | architecture | case | reflection"
   summary_sentence: "在<条件>下，<对象/方法>实现<结果>，支持<结论边界>。"
   summary_style: "blue-bold | red-bold-underline"
   summary_shape: "SR58-SUMMARY"
   purpose: ""
   evidence: []
+  layout:
+    text_area_ratio: 0.45
+    visual_area_ratio: 0.55
+  visual:
+    type: "none | screenshot | logic-diagram | table | chart"
+    nodes: 0
+    branches: 0
+    gates: []
+    loops: []
   bullets:
     - text: ""
       level: "critical | important | normal | de-emphasized"
       style: "红色+加粗+下划线 | 蓝色+加粗 | 黑色关键词可加粗 | 黑色常规"
-  visual: ""
   repeated_module_difference: ""
+  split_check:
+    one_cognitive_object: true
+    needs_two_summaries: false
+    split_recommended: false
+    density_exception_reason: ""
   deletion:
     - text: ""
       action: "delete | demote | speaker-notes"
@@ -138,7 +178,11 @@ slide:
   red_count: 0
 ```
 
-The build is blocked until every page has a conclusion-style title, exactly one evidence-bounded summary sentence, evidence mapping, level/style tags, visual decision, deletion/demotion list, and red-count check.
+The build is blocked until every page has a kicker and conclusion title, one primary cognitive type, a matching layout pattern, exactly one evidence-bounded summary sentence, evidence mapping, level/style tags, visual decision, split check, deletion/demotion list, and red-count check.
+
+## Human revision retrospective
+
+When the user supplies both an AI draft and a human revision, read [human-revision-retrospective.md](human-revision-retrospective.md). Compare page mapping, layout, title numbering, text, color, diagram style, evidence order, and cognitive-object splitting. Record one-off preferences separately from candidate/stable rules; do not copy private content into this repository.
 
 ## QA and handoff
 

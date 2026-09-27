@@ -150,6 +150,8 @@ def validate_agents(errors: list[str], profiles: dict[str, dict], manifest: dict
                 if skill not in profiles[profile_name].get("skills", []):
                     fail(errors, f"{profile_name} includes {path.stem} but omits configured skill {skill}")
         instructions = str(data.get("developer_instructions", ""))
+        if "User-facing interaction standard:" not in instructions:
+            fail(errors, f"{path.name} missing user-facing interaction standard")
         for skill in known_skills:
             if re.search(r"(?<![A-Za-z0-9_-])" + re.escape(skill) + r"(?![A-Za-z0-9_-])", instructions):
                 if skill not in known_skills:
@@ -184,6 +186,18 @@ def validate_skills(errors: list[str], profiles: dict[str, dict], manifest: dict
             fail(errors, f"{directory.name}/SKILL.md name mismatch: {name_match.group(1)}")
         if not re.search(r"^description:\s*\S", frontmatter, re.MULTILINE):
             fail(errors, f"{directory.name}/SKILL.md missing description")
+        if directory.name.startswith(("pr-", "sr-")):
+            agents_guide = directory / "AGENTS.md"
+            try:
+                guide_text = agents_guide.read_text(encoding="utf-8")
+            except (OSError, UnicodeDecodeError) as exc:
+                fail(errors, f"cannot read {agents_guide.relative_to(ROOT)}: {exc}")
+            else:
+                for required in ["## 决策点表达", "## 语言和编码", "推荐：", "代价或风险", "不使用未解释的缩写"]:
+                    if required not in guide_text:
+                        fail(errors, f"{directory.name}/AGENTS.md missing required text: {required}")
+            if "[AGENTS.md](AGENTS.md)" not in text:
+                fail(errors, f"{directory.name}/SKILL.md must reference its local AGENTS.md")
         record = manifest.get("skills", {}).get(directory.name, {})
         if record.get("hash") != tree_hash(directory):
             fail(errors, f"manifest hash mismatch for skill {directory.name}")

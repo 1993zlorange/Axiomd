@@ -3,6 +3,8 @@ name: pr-ps-00-project-supervision
 description: 在软件、数据或科研项目的每次项目相关操作前后执行独立治理监控，登记用户需求与问题、检查文件命名和归属、维护项目日志与反思、实施质量门禁，并管理新技能和脚本工具的生成与演化。适用于项目启动、规划、设计、开发、测试、文档、数据、实验、发布和维护；不替代专业执行角色，也不自行批准高风险操作。
 ---
 
+Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+
 # PS-00 项目监理
 
 项目监理是贯穿项目全生命周期的治理入口。它在专业 Agent 执行前建立监督记录，在执行中检查范围、路径和证据，在执行后完成日志、问题、反思和质量闭环。监理不得冒充项目经理、架构师、工程师、测试员、研究者或用户作专业结论。
