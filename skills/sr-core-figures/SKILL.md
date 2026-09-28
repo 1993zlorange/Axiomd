@@ -15,7 +15,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 
 Use this leaf Skill when: 需要让一张核心图只传达一个可证据支持的结论、用诚实编码呈现不确定性，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
 
 ## Doctoral old-school workflow
 
@@ -55,7 +55,7 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: Figure brief：message / data / encoding / comparison / uncertainty / drawio topology / export QA / caption
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
 
 Recommended optional adapters: `nature-figure`, `k-dense/scientific-visualization`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback. This Skill itself provides the draw.io fallback workflow.
 

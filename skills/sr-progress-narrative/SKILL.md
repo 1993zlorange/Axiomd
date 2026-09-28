@@ -52,6 +52,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 
 1. [references/rules.md](references/rules.md)
 2. [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md)
+3. [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md)
 
 若项目有本地 `AGENTS.md` 或成果目录规则，先读取并遵守其只读边界。
 

@@ -296,6 +296,25 @@ class RepositoryTests(unittest.TestCase):
             aspects,
             {"problem", "literature", "idea", "method", "experiment", "analysis", "paper", "progress"},
         )
+        standard = (ROOT / "skills" / "sr-research-shared" / "references" / "body-writing-standard.md").read_text(encoding="utf-8")
+        for required in [
+            "Status: approved",
+            "## 1. 读者与语域",
+            "## 2. 动词白话",
+            "## 3. 内容边界",
+            "## 4. 结构",
+            "## 5. 自成一体",
+            "## 6. 数字双写",
+            "## 7. 代码式记号",
+            "## 8. 句子与括号",
+            "## 9. 空与缺",
+            "## 10. 安全网",
+        ]:
+            self.assertIn(required, standard)
+        contract = (ROOT / "skills" / "sr-research-shared" / "references" / "research-contract.md").read_text(encoding="utf-8")
+        self.assertIn("body-writing-standard.md", contract)
+        self.assertIn("Dual-write numbers", contract)
+
         for item in items:
             template = ROOT / "skills" / item["name"] / "assets" / "output-template.md"
             text = template.read_text(encoding="utf-8")
@@ -312,6 +331,7 @@ class RepositoryTests(unittest.TestCase):
                 "## 9. 专业补充",
                 "## 附录A：支撑材料",
                 "## 附录B：系统记录",
+                "## 附录C：原文保留区",
                 f'sr_id: "{item["id"]}"',
             ]:
                 self.assertIn(required, text, f"{item['name']} missing {required!r}")
@@ -343,19 +363,29 @@ class RepositoryTests(unittest.TestCase):
         base = (ROOT / "skills" / "sr-research-shared" / "assets" / "achievement-card-template.md").read_text(encoding="utf-8")
         valid = base
         replacements = {
-            "<这一阶段解决了什么问题，做到什么程度，还有什么没解决。>": "文献筛选已完成，核心文献从70篇收敛到10篇，全文复筛仍未完成。",
+            "<这一阶段解决了什么问题，做到什么程度，还有什么没解决。>": "文献筛选已完成，核心文献从70篇收敛到10篇（台账原记：70→10），全文复筛仍未完成。",
             "|  |  | 是 / 否 / 待定 |  |": "| 检索词过宽 | 初筛发现大量无关主题 | 是 | 需要补充排除标准 |",
             "| 方案A |  |  | 推荐 / 不推荐 |": "| 只按标题筛 | 速度快 | 可能漏掉相关论文 | 推荐 |",
             "| 方案B |  |  | 推荐 / 不推荐 |": "| 直接全文复筛 | 判断更准 | 阅读时间约8小时 | 不推荐 |",
             "推荐方案及原因：": "推荐方案及原因：先按标题摘要筛，因为当前文献量较大且主题边界清楚。",
             "|  |  |  | 已解决 / 部分解决 / 未解决 |": "| 检索结果重复 | 影响计数 | 按 DOI 和题名去重 | 已解决 |",
             "|  |  |  |  |": "| 全文获取受限 | 部分论文无法下载 | 需要馆际互借 | 影响复筛 |",
-            "- 下一步先做什么：": "- 下一步先做什么：补齐10篇核心文献全文。",
+            "- 下一步先做什么：": "- 下一步先做什么：补齐核心文献全文（台账原记：10篇）。",
             "- 做到什么程度算完成：": "- 做到什么程度算完成：每篇都有保留或排除理由。",
-            "<按本工作包所属研究阶段和专业需要填写，不作为领导阅读的主文。>": "### 文献调研补充\n- 数据库：Web of Science\n",
+            "<按本工作包所属研究阶段和专业需要填写，不作为领导阅读的主文。>": "### 文献调研补充\n- 数据库：Web of Science（学术文献库）\n",
         }
         for old, new in replacements.items():
             valid = valid.replace(old, new, 1)
+        valid = valid.replace("|  |  |  |  |", "| 检索台账 | 本目录检索记录 | 2026-09-28 | 支持筛选数量 |", 1)
+        valid = valid.replace('skill: "<技能名>"', 'skill: "sr-literature-screening"')
+        valid = valid.replace('artifact: "<YYYYMMDD-内容简述-成果卡.md>"', 'artifact: "20260928-核心文献筛选-成果卡.md"', 1)
+        valid = valid.replace('achievement_card: "project-relative path/YYYYMMDD-内容简述-成果卡.md"', 'achievement_card: "project/20260928-核心文献筛选-成果卡.md"', 1)
+        valid = valid.replace("evidence: []", 'evidence: ["project/search-log.json"]', 1)
+        valid = valid.replace('result: ""', 'result: "70 candidates narrowed to 10 core papers."', 1)
+        valid = valid.replace('conclusion: ""', 'conclusion: "Screening is complete; full-text review remains open."', 1)
+        valid = valid.replace('human_verdict: "pending|accepted|revise|pause|reject"', 'human_verdict: "pending"', 1)
+        valid = valid.replace('next_skill: "sr-...|none"', 'next_skill: "sr-paper-evidence-card"', 1)
+        valid = valid.replace('next_question: ""', 'next_question: "Who confirms the final full-text set?"', 1)
         bad = valid.replace("## 7. 本阶段没有解决的问题", "## 7. 遗留内容", 1)
         bad = bad.replace("只按标题筛", "冻结后只按标题筛", 1)
 
@@ -373,7 +403,7 @@ class RepositoryTests(unittest.TestCase):
             failed = run(str(validator), str(bad_path))
             self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
             self.assertIn("missing section: ## 7. 本阶段没有解决的问题", failed.stdout)
-            self.assertIn("internal management term", failed.stdout)
+            self.assertIn("bureaucratic wording", failed.stdout)
 
     def test_sr_progress_narrative_is_project_lead_auxiliary(self) -> None:
         skill_root = ROOT / "skills" / "sr-progress-narrative"

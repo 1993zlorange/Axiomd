@@ -99,12 +99,13 @@ def write_shared_templates() -> None:
     SHARED_ASSETS.mkdir(parents=True, exist_ok=True)
     (SHARED_ASSETS / "achievement-card-template.md").write_text(card, encoding="utf-8", newline="\n")
     (SHARED_ASSETS / "workflow-handoff-template.md").write_text(handoff, encoding="utf-8", newline="\n")
-    placeholder = "<按探索、执行或表达阶段填写。>\n"
+    placeholder = "本交接按探索 / 执行 / 表达阶段补充；详细字段见本节后方的阶段补充。\n"
     for stage in ("explore", "execute", "express"):
         supplement = read(TEMPLATE_DIR / "handoffs" / f"{stage}.md")
         if placeholder not in handoff:
             raise ValueError("handoff base missing stage placeholder")
-        text = handoff.replace(placeholder, supplement, 1)
+        stage_pointer = "本交接按探索 / 执行 / 表达阶段补充；详细字段见本节后方的阶段补充。\n\n"
+        text = handoff.replace(placeholder, stage_pointer + supplement, 1)
         (SHARED_ASSETS / f"workflow-handoff-{stage}-template.md").write_text(
             text, encoding="utf-8", newline="\n"
         )
@@ -152,11 +153,12 @@ def check_templates() -> int:
         if not target.is_file() or target.read_text(encoding="utf-8") != read(source):
             failures.append(f"outdated {target.relative_to(ROOT)}")
     handoff_base = read(TEMPLATE_DIR / "workflow-handoff-base.md")
-    placeholder = "<按探索、执行或表达阶段填写。>\n"
+    placeholder = "本交接按探索 / 执行 / 表达阶段补充；详细字段见本节后方的阶段补充。\n"
     for stage in ("explore", "execute", "express"):
         target = SHARED_ASSETS / f"workflow-handoff-{stage}-template.md"
+        stage_pointer = "本交接按探索 / 执行 / 表达阶段补充；详细字段见本节后方的阶段补充。\n\n"
         expected = handoff_base.replace(
-            placeholder, read(TEMPLATE_DIR / "handoffs" / f"{stage}.md"), 1
+            placeholder, stage_pointer + read(TEMPLATE_DIR / "handoffs" / f"{stage}.md"), 1
         )
         if not target.is_file() or target.read_text(encoding="utf-8") != expected:
             failures.append(f"outdated {target.relative_to(ROOT)}")

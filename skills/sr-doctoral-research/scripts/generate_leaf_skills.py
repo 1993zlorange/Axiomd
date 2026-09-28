@@ -103,7 +103,7 @@ Use this leaf Skill when: {item['use_when']}
 
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
 
 ## Doctoral old-school workflow
 
@@ -125,7 +125,7 @@ Pause at that intervention point with options, evidence, uncertainty, and a reco
 
 Use this template: {item['template']}
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
 
 Recommended optional adapters: {adapter_text}. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using an adapter. Missing adapters are not a blocker; disclose the manual or local fallback.
 

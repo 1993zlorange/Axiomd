@@ -2,7 +2,7 @@
 
 Version: 2026-09-10 revision 2
 
-This contract defines the twelve specialist workflows, per-SR achievement cards, workflow handoffs, and upstream read dependencies. It replaces the former aggregate-card rule.
+This contract defines the twelve specialist workflows, per-SR achievement cards, workflow handoffs, and upstream read dependencies. It replaces the former aggregate-card rule. Every reader-facing card and handoff must also follow [body-writing-standard.md](body-writing-standard.md).
 
 ## Non-negotiable artifact rules
 
@@ -13,7 +13,7 @@ This contract defines the twelve specialist workflows, per-SR achievement cards,
 5. Put each card directly in its SR aspect folder. Supporting code, data, figures, and logs may remain in governed subfolders and must be linked from the card.
 6. A workflow handoff is separate from leaf cards. Put it in the workflow's designated subfolder and name it `YYYYMMDD-HHmmss-<工作简要>.md`.
 7. Create a handoff whenever control moves to another workflow/agent, the workflow pauses or is blocked, or the workflow closes. Multiple chronological handoffs are expected.
-8. A handoff must list every produced/updated SR card and use the plain-language body: 原来遇到什么问题、问题原因分析、当时有哪些可能做法、本阶段做了什么、遇到的困难和处理方式、当前结果、本阶段没有解决的问题、下一步计划.
+8. A handoff must list every produced/updated SR card and use the approved body-writing standard: 原来遇到什么问题、问题原因分析、当时有哪些可能做法、本阶段做了什么、遇到的困难和处理方式、当前结果、本阶段没有解决的问题、下一步计划.
 9. Do not infer card acceptance from a filename. Use the card's status, evidence links, leaf closure, and named human verdict.
 10. Legacy files named with `SR-NN_` or other patterns are evidence candidates, not compliant cards. Link them when reconstructing a new card; do not rename or overwrite them silently.
 
@@ -205,7 +205,8 @@ The reader-facing body must answer, in order:
 7. 本阶段没有解决的问题；
 8. 下一步计划。
 
-Professional details remain under “专业补充”. Supporting material goes to Appendix A. The machine-readable record goes to Appendix B, not the main narrative.
+Professional details remain under “专业补充”. Supporting material goes to Appendix A. The machine-readable record goes to Appendix B, not the main narrative. Frontmatter and Appendix B must stay synchronized. When a legacy record is rewritten, preserve the original text in full in §9 or Appendix C.
+
 
 A blocked or rejected leaf still receives a truthful card when its attempts and evidence matter.
 

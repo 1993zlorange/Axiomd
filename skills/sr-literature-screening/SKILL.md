@@ -15,7 +15,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 
 Use this leaf Skill when: 检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把人工确认纳入的文献批量导入 Zotero 时
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
 
 ## Doctoral old-school workflow
 
@@ -48,7 +48,7 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: PRISMA 台账：记录 ID / 阶段 / 决定 / 理由 / 复核人 / 日期 / Zotero 导出状态
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
 
 Recommended optional adapters: `nature-literature-pipeline`, `nature-academic-search`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 

@@ -15,7 +15,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 
 Use this leaf Skill when: 需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
 
 ## Doctoral old-school workflow
 
@@ -60,7 +60,7 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: 检索协议：问题 / 词组 / 完整检索式 / 数据库 / 日期 / 命中 / 实际采集数 / 纳排 / 来源 URL / Zotero 导出文件 / 会话与人工处理记录
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
 
 Recommended optional adapters: `nature-academic-search`, `nature-literature-pipeline`, `academic-research-skills/deep-research`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 

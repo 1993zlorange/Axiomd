@@ -15,7 +15,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 
 Use this leaf Skill when: 需要按问题、表示、模型、训练、评价或应用层定位创新空间时
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
 
 ## Doctoral old-school workflow
 
@@ -40,7 +40,7 @@ Use [assets/output-template.md](assets/output-template.md) as the blank document
 
 Use this template: Novelty 矩阵：创新层 / 已有工作 / 密度 / 空白 / 可检验差异 / 风险
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的通俗记录骨架；上面的一行结构只提示专业交付物。
+本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
 
 Recommended optional adapters: `nature-academic-search`, `k-dense/hypothesis-generation`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
 

@@ -14,6 +14,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 Use this package only as a dependency of another SR Skill.
 
 - Load [references/research-contract.md](references/research-contract.md) at the start and close of a leaf workflow.
+- Load [references/body-writing-standard.md](references/body-writing-standard.md) before drafting or rewriting any achievement card or workflow handoff.
 - Load [references/human-ai-collaboration.md](references/human-ai-collaboration.md) when authority, permission, scientific judgment, ethics, privacy, resources, submission, or release matters.
 - Load [references/weekly-loop.md](references/weekly-loop.md) for weekly planning, acceptance, and group-meeting preparation.
 - Load [references/four-agent-workflows.md](references/four-agent-workflows.md) for four-agent ownership, twelve numbered workflows, achievement-card rules, and structured handoffs.
