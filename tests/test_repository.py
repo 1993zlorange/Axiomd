@@ -32,7 +32,7 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(package["name"], plugin["name"])
         self.assertEqual(package["version"], plugin["version"])
         self.assertEqual(len(package["agents"]), 10)
-        self.assertEqual(len(package["skills"]), 95)
+        self.assertEqual(len(package["skills"]), 96)
         self.assertEqual(set(package["profiles"]), {"ai4programming", "ai4science", "all"})
 
     def test_sr_pr_agents_use_adaptive_reasoning_policy(self) -> None:
@@ -272,7 +272,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_pr_sr_skills_have_plain_interaction_guides(self) -> None:
         skill_dirs = sorted(path for path in (ROOT / "skills").iterdir() if path.is_dir() and path.name.startswith(("pr-", "sr-")))
-        self.assertEqual(len(skill_dirs), 89)
+        self.assertEqual(len(skill_dirs), 90)
         canonical = (ROOT / "docs" / "pr-sr-interaction-standard.md").read_text(encoding="utf-8")
         for directory in skill_dirs:
             guide = directory / "AGENTS.md"
@@ -283,7 +283,7 @@ class RepositoryTests(unittest.TestCase):
 
         checked = run("scripts/generate_pr_sr_interaction_guides.py", "--check")
         self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
-        self.assertIn("PASS: 89 PR/SR interaction guides", checked.stdout)
+        self.assertIn("PASS: 90 PR/SR interaction guides", checked.stdout)
 
     def test_sr_record_templates_and_plain_language_validation(self) -> None:
         catalog = json.loads(
@@ -374,6 +374,54 @@ class RepositoryTests(unittest.TestCase):
             self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
             self.assertIn("missing section: ## 7. 本阶段没有解决的问题", failed.stdout)
             self.assertIn("internal management term", failed.stdout)
+
+    def test_sr_progress_narrative_is_project_lead_auxiliary(self) -> None:
+        skill_root = ROOT / "skills" / "sr-progress-narrative"
+        skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
+        rules_text = (skill_root / "references" / "rules.md").read_text(encoding="utf-8")
+        template_text = (skill_root / "assets" / "output-template.md").read_text(encoding="utf-8")
+        for required in [
+            "唯一责任",
+            "not-sr-work-package: true",
+            "不新增科学论断",
+            "references/rules.md",
+            "assets/output-template.md",
+        ]:
+            self.assertIn(required, skill_text)
+        for required in [
+            "双数据源分级",
+            "双带时间线",
+            "逐时间点结论",
+            "白话口径",
+            "诚实边界不弱化",
+            "渲染和内容验证",
+        ]:
+            self.assertIn(required, rules_text)
+        for required in [
+            "时间线与结论清单",
+            "名词速查",
+            "事实与推断分级",
+            "渲染与内容检查",
+        ]:
+            self.assertIn(required, template_text)
+
+        agent_text = (ROOT / "agents" / "sr-research-project-lead.toml").read_text(encoding="utf-8")
+        self.assertIn('path = "../skills/sr-progress-narrative"', agent_text)
+        self.assertIn("横向辅助展示 Skill", agent_text)
+        self.assertIn("不得用它新增科学论断", agent_text)
+        other_agents = [
+            "sr-principal-investigator.toml",
+            "sr-method-builder.toml",
+            "sr-experimenter.toml",
+            "sr-critical-reviewer.toml",
+        ]
+        for name in other_agents:
+            text = (ROOT / "agents" / name).read_text(encoding="utf-8")
+            self.assertNotIn('path = "../skills/sr-progress-narrative"', text)
+
+        for profile_name in ("ai4science", "all"):
+            profile = json.loads((ROOT / "profiles" / f"{profile_name}.json").read_text(encoding="utf-8"))
+            self.assertIn("sr-progress-narrative", profile["skills"])
 
     def test_installer_check_and_uninstall_in_temp_home(self) -> None:
         with tempfile.TemporaryDirectory(prefix="axiom-codex-") as temporary:

@@ -16,3 +16,7 @@ __pycache__/
 .axiom-backups/
 /output/
 /tmp/
+
+# Local transfer evidence (not redistributable)
+/sr-skill-transfer-20260928/
+/sr-skill-transfer-20260928.zip

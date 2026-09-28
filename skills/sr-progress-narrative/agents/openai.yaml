@@ -1,0 +1,7 @@
+interface:
+  display_name: "科研进展叙事化"
+  short_description: "把成果记录转成导师能读懂的时间线、结论和科研经历"
+  default_prompt: "Use $sr-progress-narrative to read my verified achievement records and create a plain-language research progress timeline with point-by-point conclusions, honest boundaries, and rendering QA."
+
+policy:
+  allow_implicit_invocation: false

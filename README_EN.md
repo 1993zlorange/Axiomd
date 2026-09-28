@@ -10,7 +10,7 @@
 
 ## Purpose
 
-Axiom packages the 10 agent definitions and 95 skills required by the AI4PROGRAMMING and AI4SCIENCE global Codex workflows into a publishable, verifiable, and reversible repository. It does not create business projects; it gives a new Codex user the same governance, delivery, research-evidence, and independent-review capabilities.
+Axiom packages the 10 agent definitions and 96 skills required by the AI4PROGRAMMING and AI4SCIENCE global Codex workflows into a publishable, verifiable, and reversible repository. It does not create business projects; it gives a new Codex user the same governance, delivery, research-evidence, and independent-review capabilities.
 
 You can install it with one command, choose the `ai4programming`, `ai4science`, or `all` profile, and use the same flow on Windows, macOS, and Linux. The installer verifies hashes, stages changes, rolls back on failure, keeps timestamped backups, and touches only assets declared by this repository.
 
@@ -40,8 +40,8 @@ The installer writes to `~/.codex/agents/`, `~/.codex/skills/`, and `~/.codex/.a
 | Profile | Agents | Core skills | Optional skills | Use case |
 | --- | ---: | ---: | ---: | --- |
 | `ai4programming` | 5 | 18 | 6 | Governed software delivery |
-| `ai4science` | 6 | 79 | 1 | Governed research workflow |
-| `all` (default) | 10 | 95 | 0 | Complete bundle |
+| `ai4science` | 6 | 80 | 1 | Governed research workflow |
+| `all` (default) | 10 | 96 | 0 | Complete bundle |
 
 ```bash
 python scripts/install.py --profile ai4programming

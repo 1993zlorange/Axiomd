@@ -14,13 +14,13 @@
     "ai4science": {
       "description": "AI4SCIENCE supervisor plus five evidence-led research agents and their configured SR skill families.",
       "agents": 6,
-      "skills": 79,
+      "skills": 80,
       "optional_skills": 1
     },
     "all": {
       "description": "Complete AI4PROGRAMMING + AI4SCIENCE bundle, including conditional ScienceResearch compatibility and convenience routers.",
       "agents": 10,
-      "skills": 95,
+      "skills": 96,
       "optional_skills": 0
     }
   },
@@ -99,8 +99,8 @@
       ]
     },
     "sr-research-project-lead": {
-      "description": "ScienceResearch 科研项目负责人：从项目文件夹中的工作包成效卡、交接书和原始证据判断研究阶段，形成 P0/P1 建议，并在明确授权后编排四个专业科研 Agent。",
-      "hash": "88a529fe96605bd75a8d4ec5a224922bcecc5129b79fcb744632173f6ec0d567",
+      "description": "ScienceResearch 科研项目负责人：从项目文件夹中的工作包成效卡、交接书和原始证据判断研究阶段，形成 P0/P1 建议，在明确授权后编排四个专业科研 Agent，并可将已核验记录整理成导师可读的科研进展叙事。",
+      "hash": "a9d9f6ef1debf5195294588c2ef9cc6c2fbd0cdaca098a976e5a7a73f7093922",
       "profiles": [
         "ai4science",
         "all"
@@ -757,6 +757,15 @@
     "sr-problem-formalization": {
       "description": "SR-问题形式化：自然语言问题需要转成变量、映射、目标、约束与可测指标时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
       "hash": "1c265230ab0ec3aedddad98466bc46d70746012df83ae4fb86c77f2071b5f3b6",
+      "profiles": [
+        "ai4science",
+        "all"
+      ],
+      "optional_profiles": []
+    },
+    "sr-progress-narrative": {
+      "description": "科研进展叙事化：把已验收的成果卡、交接记录和历史科研材料只读整理成导师能一遍读懂的研究时间线、逐点结论和通俗科研经历展示。Use only as a research-project-lead presentation aid; it must not create new scientific claims or replace source records.",
+      "hash": "e2da8298a348b7bb9cf712bbcbbfaf78c6e18e16cf87e81a79929ae3e380cd05",
       "profiles": [
         "ai4science",
         "all"

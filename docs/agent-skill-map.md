@@ -200,11 +200,12 @@ ScienceResearch 首席研究员：负责研究问题与范围、阶段门控、�
 
 ## `sr-research-project-lead`
 
-ScienceResearch 科研项目负责人：从项目文件夹中的工作包成效卡、交接书和原始证据判断研究阶段，形成 P0/P1 建议，并在明确授权后编排四个专业科研 Agent。
+ScienceResearch 科研项目负责人：从项目文件夹中的工作包成效卡、交接书和原始证据判断研究阶段，形成 P0/P1 建议，在明确授权后编排四个专业科研 Agent，并可将已核验记录整理成导师可读的科研进展叙事。
 
 **Configured skills**
 
 - `sr-research-shared`
+- `sr-progress-narrative`
 
 **Referenced in instructions**
 
