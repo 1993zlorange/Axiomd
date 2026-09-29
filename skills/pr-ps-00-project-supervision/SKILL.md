@@ -23,6 +23,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 ## 按任务读取参考规范
 
 - 每次操作都读取 [项目监理工作流程](references/20260912-项目监理工作流程-管理规范.md)、[文件命名与归属规范](references/20260912-文件命名与归属-管理规范.md)和[需求日志反思机制](references/20260912-需求日志反思机制-管理规范.md)。
+- 生成或改写管理文档时读取[管理文档写作标准](references/20260929-管理文档写作标准-管理规范.md)，先判定 A/B/C 级，再按对应结构输出。
 - 修改代码、数据、文档、脚本或发布物时读取[质量门禁与进化策略](references/20260912-质量门禁与进化策略-管理规范.md)。
 - 新建或修改 Skill、反思或脚本工具时读取[技能与脚本工具生成规范](references/20260912-技能与脚本工具生成-技术规范.md)；使用脚本时读取[项目监理脚本工具 API 说明](references/20260912-项目监理脚本工具-API说明.md)。
 - 初始化项目或修改 `AGENTS.md` 时读取[项目 AGENTS 协同治理规范](references/20260912-项目AGENTS协同治理-管理规范.md)。
@@ -54,6 +55,7 @@ Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules
 - `scripts/ps_01_create_governance_document.py`：按项目配置和模板生成治理文档，支持需求、监督、日志、反思等类型。
 - `scripts/ps_02_create_project_skill.py`：创建符合“代号+技能名称”规则的项目 Skill；有文档输出时强制生成中文模板。
 - `scripts/ps_03_create_script_tool.py`：创建符合项目编程规范的 Python 脚本工具，并同步生成中文 API 说明。
+- `scripts/ps_04_validate_management_document.py`：只读校验管理文档写作标准，支持单文档 lint 和改写前后令牌守恒比较。
 
 三个工具均要求显式 `--project-root`，默认只预览；只有提供 `--write` 才写入。不得通过工具绕过用户授权、目录边界或项目编程规范。
 

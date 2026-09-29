@@ -6,6 +6,9 @@ description: 为每个新请求、范围变化或继续任务登记逐条需求�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # PS-01 项目治理
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+需求记录按 A 级生成：正文写成背景一句话、项目内容、项目影响，编号和路径进入附录管理信息。
+
 
 先读取当前项目全部适用的 `AGENTS.md`，再读取主监理规范中的[项目监理工作流程](../pr-ps-00-project-supervision/references/20260912-项目监理工作流程-管理规范.md)、[文件命名与归属规范](../pr-ps-00-project-supervision/references/20260912-文件命名与归属-管理规范.md)和[需求日志反思机制](../pr-ps-00-project-supervision/references/20260912-需求日志反思机制-管理规范.md)。
 

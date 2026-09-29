@@ -12,6 +12,19 @@ from pathlib import Path
 
 SKILL_ROOT = Path(__file__).resolve().parent.parent
 ASSET_ROOT = SKILL_ROOT / "assets"
+DOCUMENT_LEVELS = {
+    "requirement": "A",
+    "log": "A",
+    "supervision": "B",
+    "reflection": "B",
+    "change": "B",
+    "cost": "C",
+    "quality": "C",
+    "skill-proposal": "B",
+    "script-api": "B",
+    "document-type": "B",
+    "placement": "B",
+}
 DOCUMENT_TYPES = {
     "requirement": ("requirements_dir", "需求记录", "20260912-用户需求-需求记录模板.md"),
     "supervision": ("supervision_dir", "监督记录", "20260912-项目操作监督-监督记录模板.md"),
@@ -90,7 +103,33 @@ def build_target(project_root: Path, config: dict[str, object], document_type: s
     return ASSET_ROOT / template_name, target
 
 
+def render_template(template: Path, document_type: str) -> str:
+    """Read a template and enforce its management-writing level contract."""
+    content = template.read_text(encoding="utf-8")
+    level = DOCUMENT_LEVELS[document_type]
+    expected = f'writing_level: "{level}"'
+    if expected not in content:
+        raise ProjectConfigError(f"模板缺少 {expected}：{template.name}")
+    if level == "A":
+        required = [
+            "## 1. 背景一句话",
+            "## 2. 研究内容",
+            "## 3. 研究影响",
+            "## 附录：管理信息",
+            "### 管理信息索引",
+            "### 正文编号对照",
+            "### 原记录对照",
+        ]
+        missing = [item for item in required if item not in content]
+        if missing:
+            raise ProjectConfigError(f"A级模板缺少必需结构：{'、'.join(missing)}")
+    return content
+
+
 def main() -> int:
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
+        sys.stderr.reconfigure(encoding="utf-8")
     args = parse_args()
     try:
         project_root = args.project_root.resolve(strict=True)
@@ -109,7 +148,7 @@ def main() -> int:
             print("预览完成；未写入。提供 --write 后执行。")
             return 0
         target.parent.mkdir(parents=True, exist_ok=True)
-        content = template.read_text(encoding="utf-8").replace(
+        content = render_template(template, args.type).replace(
             'produced_at: "YYYY-MM-DD"',
             f'produced_at: "{datetime.now().astimezone().date().isoformat()}"',
             1,

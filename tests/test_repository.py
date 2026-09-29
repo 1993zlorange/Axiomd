@@ -453,6 +453,110 @@ class RepositoryTests(unittest.TestCase):
             profile = json.loads((ROOT / "profiles" / f"{profile_name}.json").read_text(encoding="utf-8"))
             self.assertIn("sr-progress-narrative", profile["skills"])
 
+    def test_pr_management_writing_standard_and_tools(self) -> None:
+        ps_root = ROOT / "skills" / "pr-ps-00-project-supervision"
+        standard = (ps_root / "references" / "20260929-管理文档写作标准-管理规范.md").read_text(encoding="utf-8")
+        for required in [
+            "Status: approved",
+            "## 1. 文档分级",
+            "## 2. A 级结构",
+            "## 3. B 级结构",
+            "## 4. C 级结构",
+            "## 5. 公文词映射表",
+            "## 6. 编号规则",
+            "## 7. 表格证据列",
+            "## 8. 安全网",
+            "## 9. 句式",
+            "## 10. 命名",
+        ]:
+            self.assertIn(required, standard)
+
+        expected_levels = {
+            "20260912-用户需求-需求记录模板.md": "A",
+            "20260912-项目工作-日志模板.md": "A",
+            "20260912-项目操作监督-监督记录模板.md": "B",
+            "20260912-项目变更-变更记录模板.md": "B",
+            "20260912-问题缺陷-反思模板.md": "B",
+            "20260912-质量门禁-检查模板.md": "C",
+            "20260912-成本时间-统计模板.md": "C",
+        }
+        for name, level in expected_levels.items():
+            text = (ps_root / "assets" / name).read_text(encoding="utf-8")
+            self.assertIn(f'writing_level: "{level}"', text)
+        for name in ["20260912-用户需求-需求记录模板.md", "20260912-项目工作-日志模板.md"]:
+            text = (ps_root / "assets" / name).read_text(encoding="utf-8")
+            for required in [
+                "## 1. 背景一句话",
+                "## 2. 研究内容",
+                "## 3. 研究影响",
+                "## 附录：管理信息",
+                "### 正文编号对照",
+                "### 原记录对照",
+            ]:
+                self.assertIn(required, text)
+
+        api = (ps_root / "references" / "20260912-项目监理脚本工具-API说明.md").read_text(encoding="utf-8")
+        self.assertIn("ps_04_validate_management_document.py", api)
+        ps01 = (ROOT / "skills" / "pr-ps-01-project-governance" / "SKILL.md").read_text(encoding="utf-8")
+        ps03 = (ROOT / "skills" / "pr-ps-03-project-logging" / "SKILL.md").read_text(encoding="utf-8")
+        self.assertIn("需求记录按 A 级生成", ps01)
+        self.assertIn("项目日志按 A 级生成", ps03)
+
+        with tempfile.TemporaryDirectory(prefix="pr-management-doc-") as temporary:
+            project = Path(temporary)
+            management = project / "00-项目管理"
+            (management / "requirements").mkdir(parents=True)
+            (management / "supervision").mkdir(parents=True)
+            (project / "AGENTS.md").write_text(
+                "# Pilot\n\n```project-supervision\nproject_management_root = \"00-项目管理\"\nrequirements_dir = \"requirements\"\nsupervision_dir = \"supervision\"\n```\n",
+                encoding="utf-8",
+            )
+            creator = ps_root / "scripts" / "ps_01_create_governance_document.py"
+            created_requirement = run(
+                str(creator), "--project-root", str(project), "--type", "requirement", "--summary", "写作标准试点", "--write"
+            )
+            self.assertEqual(created_requirement.returncode, 0, created_requirement.stdout + created_requirement.stderr)
+            created_supervision = run(
+                str(creator), "--project-root", str(project), "--type", "supervision", "--summary", "写作标准试点", "--write"
+            )
+            self.assertEqual(created_supervision.returncode, 0, created_supervision.stdout + created_supervision.stderr)
+
+            requirement_file = next((management / "requirements").glob("*-写作标准试点-需求记录.md"))
+            supervision_file = next((management / "supervision").glob("*-写作标准试点-监督记录.md"))
+            self.assertIn('writing_level: "A"', requirement_file.read_text(encoding="utf-8"))
+            self.assertIn('writing_level: "B"', supervision_file.read_text(encoding="utf-8"))
+
+            validator = ps_root / "scripts" / "ps_04_validate_management_document.py"
+            for target in (requirement_file, supervision_file):
+                result = run(str(validator), str(target), "--strict")
+                self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+                self.assertIn("QA=pass", result.stdout)
+
+            invalid = project / "invalid.md"
+            invalid.write_text(
+                "---\nwriting_level: \"A\"\n---\n\n# Bad\n\nREQ-1 见 a/b.md，`code`，具名。\n",
+                encoding="utf-8",
+            )
+            failed = run(str(validator), str(invalid))
+            self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
+            for required in [
+                "A级缺少必需结构",
+                "A级正文出现治理编号",
+                "A级正文出现路径",
+                "A级正文出现反引号",
+                "A级正文出现公文词",
+            ]:
+                self.assertIn(required, failed.stdout)
+
+            baseline = project / "baseline.md"
+            revised = project / "revised.md"
+            common = "---\nid: \"REQ-1\"\nwriting_level: \"A\"\n---\n\n# Test\n\nREQ-1 a/b.md\n\n> 用户原话必须保留\n"
+            baseline.write_text(common + "\n旧句。\n", encoding="utf-8")
+            revised.write_text(common + "\n新句。\n", encoding="utf-8")
+            compared = run(str(validator), "--baseline", str(baseline), "--revised", str(revised), "--strict")
+            self.assertEqual(compared.returncode, 0, compared.stdout + compared.stderr)
+            self.assertIn("QA=pass", compared.stdout)
+
     def test_installer_check_and_uninstall_in_temp_home(self) -> None:
         with tempfile.TemporaryDirectory(prefix="axiom-codex-") as temporary:
             codex_home = Path(temporary)

@@ -6,6 +6,9 @@ description: 在项目原子操作或运行批次结束后维护事实日志、�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # PS-03 项目记账
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+项目日志按 A 级生成：正文写成背景一句话、实际内容和项目影响，路径、编号、验证与成本进入附录管理信息。
+
 
 读取主监理[需求日志反思机制](../pr-ps-00-project-supervision/references/20260912-需求日志反思机制-管理规范.md)和[文件命名与归属规范](../pr-ps-00-project-supervision/references/20260912-文件命名与归属-管理规范.md)。从当前操作的任务 ID、实际变更、命令、证据和时间数据生成日志；用户可见变化同步变更记录，可观测成本同步成本时间记录。
 

@@ -137,7 +137,7 @@
     },
     "pr-en-02-senior-engineer": {
       "description": "Implement, debug, refactor, migrate, or review Python-first software from approved requirements, software design descriptions, repository evidence, and project coding standards. Use when a user asks to build or continue a software project, implement numbered SRS/SDD scope, fix a defect, perform a design-conformant refactor, or verify implementation readiness. Preserve requirement-to-code-to-test traceability; do not invent product scope or silently redesign approved architecture.",
-      "hash": "0763262ff670c8b8af07c2f867e5ceabda6a93ea287952b45df23f2f920390eb",
+      "hash": "a3e21806c9bcfef1089c3fd3f1c77b7912cae9fa309d057f5d704c68ff626bbe",
       "profiles": [
         "ai4programming",
         "all"
@@ -146,7 +146,7 @@
     },
     "pr-pm-01-project-manager-socratic-discovery": {
       "description": "Conduct evidence-backed, interactive Socratic requirements discovery before a project manager writes or revises a PRD/SRS, defines scope, plans delivery, or hands work to architecture or engineering. Use for new or changed requirements, vague ideas, solution-first requests, scope expansion, conflicting stakeholder goals, or when the user asks to be challenged. Do not use for a simple factual status report or a fully approved, unambiguous execution request whose requirements are unchanged.",
-      "hash": "fde3474dd2591b4ae893b1bd6e6c51ed4496a0616ec379f20a093b4595ea03e0",
+      "hash": "8a85363849db3b301ac813d291a70e536fde00193d92e463d721d74e6dc8c96b",
       "profiles": [
         "ai4programming",
         "all"
@@ -155,7 +155,7 @@
     },
     "pr-pm-02-project-manager": {
       "description": "Turn project ideas and repository evidence into decision-ready PRDs, SRSs, feature overviews, evidence-linked user manuals, plans, risks, acceptance criteria, and status reports. Use when defining, reviewing, documenting, planning, or tracking a software, data, research, or internal-tool project; do not use as a substitute for domain engineering or to mutate external systems without explicit authorization.",
-      "hash": "132825fd3bc8a9441f1eb8ada4f512c1404e46562d8bae54f5226774e84a484c",
+      "hash": "3b93f09f9422d994b5ae6607917808adf31621b9c2f7676b3e3353f1b967c97b",
       "profiles": [
         "ai4programming",
         "all"
@@ -164,7 +164,7 @@
     },
     "pr-pm-03-project-alignment-audit": {
       "description": "Audit an existing software, data, or research project for drift from its approved requirements, architecture, and design using repository, test, runtime, and project-log evidence. Use when a project manager must determine whether implementation or current work has deviated, distinguish implementation drift from stale specifications or unapproved scope, and produce a prioritized correction plan. Do not use as authorization to implement the corrections.",
-      "hash": "7478da42f66a16eb7a158385cc6620b8b287c7eda69706c35bef6b53ff084974",
+      "hash": "6b5b79f72d1f753d3d66c4259ddcadc828d8a1dbacbb0ed08173cf40b04b5037",
       "profiles": [
         "ai4programming",
         "all"
@@ -173,7 +173,7 @@
     },
     "pr-ps-00-project-supervision": {
       "description": "在软件、数据或科研项目的每次项目相关操作前后执行独立治理监控，登记用户需求与问题、检查文件命名和归属、维护项目日志与反思、实施质量门禁，并管理新技能和脚本工具的生成与演化。适用于项目启动、规划、设计、开发、测试、文档、数据、实验、发布和维护；不替代专业执行角色，也不自行批准高风险操作。",
-      "hash": "803e36e9901fdb7ce0c4f44da039ab8fdac4df87c0a9d6b7943a94e254bc89f2",
+      "hash": "a3d3848f290b167845e700e298e7b0a7d263941340345a3b88c515e2a2494147",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -183,7 +183,7 @@
     },
     "pr-ps-01-project-governance": {
       "description": "为每个新请求、范围变化或继续任务登记逐条需求、责任、文件放置、权限、验收和监督状态。适用于任何项目相关操作开始前；不替代专业角色执行任务。",
-      "hash": "11cc080a2dc68e57e9aebf2162dbec87f70dc99bcb254c0b3387d7b4235ff3c1",
+      "hash": "2c769de830e889ce9270c11b570a8a9be08bb47ed258f77e50ee0de1dade2ef4",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -193,7 +193,7 @@
     },
     "pr-ps-02-quality-gate": {
       "description": "对项目代码、文档、数据、实验、迁移或发布变更执行风险匹配的分层质量门禁并保留证据。适用于修改前基线、实现后验证和交付前复核；不把未执行检查写成通过。",
-      "hash": "986d02e223292d518570b96abd75ad2a6ce28171b384aec8de4a70299ad8b2fb",
+      "hash": "ddb0b78368e5b3222391130b6cc801899799ccce948aef73e874ca5001b79e99",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -203,7 +203,7 @@
     },
     "pr-ps-03-project-logging": {
       "description": "在项目原子操作或运行批次结束后维护事实日志、用户可见变更和成本时间记录。适用于完成、失败、跳过和阻塞状态；不把计划、需求或推测混入事实日志。",
-      "hash": "fb95c2d00a05969515639ce9679fb50eccda6e700775a7b5a7adf31301c8e7d7",
+      "hash": "0678c2c4c52f88e24c7133f89fca288b4ff5d3ed0ec72dcb72910fdd459eccc0",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -213,7 +213,7 @@
     },
     "pr-ps-04-reflection-loop": {
       "description": "对用户指出的问题、确认缺陷、重复错误、质量阻塞或项目偏差进行证据驱动反思，形成最小可验证改进。一般成功不触发规则升级，也不自动修改 Skill。",
-      "hash": "38ee7f0cddcf720847227925c7afaac62cd879aba1f71c8e3878237cef485e51",
+      "hash": "ddde9a070d43eff765cfb0cd531bdda807ab3b98b96403675189dd4382251407",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -223,7 +223,7 @@
     },
     "pr-ps-05-skill-authoring": {
       "description": "提议、创建或演化带代号的项目级 Codex Skill，并验证职责、触发、权限、脚本、模板和生命周期。适用于重复问题已具备证据时；不把单次项目特例直接升级为通用 Skill。",
-      "hash": "63234ff3dd276b3fc1974ceb8dfc1c5fc55004610f7769a3e2a422d988f32592",
+      "hash": "6a42aa34340643553b0bd27f5776872edb6ad6f7fd9adae0ee48c4fac495424e",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -233,7 +233,7 @@
     },
     "pr-ps-06-script-tool-authoring": {
       "description": "创建或审查项目脚本工具，并同步维护参数、输入输出、退出码、安全、幂等、测试和兼容性的中文 API 说明。适用于可重复确定性操作；不将一次性命令包装成无维护人的工具。",
-      "hash": "3a9c55ee38382c6b00e5197ee1ae4de44938bbe1fad5adf7f99674cf15742bc9",
+      "hash": "eb261b63ada89207eb14c537ae09905b663939f75110ae029661deaa731b937d",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -243,7 +243,7 @@
     },
     "pr-ps-07-transfer-pilot": {
       "description": "将其他项目的规则、Skill、模板或脚本以可追溯、可回滚的小范围试点迁入当前项目。适用于通用经验复用和项目初始化；不直接复制固定路径、领域假设或高风险自动化。",
-      "hash": "968123583b2f9807f91368ec8a09191e45c73a7a581dbde4c5cfcba624983506",
+      "hash": "069549c5bdbab32df18128846d68a5b79a085443b9e744230eaba6fbf3574db1",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -253,7 +253,7 @@
     },
     "pr-ps-08-evolution-review": {
       "description": "按项目周期汇总用户需求、问题、反思、质量、成本和 Skill 使用证据，评估是否优化、合并或淘汰规则与技能。适用于达到评估周期或重复问题阈值时；不自动修改全局能力。",
-      "hash": "6278fd6ec067fbe65f47c605cc87ba310fdf9c450d185d94e40cabb6e6a61441",
+      "hash": "ef80d45b4dce9842c0ee49c72b2127e4ad327051e86f6c9f6615fcd96728851c",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -263,7 +263,7 @@
     },
     "pr-ps-09-daily-log-summary": {
       "description": "读取操作者指定的本地日志目录，按文件名前缀日期汇总为可追溯的中文项目日报。Use this skill when an operator asks to create a daily report for today, one named date, a date range, or all dated project logs. 默认读取当前项目 achieve/00-项目管理/logs 下文件名以“日志”结尾的文本文件，并将日报写入 dailylogs。不要用于修改源日志、按文件修改时间猜测日期或汇总未获准读取的目录。",
-      "hash": "af50ebf47de1689c52f2207ad06c1f4a84eef7f5c89f90890b655c0a408284e3",
+      "hash": "69365f324fa1298751b1bb10b801a3818f5897f75ea3a54035f19ada8a333cc3",
       "profiles": [
         "all"
       ],
@@ -273,7 +273,7 @@
     },
     "pr-qa-01-software-project-functional-qa": {
       "description": "对通用软件项目执行独立、证据化的功能测试并输出中文测试报告。适用于功能验收、回归、发布前验证和用户路径测试；不用于实现修复或替代项目专用 QA 规则。",
-      "hash": "5d9550e94db3f934400c65f169f2490c43d9045bf63c9f1947d9224798b866c6",
+      "hash": "c7adb3b1fabd3bc0039bbded43403d65088fe3c6bd0de6ddfd0e3c9b8f36c054",
       "profiles": [
         "ai4programming",
         "all"
@@ -282,7 +282,7 @@
     },
     "pr-rl-01-software-project-release-management": {
       "description": "在用户明确授权后准备、校验和记录通用软件项目的受控发布。适用于版本候选、发布包、发布说明、烟测和回滚；不用于自动部署、上传或替代项目专用发布流程。",
-      "hash": "24bdb6c50bf9f81056553995adcdc8e4dd668b6cbbb9529a0a666aa60ed22f15",
+      "hash": "565e4d31b919fec8e89cd4f66807269def460eea826bbe771c1024ffa9048cb1",
       "profiles": [
         "ai4programming",
         "all"

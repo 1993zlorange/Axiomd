@@ -6,6 +6,8 @@ description: 对用户指出的问题、确认缺陷、重复错误、质量阻�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # PS-04 反思闭环
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 读取主监理[需求日志反思机制](../pr-ps-00-project-supervision/references/20260912-需求日志反思机制-管理规范.md)与[进化策略](../pr-ps-00-project-supervision/references/20260912-质量门禁与进化策略-管理规范.md)。收集目标、实际结果、日志、测试、用户反馈和未完成项，区分事实、推测与意见，并将根因归入需求、流程、规则、实现、数据或环境。
 

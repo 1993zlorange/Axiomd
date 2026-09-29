@@ -20,3 +20,7 @@ The PR/SR skill-local `AGENTS.md` files are generated from `docs/pr-sr-interacti
 ## SR record templates
 
 SR-01 through SR-68 use plain-language achievement-card templates generated from `skills/sr-research-shared/references/record-templates/`. To update them, edit the base/aspect/special/handoff module, run `python scripts/generate_sr_record_templates.py`, then run `python scripts/generate_sr_record_templates.py --check`. Do not edit the 68 generated local templates directly.
+
+## PR management document standard
+
+PR management documents follow `skills/pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md`. Requirement and log templates are A-level; supervision, change, and reflection templates are B-level; quality and cost templates are C-level. Use `skills/pr-ps-00-project-supervision/scripts/ps_01_create_governance_document.py` to generate project documents and validate them with `skills/pr-ps-00-project-supervision/scripts/ps_04_validate_management_document.py`.

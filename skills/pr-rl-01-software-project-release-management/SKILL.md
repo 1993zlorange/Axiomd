@@ -6,6 +6,8 @@ description: 在用户明确授权后准备、校验和记录通用软件项目�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # 通用软件项目发布管理
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 仅在用户明确要求发布、打包或准备发布候选时使用。先由项目监理登记版本范围、权限、外部副作用和发布目标；读取已批准需求/设计、变更、质量门、测试结论、迁移/配置、许可证和项目发布约定。
 

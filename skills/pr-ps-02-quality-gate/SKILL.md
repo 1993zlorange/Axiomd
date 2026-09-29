@@ -6,6 +6,8 @@ description: 对项目代码、文档、数据、实验、迁移或发布变更�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # PS-02 质量门禁
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 读取项目质量命令和主监理[质量门禁规范](../pr-ps-00-project-supervision/references/20260912-质量门禁与进化策略-管理规范.md)。按风险执行 L1 静态、L2 单元/契约、L3 集成、L4 用户路径、L5 交付/发布；项目不存在的层级标为“不适用”，不能虚构。
 

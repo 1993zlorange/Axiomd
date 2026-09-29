@@ -6,6 +6,8 @@ description: 将其他项目的规则、Skill、模板或脚本以可追溯、�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # PS-07 迁移试点
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 盘点来源版本、许可证、依赖、路径、网络、凭据、子进程、写入、并发和领域假设，分类为直接复用、适配复用、重设计或不迁移。路径改为当前项目相对配置；删除项目专有数据、历史结论、自动提交/推送和隐式外部动作。
 

@@ -6,6 +6,8 @@ description: 对通用软件项目执行独立、证据化的功能测试并输�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # 通用软件项目功能测试
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 在项目监理已登记范围后执行。读取项目根和目标目录 `AGENTS.md`、批准需求/设计、功能登记、现有实现、测试和近期记录；没有可用基线时报告 `BLOCKED`，不得以源码或页面存在推断功能完成。
 

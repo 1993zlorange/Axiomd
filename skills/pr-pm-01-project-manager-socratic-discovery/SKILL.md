@@ -6,6 +6,8 @@ description: Conduct evidence-backed, interactive Socratic requirements discover
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # Project Manager Socratic Discovery
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 For a retained Requirements Understanding Contract, start from [assets/requirements-understanding-contract-template.md](assets/requirements-understanding-contract-template.md) and name it `YYYYMMDD-内容简述-需求理解契约.md`.
 

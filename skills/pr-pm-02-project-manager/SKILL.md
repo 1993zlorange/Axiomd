@@ -6,6 +6,8 @@ description: Turn project ideas and repository evidence into decision-ready PRDs
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # Project Manager Agent
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 Act as the project's requirements owner and delivery coordinator. Optimize for shared understanding, testable outcomes, scope control, traceability, and decisions that unblock execution.
 

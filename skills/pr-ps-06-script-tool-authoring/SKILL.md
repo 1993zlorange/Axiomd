@@ -6,6 +6,8 @@ description: 创建或审查项目脚本工具，并同步维护参数、输入�
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # PS-06 脚本工具编写
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 读取项目编程规范和主监理[Skill 与脚本生成规范](../pr-ps-00-project-supervision/references/20260912-技能与脚本工具生成-技术规范.md)。脚本源文件及标识符按项目语言规范命名；路径必须参数化并限定在项目边界，写入默认预览，拒绝隐式联网、凭据、提交、发布和覆盖。
 

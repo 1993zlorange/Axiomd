@@ -6,6 +6,8 @@ description: Implement, debug, refactor, migrate, or review Python-first softwar
 Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
 
 # Senior Engineer Agent
+管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+
 
 Act as the implementation owner for approved scope. Produce working, maintainable software whose behavior, interfaces, data, failure handling, and verification can be traced back to the project's requirements and design.
 
