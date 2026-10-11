@@ -23,7 +23,7 @@ Before starting, read [../sr-research-shared/references/research-contract.md](..
 2. 读取源文档，映射证据覆盖，按认知对象分组而不是按字数切页
 3. 为每页写出 kicker 编号、结论式页题和一句可证据支持的总结性话
 4. 选择版式和逻辑图骨架，画出页面结构并亲自排练
-5. 用上传模板生成或修改可编辑 PPT，保持讲稿、demo 和证据一致
+5. 优先使用上传模板；若未提供，默认复制 20260830 v8 脱敏配色强化组会模板并替换占位，保持讲稿、demo 和证据一致
 6. 从干净环境运行 demo 或复现入口
 7. 检查排版布局、配文配色、逻辑图、标题编号、许可、引用、隐私、敏感数据和发布清单
 8. 若有人工修改版，复盘页面映射与可复用规则
@@ -42,14 +42,16 @@ Pause at that intervention point with options, evidence, uncertainty, and a reco
 
 When converting documents into slides, read [references/document-to-ppt.md](references/document-to-ppt.md). First map every source claim to evidence, classify the evidence coverage, choose the presentation mode, and classify every page by one primary cognitive object. Do not turn plans into results, local runs into reproducibility, or missing evidence into a polished claim.
 
+For the 20260830 v8 advisor group-meeting mode, enforce the v8 top-title layout, 20pt body target, 14pt table/figure minimum, model four-factor tables, resource statistics, coordinate/unit/legend checks, transparent visualization rules, and a blank margin no smaller than one 24pt character. Author-guidance and negative-example pages are template references and are deleted from a real delivery unless explicitly requested.
+
 Then read [references/group-meeting-ppt-standard.md](references/group-meeting-ppt-standard.md) and enforce:
 
 - one complete, visible `SR58-SUMMARY` sentence on every page, placed separately from the page title;
 - one primary `cognitive_type` per page: claim, context, artifact, mechanism, role, process, architecture, case, metric, risk, reflection, decision, or backup;
 - cognitive-object splitting before word-count trimming: role mapping, process flow, architecture, concrete evidence, result, reflection, and unverified plan occupy separate pages when they compete;
-- a separate structural kicker plus a conclusion title, for example `2.2 机制②` + `角色制衡避免单模型自我强化`;
+- a separate structural kicker plus a conclusion title, for example `2.2 机制2` + `角色制衡避免单模型自我强化`;
 - artifact-first order for group-meeting process reviews: advisor context → key conclusion → agenda → artifact evidence → motivation → mechanisms → practice cases → reflection → next plan;
-- 4–8 character parallel topic labels and visible ①②③ or 1. 2. 3. ordering;
+- 4–8 character parallel topic labels and visible `1. 2. 3.` ordering; do not use small-circle numerals;
 - Microsoft YaHei throughout and bold titles;
 - body ≥18pt; figure/table labels ≥14pt; split by cognitive object or delete instead of shrinking;
 - only red/blue/black semantic emphasis: critical=red+bold+underline, important=blue+bold, normal=black, modifiers deleted or regular black;
@@ -59,6 +61,8 @@ Then read [references/group-meeting-ppt-standard.md](references/group-meeting-pp
 - unified repeated modules with changed numbers/conditions/status visibly highlighted;
 - varied layout/density so consecutive pages do not become visually indistinct;
 - preserved masters, layouts, placeholders, margins, footers, logos, and page numbering when using a supplied PPTX template.
+
+When no private template is supplied, start from [assets/sr58-group-meeting-v8-style-template.pptx](assets/sr58-group-meeting-v8-style-template.pptx), read [references/group-meeting-ppt-template-patterns.md](references/group-meeting-ppt-template-patterns.md), and copy [assets/sr58-group-meeting-v8-style-template-page-plan.md](assets/sr58-group-meeting-v8-style-template-page-plan.md).
 
 For layout selection read [references/ppt-layout-system.md](references/ppt-layout-system.md). Choose `claim`, `evidence-screenshot`, `mechanism-map`, `process-flow`, `architecture`, `case`, or `reflection`; record text/visual area ratios and the split check. A page that needs two summaries, has two cognitive objects, more than 12 diagram nodes, or more than three branches must be split unless the page plan records a reviewed exception.
 
@@ -71,6 +75,8 @@ For every page, record the kicker, conclusion title, primary cognitive type, lay
 When the user supplies an AI draft and a human-revised deck or PDF, read [references/human-revision-retrospective.md](human-revision-retrospective.md). Compare page mapping, layout, title numbering, text density, color semantics, diagram style, evidence order, and cognitive-object splitting. Record one-off preferences separately from candidate and stable rules. Do not store private source files, local paths, credentials, or restricted project evidence in this repository.
 
 ## Template and presentation-tool rules
+
+If no private template is supplied, use the bundled v8 de-identified template above. When a private template is supplied, preserve its geometry and replace only content/formatting as authorized; do not copy that private source into this repository.
 
 If the user supplied a PPTX template, work on a copy and inspect its masters/layouts before writing. Never overwrite the source. The user’s explicit font-size and red/blue/black contract overrides inherited template styles for content; preserve layout geometry and decoration while adding explicit run formatting. Do not commit private templates, credentials, restricted figures, or machine-specific paths. If the local presentation tool cannot preserve PPTX structure, deliver the page plan and source mapping, and record the blocker instead of claiming template fidelity.
 

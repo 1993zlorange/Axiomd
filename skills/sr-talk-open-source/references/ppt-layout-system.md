@@ -33,9 +33,9 @@ Use for a conclusion or stage result.
 ```text
 kicker + conclusion title
 SR58-SUMMARY
-① evidence / deliverable
-② method or mechanism
-③ boundary or human verdict
+1 evidence / deliverable
+2 method or mechanism
+3 boundary or human verdict
 ```
 
 Text can lead, but the three numbered blocks must not carry unrelated topics.
@@ -169,7 +169,7 @@ Consecutive watch-density pages require a layout change, a split, or an explicit
 Separate the structural number from the claim:
 
 ```text
-kicker: 2.2 机制②
+kicker: 2.2 机制2
 title: 角色制衡避免单模型自我强化
 ```
 
@@ -187,20 +187,20 @@ Use stable main numbering:
 Use sub-numbering for the cognitive object, not merely page order:
 
 ```text
-2.1 机制①｜68工作包拆解
-2.2 机制②｜角色制衡
-2.3 机制③｜12工作流与人工门
-2.4 机制④｜双层架构与交接卡
-3.1 实践①｜119卡积累
-3.2 实践②｜场景需求定义
-3.3 实践③｜文献检索收敛
+2.1 机制1｜68工作包拆解
+2.2 机制2｜角色制衡
+2.3 机制3｜12工作流与人工门
+2.4 机制4｜双层架构与交接卡
+3.1 实践1｜119卡积累
+3.2 实践2｜场景需求定义
+3.3 实践3｜文献检索收敛
 ```
 
 Continuation pages share the main kicker and state their object:
 
 ```text
-2.2 机制②｜角色制衡（1/2）
-2.2 机制②｜阶段映射（2/2）
+2.2 机制2｜角色制衡（1/2）
+2.2 机制2｜阶段映射（2/2）
 ```
 
 Do not reuse a generic title such as “实践探索” across unrelated pages. Differentiate the changed case, number, condition, or decision.
@@ -215,3 +215,24 @@ Do not reuse a generic title such as “实践探索” across unrelated pages. 
 - [ ] The page has exactly one summary sentence.
 - [ ] No unverified content remains in a main-path page.
 - [ ] Repeated modules use the same geometry and highlight the difference.
+
+## 20260830 v8 layout patterns
+
+Use these patterns with `assets/sr58-group-meeting-v8-style-template.pptx`.
+
+| Pattern | Slide source | Required geometry/meaning |
+|---|---|---|
+| V8 cover | 1 | Blue horizontal band, centered 36pt title, speaker/unit/date block, summary below. |
+| V8 rule page | 2–3 | Centered white card; only one principle per page; no decorative fill. |
+| V8 last-week review | 4 | Upper block for last plan, lower block for advisor advice and evidence status. |
+| V8 agenda | 5 | Centered numbered outline around x=3.3–10.3 inches. |
+| V8 result summary | 6 | Centered statement block for completion, time estimate, and unresolved problem. |
+| V8 method page | 7 | Left text skeleton plus right supporting figure; text is primary. |
+| V8 next plan | 8 | P0/P1 cards plus a human-decision strip. |
+| V8 model geometry | 10 | Left four-view region and right mesh/key-detail region; coordinates and scales mandatory. |
+| V8 model settings | 11 | Four editable native tables: excitation, geometry, detail, medium/boundary. |
+| V8 material parameters | 12 | Left curve area plus right data/source table. |
+| V8 resource statistics | 13 | Mesh, unknown/resource, and time-step tables with units and comparable definitions. |
+| V8 evidence figures | 14–16 | Labeled view/figure placeholders with coordinate, unit, legend, caption, and visualization checks. |
+| V8 negative check | 17–18 | Left failure checklist and right example placeholders; never copy the original negative images. |
+| V8 delivery check | 19 | Three checks plus one red no-go condition. |

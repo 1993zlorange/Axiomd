@@ -162,3 +162,15 @@ The page plan must satisfy the per-slide YAML contract in `group-meeting-ppt-sta
 - Presentation tool cannot preserve PPTX masters/layouts: produce content/page plan and record the tool blocker; do not paste a screenshot into a new deck and call it template-based.
 - Render unavailable: run source QA if possible and mark `visual_qa=blocked`.
 - Human has not rehearsed/approved public release: status remains draft; release actions need explicit authorization.
+
+## 20260830 v8 document-to-PPT bridge
+
+When SR-58 converts a document or research record into the advisor group-meeting deck and no other template is supplied, use `assets/sr58-group-meeting-v8-style-template.pptx`.
+
+1. First map source material to the v8 page archetypes: last-week commitments, agenda, stage result, method, next plan, model geometry, model settings, material parameters, resource statistics, field/result figures, and reflection/decision.
+2. Keep pages 2–3 and 15–20 of the bundled v8 file as authoring guidance; delete them from the delivery unless the advisor explicitly asks for them.
+3. If the source contains a model or simulation, do not omit the four model factors: excitation, geometry, medium, and boundary condition. Also retain mesh, unknown/resource, and time-step statistics.
+4. If the source has no model/simulation, delete the computation/model pages rather than filling them with unrelated text.
+5. Convert document paragraphs into a page plan before writing slides: title, cognitive object, summary sentence, evidence, units, visual contract, deletion list, and split decision.
+6. Assign critical/important/normal/de-emphasized levels before styling; repeated modules keep one format and highlight only changed values.
+7. Replace every de-identified placeholder with a traceable value and unit; never leave template-only wording in a delivery.

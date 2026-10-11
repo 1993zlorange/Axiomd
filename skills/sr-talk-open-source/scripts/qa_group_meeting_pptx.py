@@ -309,6 +309,11 @@ def qa(
             red_count = sum(run.color == "red" for run in page.runs)
             if red_count > 3:
                 errors.append(f"slide {no}: {red_count} red runs exceed the limit of 3")
+            circled = re.search(r"[①-⑳]", page.all_text)
+            if circled:
+                errors.append(
+                    f"slide {no}: small-circle numeral '{circled.group(0)}' is forbidden; use 1. 2. 3."
+                )
             if not page.title_texts:
                 warnings.append(f"slide {no}: no nonempty title placeholder text detected")
             for title in page.title_texts:

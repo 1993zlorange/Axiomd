@@ -6,7 +6,7 @@ Use this reference for flowcharts, mechanism maps, architecture diagrams, case l
 
 1. **One diagram, one question.** A diagram answers one of: what happened, how it runs, why it works, who checks it, or what is blocked.
 2. **Node text is a phrase.** Use 4–10 Chinese characters where possible. Put explanations outside the node.
-3. **Number the order.** Use ①②③ or 1. 2. 3. consistently across diagram, title, and speaker notes.
+3. **Number the order.** Use `1. 2. 3.` consistently across diagram, title, and speaker notes; do not use small-circle numerals.
 4. **Keep one main path.** The eye should follow one left-to-right or top-to-bottom route without backtracking.
 5. **Make human gates explicit.** `GATE F`, `GATE E`, and `GATE D` are distinct decision shapes, not ordinary steps.
 6. **Explain loops.** Failure, rework, evidence supplement, and method rollback use dashed arrows with a short reason.
@@ -86,8 +86,8 @@ Rules:
 Use for four supporting mechanisms.
 
 ```text
-① project governance      ② decoupled cards
-③ extensible engineering  ④ reflection loop
+1 project governance      2 decoupled cards
+3 extensible engineering  4 reflection loop
 ```
 
 Rules:

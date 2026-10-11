@@ -59,7 +59,11 @@ def file_hash(path: Path) -> str:
 def iter_files(root: Path) -> list[Path]:
     if root.is_symlink() or any(parent.is_symlink() for parent in root.parents if parent != root):
         raise InstallError(f"symlinked asset is not supported: {root}")
-    return sorted(p for p in root.rglob("*") if p.is_file() and not p.is_symlink())
+    return sorted(
+        p
+        for p in root.rglob("*")
+        if p.is_file() and not p.is_symlink() and not p.name.startswith("~$")
+    )
 
 
 def tree_hash(root: Path) -> str:

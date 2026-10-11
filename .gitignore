@@ -24,3 +24,5 @@ __pycache__/
 # Local writing-standard transfer evidence (not redistributable)
 /SR优化交接包/
 /SR优化交接包.zip
+# PowerPoint transient owner files
+~$*.pptx

@@ -40,7 +40,9 @@ def tree_hash(path: Path) -> str:
     if path.is_file() and not path.is_symlink():
         return file_hash(path)
     digest = hashlib.sha256()
-    for item in sorted(p for p in path.rglob("*") if p.is_file() and not p.is_symlink()):
+    for item in sorted(
+        p for p in path.rglob("*") if p.is_file() and not p.is_symlink() and not p.name.startswith("~$")
+    ):
         rel = item.relative_to(path).as_posix().encode("utf-8")
         digest.update(len(rel).to_bytes(8, "big"))
         digest.update(rel)

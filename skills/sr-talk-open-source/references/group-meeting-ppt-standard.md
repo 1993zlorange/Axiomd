@@ -79,7 +79,7 @@ Word count is a secondary signal: normal is `<220` visible characters, watch is 
 Use a separate kicker for numbering and a claim title for the conclusion:
 
 ```text
-kicker: 2.2 机制②
+kicker: 2.2 机制2
 title: 角色制衡避免单模型自我强化
 ```
 
@@ -122,7 +122,7 @@ Rules:
 2. **Extract the skeleton**: create a 4–8 character mini-title per topic; prefer equal length and parallel grammar.
 3. **Conclusion first**: every page title must say what was completed, proved, decided, or blocked.
 4. **Summary sentence**: every page has one visible `SR58-SUMMARY` sentence that turns the title and evidence into a complete claim.
-5. **Make order visible**: use ①②③ or 1. 2. 3.; distinguish sequence from parallel facts.
+5. **Make order visible**: use `1. 2. 3.`; distinguish sequence from parallel facts. Do not use small-circle numerals.
 6. **Delete or demote**: remove modifiers, duplicated background, long symbol explanations, and unsupported claims.
 
 ## Figures, logic diagrams, and tables
@@ -143,7 +143,7 @@ Before building the deck, produce a page plan. For every slide record the optimi
 ```yaml
 slide:
   no: 1
-  kicker: "2.2 机制②"
+  kicker: "2.2 机制2"
   title: "完成了 XX ｜ 用 XX 方法 ｜ 实现了 XX"
   cognitive_type: "claim | context | artifact | mechanism | role | process | architecture | case | metric | risk | reflection | decision | backup"
   layout_pattern: "claim | evidence-screenshot | mechanism-map | process-flow | architecture | case | reflection"
@@ -204,3 +204,19 @@ Self-check:
 - [ ] Repeated modules highlight differences.
 - [ ] Modifiers and symbol explanations are deleted or moved to notes.
 - [ ] Source document, slide claim, evidence path, and speaker note agree.
+
+## 20260830 v8 group-meeting mode
+
+When the target occasion is the advisor group meeting and the user does not explicitly choose another template, use `sr58-group-meeting-v8-style-template.pptx` and its matching page plan.
+
+1. Put the full-width title in the top 0.75-inch band; integrate numbering into the title instead of adding a separate visible kicker.
+2. Put one blue-bold `SR58-SUMMARY` immediately below the title.
+3. Keep body text at 20pt or larger; tables, axis labels, legends, and captions may fall to 14pt but no lower.
+4. Preserve a blank page margin no smaller than one 24pt character on all sides.
+5. Split pages by cognitive object; do not shrink font or crowd objects to avoid a new page.
+6. A model/simulation report must cover geometry and four views, excitation, geometry, medium, boundary conditions, material parameters, mesh, unknowns, resource use, and representative field/result figures.
+7. Figures need physical quantity, units, axes/scale, view names, legends, captions, comparison conditions, and conclusion boundaries.
+8. Visualization uses a transparent background, explicit figure title, non-italic text except formulas, dynamic physical change where applicable, and readable colorbar units.
+9. Delete author-guidance and negative-example pages from the actual delivery unless the advisor explicitly asks for them.
+10. Apply the red/blue/black importance contract: critical=red+bold+underline, important=blue+bold, normal=black; results, not methods, remain the subject on result pages.
+11. Use `1. 2. 3.` numbering; small-circle numerals are forbidden.

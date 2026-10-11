@@ -448,8 +448,8 @@
       "optional_profiles": []
     },
     "sr-core-figures": {
-      "description": "SR-核心图表制作：需要让一张核心图只传达一个可证据支持的结论、用诚实编码呈现不确定性，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "374214509e976c6d9845d92ab64f7fd2c4e4d8962dfb0bcb2c0772eafd4943d1",
+      "description": "SR-核心图表制作：需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
+      "hash": "a1f2df8937966620bc004107f6feda34d38679b40f93a33fdeec01108c57dc06",
       "profiles": [
         "ai4science",
         "all"
@@ -503,7 +503,7 @@
     },
     "sr-doctoral-research": {
       "description": "Route a doctoral research request to one focused ScienceResearch leaf skill across problem framing, literature, hypotheses, methods, experiments, analysis, papers, and weekly progress. Use when the user asks what research work to do next, requests an end-to-end research workflow, or has not named a specific SR leaf skill. Do not perform the leaf task inside this router.",
-      "hash": "8910b221c1ee29cc905a5587b6658b5c0a7e7ce0e72d1ba17b50751c332ff8b8",
+      "hash": "cfe42893b2b20298a60cd31bdc5d526762c623bbc80d8f954f51c59bf2cda4e5",
       "profiles": [
         "all"
       ],
@@ -810,7 +810,7 @@
     },
     "sr-research-shared": {
       "description": "Internal shared-reference package for SR doctoral research skills, defining work contracts, human-AI authority, weekly evidence loops, and optional third-party adapters. Do not invoke as a standalone research workflow; load only the reference requested by an SR router or leaf skill.",
-      "hash": "d28147d171c9794b91c7f85153468f95b5dc1553c92696c3fae7dd67333e782b",
+      "hash": "99aec3e92409fa73a13df0798ee482ca1d14b7663f1b4bf4e54f4f61528b31a1",
       "profiles": [
         "ai4science",
         "all"
@@ -936,7 +936,7 @@
     },
     "sr-talk-open-source": {
       "description": "SR-学术报告与开源成果：需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成结构化编号、按认知对象拆页、每页有一句总结性话的模板化学术/组会汇报 PPT 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant.",
-      "hash": "a1c8dc1636b4e59deefe9f294cace1168781b3316323a68b86e0944388e67e40",
+      "hash": "4b7c62c930a4e3a41c83ae36574cc1c9f0917d60d6d1530c1490d0ad4f3fb89f",
       "profiles": [
         "ai4science",
         "all"

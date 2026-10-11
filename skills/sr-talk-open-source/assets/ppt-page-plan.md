@@ -14,6 +14,7 @@ status: "草稿"
 
 ```yaml
 deck:
+  template_mode: "group-meeting-v8 | legacy-compact | user-supplied"
   presentation_mode: "group-meeting-process-review | academic-talk | quick-review | release-demo"
   audience: ""
   occasion: ""
@@ -25,6 +26,19 @@ deck:
   language_font: "Microsoft YaHei / 微软雅黑"
   summary_shape: "SR58-SUMMARY"
   summary_font_pt: "20-22 preferred; >=18 hard minimum"
+  v8_required_checks:
+    - "full-width top title with integrated numbering"
+    - "body >=20pt; table/figure labels >=14pt"
+    - "one-page-one-sentence"
+    - "model four factors: excitation, geometry, medium, boundary"
+    - "resource statistics with units and comparable definitions"
+    - "figures have axes, units, legends, captions, and physical quantities"
+    - "visualization background transparent and colorbar units readable"
+    - "safe margin no smaller than one 24pt character"
+    - "critical=red+bold+underline; important=blue+bold; normal=black"
+    - "result page: methods recede and results are reclassified"
+    - "repeated modules highlight only changed values/conditions/status"
+    - "no small-circle numerals"
   narrative_order:
     - "advisor_context"
     - "key_conclusion"
@@ -129,9 +143,9 @@ slide:
 - `layout_pattern`：`claim`
 - `summary_sentence`：`在<条件>下，<对象/方法>实现<量化结果>，支持<边界内结论>。`
 - `summary_style`：`blue-bold` 或唯一页级决定项 `red-bold-underline`
-- ① [critical] 红色+加粗+下划线：
-- ② [important] 蓝色+加粗：
-- ③ [normal] 黑色：
+- 1 [critical] 红色+加粗+下划线：
+- 2 [important] 蓝色+加粗：
+- 3 [normal] 黑色：
 - 红色数量：
 - 删减/降级：
 
@@ -142,9 +156,9 @@ slide:
 - `cognitive_type`：`context`
 - `layout_pattern`：`claim`
 - `summary_sentence`：`按<主线>依次说明<主题一>、<主题二>和<下一步>。`
-- ① `<4-8字主题>`：
-- ② `<4-8字主题>`：
-- ③ `<4-8字主题>`：
+- 1 `<4-8字主题>`：
+- 2 `<4-8字主题>`：
+- 3 `<4-8字主题>`：
 
 ## Slide N — Artifact evidence
 

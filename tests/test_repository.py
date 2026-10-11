@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 import tempfile
@@ -72,6 +73,13 @@ class RepositoryTests(unittest.TestCase):
         skill_root = ROOT / "skills" / "sr-core-figures"
         skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
         for required in [
+            "## Scientific data figure authoring",
+            "references/scientific-figure-authoring.md",
+            "references/advisor-figure-patterns.md",
+            "references/paper-figure-patterns.md",
+            "references/figure-pattern-exemplars.md",
+            "assets/figure-contract-template.md",
+            "scripts/qa_scientific_figure.py",
             "## Draw.io scientific authoring",
             "references/drawio-authoring.md",
             "references/drawio-visual-language.md",
@@ -80,6 +88,75 @@ class RepositoryTests(unittest.TestCase):
             "preview_export=blocked",
         ]:
             self.assertIn(required, skill_text)
+        self.assertNotIn("nature-figure", skill_text)
+
+        special = (
+            ROOT
+            / "skills"
+            / "sr-research-shared"
+            / "references"
+            / "record-templates"
+            / "special"
+            / "sr-53-core-figures.md"
+        ).read_text(encoding="utf-8")
+        for required in [
+            "数据版本与复核方式（哈希写附录）",
+            "样本量、重复次数、布局数或分箱数",
+            "不确定性类型",
+            "图例样式、覆盖对象和间距检查",
+            "多面板编号与直接比较理由",
+            "脱敏参考图及其借鉴边界",
+            "绘图脚本或可编辑源文件核对结果（路径写附录）",
+            "这张图不能支持的结论",
+            "数据不变量检查",
+        ]:
+            self.assertIn(required, special)
+
+        exemplar_dir = skill_root / "assets" / "figure-pattern-exemplars"
+        expected_exemplars = {
+            "method-framework.png",
+            "domain-configuration.png",
+            "cost-evidence.png",
+            "comparison-signed-difference.png",
+            "prediction-residual.png",
+            "field-snapshots.png",
+            "long-time-stability.png",
+        }
+        exemplar_guide = (skill_root / "references" / "figure-pattern-exemplars.md").read_text(encoding="utf-8")
+        self.assertEqual({path.name for path in exemplar_dir.glob("*.png")}, expected_exemplars)
+        self.assertLessEqual(sum(path.stat().st_size for path in exemplar_dir.glob("*.png")), 768 * 1024)
+        for path in exemplar_dir.glob("*.png"):
+            self.assertEqual(path.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+            self.assertIn(path.name, exemplar_guide)
+        self.assertIn("no private project values", exemplar_guide)
+        self.assertIn("synthetic numbers", exemplar_guide)
+
+        with tempfile.TemporaryDirectory(prefix="sr53-figure-") as temporary:
+            temporary_path = Path(temporary)
+            svg = temporary_path / "figure.svg"
+            svg.write_text("<svg xmlns=\"http://www.w3.org/2000/svg\"><rect width=\"10\" height=\"10\"/></svg>", encoding="utf-8")
+            digest = "0" * 64
+            valid_contract = temporary_path / "figure-contract.md"
+            valid_contract.write_text(
+                f"""# Contract\n```yaml\nfigure_id: "20261011-test"\nfigure_version: "v1"\nclaim: "Method A is faster under the stated condition"\nevidence_role: "cost"\ndata_source:\n  - "data/test.csv"\nsource_data_sha256:\n  - '{digest}'\nstyle_exemplars:\n  - "assets/figure-pattern-exemplars/cost-evidence.png"\nsample_size: "n=4"\ncomparison: "Method A versus Method B"\nencoding: "black circle=raw run; gray bar=mean"\nunits: "wall time (s); dimensionless count"\nuncertainty: "range over two repeats"\nlegend: "white boxed legend with black border and clear spacing"\npanel_logic: "single panel"\nboundary: "does not prove accuracy"\ncaption: "Conditions, encodings, result, and boundary."\nexport_status: "passed"\nexport_files:\n  - "figure.svg"\nadvisor_review: "accepted"\n```\n""",
+                encoding="utf-8",
+            )
+            passed = run(
+                str(skill_root / "scripts" / "qa_scientific_figure.py"),
+                str(valid_contract),
+                "--figure",
+                str(svg),
+            )
+            self.assertEqual(passed.returncode, 0, passed.stdout + passed.stderr)
+            self.assertIn("QA=pass", passed.stdout)
+
+            invalid_contract = temporary_path / "invalid-contract.md"
+            invalid_text = valid_contract.read_text(encoding="utf-8").replace('data_source:\n  - "data/test.csv"', 'data_source:\n  - "E:\\private\\test.csv"').replace("- '" + digest + "'", "- 'not-a-hash'")
+            invalid_contract.write_text(invalid_text, encoding="utf-8")
+            failed = run(str(skill_root / "scripts" / "qa_scientific_figure.py"), str(invalid_contract))
+            self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
+            self.assertIn("absolute path", failed.stdout)
+            self.assertIn("source_data_sha256", failed.stdout)
 
         valid_drawio = """<mxfile><diagram id="d1" name="Figure"><mxGraphModel pageWidth="800" pageHeight="600"><root><mxCell id="0"/><mxCell id="1" parent="0"/><mxCell id="node-input" value="Input" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="40" y="80" width="160" height="60" as="geometry"/></mxCell><mxCell id="node-model" value="Model" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1"><mxGeometry x="320" y="80" width="160" height="60" as="geometry"/></mxCell><mxCell id="edge-input-model" value="" style="edgeStyle=orthogonalEdgeStyle;html=1;" edge="1" parent="1" source="node-input" target="node-model"><mxGeometry relative="1" as="geometry"/></mxCell></root></mxGraphModel></diagram></mxfile>"""
         invalid_drawio = valid_drawio.replace('value="Model"', r'value="Attention(x_i)"').replace(' target="node-model"', "")
@@ -111,6 +188,9 @@ class RepositoryTests(unittest.TestCase):
             "references/ppt-layout-system.md",
             "references/logic-diagram-style.md",
             "references/human-revision-retrospective.md",
+            "references/group-meeting-ppt-template-patterns.md",
+            "assets/sr58-group-meeting-v8-style-template.pptx",
+            "assets/sr58-group-meeting-v8-style-template-page-plan.md",
             "assets/ppt-page-plan.md",
             "scripts/qa_group_meeting_pptx.py",
             "one complete, visible `SR58-SUMMARY` sentence on every page",
@@ -139,8 +219,73 @@ class RepositoryTests(unittest.TestCase):
             "ppt-layout-system.md",
             "logic-diagram-style.md",
             "human-revision-retrospective.md",
+            "## 20260830 v8 document-to-PPT bridge",
+            "four model factors: excitation, geometry, medium, and boundary condition",
         ]:
             self.assertIn(required, document_text)
+        template_path = skill_root / "assets" / "sr58-group-meeting-v8-style-template.pptx"
+        template_plan = skill_root / "assets" / "sr58-group-meeting-v8-style-template-page-plan.md"
+        template_patterns = (skill_root / "references" / "group-meeting-ppt-template-patterns.md").read_text(encoding="utf-8")
+        contact_sheet = skill_root / "assets" / "sr58-group-meeting-v8-style-contact-sheet.png"
+        self.assertTrue(template_path.is_file())
+        self.assertLess(template_path.stat().st_size, 128 * 1024)
+        for obsolete in [
+            "sr58-group-meeting-template.pptx",
+            "sr58-group-meeting-template-page-plan.md",
+            "sr58-group-meeting-template-contact-sheet.png",
+            "sr58-group-meeting-v8-template.pptx",
+            "sr58-group-meeting-v8-template-page-plan.md",
+            "sr58-group-meeting-v8-contact-sheet.png",
+        ]:
+            self.assertFalse((skill_root / "assets" / obsolete).exists())
+        self.assertTrue(contact_sheet.is_file())
+        self.assertLess(contact_sheet.stat().st_size, 512 * 1024)
+        self.assertEqual(contact_sheet.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
+        self.assertIn("no source figures", template_patterns)
+        self.assertIn("source slide images", template_patterns)
+        for forbidden in ["朱凌", "浙江大学", "file:///", "reference-folder/"]:
+            self.assertNotIn(forbidden, template_patterns)
+            self.assertNotIn(forbidden, template_plan.read_text(encoding="utf-8"))
+        with zipfile.ZipFile(template_path) as package:
+            slide_names = [name for name in package.namelist() if name.startswith("ppt/slides/slide") and name.endswith(".xml")]
+            self.assertEqual(len(slide_names), 20)
+            self.assertFalse(any(name.startswith("ppt/media/") for name in package.namelist()))
+            native_table_slides = [name for name in package.namelist() if re.fullmatch(r"ppt/slides/slide\d+\.xml", name) and b"graphicFrame" in package.read(name)]
+            self.assertTrue({"ppt/slides/slide11.xml", "ppt/slides/slide12.xml", "ppt/slides/slide13.xml"}.issubset(native_table_slides))
+            package_text = " ".join(package.read(name).decode("utf-8") for name in slide_names)
+            for forbidden in ["朱凌", "浙江大学", "file:///", "reference-folder/", "①", "②", "③", "④"]:
+                self.assertNotIn(forbidden, package_text)
+            for reference_color in ["003399", "D9E2F3", "C00000", "262626", "BFBFBF"]:
+                self.assertIn(reference_color, package_text)
+            for v8_required in ["激励", "几何", "介质", "边界", "网格", "未知量", "坐标", "图例", "colorbar", "24号"]:
+                self.assertIn(v8_required, package_text)
+            self.assertIn("small-circle numerals", template_patterns)
+            self.assertIn("20260830 v8 group-meeting mode", standard_text)
+            self.assertIn("model four factors: excitation, geometry, medium, boundary", template_plan.read_text(encoding="utf-8"))
+            self.assertIn("Full-width title", template_patterns)
+            self.assertIn("four views", template_patterns)
+            self.assertIn("resource statistics", template_patterns)
+            self.assertIn("20pt", template_patterns)
+            self.assertIn("critical=red+bold+underline", template_patterns)
+            self.assertIn("repeated-module differences", template_patterns)
+            self.assertIn("配色规则｜按重要度红蓝黑分级", package_text)
+            self.assertIn("结果页规则", package_text)
+            self.assertIn("重复模块规则", package_text)
+            self.assertIn("表格规则", package_text)
+            for reference_color in ["#003399", "#D9E2F3", "#C00000", "#262626", "#BFBFBF"]:
+                self.assertIn(reference_color, template_patterns)
+            for forbidden in ["①", "②", "③", "④"]:
+                self.assertNotIn(forbidden, template_patterns)
+        template_qa = run(
+            str(skill_root / "scripts" / "qa_group_meeting_pptx.py"),
+            str(template_path),
+            "--page-plan",
+            str(template_plan),
+            "--strict",
+        )
+        self.assertEqual(template_qa.returncode, 0, template_qa.stdout + template_qa.stderr)
+        self.assertIn("QA=pass", template_qa.stdout)
+
         page_plan_text = (skill_root / "assets" / "ppt-page-plan.md").read_text(encoding="utf-8")
         for required in [
             "presentation_mode:",
@@ -181,6 +326,7 @@ class RepositoryTests(unittest.TestCase):
             + xml_run("红二", 1800, "FF0000")
             + xml_run("红三", 1800, "FF0000")
             + xml_run("红四", 1800, "FF0000")
+            + xml_run("①错误编号", 1800, "000000")
         )
         pending_body = xml_run("此内容待验证", 1800, "000000")
         valid_plan = (
@@ -235,6 +381,7 @@ class RepositoryTests(unittest.TestCase):
             self.assertIn("red runs exceed the limit of 3", failed.stdout)
             self.assertIn("below the 14pt minimum", failed.stdout)
             self.assertIn("non-Microsoft-YaHei font", failed.stdout)
+            self.assertIn("small-circle numeral", failed.stdout)
 
             no_summary = run(str(skill_root / "scripts" / "qa_group_meeting_pptx.py"), str(missing), "--page-plan", str(good_plan))
             self.assertEqual(no_summary.returncode, 2, no_summary.stdout + no_summary.stderr)
