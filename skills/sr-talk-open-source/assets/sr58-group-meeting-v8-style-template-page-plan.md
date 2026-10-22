@@ -1,10 +1,10 @@
-# SR-58 v8 group-meeting template page plan
+# 脱敏组会模板逐页说明
 
-This page plan mirrors the de-identified 2026-09-30 v8 advisor template. Guidance/negative-example pages are references; delete them from a real delivery unless the advisor explicitly asks for them.
+本计划对应随包脱敏模板。作者提示和反面示例只作说明，正式交付默认删除。
 
-v8_required_checks: "full-width top title; 20pt body; red/blue/black importance semantics; model four factors: excitation, geometry, medium, boundary; resource statistics; figure units/legend; repeated-module differences; safe margin; no small-circle numerals"
+v8_required_checks: "通栏标题；20pt 正文；红蓝黑重要度；模型四要素：激励、几何、介质、边界；资源统计；单位与图例；重复模块变化；安全边距；普通数字编号"
 
-## Slide 1 — v8-cover
+## 第 1 页
 kicker: "v8-cover"
 title: "<结论式主题>｜<研究对象>与<阶段成果>"
 cognitive_type: "context"
@@ -14,7 +14,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 2 — v8-rule
+## 第 2 页
 kicker: "v8-rule"
 title: "总则｜信息有条理且不堆砌"
 cognitive_type: "context"
@@ -24,7 +24,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 3 — v8-rule
+## 第 3 页
 kicker: "v8-rule"
 title: "汇报原则｜一页一句话讲完"
 cognitive_type: "context"
@@ -34,7 +34,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 4 — v8-last-week
+## 第 4 页
 kicker: "v8-last-week"
 title: "上周回顾｜对照建议核验完成"
 cognitive_type: "context"
@@ -44,7 +44,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 5 — v8-agenda
+## 第 5 页
 kicker: "v8-agenda"
 title: "汇报大纲｜按章节推进"
 cognitive_type: "context"
@@ -54,7 +54,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 6 — v8-result
+## 第 6 页
 kicker: "v8-result"
 title: "1. <主题>｜完成<对象>并明确剩余问题"
 cognitive_type: "claim"
@@ -64,7 +64,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 7 — v8-method
+## 第 7 页
 kicker: "v8-method"
 title: "1.1 <方法>｜用<机制>解释<结果>"
 cognitive_type: "mechanism"
@@ -74,7 +74,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 8 — v8-next
+## 第 8 页
 kicker: "v8-next"
 title: "下次汇报展望｜先完成两件事"
 cognitive_type: "decision"
@@ -84,7 +84,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 9 — v8-computation
+## 第 9 页
 kicker: "v8-computation"
 title: "计算模板说明｜模型设置必须可复查"
 cognitive_type: "context"
@@ -94,7 +94,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 10 — v8-geometry
+## 第 10 页
 kicker: "v8-geometry"
 title: "<模型>｜几何与网格四视图"
 cognitive_type: "artifact"
@@ -104,7 +104,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 11 — v8-settings
+## 第 11 页
 kicker: "v8-settings"
 title: "模型设置｜激励几何介质边条"
 cognitive_type: "artifact"
@@ -114,7 +114,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 12 — v8-material
+## 第 12 页
 kicker: "v8-material"
 title: "材料参数｜频变曲线与数据表"
 cognitive_type: "artifact"
@@ -124,7 +124,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 13 — v8-resource
+## 第 13 页
 kicker: "v8-resource"
 title: "计算资源｜网格未知量与耗时"
 cognitive_type: "metric"
@@ -134,7 +134,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 14 — v8-mesh
+## 第 14 页
 kicker: "v8-mesh"
 title: "网格与特征｜坐标刻度齐全"
 cognitive_type: "artifact"
@@ -144,7 +144,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 15 — v8-image
+## 第 15 页
 kicker: "v8-image"
 title: "图片要求｜直观清晰图例完整"
 cognitive_type: "artifact"
@@ -154,7 +154,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 16 — v8-visualization
+## 第 16 页
 kicker: "v8-visualization"
 title: "可视化要求｜物理量和单位清楚"
 cognitive_type: "artifact"
@@ -164,7 +164,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 17 — v8-negative
+## 第 17 页
 kicker: "v8-negative"
 title: "负面案例｜缺轴单位和标注"
 cognitive_type: "risk"
@@ -174,7 +174,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 18 — v8-margin
+## 第 18 页
 kicker: "v8-margin"
 title: "负面案例｜内容顶格难读"
 cognitive_type: "risk"
@@ -184,7 +184,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 19 — v8-style
+## 第 19 页
 kicker: "v8-style"
 title: "配色规则｜按重要度红蓝黑分级"
 cognitive_type: "risk"
@@ -194,7 +194,7 @@ one_cognitive_object: true
 needs_two_summaries: false
 split_recommended: false
 
-## Slide 20 — v8-check
+## 第 20 页
 kicker: "v8-check"
 title: "交付检查｜满足组会模板要求"
 cognitive_type: "reflection"

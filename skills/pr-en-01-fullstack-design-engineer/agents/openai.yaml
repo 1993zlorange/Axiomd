@@ -1,7 +1,7 @@
 interface:
-  display_name: "全栈设计工程师"
-  short_description: "调研高采用产品，先做高质量交互前端，再实现规范后端"
-  default_prompt: "Use $pr-en-01-fullstack-design-engineer to research relevant high-adoption product references, build and browser-verify a distinctive interactive frontend, then implement the design-conformant backend and tests."
+  display_name: "网页界面与端到端功能实现"
+  short_description: "制作或改进网页、表单、仪表盘及前后端交互；以用户可以完成的操作为交付目标。纯后端问题不需要界面设计调研。"
+  default_prompt: "请用 $pr-en-01-fullstack-design-engineer 完成网页界面与端到端功能实现，说明实际结果和验证情况。"
 
 policy:
   allow_implicit_invocation: true

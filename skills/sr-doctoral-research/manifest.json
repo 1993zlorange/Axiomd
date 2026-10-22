@@ -1,28 +1,8 @@
 {
   "name": "sr-doctoral-research",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "source": "idea/科研工作分解与每周组会汇报模板_20260828.md",
-  "axes": {
-    "aspect": [
-      "problem",
-      "literature",
-      "idea",
-      "method",
-      "experiment",
-      "analysis",
-      "paper",
-      "progress"
-    ],
-    "intent": [
-      "explore",
-      "decide",
-      "design",
-      "execute",
-      "diagnose",
-      "communicate",
-      "review"
-    ]
-  },
+  "purpose": "维护时查询职责，不要求运行时转调技能",
   "routes": [
     {
       "id": "SR-01",
@@ -75,7 +55,7 @@
       "display_name": "SR-研究问题评审",
       "aspect": "problem",
       "intent": "review",
-      "detect": "研究问题准备冻结、需要从创新性、可证伪性、边界和资源角度接受挑战时",
+      "detect": "研究问题准备固定、需要从创新性、可证伪性、边界和资源角度接受挑战时",
       "path": "../sr-research-question-review/SKILL.md"
     },
     {
@@ -84,7 +64,7 @@
       "display_name": "SR-检索式设计与试检索",
       "aspect": "literature",
       "intent": "explore",
-      "detect": "需要系统检索某一研究问题、建立可复跑检索协议或降低漏检与噪声时",
+      "detect": "需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。",
       "path": "../sr-search-strategy/SKILL.md"
     },
     {
@@ -93,7 +73,7 @@
       "display_name": "SR-核心文献筛选",
       "aspect": "literature",
       "intent": "review",
-      "detect": "检索结果需要去重、初筛、全文复筛并留下可审计排除理由时",
+      "detect": "检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把符合筛选标准纳入的文献批量导入 Zotero 时",
       "path": "../sr-literature-screening/SKILL.md"
     },
     {
@@ -117,7 +97,7 @@
     {
       "id": "SR-11",
       "name": "sr-novelty-tree",
-      "display_name": "SR-Novelty tree",
+      "display_name": "SR-创新空间分析",
       "aspect": "literature",
       "intent": "explore",
       "detect": "需要按问题、表示、模型、训练、评价或应用层定位创新空间时",
@@ -126,7 +106,7 @@
     {
       "id": "SR-12",
       "name": "sr-challenge-insight-tree",
-      "display_name": "SR-Challenge-insight tree",
+      "display_name": "SR-挑战与解释树",
       "aspect": "literature",
       "intent": "explore",
       "detect": "需要把领域挑战追到根因，并把洞见、方法和证据连成可验证链时",
@@ -135,7 +115,7 @@
     {
       "id": "SR-13",
       "name": "sr-baseline-landscape",
-      "display_name": "SR-Baseline与基准调研",
+      "display_name": "SR-对照方法与基准调研",
       "aspect": "literature",
       "intent": "review",
       "detect": "需要选择公平、可运行且能代表低中强水平的比较基线时",
@@ -174,16 +154,16 @@
       "display_name": "SR-最近邻差异分析",
       "aspect": "idea",
       "intent": "review",
-      "detect": "已有 Idea 需要与最接近工作逐维比较并确认哪些部分不构成创新时",
+      "detect": "已有研究想法需要与最接近工作逐维比较并确认哪些部分不构成创新时",
       "path": "../sr-nearest-neighbor-difference/SKILL.md"
     },
     {
       "id": "SR-18",
       "name": "sr-idea-decomposition",
-      "display_name": "SR-Idea分解",
+      "display_name": "SR-研究想法分解",
       "aspect": "idea",
       "intent": "design",
-      "detect": "Idea 含多个机制、增强模块和工程组件，需要收敛最小研究版本时",
+      "detect": "研究想法含多个机制、增强模块和工程组件，需要收敛最小研究版本时",
       "path": "../sr-idea-decomposition/SKILL.md"
     },
     {
@@ -192,7 +172,7 @@
       "display_name": "SR-机制推演与反例构造",
       "aspect": "idea",
       "intent": "diagnose",
-      "detect": "需要从机制导出预测、用极端条件和反例挑战 Idea 时",
+      "detect": "需要从机制导出预测、用极端条件和反例挑战研究想法时",
       "path": "../sr-mechanism-counterexample/SKILL.md"
     },
     {
@@ -207,10 +187,10 @@
     {
       "id": "SR-21",
       "name": "sr-idea-prioritization",
-      "display_name": "SR-Idea优先级评审",
+      "display_name": "SR-研究想法优先级评审",
       "aspect": "idea",
       "intent": "decide",
-      "detect": "多个 Idea 或路线竞争，需要按价值、新颖性、可证伪性、数据、成本和风险排序时",
+      "detect": "多个研究想法或路线竞争，需要按价值、新颖性、可证伪性、数据、成本和风险排序时",
       "path": "../sr-idea-prioritization/SKILL.md"
     },
     {
@@ -243,16 +223,16 @@
     {
       "id": "SR-25",
       "name": "sr-data-schema-freeze",
-      "display_name": "SR-数据接口与Schema冻结",
+      "display_name": "SR-数据接口与结构确定",
       "aspect": "method",
       "intent": "decide",
-      "detect": "数据字段、形状、单位、坐标、编码、缺失规则或版本需要冻结时",
+      "detect": "数据字段、形状、单位、坐标、编码、缺失规则或版本需要固定时",
       "path": "../sr-data-schema-freeze/SKILL.md"
     },
     {
       "id": "SR-26",
       "name": "sr-baseline-unification",
-      "display_name": "SR-Baseline统一实现",
+      "display_name": "SR-对照方法统一实现",
       "aspect": "method",
       "intent": "execute",
       "detect": "多个基线需要在同一数据、训练循环、预算、评价和日志接口下公平实现时",
@@ -279,10 +259,10 @@
     {
       "id": "SR-29",
       "name": "sr-failure-fallback",
-      "display_name": "SR-失效与回退设计",
+      "display_name": "SR-失效与备用方案设计",
       "aspect": "method",
       "intent": "design",
-      "detect": "方法可能出现数值、数据、OOD、资源或接口失效，需要提前设计触发器与回退时",
+      "detect": "方法可能出现数值、数据、分布外泛化、资源或接口失效，需要提前设计触发器与回退时",
       "path": "../sr-failure-fallback/SKILL.md"
     },
     {
@@ -300,13 +280,13 @@
       "display_name": "SR-数据划分设计",
       "aspect": "experiment",
       "intent": "design",
-      "detect": "训练验证测试或 ID/OOD 划分需要匹配目标 claim 并排除泄漏时",
+      "detect": "训练验证测试或 ID/分布外泛化划分需要匹配目标主张并排除泄漏时",
       "path": "../sr-data-split/SKILL.md"
     },
     {
       "id": "SR-32",
       "name": "sr-baseline-reproduction",
-      "display_name": "SR-Baseline复现",
+      "display_name": "SR-对照方法复现",
       "aspect": "experiment",
       "intent": "execute",
       "detect": "需要在本地复现论文或官方基线并解释与报告值的差异时",
@@ -327,7 +307,7 @@
       "display_name": "SR-主对比实验",
       "aspect": "experiment",
       "intent": "execute",
-      "detect": "假设和实验协议已冻结，需要与低、主流和强基线做公平正式比较时",
+      "detect": "假设和实验协议已固定，需要与低、主流和强基线做公平正式比较时",
       "path": "../sr-main-comparison/SKILL.md"
     },
     {
@@ -351,10 +331,10 @@
     {
       "id": "SR-37",
       "name": "sr-generalization-ood",
-      "display_name": "SR-泛化与OOD实验",
+      "display_name": "SR-泛化实验",
       "aspect": "experiment",
       "intent": "execute",
-      "detect": "需要区分跨参数、跨几何、跨类别、跨设备或其他 OOD 泛化 claim 时",
+      "detect": "需要区分跨参数、跨几何、跨类别、跨设备或其他分布外泛化泛化主张时",
       "path": "../sr-generalization-ood/SKILL.md"
     },
     {
@@ -381,7 +361,7 @@
       "display_name": "SR-结果完整性检查",
       "aspect": "analysis",
       "intent": "review",
-      "detect": "分析前需要核对运行数、配置、日志、退出状态、checkpoint 和评价脚本是否完整时",
+      "detect": "分析前需要核对运行数、配置、日志、退出状态、模型保存点和评价脚本是否完整时",
       "path": "../sr-result-integrity/SKILL.md"
     },
     {
@@ -405,7 +385,7 @@
     {
       "id": "SR-43",
       "name": "sr-good-failure-cases",
-      "display_name": "SR-Good与Failure case分析",
+      "display_name": "SR-成功与失败案例分析",
       "aspect": "analysis",
       "intent": "diagnose",
       "detect": "需要用代表性成功、普通和失败案例理解模型行为与误差模式时",
@@ -480,7 +460,7 @@
       "display_name": "SR-方法部分写作",
       "aspect": "paper",
       "intent": "communicate",
-      "detect": "符号、方法和实现已冻结，需要写可理解、可复现且不过度包装的方法章节时",
+      "detect": "符号、方法和实现已固定，需要写可理解、可复现且不过度包装的方法章节时",
       "path": "../sr-methods-writing/SKILL.md"
     },
     {
@@ -498,7 +478,7 @@
       "display_name": "SR-核心图表制作",
       "aspect": "paper",
       "intent": "communicate",
-      "detect": "需要让一张核心图只传达一个可证据支持的结论、用诚实编码呈现不确定性，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时",
+      "detect": "需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时",
       "path": "../sr-core-figures/SKILL.md"
     },
     {
@@ -531,7 +511,7 @@
     {
       "id": "SR-57",
       "name": "sr-rebuttal-revision",
-      "display_name": "SR-Rebuttal与修订",
+      "display_name": "SR-审稿回复与修订",
       "aspect": "paper",
       "intent": "communicate",
       "detect": "审稿意见已拆解，需要逐点回复、补证据、修改稿件并闭环追踪时",
@@ -540,16 +520,16 @@
     {
       "id": "SR-58",
       "name": "sr-talk-open-source",
-      "display_name": "SR-学术报告与开源成果",
+      "display_name": "SR-学术演示文稿制作",
       "aspect": "paper",
       "intent": "communicate",
-      "detect": "需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成结构化编号、按认知对象拆页、每页有一句总结性话的模板化学术/组会汇报 PPT 时",
+      "detect": "需要将论文、项目文档或研究进展制作成学术报告、答辩、文献分享或组会演示文稿时；本技能是 PR/SR 中唯一的 PPT 制作入口",
       "path": "../sr-talk-open-source/SKILL.md"
     },
     {
       "id": "SR-59",
       "name": "sr-last-week-acceptance",
-      "display_name": "SR-上周任务验收",
+      "display_name": "SR-上周任务核对",
       "aspect": "progress",
       "intent": "review",
       "detect": "新一周开始或组会前，需要按上周承诺和完成标准检查真实交付物时",
@@ -561,13 +541,13 @@
       "display_name": "SR-研究任务拆解",
       "aspect": "progress",
       "intent": "design",
-      "detect": "里程碑或研究目标太大，需要拆成一至三天可完成、可验收且有依赖的工作包时",
+      "detect": "里程碑或研究目标太大，需要拆成一至三天可完成、可核对且有依赖的任务时",
       "path": "../sr-task-decomposition/SKILL.md"
     },
     {
       "id": "SR-61",
       "name": "sr-milestone-evidence-gate",
-      "display_name": "SR-里程碑与证据门管理",
+      "display_name": "SR-里程碑与阶段检查",
       "aspect": "progress",
       "intent": "decide",
       "detect": "进入下一阶段前需要设置数据、基线、机制、性能或写作证据门槛时",
@@ -576,10 +556,10 @@
     {
       "id": "SR-62",
       "name": "sr-blocker-resolution",
-      "display_name": "SR-Blocker定位与清除",
+      "display_name": "SR-受阻原因定位与清除",
       "aspect": "progress",
       "intent": "diagnose",
-      "detect": "“进展慢”需要转成具体阻塞、根因、所需输入、责任人和期限时",
+      "detect": "“进展慢”需要转成具体阻塞、根因、所需输入、负责角色（可不填姓名）和期限时",
       "path": "../sr-blocker-resolution/SKILL.md"
     },
     {
@@ -588,7 +568,7 @@
       "display_name": "SR-多人接口协调",
       "aspect": "progress",
       "intent": "decide",
-      "detect": "多人或系统之间需要冻结字段、单位、目录、版本、样例和验收接口时",
+      "detect": "多人或系统之间需要固定字段、单位、目录、版本、样例和核对接口时",
       "path": "../sr-collaboration-interface/SKILL.md"
     },
     {
@@ -606,7 +586,7 @@
       "display_name": "SR-风险登记与预案",
       "aspect": "progress",
       "intent": "design",
-      "detect": "需要管理数据、方法、算力、合作、时间、伦理或投稿风险及 Plan B 时",
+      "detect": "需要管理数据、方法、算力、合作、时间、伦理或投稿风险及备用方案时",
       "path": "../sr-risk-contingency/SKILL.md"
     },
     {
@@ -615,7 +595,7 @@
       "display_name": "SR-周计划制定",
       "aspect": "progress",
       "intent": "decide",
-      "detect": "需要从关键未知量制定下一周一个 P0、最多两个 P1 的可验收科研计划时",
+      "detect": "需要从关键未知量制定下一周一个首要任务、最多两个后续任务的可核对科研计划时",
       "path": "../sr-weekly-plan/SKILL.md"
     },
     {

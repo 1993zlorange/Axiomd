@@ -1,55 +1,49 @@
 ---
 name: sr-data-schema-freeze
-description: "SR-数据接口与Schema冻结：数据字段、形状、单位、坐标、编码、缺失规则或版本需要冻结时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "数据接口与结构确定：数据字段、形状、单位、坐标、编码、缺失规则或版本需要固定时。"
 metadata:
   sr-id: "SR-25"
   aspect: "技术方案与方法设计"
-  short-description: "SR-数据接口与Schema冻结"
+  short-description: "数据接口与结构确定"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 数据接口与结构确定
 
-# SR-数据接口与Schema冻结
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 数据字段、形状、单位、坐标、编码、缺失规则或版本需要冻结时
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+数据字段、形状、单位、坐标、编码、缺失规则或版本需要固定时。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 从真实设备或仿真输出抄录字段
-2. 定义 dtype、shape、unit、range 和 nullable
-3. 制作最小正例、边界例和错误例
-4. 人工抽检样本并让生产者与消费者共同确认
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 从真实设备或仿真输出抄录字段。
+2. 定义 dtype、shape、unit、range 和 nullable。
+3. 制作最小正例、边界例和错误例。
+4. 逐项抽检样本并让生产者与消费者共同确认。
 
-**AI role:** 生成 schema、校验器草案、边界测试和兼容性检查。
+## 交付什么
 
-**Human intervention:** 博士生核对真实数据含义；生产者与消费者确认版本和变更影响。
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：数据结构：字段 / 类型 / 维度 / 单位 / 范围 / 是否允许缺失 / 版本 / 示例。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-## Deliverable
+## 怎么检查
 
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture. Name the artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, and human verdicts explicit.
+数据结构有版本和样例，真实抽检通过，单位坐标无歧义，变更流程与负责角色（可不填姓名）明确。
 
-Use this template: Schema：字段 / dtype / shape / unit / range / nullable / version / 示例
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
+## 需要用户决定时
 
-Recommended optional adapters: `k-dense/exploratory-data-analysis`, `k-dense/mathematical-modeling`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
+需要重点核对：核对真实数据含义；生产者与消费者确认版本和变更影响。
 
-## Completion gate
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
 
-schema 有版本和样例，真实抽检通过，单位坐标无歧义，变更流程与责任人明确。
-
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
-
-## Routing after closure
-
-Likely next Skill(s): `$sr-baseline-unification`, `$sr-data-generation-qc`, `$sr-data-split`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the 68 SR leaf skills and routing manifest.
-
-Agent registration and workflow documentation are maintained separately. This
-generator must never create a project-local research agent.
-"""
-
+"""从中文目录生成 68 个可独立使用的研究技能；--check 只检查，不写入。"""
 from __future__ import annotations
 
 import argparse
@@ -12,13 +7,8 @@ import json
 import re
 from pathlib import Path
 
-
-GENERATED_MARKER = "<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->"
-
-
-def write_text(path: Path, text: str) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text.rstrip() + "\n", encoding="utf-8", newline="\n")
+GENERATED_MARKER = "<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->"
+GUIDE = "沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。"
 
 
 def yaml_string(value: str) -> str:
@@ -26,182 +16,132 @@ def yaml_string(value: str) -> str:
 
 
 def validate_catalog(catalog: dict) -> list[dict]:
-    skills = catalog.get("skills")
-    if not isinstance(skills, list) or len(skills) != 68:
-        raise ValueError("catalog must contain exactly 68 skills")
-    expected = [f"SR-{number:02d}" for number in range(1, 69)]
-    if [item.get("id") for item in skills] != expected:
-        raise ValueError("skill IDs must be ordered exactly from SR-01 through SR-68")
-    names = [item.get("name") for item in skills]
-    if len(set(names)) != len(names):
-        raise ValueError("skill names must be unique")
-    required = {
-        "id", "name", "display_name", "aspect", "aspect_key", "intent",
-        "use_when", "manual_steps", "ai_role", "human_intervention",
-        "template", "completion_gate", "next",
-    }
-    for item in skills:
-        missing = required.difference(item)
-        if missing:
-            raise ValueError(f"{item.get('id', '<unknown>')} missing fields: {sorted(missing)}")
-        if not re.fullmatch(r"sr-[a-z0-9-]{1,60}", item["name"]):
-            raise ValueError(f"invalid skill name: {item['name']}")
-        if not item["manual_steps"]:
-            raise ValueError(f"{item['id']} must define manual_steps")
-    return skills
+    items = catalog.get("skills", [])
+    if [x.get("id") for x in items] != [f"SR-{i:02d}" for i in range(1, 69)]:
+        raise ValueError("目录应按顺序包含 SR-01 至 SR-68")
+    if len({x["name"] for x in items}) != len(items):
+        raise ValueError("技能名称重复")
+    for item in items:
+        if not re.fullmatch(r"sr-[a-z0-9-]{1,60}", item["name"]) or not item["manual_steps"]:
+            raise ValueError(f"技能名称或步骤不完整：{item['id']}")
+    return items
 
 
-def leaf_skill_text(item: dict) -> str:
-    manual_steps = "\n".join(
-        f"{index}. {step}" for index, step in enumerate(item["manual_steps"], start=1)
-    )
-    adapters = item.get("recommended_adapters", [])
-    adapter_text = ", ".join(f"`{value}`" for value in adapters) if adapters else "None; use available local tools."
-    next_text = ", ".join(f"`$" + value + "`" for value in item["next"]) or "none"
-    browser = item.get("browser_workflow")
-    browser_section = ""
-    if browser:
-        safe_ops = "；".join(browser.get("safe_operations", []))
-        forbidden_ops = "；".join(browser.get("forbidden_operations", []))
-        browser_section = f"""
-## Authenticated browser retrieval (optional)
-
-When a source requires the researcher's existing login, follow [{browser['runtime']} workflow]({browser['reference']}) and obtain explicit authorization immediately before contacting the external site. Use `{browser['permission_level']}` for this path. Safe operations: {safe_ops}。
-
-Never {forbidden_ops}。 The browser session is a capability boundary, not a source of credentials. Record only page-visible research evidence and clean up the session and any borrowed tab when finished.
-"""
-    bibliography = item.get("bibliography_export")
-    bibliography_section = ""
-    if bibliography:
-        optional_formats = ", ".join(f"`{value}`" for value in bibliography.get("optional_formats", [])) or "none"
-        bibliography_section = f"""
-## Zotero batch import deliverable
-
-Alongside the achievement card, produce a UTF-8 `{bibliography['default_format']}` file named `{bibliography['filename']}`. Optional formats: {optional_formats}. Export scope: {bibliography['scope']}。
-
-Read [Zotero batch import contract]({bibliography['reference']}) before exporting. Prefer a database's native batch export over reconstructed metadata. Never invent missing bibliographic fields, attach restricted full text without authorization, or claim the displayed hit count as the exported record count. Record the file path, format, record count, deduplication basis, source coverage, and validation result in the achievement card.
-"""
-    description = (
-        f"{item['display_name']}：{item['use_when']}。"
-        "Use for this specific doctoral research work package after routing; "
-        "do not use as a generic end-to-end research assistant."
-    )
-    return f"""---
-name: {item['name']}
-description: {yaml_string(description)}
+def leaf_skill_text(item: dict, supplement: str = "") -> str:
+    title = item["display_name"].removeprefix("SR-")
+    steps = "\n".join(f"{i}. {step.rstrip('。')}。" for i, step in enumerate(item["manual_steps"], 1))
+    return f'''---
+name: {item["name"]}
+description: {yaml_string(title + '：' + item['use_when'].rstrip('。') + '。')}
 metadata:
-  sr-id: {yaml_string(item['id'])}
-  aspect: {yaml_string(item['aspect'])}
-  short-description: {yaml_string(item['display_name'])}
+  sr-id: {yaml_string(item["id"])}
+  aspect: {yaml_string(item["aspect"])}
+  short-description: {yaml_string(title)}
 ---
 
 {GENERATED_MARKER}
 
-# {item['display_name']}
+# {title}
 
-Use this leaf Skill when: {item['use_when']}
+{GUIDE}
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+{item['use_when'].rstrip('。')}。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-{manual_steps}
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it so AI output can be compared with independent human judgment.
+## 怎么做
 
-## Human-AI collaboration
+{steps}
+{supplement}
+## 交付什么
 
-**AI role:** {item['ai_role']}
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：{item['template']}。
 
-**Human intervention:** {item['human_intervention']}
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
-{browser_section}
-{bibliography_section}
+## 怎么检查
 
-## Deliverable
+{item['completion_gate'].rstrip('。')}。
 
-Use this template: {item['template']}
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
+## 需要用户决定时
 
-Recommended optional adapters: {adapter_text}. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using an adapter. Missing adapters are not a blocker; disclose the manual or local fallback.
+{item['human_intervention']}
 
-## Completion gate
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
 
-{item['completion_gate']}
-
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
-
-## Routing after closure
-
-Likely next Skill(s): {next_text}. Treat these as candidates, not a forced sequence; route according to the highest-value unknown.
-"""
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。
+'''
 
 
 def openai_yaml_text(item: dict) -> str:
-    prompt = (
-        "Use $" + item["name"] + f" to complete {item['display_name']} with my human baseline, "
-        "a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
-    )
-    return f"""interface:
-  display_name: {yaml_string(item['display_name'])}
-  short_description: {yaml_string(item['display_name'] + '：古法首轮、人机协作、证据验收')}
-  default_prompt: {yaml_string(prompt)}
+    title = item["display_name"].removeprefix("SR-")
+    return f'''interface:
+  display_name: {yaml_string(title)}
+  short_description: {yaml_string(title + '，说明做法、结果、来源和仍需核实的问题')}
+  default_prompt: {yaml_string('请用 $' + item['name'] + ' 完成' + title + '，给出可检查的结果和必要说明。')}
 
 policy:
-  allow_implicit_invocation: false
-"""
+  allow_implicit_invocation: true
+'''
 
 
-def routing_manifest(catalog: dict, skills: list[dict]) -> dict:
-    return {
-        "name": "sr-doctoral-research",
-        "version": catalog["version"],
-        "source": catalog["source"],
-        "axes": {
-            "aspect": ["problem", "literature", "idea", "method", "experiment", "analysis", "paper", "progress"],
-            "intent": ["explore", "decide", "design", "execute", "diagnose", "communicate", "review"],
-        },
-        "routes": [
-            {
-                "id": item["id"],
-                "name": item["name"],
-                "display_name": item["display_name"],
-                "aspect": item["aspect_key"],
-                "intent": item["intent"],
-                "detect": item["use_when"],
-                "path": f"../{item['name']}/SKILL.md",
-            }
-            for item in skills
-        ],
-    }
+def routing_manifest(catalog: dict, items: list[dict]) -> dict:
+    return {"name": "sr-doctoral-research", "version": catalog["version"],
+            "source": catalog["source"], "purpose": "维护时查询职责，不要求运行时转调技能",
+            "routes": [{"id": x["id"], "name": x["name"], "display_name": x["display_name"],
+                        "aspect": x["aspect_key"], "intent": x["intent"], "detect": x["use_when"],
+                        "path": f"../{x['name']}/SKILL.md"} for x in items]}
+
+
+def outputs(root: Path) -> dict[Path, str]:
+    skill_root = root / "skills"
+    if not (skill_root / "sr-doctoral-research/catalog.json").is_file():
+        skill_root = root / ".codex/skills"
+    router = skill_root / "sr-doctoral-research"
+    catalog = json.loads((router / "catalog.json").read_text(encoding="utf-8"))
+    items = validate_catalog(catalog)
+    result = {}
+    for item in items:
+        target = skill_root / item["name"]
+        supplement = target / "references/workflow-supplement.md"
+        detail = supplement.read_text(encoding="utf-8").strip() if supplement.is_file() else ""
+        def local_link(match: re.Match) -> str:
+            value = match.group(1)
+            if ":" in value or value.startswith("#"):
+                return match.group(0)
+            resolved = (supplement.parent / value).resolve()
+            return "](" + resolved.relative_to(target.resolve()).as_posix() + ")"
+        detail = re.sub(r"\]\(([^)]+)\)", local_link, detail)
+        result[target / "SKILL.md"] = leaf_skill_text(item, "\n" + detail + "\n" if detail else "")
+        result[target / "agents/openai.yaml"] = openai_yaml_text(item)
+    result[router / "manifest.json"] = json.dumps(routing_manifest(catalog, items), ensure_ascii=False, indent=2) + "\n"
+    return result
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--repo-root", type=Path, required=True)
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--repo-root", type=Path, default=Path(__file__).resolve().parents[3])
+    parser.add_argument("--check", action="store_true", help="只检查生成结果是否一致")
     args = parser.parse_args()
-
-    root = args.repo_root.resolve()
-    router = root / ".codex" / "skills" / "sr-doctoral-research"
-    catalog = json.loads((router / "catalog.json").read_text(encoding="utf-8"))
-    skills = validate_catalog(catalog)
-    skill_root = router.parent
-
-    for item in skills:
-        leaf_root = skill_root / item["name"]
-        write_text(leaf_root / "SKILL.md", leaf_skill_text(item))
-        write_text(leaf_root / "agents" / "openai.yaml", openai_yaml_text(item))
-
-    manifest = routing_manifest(catalog, skills)
-    write_text(router / "manifest.json", json.dumps(manifest, ensure_ascii=False, indent=2))
-
-    print(f"generated {len(skills)} leaf skills")
-    print(f"manifest routes: {len(manifest['routes'])}")
-    print("project-local research agents: not generated")
+    differences = []
+    for path, content in outputs(args.repo_root.resolve()).items():
+        if path.is_file() and path.read_text(encoding="utf-8") == content:
+            continue
+        differences.append(path)
+        if not args.check:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(content, encoding="utf-8", newline="\n")
+    if args.check and differences:
+        for path in differences:
+            print(f"过期：{path}")
+        return 1
+    print(f"68 个研究技能{'检查通过' if args.check else '已生成'}；变动文件：{len(differences)}")
     return 0
 
 

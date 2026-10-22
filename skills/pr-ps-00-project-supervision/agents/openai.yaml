@@ -1,7 +1,7 @@
 interface:
-  display_name: "PS-00 项目监理"
-  short_description: "在项目操作前后执行治理监控、记账、反思和质量门禁"
-  default_prompt: "使用 $pr-ps-00-project-supervision 监控当前项目操作并记录治理材料。"
+  display_name: "项目工作检查"
+  short_description: "检查项目工作是否漏掉用户要求、文件安排或必要验证；用于用户要求整体复核，或项目已有明确检查规则的场景。"
+  default_prompt: "请用 $pr-ps-00-project-supervision 完成项目工作检查，说明实际结果和验证情况。"
 
 policy:
   allow_implicit_invocation: true

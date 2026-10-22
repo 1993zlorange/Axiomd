@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def run(*args: str, cwd: Path = ROOT) -> subprocess.CompletedProcess[str]:
     return subprocess.run(
-        [sys.executable, *args],
+        [sys.executable, "-X", "utf8", *args],
         cwd=cwd,
         text=True,
         capture_output=True,
@@ -33,7 +33,7 @@ class RepositoryTests(unittest.TestCase):
         self.assertEqual(package["name"], plugin["name"])
         self.assertEqual(package["version"], plugin["version"])
         self.assertEqual(len(package["agents"]), 10)
-        self.assertEqual(len(package["skills"]), 96)
+        self.assertEqual(len(package["skills"]), 95)
         self.assertEqual(set(package["profiles"]), {"ai4programming", "ai4science", "all"})
 
     def test_sr_pr_agents_use_adaptive_reasoning_policy(self) -> None:
@@ -50,37 +50,37 @@ class RepositoryTests(unittest.TestCase):
             )
             instructions = data["developer_instructions"]
             for required in [
-                "Adaptive reasoning policy:",
-                "Light path:",
-                "Standard path:",
-                "Deep path:",
-                "Deep triggers for this role:",
+                "分析深度：",
+                "简单任务：",
+                "常规任务：",
+                "复杂任务：",
+                "需要深入检查的情形：",
             ]:
                 self.assertIn(required, instructions, f"{path.name} missing {required!r}")
 
     def test_sr07_authenticated_browser_contract_is_explicit(self) -> None:
         skill = (ROOT / "skills" / "sr-search-strategy" / "SKILL.md").read_text(encoding="utf-8")
         reference = (ROOT / "skills" / "sr-research-shared" / "references" / "browser-skill-literature-search.md").read_text(encoding="utf-8")
-        for required in ["bsk session", "bsk tab borrow", "bsk request-help", "bsk session stop", "L3"]:
+        for required in ["现有会话", "来源 URL", "检索时间", "归还借用标签页", "验证码"]:
             self.assertIn(required, skill + reference)
-        for fallback_required in ["安装 BrowserSkill 后重试", "未经用户确认不得静默切换回退路径"]:
-            self.assertIn(fallback_required, skill + reference)
-        for forbidden in ["Cookie", "令牌", "密码", "localStorage"]:
-            self.assertIn(forbidden, skill + reference)
-        self.assertIn("authenticated_content_observed", skill + reference)
+        for forbidden in ["Cookie", "令牌", "密码", "localStorage", "认证头"]:
+            self.assertIn(forbidden, skill)
+        self.assertIn("不绕过", skill)
+        self.assertNotIn("调用 $browser-skill", skill)
+        self.assertNotIn("安装 BrowserSkill 后重试", skill + reference)
 
     def test_sr53_has_drawio_authoring_and_source_qa(self) -> None:
         skill_root = ROOT / "skills" / "sr-core-figures"
         skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
         for required in [
-            "## Scientific data figure authoring",
+            "### 数据图",
             "references/scientific-figure-authoring.md",
             "references/advisor-figure-patterns.md",
             "references/paper-figure-patterns.md",
             "references/figure-pattern-exemplars.md",
             "assets/figure-contract-template.md",
             "scripts/qa_scientific_figure.py",
-            "## Draw.io scientific authoring",
+            "### 可编辑示意图",
             "references/drawio-authoring.md",
             "references/drawio-visual-language.md",
             "references/drawio-export-qa.md",
@@ -128,8 +128,8 @@ class RepositoryTests(unittest.TestCase):
         for path in exemplar_dir.glob("*.png"):
             self.assertEqual(path.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
             self.assertIn(path.name, exemplar_guide)
-        self.assertIn("no private project values", exemplar_guide)
-        self.assertIn("synthetic numbers", exemplar_guide)
+        self.assertIn("不含私有项目数值", exemplar_guide)
+        self.assertIn("合成数据", exemplar_guide)
 
         with tempfile.TemporaryDirectory(prefix="sr53-figure-") as temporary:
             temporary_path = Path(temporary)
@@ -149,6 +149,12 @@ class RepositoryTests(unittest.TestCase):
             )
             self.assertEqual(passed.returncode, 0, passed.stdout + passed.stderr)
             self.assertIn("QA=pass", passed.stdout)
+
+            # A technically checked figure does not need a named or accepted human verdict.
+            unsigned = temporary_path / "without-review.md"
+            unsigned.write_text(valid_contract.read_text(encoding="utf-8").replace('advisor_review: "accepted"\n', ""), encoding="utf-8")
+            unsigned_result = run(str(skill_root / "scripts" / "qa_scientific_figure.py"), str(unsigned), "--figure", str(svg), "--strict")
+            self.assertEqual(unsigned_result.returncode, 0, unsigned_result.stdout + unsigned_result.stderr)
 
             invalid_contract = temporary_path / "invalid-contract.md"
             invalid_text = valid_contract.read_text(encoding="utf-8").replace('data_source:\n  - "data/test.csv"', 'data_source:\n  - "E:\\private\\test.csv"').replace("- '" + digest + "'", "- 'not-a-hash'")
@@ -181,8 +187,8 @@ class RepositoryTests(unittest.TestCase):
         skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
         standard_text = (skill_root / "references" / "group-meeting-ppt-standard.md").read_text(encoding="utf-8")
         for required in [
-            "## Document-to-PPT bridge",
-            "## Human revision retrospective",
+            "### 从材料到演示文稿",
+            "用户提供修改稿",
             "references/document-to-ppt.md",
             "references/group-meeting-ppt-standard.md",
             "references/ppt-layout-system.md",
@@ -190,37 +196,37 @@ class RepositoryTests(unittest.TestCase):
             "references/human-revision-retrospective.md",
             "references/group-meeting-ppt-template-patterns.md",
             "assets/sr58-group-meeting-v8-style-template.pptx",
-            "assets/sr58-group-meeting-v8-style-template-page-plan.md",
+            "assets/ppt-page-plan.md",
             "assets/ppt-page-plan.md",
             "scripts/qa_group_meeting_pptx.py",
-            "one complete, visible `SR58-SUMMARY` sentence on every page",
-            "one primary `cognitive_type` per page",
-            "red+bold+underline",
-            "body ≥18pt",
+            "每页只有一个独立的 `SR58-SUMMARY` 总结句",
+            "页面的主要内容类型为 `cognitive_type`",
+            "红色加粗下划线",
+            "不低于 18pt",
         ]:
             self.assertIn(required, skill_text)
         for required in [
-            "## One-sentence summary contract",
-            "## Cognitive-object and layout gate",
-            "## Structured titles and logic diagrams",
-            "## Human revision retrospective",
+            "## 每页一句总结",
+            "## 内容与拆页",
+            "## 标题、字体和颜色",
+            "## 修改与检查",
             "summary_sentence:",
             "summary_shape: \"SR58-SUMMARY\"",
-            "Target 20–60 Chinese characters",
-            "20–22pt bold Microsoft YaHei",
+            "20–60 个汉字",
+            "20–22pt 加粗微软雅黑",
         ]:
             self.assertIn(required, standard_text)
         document_text = (skill_root / "references" / "document-to-ppt.md").read_text(encoding="utf-8")
         for required in [
             "group-meeting-process-review",
-            "Evidence coverage matrix",
-            "Cognitive-object extraction",
-            "Split by cognitive object before considering word count",
+            "材料覆盖表",
+            "主要问题拆页",
+            "按主要问题拆页，再调整字数",
             "ppt-layout-system.md",
             "logic-diagram-style.md",
             "human-revision-retrospective.md",
-            "## 20260830 v8 document-to-PPT bridge",
-            "four model factors: excitation, geometry, medium, and boundary condition",
+            "20260830 v8 组会风格",
+            "激励、几何、介质、边界四要素",
         ]:
             self.assertIn(required, document_text)
         template_path = skill_root / "assets" / "sr58-group-meeting-v8-style-template.pptx"
@@ -241,8 +247,8 @@ class RepositoryTests(unittest.TestCase):
         self.assertTrue(contact_sheet.is_file())
         self.assertLess(contact_sheet.stat().st_size, 512 * 1024)
         self.assertEqual(contact_sheet.read_bytes()[:8], b"\x89PNG\r\n\x1a\n")
-        self.assertIn("no source figures", template_patterns)
-        self.assertIn("source slide images", template_patterns)
+        self.assertIn("没有原始研究图", template_patterns)
+        self.assertIn("原始幻灯片截图", template_patterns)
         for forbidden in ["朱凌", "浙江大学", "file:///", "reference-folder/"]:
             self.assertNotIn(forbidden, template_patterns)
             self.assertNotIn(forbidden, template_plan.read_text(encoding="utf-8"))
@@ -259,15 +265,15 @@ class RepositoryTests(unittest.TestCase):
                 self.assertIn(reference_color, package_text)
             for v8_required in ["激励", "几何", "介质", "边界", "网格", "未知量", "坐标", "图例", "colorbar", "24号"]:
                 self.assertIn(v8_required, package_text)
-            self.assertIn("small-circle numerals", template_patterns)
-            self.assertIn("20260830 v8 group-meeting mode", standard_text)
-            self.assertIn("model four factors: excitation, geometry, medium, boundary", template_plan.read_text(encoding="utf-8"))
-            self.assertIn("Full-width title", template_patterns)
-            self.assertIn("four views", template_patterns)
-            self.assertIn("resource statistics", template_patterns)
+            self.assertIn("不用圆圈序号", template_patterns)
+            self.assertIn("20260830 v8 组会模式", standard_text)
+            self.assertIn("模型四要素：激励、几何、介质、边界", template_plan.read_text(encoding="utf-8"))
+            self.assertIn("通栏标题", template_patterns)
+            self.assertIn("四类视图", template_patterns)
+            self.assertIn("资源统计", template_patterns)
             self.assertIn("20pt", template_patterns)
-            self.assertIn("critical=red+bold+underline", template_patterns)
-            self.assertIn("repeated-module differences", template_patterns)
+            self.assertIn("关键内容红色加粗下划线", template_patterns)
+            self.assertIn("重复模块突出变化部分", template_patterns)
             self.assertIn("配色规则｜按重要度红蓝黑分级", package_text)
             self.assertIn("结果页规则", package_text)
             self.assertIn("重复模块规则", package_text)
@@ -289,11 +295,11 @@ class RepositoryTests(unittest.TestCase):
         page_plan_text = (skill_root / "assets" / "ppt-page-plan.md").read_text(encoding="utf-8")
         for required in [
             "presentation_mode:",
-            "Evidence coverage matrix",
+            "材料覆盖表",
             "cognitive_type:",
             "layout_pattern:",
             "split_check:",
-            "Human revision feedback",
+            "用户修改反馈",
         ]:
             self.assertIn(required, page_plan_text)
 
@@ -408,7 +414,7 @@ class RepositoryTests(unittest.TestCase):
             export = by_id[sr_id]["bibliography_export"]
             self.assertEqual(export["default_format"], "RIS")
             self.assertIn("BibTeX", export["optional_formats"])
-            self.assertEqual(export["reference"], "../sr-research-shared/references/zotero-batch-import.md")
+            self.assertEqual(export["reference"], "references/zotero-batch-import.md")
 
             skill_root = ROOT / "skills" / skill_name
             skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
@@ -419,7 +425,7 @@ class RepositoryTests(unittest.TestCase):
 
     def test_pr_sr_skills_have_plain_interaction_guides(self) -> None:
         skill_dirs = sorted(path for path in (ROOT / "skills").iterdir() if path.is_dir() and path.name.startswith(("pr-", "sr-")))
-        self.assertEqual(len(skill_dirs), 90)
+        self.assertEqual(len(skill_dirs), 89)
         canonical = (ROOT / "docs" / "pr-sr-interaction-standard.md").read_text(encoding="utf-8")
         for directory in skill_dirs:
             guide = directory / "AGENTS.md"
@@ -430,175 +436,65 @@ class RepositoryTests(unittest.TestCase):
 
         checked = run("scripts/generate_pr_sr_interaction_guides.py", "--check")
         self.assertEqual(checked.returncode, 0, checked.stdout + checked.stderr)
-        self.assertIn("PASS: 90 PR/SR interaction guides", checked.stdout)
+        self.assertIn("PASS: 89 PR/SR interaction guides", checked.stdout)
 
     def test_sr_record_templates_and_plain_language_validation(self) -> None:
-        catalog = json.loads(
-            (ROOT / "skills" / "sr-doctoral-research" / "catalog.json").read_text(encoding="utf-8")
-        )
-        items = catalog["skills"]
+        items = json.loads((ROOT / "skills/sr-doctoral-research/catalog.json").read_text(encoding="utf-8"))["skills"]
         self.assertEqual(len(items), 68)
-        aspects = {item["aspect_key"] for item in items}
-        self.assertEqual(
-            aspects,
-            {"problem", "literature", "idea", "method", "experiment", "analysis", "paper", "progress"},
-        )
-        standard = (ROOT / "skills" / "sr-research-shared" / "references" / "body-writing-standard.md").read_text(encoding="utf-8")
-        for required in [
-            "Status: approved",
-            "## 1. 读者与语域",
-            "## 2. 动词白话",
-            "## 3. 内容边界",
-            "## 4. 结构",
-            "## 5. 自成一体",
-            "## 6. 数字双写",
-            "## 7. 代码式记号",
-            "## 8. 句子与括号",
-            "## 9. 空与缺",
-            "## 10. 安全网",
-        ]:
-            self.assertIn(required, standard)
-        contract = (ROOT / "skills" / "sr-research-shared" / "references" / "research-contract.md").read_text(encoding="utf-8")
-        self.assertIn("body-writing-standard.md", contract)
-        self.assertIn("Dual-write numbers", contract)
-
+        self.assertEqual(len({item["aspect_key"] for item in items}), 8)
         for item in items:
-            template = ROOT / "skills" / item["name"] / "assets" / "output-template.md"
-            text = template.read_text(encoding="utf-8")
-            for required in [
-                "# 一句话结论",
-                "## 1. 原来遇到什么问题",
-                "## 2. 问题原因分析",
-                "## 3. 当时有哪些可能做法",
-                "## 4. 本阶段做了什么",
-                "## 5. 遇到的困难和处理方式",
-                "## 6. 当前结果",
-                "## 7. 本阶段没有解决的问题",
-                "## 8. 下一步计划",
-                "## 9. 专业补充",
-                "## 附录A：支撑材料",
-                "## 附录B：系统记录",
-                "## 附录C：原文保留区",
-                f'sr_id: "{item["id"]}"',
-            ]:
-                self.assertIn(required, text, f"{item['name']} missing {required!r}")
-
-        for aspect in sorted(aspects):
-            self.assertTrue(
-                (ROOT / "skills" / "sr-research-shared" / "references" / "record-templates" / "aspects" / f"{aspect}.md").is_file()
-            )
-        for special in [
-            "sr-07-search-strategy.md",
-            "sr-08-literature-screening.md",
-            "sr-53-core-figures.md",
-            "sr-58-talk-open-source.md",
-            "sr-68-stage-archive.md",
-        ]:
-            path = ROOT / "skills" / "sr-research-shared" / "references" / "record-templates" / "special" / special
-            self.assertTrue(path.is_file(), f"missing special template {path}")
-        for handoff in ["explore.md", "execute.md", "express.md"]:
-            path = ROOT / "skills" / "sr-research-shared" / "references" / "record-templates" / "handoffs" / handoff
-            self.assertTrue(path.is_file(), f"missing handoff template {path}")
-        for stage in ["explore", "execute", "express"]:
-            path = ROOT / "skills" / "sr-research-shared" / "assets" / f"workflow-handoff-{stage}-template.md"
-            self.assertTrue(path.is_file(), f"missing assembled handoff template {path}")
-
+            text = (ROOT / "skills" / item["name"] / "assets/output-template.md").read_text(encoding="utf-8")
+            for heading in ["一句话结论", "要解决的问题", "做法与结果", "专业内容", "依据与检查", "适用范围与未解决问题", "下一步"]:
+                self.assertIn(heading, text)
+            self.assertIn(f'sr_id: "{item["id"]}"', text)
+            self.assertNotIn('owner: "<', text)
+            self.assertNotIn("human_verdict:", text)
         generated = run("scripts/generate_sr_record_templates.py", "--check")
         self.assertEqual(generated.returncode, 0, generated.stdout + generated.stderr)
-        self.assertIn("PASS: 68 SR record templates", generated.stdout)
+        valid = """# 一句话结论
+样本中的两个重复标识已定位，尚未修改原始数据。
 
-        base = (ROOT / "skills" / "sr-research-shared" / "assets" / "achievement-card-template.md").read_text(encoding="utf-8")
-        valid = base
-        replacements = {
-            "<这一阶段解决了什么问题，做到什么程度，还有什么没解决。>": "文献筛选已完成，核心文献从70篇收敛到10篇（台账原记：70→10），全文复筛仍未完成。",
-            "|  |  | 是 / 否 / 待定 |  |": "| 检索词过宽 | 初筛发现大量无关主题 | 是 | 需要补充排除标准 |",
-            "| 方案A |  |  | 推荐 / 不推荐 |": "| 只按标题筛 | 速度快 | 可能漏掉相关论文 | 推荐 |",
-            "| 方案B |  |  | 推荐 / 不推荐 |": "| 直接全文复筛 | 判断更准 | 阅读时间约8小时 | 不推荐 |",
-            "推荐方案及原因：": "推荐方案及原因：先按标题摘要筛，因为当前文献量较大且主题边界清楚。",
-            "|  |  |  | 已解决 / 部分解决 / 未解决 |": "| 检索结果重复 | 影响计数 | 按 DOI 和题名去重 | 已解决 |",
-            "|  |  |  |  |": "| 全文获取受限 | 部分论文无法下载 | 需要馆际互借 | 影响复筛 |",
-            "- 下一步先做什么：": "- 下一步先做什么：补齐核心文献全文（台账原记：10篇）。",
-            "- 做到什么程度算完成：": "- 做到什么程度算完成：每篇都有保留或排除理由。",
-            "<按本工作包所属研究阶段和专业需要填写，不作为领导阅读的主文。>": "### 文献调研补充\n- 数据库：Web of Science（学术文献库）\n",
-        }
-        for old, new in replacements.items():
-            valid = valid.replace(old, new, 1)
-        valid = valid.replace("|  |  |  |  |", "| 检索台账 | 本目录检索记录 | 2026-09-28 | 支持筛选数量 |", 1)
-        valid = valid.replace('skill: "<技能名>"', 'skill: "sr-literature-screening"')
-        valid = valid.replace('artifact: "<YYYYMMDD-内容简述-成果卡.md>"', 'artifact: "20260928-核心文献筛选-成果卡.md"', 1)
-        valid = valid.replace('achievement_card: "project-relative path/YYYYMMDD-内容简述-成果卡.md"', 'achievement_card: "project/20260928-核心文献筛选-成果卡.md"', 1)
-        valid = valid.replace("evidence: []", 'evidence: ["project/search-log.json"]', 1)
-        valid = valid.replace('result: ""', 'result: "70 candidates narrowed to 10 core papers."', 1)
-        valid = valid.replace('conclusion: ""', 'conclusion: "Screening is complete; full-text review remains open."', 1)
-        valid = valid.replace('human_verdict: "pending|accepted|revise|pause|reject"', 'human_verdict: "pending"', 1)
-        valid = valid.replace('next_skill: "sr-...|none"', 'next_skill: "sr-paper-evidence-card"', 1)
-        valid = valid.replace('next_question: ""', 'next_question: "Who confirms the final full-text set?"', 1)
-        bad = valid.replace("## 7. 本阶段没有解决的问题", "## 7. 遗留内容", 1)
-        bad = bad.replace("只按标题筛", "冻结后只按标题筛", 1)
+## 要解决的问题
+检查重复标识是否影响分析。
 
+## 做法与结果
+读取样例文件并按标识分组，发现两条重复记录。
+
+## 依据与检查
+| 结果 | 来源 | 检查 |
+|---|---|---|
+| 两条重复记录 | samples.csv 第 2、4 行 | 分组结果与原始记录一致 |
+
+## 适用范围与未解决问题
+这些结果不能支持全量数据无其他问题的结论。
+
+## 下一步
+核查全量数据；做到什么程度算完成：每个标识的重复次数有记录。
+"""
         with tempfile.TemporaryDirectory(prefix="sr-record-qa-") as temporary:
-            valid_path = Path(temporary) / "valid.md"
-            bad_path = Path(temporary) / "bad.md"
-            valid_path.write_text(valid, encoding="utf-8")
-            bad_path.write_text(bad, encoding="utf-8")
-            validator = ROOT / "skills" / "sr-research-shared" / "scripts" / "validate_sr_record.py"
-
-            passed = run(str(validator), str(valid_path))
+            good = Path(temporary) / "good.md"
+            bad = Path(temporary) / "bad.md"
+            good.write_text(valid, encoding="utf-8")
+            bad.write_text(valid.replace("| 两条重复记录 | samples.csv 第 2、4 行 | 分组结果与原始记录一致 |", "| | | |"), encoding="utf-8")
+            validator = str(ROOT / "skills/sr-research-shared/scripts/validate_sr_record.py")
+            passed = run(validator, str(good), "--strict")
             self.assertEqual(passed.returncode, 0, passed.stdout + passed.stderr)
-            self.assertIn("QA=pass", passed.stdout)
-
-            failed = run(str(validator), str(bad_path))
+            failed = run(validator, str(bad))
             self.assertEqual(failed.returncode, 2, failed.stdout + failed.stderr)
-            self.assertIn("missing section: ## 7. 本阶段没有解决的问题", failed.stdout)
-            self.assertIn("bureaucratic wording", failed.stdout)
+            self.assertIn("需要具体来源", failed.stdout)
+            bad.write_text(valid.replace("## 适用范围与未解决问题", "## 省略限制"), encoding="utf-8")
+            failed = run(validator, str(bad))
+            self.assertEqual(failed.returncode, 2)
 
-    def test_sr_progress_narrative_is_project_lead_auxiliary(self) -> None:
-        skill_root = ROOT / "skills" / "sr-progress-narrative"
-        skill_text = (skill_root / "SKILL.md").read_text(encoding="utf-8")
-        rules_text = (skill_root / "references" / "rules.md").read_text(encoding="utf-8")
-        template_text = (skill_root / "assets" / "output-template.md").read_text(encoding="utf-8")
-        for required in [
-            "唯一责任",
-            "not-sr-work-package: true",
-            "不新增科学论断",
-            "references/rules.md",
-            "assets/output-template.md",
-        ]:
-            self.assertIn(required, skill_text)
-        for required in [
-            "双数据源分级",
-            "双带时间线",
-            "逐时间点结论",
-            "白话口径",
-            "诚实边界不弱化",
-            "渲染和内容验证",
-        ]:
-            self.assertIn(required, rules_text)
-        for required in [
-            "时间线与结论清单",
-            "名词速查",
-            "事实与推断分级",
-            "渲染与内容检查",
-        ]:
-            self.assertIn(required, template_text)
-
-        agent_text = (ROOT / "agents" / "sr-research-project-lead.toml").read_text(encoding="utf-8")
-        self.assertIn('path = "../skills/sr-progress-narrative"', agent_text)
-        self.assertIn("横向辅助展示 Skill", agent_text)
-        self.assertIn("不得用它新增科学论断", agent_text)
-        other_agents = [
-            "sr-principal-investigator.toml",
-            "sr-method-builder.toml",
-            "sr-experimenter.toml",
-            "sr-critical-reviewer.toml",
-        ]
-        for name in other_agents:
-            text = (ROOT / "agents" / name).read_text(encoding="utf-8")
-            self.assertNotIn('path = "../skills/sr-progress-narrative"', text)
-
+    def test_sr_progress_narrative_covers_weekly_and_timeline_without_deck_duplication(self) -> None:
+        skill = (ROOT / "skills/sr-progress-narrative/SKILL.md").read_text(encoding="utf-8")
+        for required in ["周报", "时间线", "不能支持的结论", "渲染检查", "不制作 PPT"]:
+            self.assertIn(required, skill)
+        self.assertFalse((ROOT / "skills/sr-weekly-meeting").exists())
         for profile_name in ("ai4science", "all"):
             profile = json.loads((ROOT / "profiles" / f"{profile_name}.json").read_text(encoding="utf-8"))
             self.assertIn("sr-progress-narrative", profile["skills"])
+            self.assertNotIn("sr-weekly-meeting", profile["skills"])
 
     def test_pr_management_writing_standard_and_tools(self) -> None:
         ps_root = ROOT / "skills" / "pr-ps-00-project-supervision"

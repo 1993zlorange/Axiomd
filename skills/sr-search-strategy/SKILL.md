@@ -1,75 +1,63 @@
 ---
 name: sr-search-strategy
-description: "SR-检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。"
 metadata:
   sr-id: "SR-07"
   aspect: "文献调研与领域结构"
-  short-description: "SR-检索式设计与试检索"
+  short-description: "检索式设计与试检索"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 检索式设计与试检索
 
-# SR-检索式设计与试检索
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 把问题拆为对象、任务、方法和约束词组
-2. 手工扩展中英文同义词和排除词
-3. 确定数据库、域名、时间范围、纳排标准、停止条件和文献导出范围，并获得检索授权
-4. 优先用公开接口或本地工具试跑；需要登录时，按 [BrowserSkill 登录态文献检索参考](../sr-research-shared/references/browser-skill-literature-search.md) 复用用户现有会话
-5. 在数据库页面试跑布尔检索式，观察并记录书目信息、摘要、来源 URL、时间戳、筛选器和结果计数
-6. 保存查询式、来源 URL、时间戳、筛选器、结果计数和失败边界；按标识符优先级去重并查看前若干结果，调整召回与精度
-7. 优先保存数据库原生 RIS/BibTeX；原生导出不可用时，仅从已核验元数据生成 Zotero 批量导入文件，并核对记录数与导出范围
-8. 归还借用标签页并停止浏览器会话；登录、验证码、OTP、付费确认和下载许可由人完成
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 把问题拆为对象、任务、方法和约束词组。
+2. 手工扩展中英文同义词和排除词。
+3. 确定数据库、域名、时间范围、纳排标准、停止条件和文献导出范围，并明确请求中已有的检索范围。
+4. 优先用公开接口或本地工具试跑；需要登录时使用当前可用的浏览器工具打开已授权的页面，先观察页面再操作。
+5. 在数据库页面执行检索、分页和必要筛选，只记录书目信息、摘要和可公开的结果字段，不读取密码、Cookie、令牌或浏览器存储。
+6. 保存查询式、来源 URL、时间戳、筛选器、结果计数和失败边界；按标识符优先级去重并查看前若干结果，调整召回与精度。
+7. 优先保存数据库原生 RIS/BibTeX；原生导出不可用时，仅从已核验元数据生成 Zotero 批量导入文件，并核对记录数与导出范围。
+8. 完成后归还借用标签页并结束本次操作；若登录、验证码、OTP、付费确认或下载许可出现，停在该步骤请用户处理。
 
-**AI role:** 扩展术语、生成布尔式、比较数据库语法，并在用户授权的 BrowserSkill 会话中读取可见检索页面、整理书目信息、生成可复核证据和 Zotero 批量导入文件。
+### 检索、登录页面与文献导出
 
-**Human intervention:** 博士生确定数据库、域名与权限范围、时间窗口、纳排标准、检索停止点、Zotero 导出范围和是否允许访问付费内容；登录、验证码、OTP、同意条款、下载或任何账户操作由人完成。
+先确定对象、方法、任务和排除词，记录完整检索式、数据库、日期、时间范围及停止条件。用已知核心文献试检索；若漏检，扩充同义词，若噪声过大，调整字段和排除词。保留检索修改前后的数量，避免事后随意调整范围。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+公开数据库优先用现有检索工具；需要登录时使用当前可用的浏览器工具和用户授权的现有会话。先观察页面，再填写检索词、筛选、分页和读取可见信息。只保存来源 URL、检索时间、题名、作者、摘要和标识符。不得读取密码、Cookie、令牌、localStorage/sessionStorage 或认证头，不绕过登录、验证码、付费墙及访问限制。遇到验证码、一次性密码或付费确认时，停在该步骤请用户处理，继续整理已取得的记录。结束时归还借用标签页。
 
-## Authenticated browser retrieval (optional)
+默认同时生成 UTF-8 的 RIS 文件供 Zotero 导入，也可按需要提供 BibTeX。优先保存数据库原生导出；手工构造时只用已经核验的元数据。文件名为 `YYYYMMDD-内容简述-Zotero导入.ris`。题名、作者、年份和 DOI 缺失就留空，不推测补齐；按 DOI、PMID、arXiv ID 或规范化题名去重。导出记录数必须等于实际收集数量，不能用页面总命中数代替。检查每条 RIS 的 `TY  -` 起始和 `ER  -` 结束，并核对来源与数量。
 
-When a source requires the researcher's existing login, follow [Tencent BrowserSkill (bsk CLI + browser extension) workflow](../sr-research-shared/references/browser-skill-literature-search.md) and obtain explicit authorization immediately before contacting the external site. Use `L3` for this path. Safe operations: 复用用户已登录状态读取授权页面内容；导航、观察、填写检索词、点击筛选和分页；记录页面可见的书目信息与来源证据。
+详细字段检查见本地 [文献导出说明](references/zotero-batch-import.md)。
 
-Never 读取或提取密码、Cookie、令牌、localStorage/sessionStorage、网络认证头或密码管理器内容；绕过登录、验证码、付费墙、域名限制或借用确认；将登录状态复制到文件、脚本、第三方服务或输出到成果卡。 The browser session is a capability boundary, not a source of credentials. Record only page-visible research evidence and clean up the session and any borrowed tab when finished.
+## 交付什么
 
-登录、验证码、OTP、条款、付费确认或下载许可出现时，调用 `bsk request-help` 让用户完成，随后重新观察页面；帮助被取消、禁用或超时不得重复绕过。将认证状态记录为 `authenticated_content_observed`、`login_required`、`human_completed_login` 或 `blocked`，不要记录用户名、邮箱或令牌。
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：检索协议：问题 / 词组 / 完整检索式 / 数据库 / 日期 / 命中 / 实际采集数 / 纳排 / 来源 URL / Zotero 导出文件 / 会话与用户协助记录。
 
-`bsk` 命令不可用、daemon 或扩展未连接时，报告阻塞原因，按参考文档的“Windows 安装与连接”章节提示用户安装，并确认“安装 BrowserSkill 后重试”或“切换到公开 API / 人工导出回退”；未经用户确认不得静默切换回退路径。
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-## Zotero batch import deliverable
+## 怎么检查
 
-Alongside the achievement card, produce a UTF-8 `RIS` file named `YYYYMMDD-内容简述-Zotero导入.ris`. Optional format: `BibTeX`. Export scope: 实际采集并进入候选集的记录；不得用总命中数代替导出记录数。
+协议可重复执行，试检索能覆盖已知核心文献，噪声来源和限制已记录；Zotero 导出只包含实际采集且可追踪的候选记录，记录数与声明范围一致，并通过格式结构检查；若使用登录数据库，记录本次请求已涵盖的访问范围、来源 URL、检索时间、查询与结果证据，且不保存或输出任何凭据、Cookie、令牌或账户身份。
 
-Read [Zotero batch import contract](../sr-research-shared/references/zotero-batch-import.md) before exporting. Prefer a database's native batch export over reconstructed metadata. Never invent missing bibliographic fields, attach restricted full text without authorization, or claim the displayed hit count as the exported record count. Record the file path, format, record count, deduplication basis, source coverage, and validation result in the achievement card.
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-## Deliverable
+## 需要用户决定时
 
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture. Name the artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, and human verdicts explicit.
+需要重点核对：确定数据库、域名与权限范围、时间窗口、纳排标准、检索停止点、Zotero 导出范围和是否允许访问付费内容；登录、验证码、OTP、同意条款、下载或任何账户操作由用户处理。
 
-Use this template: 检索协议：问题 / 词组 / 完整检索式 / 数据库 / 日期 / 命中 / 实际采集数 / 纳排 / 来源 URL / Zotero 导出文件 / 会话与人工处理记录
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
-
-Recommended optional adapters: `nature-academic-search`, `nature-literature-pipeline`, `academic-research-skills/deep-research`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
-
-## Completion gate
-
-协议可重复执行，试检索能覆盖已知核心文献，噪声来源和限制已记录；Zotero 导出只包含实际采集且可追踪的候选记录，记录数与声明范围一致，并通过格式结构检查；若使用登录数据库，必须记录授权范围、来源 URL、检索时间、查询与结果证据，且不保存或输出任何凭据、Cookie、令牌或账户身份。
-
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
-
-## Routing after closure
-
-Likely next Skill(s): `$sr-literature-screening`, `$sr-weekly-literature-update`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

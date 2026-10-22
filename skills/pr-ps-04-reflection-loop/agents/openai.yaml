@@ -1,0 +1,7 @@
+interface:
+  display_name: "问题复盘"
+  short_description: "对已发生的缺陷、重复错误或用户指出的问题分析原因并提出改进；用于有具体证据的问题复盘。"
+  default_prompt: "请用 $pr-ps-04-reflection-loop 完成问题复盘，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

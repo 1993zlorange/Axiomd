@@ -1,7 +1,7 @@
 interface:
-  display_name: "SR-Baseline复现"
-  short_description: "SR-Baseline复现：古法首轮、人机协作、证据验收"
-  default_prompt: "Use $sr-baseline-reproduction to complete SR-Baseline复现 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+  display_name: "对照方法复现"
+  short_description: "对照方法复现，说明做法、结果、来源和仍需核实的问题"
+  default_prompt: "请用 $sr-baseline-reproduction 完成对照方法复现，给出可检查的结果和必要说明。"
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

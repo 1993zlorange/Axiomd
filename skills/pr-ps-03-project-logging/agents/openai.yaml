@@ -1,0 +1,7 @@
+interface:
+  display_name: "工作事实记录"
+  short_description: "在一次操作或运行结束后记录实际改变和验证结果；用于项目要求留痕或用户要求记录工作。"
+  default_prompt: "请用 $pr-ps-03-project-logging 完成工作事实记录，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

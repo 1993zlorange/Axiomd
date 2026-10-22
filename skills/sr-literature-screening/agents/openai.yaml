@@ -1,7 +1,7 @@
 interface:
-  display_name: "SR-核心文献筛选"
-  short_description: "SR-核心文献筛选、PRISMA 台账与 Zotero 导出"
-  default_prompt: "Use $sr-literature-screening to produce an auditable screening ledger, achievement card, and a validated Zotero-importable RIS file containing only the human-approved included records."
+  display_name: "核心文献筛选"
+  short_description: "核心文献筛选，说明做法、结果、来源和仍需核实的问题"
+  default_prompt: "请用 $sr-literature-screening 完成核心文献筛选，给出可检查的结果和必要说明。"
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

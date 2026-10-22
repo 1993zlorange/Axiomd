@@ -73,7 +73,7 @@ def professional_block(item: dict) -> str:
     special_path = next((path for path in special_candidates if path.is_file()), None)
     parts = [
         read(aspect_path),
-        "### 本工作包完成要点\n",
+        "### 本项工作怎么判断完成\n",
         f"- 交付结构：{plain_phrase(item['template'])}",
         f"- 完成要求：{plain_phrase(item['completion_gate'])}",
     ]
@@ -86,7 +86,7 @@ def render_card(item: dict) -> str:
     base = read(TEMPLATE_DIR / "achievement-card-base.md")
     text = render_base(base, item)
     if item.get("bibliography_export"):
-        text = text.replace("  evidence: []", "  bibliography_exports: []\n  evidence: []", 1)
+        text = text.replace('status: "draft"', 'status: "draft"\nbibliography_exports: []', 1)
     placeholder = "<按本工作包所属研究阶段和专业需要填写，不作为领导阅读的主文。>\n"
     if placeholder not in text:
         raise ValueError("achievement base missing professional placeholder")

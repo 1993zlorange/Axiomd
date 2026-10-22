@@ -1,63 +1,59 @@
 ---
 name: sr-literature-screening
-description: "SR-核心文献筛选：检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把人工确认纳入的文献批量导入 Zotero 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "核心文献筛选：检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把符合筛选标准纳入的文献批量导入 Zotero 时。"
 metadata:
   sr-id: "SR-08"
   aspect: "文献调研与领域结构"
-  short-description: "SR-核心文献筛选"
+  short-description: "核心文献筛选"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 核心文献筛选
 
-# SR-核心文献筛选
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把人工确认纳入的文献批量导入 Zotero 时
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把符合筛选标准纳入的文献批量导入 Zotero 时。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 保存原始检索结果并按 DOI、PMID、arXiv ID、ISBN 或规范化题名组合去重
-2. 按标题摘要执行初筛
-3. 对边界样本阅读全文复筛
-4. 记录每条排除理由和复核人
-5. 冻结每条记录的唯一筛选状态，由博士生确认最终纳入集
-6. 从最终纳入集优先保留数据库原生 RIS/BibTeX；必要时仅用已核验元数据生成 Zotero 批量导入文件，并核对导出记录数
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 保存原始检索结果并按 DOI、PMID、arXiv ID、ISBN 或规范化题名组合去重。
+2. 按标题摘要执行初筛。
+3. 对边界样本阅读全文复筛。
+4. 记录每条排除理由和复核依据。
+5. 固定每条记录的唯一筛选状态，按既定标准确定最终纳入集。
+6. 从最终纳入集优先保留数据库原生 RIS/BibTeX；必要时仅用已核验元数据生成 Zotero 批量导入文件，并核对导出记录数。
 
-**AI role:** 去重、排序、初步标注、发现边界样本，并为人工确认的纳入集生成 Zotero 批量导入文件；不作最终排除。
+### 筛选与文献导出
 
-**Human intervention:** 博士生复核核心文献与所有边界排除，确认标准未随结果漂移，并批准进入 Zotero 导出文件的最终纳入集。
+保留原始检索结果，先按 DOI、PMID、arXiv ID 或规范化题名去重，再按标题摘要和全文分别筛选。每条记录只有一个当前状态：纳入、排除、待核实。记录具体理由和来源；缺全文的边界样本标为待核实，不能假装已读。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+默认只为按标准核验后纳入的记录生成 UTF-8 RIS 文件，也可提供 BibTeX。优先使用数据库原生导出；题名、作者、年份、DOI 等字段必须来自已取得的材料。文件名为 `YYYYMMDD-内容简述-Zotero导入.ris`。核对 `TY  -` 与 `ER  -` 成对、导出数量与纳入集相等、标识符没有重复。排除和待核实记录保留在筛选表中。需要用户裁定的争议可以单列，不阻止交付已核实部分。
 
-## Zotero batch import deliverable
+详细字段检查见本地 [文献导出说明](references/zotero-batch-import.md)。
 
-Alongside the achievement card, produce a UTF-8 `RIS` file named `YYYYMMDD-内容简述-Zotero导入.ris`. Optional format: `BibTeX`. Export scope: 人工确认纳入的记录；排除记录保留在 PRISMA 台账但不进入默认导出。
+## 交付什么
 
-Read [Zotero batch import contract](../sr-research-shared/references/zotero-batch-import.md) before exporting. Prefer a database's native batch export over reconstructed metadata. Never invent missing bibliographic fields, attach restricted full text without authorization, or merge excluded records into the included set. Record the file path, format, record count, deduplication basis, source coverage, and validation result in the achievement card.
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：筛选表：记录编号 / 筛选阶段 / 决定 / 理由 / 复核依据 / 日期 / 导出状态。
 
-## Deliverable
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture. Name the artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, and human verdicts explicit.
+## 怎么检查
 
-Use this template: PRISMA 台账：记录 ID / 阶段 / 决定 / 理由 / 复核人 / 日期 / Zotero 导出状态
+每条记录有唯一状态，核心文献对照原文核验，排除理由和标准一致；导出只含纳入记录，数量、去重依据和来源可追踪，格式检查通过。
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-Recommended optional adapters: `nature-literature-pipeline`, `nature-academic-search`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
+## 需要用户决定时
 
-## Completion gate
+需要重点核对：核心文献和边界样本的筛选依据，标准是否随结果漂移，导出集合是否准确。
 
-每条记录有唯一状态，核心文献由人核验，排除理由可追踪且标准一致；Zotero 导出默认只含人工确认纳入的记录，记录数、去重依据和来源可追踪，并通过格式结构检查。
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
 
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
-
-## Routing after closure
-
-Likely next Skill(s): `$sr-paper-evidence-card`, `$sr-literature-tree`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

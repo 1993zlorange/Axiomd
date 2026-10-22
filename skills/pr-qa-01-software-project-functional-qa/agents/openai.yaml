@@ -1,4 +1,7 @@
 interface:
-  display_name: "通用软件功能测试"
-  short_description: "独立验证软件功能并输出中文测试报告"
-  default_prompt: "使用 $pr-qa-01-software-project-functional-qa 对当前项目已批准范围执行独立功能测试。"
+  display_name: "软件功能测试"
+  short_description: "独立验证软件功能、用户路径和错误处理，报告可复现问题；适用于功能检查、回归和交付前测试。"
+  default_prompt: "请用 $pr-qa-01-software-project-functional-qa 完成软件功能测试，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

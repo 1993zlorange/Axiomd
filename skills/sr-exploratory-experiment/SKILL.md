@@ -1,55 +1,49 @@
 ---
 name: sr-exploratory-experiment
-description: "SR-探索性实验：需要在简化 setting 中一次验证一个机制，决定是否进入正式主实验时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "探索性实验：需要在简化 setting 中一次验证一个机制，决定是否进入正式主实验时。"
 metadata:
   sr-id: "SR-33"
   aspect: "实验设计与执行"
-  short-description: "SR-探索性实验"
+  short-description: "探索性实验"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 探索性实验
 
-# SR-探索性实验
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 需要在简化 setting 中一次验证一个机制，决定是否进入正式主实验时
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+需要在简化 setting 中一次验证一个机制，决定是否进入正式主实验时。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 选择一个明确机制问题
-2. 简化数据、模型或运行规模
-3. 预写唯一改动、控制和正负判据
-4. 运行并立即记录 Go/No-Go 决定
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 选择一个明确机制问题。
+2. 简化数据、模型或运行规模。
+3. 预写唯一改动、控制和正负判据。
+4. 运行并立即记录继续或停止决定。
 
-**AI role:** 检查混杂、生成配置和分析脚本、比较结果与预设判据。
+## 交付什么
 
-**Human intervention:** 博士生选择机制、批准运行并判断失败是科学结果还是实现问题。
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：探索实验记录：问题 / 假设 / 单变量 / 控制 / 判据 / 结果 / 继续或停止的理由。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-## Deliverable
-
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture. Name the artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, and human verdicts explicit.
-
-Use this template: 探索实验卡：问题 / 假设 / 单变量 / 控制 / 判据 / 结果 / Go-No-Go
-
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
-
-Recommended optional adapters: `k-dense/hypothesis-generation`, `k-dense/experimental-design`, `nature-experiment-log`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
-
-## Completion gate
+## 怎么检查
 
 一次只测一个核心因素，结果可定位，按预设判据做继续、修改或停止决定。
 
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-## Routing after closure
+## 需要用户决定时
 
-Likely next Skill(s): `$sr-main-comparison`, `$sr-minimal-diagnostic`, `$sr-idea-prioritization`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+需要重点核对：选择机制、批准运行并判断失败是科学结果还是实现问题。
+
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
+
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

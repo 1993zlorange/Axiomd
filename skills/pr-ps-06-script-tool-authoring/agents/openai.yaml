@@ -1,0 +1,7 @@
+interface:
+  display_name: "脚本工具编写"
+  short_description: "为可重复操作编写或审查脚本，并提供中文使用说明；适用于批处理、校验、转换和项目辅助工具。"
+  default_prompt: "请用 $pr-ps-06-script-tool-authoring 完成脚本工具编写，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

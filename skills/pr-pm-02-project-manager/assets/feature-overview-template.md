@@ -4,7 +4,7 @@ document_id: FO-<PROJECT>-001
 version: v0.1
 status: 草稿
 produced_at: YYYY-MM-DD
-owner: <负责人>
+owner: <负责角色，可留空>
 source_baseline: <PRD/SRS/SDD/用户手册版本>
 ---
 

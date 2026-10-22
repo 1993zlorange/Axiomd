@@ -1,89 +1,63 @@
 ---
 name: sr-core-figures
-description: "SR-核心图表制作：需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "核心图表制作：需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。"
 metadata:
   sr-id: "SR-53"
   aspect: "论文与成果表达"
-  short-description: "SR-核心图表制作"
+  short-description: "核心图表制作"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 核心图表制作
 
-# SR-核心图表制作
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 先填写图表约定：唯一结论、证据角色、数据来源、样本量、对照、单位、不确定性和结论边界
-2. 按图型选择表达和脱敏参考图：成本、对照、配对、误差结构、参数覆盖、场分布、长期稳定性或方法定位
-3. 手画草图并确定阅读顺序、面板关系和阅读路径
-4. 把研究对象转成拓扑、网格布局和语义图形方案
-5. 生成绘图代码或可编辑 draw.io 源，保持颜色、线型、点形、公式、单位和数据映射可追溯
-6. 检查数据不变量、图例间距、多面板理由、导出预览和人工复核结论
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 先填写图表约定：唯一结论、证据角色、数据来源、样本量、对照、单位、不确定性和结论边界。
+2. 按图型选择表达和脱敏参考图：成本、对照、配对、误差结构、参数覆盖、场分布、长期稳定性或方法定位。
+3. 手画草图并确定阅读顺序、面板关系和阅读路径。
+4. 把研究对象转成拓扑、网格布局和语义图形方案。
+5. 生成绘图代码或可编辑 draw.io 源，保持颜色、线型、点形、公式、单位和数据映射可追溯。
+6. 检查数据不变量、图例间距、多面板理由、导出预览和逐项复核结论。
 
-**AI role:** 提供图表约定、绘图代码或 draw.io XML、版式和路由候选、语义图形、公式排版、色彩与图例可读性检查、导出预览 QA 和图注草案。
+### 数据图
 
-**Human intervention:** 博士生确认数据、删点、样本量、误差条、单位、图注、视觉编码、图例间距、箭头因果解释、结论边界和 draw.io 版式不误导。
+先填写 [图表说明模板](assets/figure-contract-template.md)，明确唯一结论、数据版本、样本量、比较对象、单位、不确定性及结论范围。具体做法见 [科学绘图说明](references/scientific-figure-authoring.md)。选择图型时可参照 [导师汇报图型](references/advisor-figure-patterns.md)、[参考图索引](references/figure-pattern-exemplars.md) 和 [论文图型](references/paper-figure-patterns.md)，参考图只提供结构，不提供研究事实。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+从原始数据生成图，保留原始点、统计口径及排除理由。颜色、线型和点形各自表达稳定含义；图例不遮挡数据，多面板必须服务于直接比较。交付绘图源及 SVG/PDF，并检查导出图的文字、单位、图例和数值。可运行本目录 `scripts/qa_scientific_figure.py <图表说明.md> --figure <图.svg>`，修复错误并说明未解决警告。缺少导出工具时如实记录 `export_status=blocked`，不能把结构检查当成视觉检查。
 
-## Scientific data figure authoring
+### 可编辑示意图
 
-Before writing chart code, complete the chart brief in [assets/figure-contract-template.md](assets/figure-contract-template.md). Read [references/scientific-figure-authoring.md](references/scientific-figure-authoring.md) for the claim/evidence workflow, data invariants, archetypes, visual grammar, legend spacing, and reproducible Python/Matplotlib style. For an advisor report, also read [references/advisor-figure-patterns.md](references/advisor-figure-patterns.md), and inspect the closest synthetic PNG in [references/figure-pattern-exemplars.md](references/figure-pattern-exemplars.md). For publication-style topology or field-figure structure, also read [references/paper-figure-patterns.md](references/paper-figure-patterns.md); use it only as an abstract style reference and never copy copyrighted artwork.
+流程、技术路线、机制或架构图默认交付 `.drawio` 源文件；用户指定其他可编辑格式时遵从用户。按 [绘制方法](references/drawio-authoring.md)、[视觉语言](references/drawio-visual-language.md) 和 [导出检查](references/drawio-export-qa.md) 完成。
 
-Core workflow:
+使用未压缩的 mxGraph XML、稳定的节点标识、连接源/目标的箭头和留有连线通道的网格。公式放入独立单元，并在 `mxGraphModel` 设置 `math="1"`。编辑时保留已有页面、标识、分组和无关内容。运行本目录 `scripts/qa_drawio.py <图.drawio>`；通过 diagrams.net/draw.io 导出预览，确认导出对应实际源文件。工具缺失时交付源文件并标记 `preview_export=blocked`，不伪造已查看预览。
 
-```text
-fix one claim and one evidence role
-→ choose the chart archetype
-→ preserve raw points, sample size, comparison, units, and uncertainty
-→ define color/line/marker/field encodings and the boxed legend
-→ justify every panel and panel letter
-→ export SVG/PDF from the versioned script/source
-→ run brief checks and visual QA
-→ obtain user/advisor review
-```
+## 交付什么
 
-Before closing a data figure, run `python skills/sr-core-figures/scripts/qa_scientific_figure.py <figure-contract.md> --figure <figure.svg>` when Python is available. Fix every `ERROR`; resolve or explicitly justify every `WARN`. If export is genuinely blocked, record `export_status=blocked` and the reason rather than claiming visual QA passed.
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：图表说明：结论 / 用途 / 数据来源 / 样本量 / 比较对象 / 视觉编码 / 单位 / 不确定性 / 限制 / 图例 / 面板安排 / 导出检查 / 图注。
 
-## Draw.io scientific authoring
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-Use `.drawio` as the editable primary source whenever the requested core figure is a workflow, technical route, mechanism, architecture, cohort flow, or graphical abstract (or when the user asks for draw.io). Before writing or editing XML, read [references/drawio-authoring.md](references/drawio-authoring.md). When choosing topology, shapes, color, semantic glyphs, labels, formulas, or accessibility, read [references/drawio-visual-language.md](references/drawio-visual-language.md). Before closing a draw.io task, read [references/drawio-export-qa.md](references/drawio-export-qa.md).
-
-Core invariants:
-
-- Build from the scientific message and topology; do not start from a decorative template.
-- Prefer uncompressed mxGraph XML, stable descriptive IDs, attached source/target edges, grid-aligned geometry, reserved routing corridors, and editable semantic glyphs.
-- Put formulas in dedicated cells and set `math="1"` on `mxGraphModel` when formula-like labels exist.
-- Preserve existing pages, IDs, grouping, geometry, and unrelated content when editing; make a structural-edit baseline available.
-- Run `python skills/sr-core-figures/scripts/qa_drawio.py <figure.drawio>` when Python is available. Fix all `ERROR` values; inspect and resolve or explicitly justify every `WARN`.
-- Export SVG/PNG/PDF only through diagrams.net/draw.io so preview evidence corresponds to the source. If the desktop CLI is unavailable, deliver the source and record `preview_export=blocked`; never claim visual QA passed.
-
-## Deliverable
-
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture. Name the artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, draw.io QA, and human verdicts explicit.
-
-Use this template: Figure brief：claim / evidence role / data source / sample size / comparison / encoding / units / uncertainty / boundary / legend / panel logic / export QA / caption
-
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
-
-Optional implementation aid: `k-dense/scientific-visualization`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using it. Missing adapters are not a blocker; the scientific-figure workflow in this Skill is self-contained.
-
-## Completion gate
+## 怎么检查
 
 图的结论唯一且不过界，数据、样本量、单位和不确定性可追溯，原始点和汇总不隐藏，颜色、线型、点形和图例可识别且不遮挡，多面板有直接比较理由；绘图源或 draw.io 源可复现，导出预览通过或如实记录阻塞。
 
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-## Routing after closure
+## 需要用户决定时
 
-Likely next Skill(s): `$sr-abstract-introduction`, `$sr-internal-review`, `$sr-weekly-meeting`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+需要重点核对：确认数据、删点、样本量、误差条、单位、图注、视觉编码、图例间距、箭头因果解释、结论边界和 draw.io 版式不误导。
+
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
+
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

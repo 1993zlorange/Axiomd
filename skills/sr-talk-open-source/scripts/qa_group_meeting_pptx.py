@@ -201,7 +201,7 @@ def parse_page_plan(path: Path) -> dict[int, dict[str, str]]:
     }
     for raw in path.read_text(encoding="utf-8").splitlines():
         line = raw.strip()
-        heading = re.match(r"^##\s+Slide\s+(\d+)", line, re.IGNORECASE)
+        heading = re.match(r"^##\s+(?:Slide\s+|第\s*)(\d+)(?:\s*页)?", line, re.IGNORECASE)
         if heading:
             number = int(heading.group(1))
             current = {"no": str(number)}

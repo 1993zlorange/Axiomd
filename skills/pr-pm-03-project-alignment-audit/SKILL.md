@@ -1,139 +1,41 @@
 ---
 name: pr-pm-03-project-alignment-audit
-description: Audit an existing software, data, or research project for drift from its approved requirements, architecture, and design using repository, test, runtime, and project-log evidence. Use when a project manager must determine whether implementation or current work has deviated, distinguish implementation drift from stale specifications or unapproved scope, and produce a prioritized correction plan. Do not use as authorization to implement the corrections.
+description: "比较现有需求、设计、实现、测试及文档，找出不一致并提出纠正建议；适用于偏差检查和阶段复核。"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+# 需求与实现一致性检查
 
-# Project Alignment Audit
-管理类文档输出先按 [../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md](../pr-ps-00-project-supervision/references/20260929-管理文档写作标准-管理规范.md) 判定 A/B/C 级，再按对应结构生成或改写。
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
+## 什么时候用
 
-For a retained audit document, start from [assets/output-template.md](assets/output-template.md) and name it `YYYYMMDD-内容简述-对齐审计.md`.
+比较现有需求、设计、实现、测试及文档，找出不一致并提出纠正建议；适用于偏差检查和阶段复核。按任务内容自然使用，不要求用户说出技能名或指定姓名。
 
-Perform a read-only, evidence-backed alignment audit. Determine whether the project is still building the approved outcome, not merely whether files exist or tests pass.
+## 先看什么
 
-## Audit modes
+先读用户请求、适用的项目说明和直接相关的现有材料。已有决定继续有效，只询问会实质影响结果的缺失信息。
 
-- **Baseline audit:** compare the current repository and documented status with the authoritative requirements and design.
-- **Change audit:** assess a proposed or recent change for requirement, architecture, scope, and verification drift.
-- **Phase-gate audit:** decide whether a milestone or release can pass its stated gate.
+## 怎么做
 
-If the repository is the `scienceresearch` project or contains its named SRS/SDD/ARCH files, read [references/scienceresearch-profile.md](references/scienceresearch-profile.md) before auditing.
+1. 确定检查范围及当前用户决定，找出需求和设计的有效版本；多个版本冲突时说明采用依据。
+2. 打开相关代码、配置、测试与实际运行结果，记录每项要求当前如何实现。
+3. 逐项比较预期和实际，区分实现缺陷、文档过期、证据缺失和新提出的需求。
+4. 按用户影响、发生条件和可复现程度排序，给出位置、预期、实际、依据和最小纠正方案。
+5. 复查重要结论，说明无法检查的范围；将立即处理、随后处理和可暂缓事项分别列出。
 
-## Evidence hierarchy
+检查本身不授权修改实现。仅凭文件、按钮或模块存在不能判定功能已经可用。
 
-Resolve the target truth before calling anything drifted. Use this precedence unless the user supplies another governance rule:
+## 交付什么
 
-1. The user's current explicit decision or an approved change record.
-2. Approved requirements and acceptance criteria.
-3. Approved architecture, SDD, ADRs, and interface/data contracts that realize those requirements.
-4. Approved milestone scope and qualification gates.
-5. Implementation, tests, deployment configuration, user documentation, and logs as evidence of the actual state.
+按实际用途选用本目录模板，删除不适用的部分；简单回答无需另存文档。需要文件时使用项目已有目录，命名为 `YYYYMMDD-内容简述-文档类型.扩展名`。
 
-Draft or proposed documents are candidate baselines, not silently approved contracts. If all available baselines are draft, audit against the named candidate and label the verdict `PROVISIONAL`. Implementation does not automatically override an approved requirement; a newer user decision may instead mean the specification is stale.
+- [output-template](assets/output-template.md)
 
-## Workflow
+本目录的补充资料按任务需要阅读：
+- [scienceresearch-profile](references/scienceresearch-profile.md)
 
-### 1. Establish scope and baseline
+## 怎么检查
 
-- Read project instructions, requirements, architecture/SDD, ADRs, milestone or task plans, acceptance criteria, status/user documentation, and relevant demand/engineering logs.
-- Record document IDs, versions, status, dates, and explicit precedence or approval state.
-- Identify the project objective and the phase being assessed.
-- State exclusions and evidence that is unavailable. Do not pretend completeness when the baseline or actual state cannot be inspected.
+每个发现有具体差异与来源，改进建议有验证方式，未核实的判断明确标记。
 
-### 2. Inspect the actual project
-
-- Inspect manifests, configuration, entry points, module boundaries, interfaces, persistence, migrations, tests, deployment/runtime files, documentation, and recent project logs.
-- Use `rg`/`rg --files` first. Run safe existing tests or diagnostics when they materially strengthen the verdict and the user asked for a project audit rather than a document-only review.
-- Use `scripts/collect_alignment_evidence.py` to inventory document versions, stable requirement IDs, trace references, and production placeholders when those artifacts exist. Treat its output as evidence signals, never as the verdict.
-- Verify behavior and data flow where a requirement could appear implemented while a downstream path, UI, export, persistence write, or failure case is missing.
-
-### 3. Build bidirectional traceability
-
-For each relevant Must requirement and each phase-gate item, trace:
-
-```text
-source decision -> requirement/acceptance -> architecture/design element
-                -> implementation/runtime path -> test or qualification evidence
-                -> documented status and retained evidence
-```
-
-Also trace backward from major implemented capabilities to a requirement, approved decision, or architecture rationale. Do not declare a requirement missing only because its ID is absent from source comments; inspect observable behavior and tests. Conversely, a matching class name, route, table, or screenshot is not proof that the required behavior and failure paths exist.
-
-Use these coverage states:
-
-- `COVERED`: behavior, design, implementation, and verification evidence agree.
-- `PARTIAL`: some required behavior, boundary, failure path, or evidence is missing.
-- `MISSING`: no credible implementation or design response exists.
-- `CONTRADICTORY`: actual behavior or design conflicts with the controlling baseline.
-- `UNJUSTIFIED`: implemented scope has no approved requirement or rationale.
-- `UNVERIFIED`: implementation may exist, but evidence is insufficient.
-- `DEFERRED`: explicitly deferred with a valid phase/scope decision.
-- `NOT_APPLICABLE`: explicitly justified and approved, not merely skipped.
-
-### 4. Classify the drift
-
-Assign one primary type to each finding:
-
-- `IMPLEMENTATION_DRIFT`: code/runtime behavior contradicts or omits an approved requirement.
-- `ARCHITECTURE_DRIFT`: module dependency, data ownership, trust boundary, deployment unit, or interface contract violates the approved architecture/design.
-- `DESIGN_DRIFT`: SDD/architecture no longer realizes the approved SRS or leaves Must requirements unowned.
-- `SPECIFICATION_DRIFT`: a newer approved decision is implemented or required, but SRS/SDD/ARCH were not updated consistently.
-- `SCOPE_DRIFT`: unapproved capability, abstraction, infrastructure, or polish displaces higher-priority required outcomes.
-- `VERIFICATION_DRIFT`: a capability is claimed complete without the required test, qualification, or retained evidence.
-- `STATUS_DRIFT`: README, user manual, milestone, or logs claim a state that conflicts with repository/runtime evidence.
-- `PLAN_DRIFT`: active work is not traceable to approved priorities, or lower-priority work blocks an unmet Must path.
-
-Do not collapse all mismatches into “code is wrong.” First decide which artifact should change: implementation, tests, requirements, architecture/design, plan, or status documentation.
-
-### 5. Rate severity and confidence
-
-- `Critical`: violates a mandatory safety, authorization, scientific-integrity, data-integrity, or irreversible-loss constraint; or makes the claimed project objective impossible.
-- `High`: a core Must workflow is missing/contradicted, a major boundary is broken, or a release/milestone claim is false.
-- `Medium`: partial Must/Should coverage, meaningful verification gap, maintainability risk, or localized scope drift.
-- `Low`: documentation hygiene, weak trace labels, or a localized improvement with limited outcome impact.
-
-Give every finding `High`, `Medium`, or `Low` confidence. Confidence is based on source authority and directness of evidence, not rhetorical certainty. Never fabricate approval, runtime results, test outcomes, or stakeholder intent.
-
-### 6. Recommend the smallest safe correction
-
-For each confirmed drift, choose the correction route:
-
-- Wrong implementation -> update implementation and tests against the unchanged approved contract.
-- Stale requirement -> project manager proposes the requirement change; freeze it before architecture/design changes.
-- Stale or inadequate design -> architect updates architecture/SDD after the requirement baseline is fixed.
-- Unapproved scope -> pause, defer, remove, or explicitly seek approval; preserve useful artifacts when practical.
-- Missing evidence -> add the smallest qualification/test that proves the behavior; do not mark complete based on activity.
-- Conflicting baselines -> stop irreversible work and request the decision that selects the target truth.
-
-Order corrections by dependency and outcome. Prefer restoring one end-to-end Must path before expanding breadth. Each correction item must name affected requirement/design IDs, files or modules, expected result, verification evidence, dependencies, and rollback/recovery considerations. Do not implement fixes unless the user separately authorizes implementation.
-
-## Required output
-
-Lead with one verdict:
-
-- `ALIGNED`: no Critical/High drift; mandatory paths are covered with evidence.
-- `AT_RISK`: no confirmed Critical drift, but material partial/verification gaps exist.
-- `DRIFTED`: at least one confirmed Critical/High mismatch with the controlling baseline.
-- `UNVERIFIABLE`: baseline or actual-state evidence is too incomplete or contradictory for a responsible verdict.
-
-Then provide:
-
-1. **Audit basis:** baseline documents/versions/status, inspected implementation/test/runtime evidence, and limitations.
-2. **Outcome summary:** what remains aligned, what has drifted, and the affected project objective or phase gate.
-3. **Findings:** stable IDs such as `DRIFT-001`, ordered by severity, with type, requirement/design references, expected versus actual, file/line or command evidence, impact, and confidence.
-4. **Traceability matrix:** prioritize Must requirements and phase gates; summarize large fully covered areas instead of dumping every low-risk row.
-5. **Root causes:** distinguish symptom from cause, such as stale baselines, priority inversion, missing ownership, weak qualification, or uncontrolled side work.
-6. **Correction plan:** `Now`, `Next`, and `Deferred`, with verification and decision dependencies.
-7. **Decisions required:** only choices that materially alter scope, design, permissions, schedule, or acceptance.
-
-When no drift is found, still list the evidence inspected and the highest residual risks. When findings rely only on indirect evidence, label them `UNVERIFIED` rather than presenting them as defects.
-
-## Boundaries
-
-- The audit is read-only unless the user explicitly asks to apply corrections.
-- Do not treat draft architecture preferences as approved requirements.
-- Do not use test count, code volume, completed task count, or UI presence as a substitute for requirement outcomes.
-- Do not recommend discarding working code solely to make documents look consistent; first identify the authoritative target and reuse compatible work.
-- Do not broaden the audit into security, performance, or code-style review unless those qualities are required by the governing baseline or are the source of drift.
+本技能直接完成其范围内工作，必要方法已写入本目录。使用现有工具，不递归调用其他技能，不为普通任务增加管理表、额外角色或重复确认。

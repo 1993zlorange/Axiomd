@@ -1,32 +1,7 @@
-# Backend quality gate
+# 后端检查
 
-Apply the approved SDD and `$pr-en-02-senior-engineer`. Use the target repository's approved project-local coding standard. If none exists, ask which standard to apply rather than borrowing another project's examples.
+接口与既有设计一致，参数、返回、状态和错误清楚。认证不代替授权；查询参数化，文件路径限定在允许位置，日志不得泄露秘密。
 
-## Architecture and contracts
+写入有事务或明确的部分失败处理，重复请求可识别，重试有上限。长任务有取消、超时、清理和重启后恢复方式。不要把模拟结果伪装成真实业务数据。
 
-- requirement and design IDs are named;
-- domain/application/interface/adapter ownership follows the approved dependency direction;
-- routes parse protocol, call a use case, and present results; they do not duplicate business rules or SQL;
-- templates render view models and do not calculate domain state;
-- public functions, DTOs, errors, and state transitions are typed and stable;
-- GET and query methods are read-only; commands make side effects explicit.
-
-## Data, failure, and security
-
-- validate untrusted input and reject unknown or ambiguous fields where required;
-- parameterize values and allowlist dynamic fields;
-- resolve and constrain paths to approved roots;
-- subprocess calls use argument lists, `shell=False`, timeouts, and retained failure state;
-- transactions are atomic; version conflicts, retries, idempotency, cancellation, and rollback are explicit where applicable;
-- important files use temporary output, validation, and atomic replacement;
-- errors have stable codes and correct HTTP status, preserve recoverable user input, and do not expose secrets, stack traces, SQL, or absolute paths;
-- logs use stable messages and structured context without research content or secrets.
-
-## Verification
-
-- feature tests derive from acceptance behavior; defect tests reproduce the reported cause;
-- test normal, boundary, invalid, missing prerequisite, dependency failure, conflict, retry/recovery, compatibility, and path-security cases in proportion to risk;
-- run focused unit/regression tests, full repository tests, architecture checks, and relevant browser E2E;
-- compare page, API, and persisted state after refresh;
-- no test writes normal project data or depends on live external services by default;
-- exact commands, results, unverified conditions, and residual risks are recorded honestly.
+验证真实成功、无效输入、无权限、重复提交、依赖失败和恢复路径；检查返回与实际保存结果一致。迁移必须检查旧数据、升级失败和回滚。

@@ -1,4 +1,7 @@
 interface:
-  display_name: "项目对齐审计"
-  short_description: "检查项目是否偏离需求和设计，并输出证据充分、可执行的回正方案"
-  default_prompt: "Use $pr-pm-03-project-alignment-audit to compare the current project with its requirements and design, classify any drift, and produce an evidence-backed correction plan."
+  display_name: "需求与实现一致性检查"
+  short_description: "比较现有需求、设计、实现、测试及文档，找出不一致并提出纠正建议；适用于偏差检查和阶段复核。"
+  default_prompt: "请用 $pr-pm-03-project-alignment-audit 完成需求与实现一致性检查，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,27 +1,8 @@
-# Weekly Research Loop
+# 每周进展整理
 
-The weekly unit is a verified cognition update, not hours spent or pages written.
+1. 对照上周计划与实际产物，区分完成、部分完成、未做和条件变化。
+2. 选出最影响研究判断的一两项结果，说明问题、做法、依据、解释和限制。
+3. 保留有价值的失败，说明排除了什么或暴露了什么。
+4. 下周计划先选一项首要任务，写输入、动作、产物、成本和完成条件。
 
-## Monday or cycle start
-
-1. Use `sr-last-week-acceptance` to inspect last week's promised artifacts.
-2. Use `sr-route-retrospective` when new evidence changes the route.
-3. Use `sr-weekly-plan` to select one P0 and at most two P1 work packages.
-4. Open one work contract per selected leaf Skill. Never use “continue research” as a task.
-
-## During the week
-
-- The human performs the traditional first pass and owns laboratory, domain, and decision work.
-- AI maintains structure, comparisons, checks, scripts, summaries, and artifact links.
-- Record failed attempts and boundary changes as evidence.
-- Invoke another leaf only after the current leaf produces its prerequisite output or a human decides to switch route.
-
-## Before the group meeting
-
-1. Close or truthfully mark each work contract.
-2. Use `sr-weekly-meeting` to build the report from closure records and artifacts.
-3. Put the strongest supported conclusion first.
-4. For each item show problem, action, evidence, conclusion, boundary, and next decision.
-5. End with one explicit question for the supervisor/group and next week's acceptance criteria.
-
-Evidence strength controls wording: single observation → “observed”; repeated stable result → “results consistently indicate”; mechanism evidence → “supports the hypothesis”; insufficient evidence → “cannot yet determine”; conflicting evidence → “does not support the current hypothesis”.
+周报与时间线由科研进展整理统一处理。需要演示文稿时直接按学术演示文稿流程使用已有材料，不在周报中维护第二套 PPT 制作规则。

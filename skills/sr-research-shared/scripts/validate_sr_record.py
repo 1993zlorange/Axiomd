@@ -118,6 +118,8 @@ def parenthesis_metrics(text: str) -> tuple[int, int]:
 
 def validate(path: Path) -> tuple[list[str], list[str], dict[str, object]]:
     text = path.read_text(encoding="utf-8")
+    if "## 要解决的问题" in text:
+        return validate_simple(text)
     frontmatter, full_body = split_frontmatter(text)
     body = strip_comments(full_body)
     appendix_a = body.find("## 附录A：支撑材料")
@@ -262,6 +264,34 @@ def validate(path: Path) -> tuple[list[str], list[str], dict[str, object]]:
         "machine_status_sync": sync_status,
     }
     return errors, warnings, metrics
+
+
+def validate_simple(text: str) -> tuple[list[str], list[str], dict[str, object]]:
+    """检查简明记录的实质内容；姓名、签认与管理附录不是必填项。"""
+    _, body = split_frontmatter(text)
+    body = strip_comments(body)
+    errors: list[str] = []
+    warnings: list[str] = []
+    sections = ["要解决的问题", "做法与结果", "依据与检查", "适用范围与未解决问题", "下一步"]
+    for title in sections:
+        content = section_text(body, "## " + title).strip()
+        if not content:
+            errors.append(f"缺少内容：{title}")
+        elif re.search(r"<[^>]+>", content):
+            warnings.append(f"仍有待填写内容：{title}")
+    if not re.search(r"# (?:一句话结论|交接结论)\s*\n+\S", body):
+        errors.append("缺少主要结论")
+    evidence = section_text(body, "## 依据与检查")
+    # A label or empty table is not evidence. Require a concrete entry or an honest limitation.
+    evidence_lines = [line.strip() for line in evidence.splitlines() if line.strip()]
+    table_rows = [line for line in evidence_lines if line.startswith("|")]
+    substantive_rows = [line for line in table_rows[2:] if re.search(r"[\w\u4e00-\u9fff]", line) and not re.search(r"<[^>]+>", line)]
+    prose = [line for line in evidence_lines if not line.startswith("|") and not re.search(r"<[^>]+>", line)]
+    if not substantive_rows and not prose:
+        errors.append("依据与检查需要具体来源、实际结果或未能验证的原因")
+    if "不能支持" not in body:
+        errors.append("缺少结论适用范围")
+    return errors, warnings, {"format": "简明记录", "named_reviewer_required": False}
 
 
 def main() -> int:

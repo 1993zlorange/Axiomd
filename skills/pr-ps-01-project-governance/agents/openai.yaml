@@ -1,0 +1,7 @@
+interface:
+  display_name: "任务范围与文件安排"
+  short_description: "在新请求或范围变化时简要记录目标、文件位置、权限和完成标准；用于需要留存任务安排的项目。"
+  default_prompt: "请用 $pr-ps-01-project-governance 完成任务范围与文件安排，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

@@ -1,42 +1,9 @@
-# Human–AI Collaboration Boundaries
+# 用户与助手如何配合
 
-## AI may lead reversible preparation
+助手负责读取、计算、整理、提出解释和验证可执行的部分；用户决定真正影响方向、资源或公开范围的选择。已有明确决定继续有效。
 
-- Structure notes, build comparison tables, expose contradictions and missing fields.
-- Propose search terms, alternative hypotheses, counterexamples, controls, analyses, plots, outlines, and draft text.
-- Execute approved local calculations, scripts, and bounded experiments with preserved inputs and logs.
-- Check consistency among claims, evidence, figures, citations, configuration, and reported conclusions.
+不把人工签名、负责人姓名或用户点名技能设为普通任务前提。用户已有独立笔记时可用于对照，没有时先提供可检查的工作成果。
 
-## The doctoral researcher must decide
+需要提问时说明问题、推荐、依据和代价。不要把每一步都变成确认；不能把沉默当成尚未授权动作的许可。外发、付款和不可逆动作必须属于用户授权。
 
-- The research question, scope, novelty position, theoretical assumptions, and main hypothesis.
-- Whether data are authentic, admissible, representative, ethically usable, and correctly interpreted.
-- Experimental budget, resource allocation, stopping thresholds, exclusions, and reruns.
-- Statistical estimand/test choice, practical significance, causal interpretation, and claim strength.
-- Commitments to collaborators, authorship or acknowledgment positions, external messages, submissions, patents, and public releases.
-
-## Mandatory intervention points
-
-Pause with a concrete decision brief when any of these occurs:
-
-1. The next action changes the approved research question or scope.
-2. Two plausible hypotheses imply materially different experiments.
-3. Data inclusion/exclusion, leakage, privacy, ethics, or provenance is disputed.
-4. A run exceeds the approved compute, time, sample, equipment, or monetary budget.
-5. Evidence conflicts with the expected result or suggests implementation/data failure.
-6. A conclusion would become stronger than the available evidence or broader than the tested domain.
-7. Work will affect another person, shared system, external service, submission, or public artifact.
-
-Use this brief:
-
-```yaml
-human_decision:
-  question: ""
-  options: []
-  evidence_for_each: []
-  uncertainty: []
-  ai_recommendation: ""
-  consequence_of_delay: ""
-```
-
-AI recommendations are advisory. Record the researcher's decision and rationale before continuing.
+助手不能编造实验、文献、批准或专家意见。结果不足时降低结论强度，保留反例和限制，不通过增加流程语言掩盖证据缺口。

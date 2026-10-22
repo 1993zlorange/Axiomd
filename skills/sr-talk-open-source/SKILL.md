@@ -1,103 +1,73 @@
 ---
 name: sr-talk-open-source
-description: "SR-学术报告与开源成果：需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成结构化编号、按认知对象拆页、每页有一句总结性话的模板化学术/组会汇报 PPT 时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "学术演示文稿制作：需要将论文、项目文档或研究进展制作成学术报告、答辩、文献分享或组会演示文稿时；本技能是 PR/SR 中唯一的 PPT 制作入口。"
 metadata:
   sr-id: "SR-58"
   aspect: "论文与成果表达"
-  short-description: "SR-学术报告与开源成果"
+  short-description: "学术演示文稿制作"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 学术演示文稿制作
 
-# SR-学术报告与开源成果
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 需要面向特定听众准备报告、演示、PPT、README 或可复现公开成果，或需要把文档转成结构化编号、按认知对象拆页、每页有一句总结性话的模板化学术/组会汇报 PPT 时
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+需要将论文、项目文档或研究进展制作成学术报告、答辩、文献分享或组会演示文稿时；本技能是 PR/SR 中唯一的 PPT 制作入口。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 明确听众、场合、汇报模式和希望记住的三点
-2. 读取源文档，映射证据覆盖，按认知对象分组而不是按字数切页
-3. 为每页写出 kicker 编号、结论式页题和一句可证据支持的总结性话
-4. 选择版式和逻辑图骨架，画出页面结构并亲自排练
-5. 优先使用上传模板；若未提供，默认复制 20260830 v8 脱敏配色强化组会模板并替换占位，保持讲稿、demo 和证据一致
-6. 从干净环境运行 demo 或复现入口
-7. 检查排版布局、配文配色、逻辑图、标题编号、许可、引用、隐私、敏感数据和发布清单
-8. 若有人工修改版，复盘页面映射与可复用规则
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 确定听众、汇报时长和希望听众记住的主要结论。
+2. 阅读源材料，逐条对应结论与原始图表、数据或出处。
+3. 按论证顺序安排页面，每页只回答一个主要问题。
+4. 复制用户模板；未提供时使用本目录的脱敏组会模板。
+5. 制作可编辑的演示文稿和讲稿，统一术语、图例、单位及引用。
+6. 逐页渲染检查并修改溢出、遮挡、过小字体及缺少依据的文字。
 
-**AI role:** 解析源文档，生成证据覆盖矩阵、认知对象拆页、结构化编号、逐页计划、slides、讲稿、README 草案，并执行模板匹配、排版布局、字体字号、红/蓝/黑语义、逻辑图和一致性检查。
+### 从材料到演示文稿
 
-**Human intervention:** 博士生现场演练、核对所有证据、确认模板版式、认知拆页和公开范围；发布动作需明确授权。
+本技能统一制作论文汇报、组会、答辩与项目演示文稿。周报和时间线可以直接作为输入，不要求先调用其他技能。先从材料确定问题、方法、结果和限制；每页保留一个主要论点及对应出处。方法论文按问题—方法—验证展开，机制论文按现象—解释—验证展开，综述按分类—比较—未解决问题展开。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+使用 [逐页计划](assets/ppt-page-plan.md) 记录章节编号、结论式标题、页面类型、版式、图表来源、讲稿和一句总结。材料不足时写明未验证，不把计划写成结果。详细方法见 [文档转演示文稿](references/document-to-ppt.md)。
 
-## Document-to-PPT bridge
+用户有模板时先复制再编辑，保留母版、版式、占位符、页边距、页脚和页码。未提供时使用 [脱敏组会模板](assets/sr58-group-meeting-v8-style-template.pptx) 及 [模板说明](references/group-meeting-ppt-template-patterns.md)。删除作者提示页和反面示例页；不把私有模板保存进技能包。
 
-When converting documents into slides, read [references/document-to-ppt.md](references/document-to-ppt.md). First map every source claim to evidence, classify the evidence coverage, choose the presentation mode, and classify every page by one primary cognitive object. Do not turn plans into results, local runs into reproducibility, or missing evidence into a polished claim.
+### 排版与核对
 
-For the 20260830 v8 advisor group-meeting mode, enforce the v8 top-title layout, 20pt body target, 14pt table/figure minimum, model four-factor tables, resource statistics, coordinate/unit/legend checks, transparent visualization rules, and a blank margin no smaller than one 24pt character. Author-guidance and negative-example pages are template references and are deleted from a real delivery unless explicitly requested.
+组会默认中文微软雅黑、加粗标题、正文约 20pt 且不低于 18pt、图表文字不低于 14pt；内容放不下优先拆页。保留至少一个 24pt 字符的空白边距。每页只有一个独立的 `SR58-SUMMARY` 总结句，不用标题代替。章节编号与标题分开，序号用 `1. 2. 3.`。
 
-Then read [references/group-meeting-ppt-standard.md](references/group-meeting-ppt-standard.md) and enforce:
+默认红色加粗下划线表示关键内容，蓝色加粗表示重要内容，黑色表示普通说明；每页红色重点不超过三处。用户模板有明确配色时按用户要求调整。流程图用短节点、清楚箭头和明确条件，避免把相关性画成因果。页面的主要内容类型为 `cognitive_type`；多个主要问题、超过 12 个节点或三条主要分支时，优先拆页并重新安排阅读顺序。
 
-- one complete, visible `SR58-SUMMARY` sentence on every page, placed separately from the page title;
-- one primary `cognitive_type` per page: claim, context, artifact, mechanism, role, process, architecture, case, metric, risk, reflection, decision, or backup;
-- cognitive-object splitting before word-count trimming: role mapping, process flow, architecture, concrete evidence, result, reflection, and unverified plan occupy separate pages when they compete;
-- a separate structural kicker plus a conclusion title, for example `2.2 机制2` + `角色制衡避免单模型自我强化`;
-- artifact-first order for group-meeting process reviews: advisor context → key conclusion → agenda → artifact evidence → motivation → mechanisms → practice cases → reflection → next plan;
-- 4–8 character parallel topic labels and visible `1. 2. 3.` ordering; do not use small-circle numerals;
-- Microsoft YaHei throughout and bold titles;
-- body ≥18pt; figure/table labels ≥14pt; split by cognitive object or delete instead of shrinking;
-- only red/blue/black semantic emphasis: critical=red+bold+underline, important=blue+bold, normal=black, modifiers deleted or regular black;
-- no more than three red items per page;
-- result pages foreground results and let methods recede;
-- bold table titles/headers; red for decisive facts, blue for important facts, black for context;
-- unified repeated modules with changed numbers/conditions/status visibly highlighted;
-- varied layout/density so consecutive pages do not become visually indistinct;
-- preserved masters, layouts, placeholders, margins, footers, logos, and page numbering when using a supplied PPTX template.
+版式、逻辑图和检查细节见 [组会排版规范](references/group-meeting-ppt-standard.md)、[版式选择](references/ppt-layout-system.md) 和 [逻辑图说明](references/logic-diagram-style.md)。用户提供修改稿时按 [修改对照方法](references/human-revision-retrospective.md) 比较实际变化，不把单次偏好升级成全局规则。
 
-When no private template is supplied, start from [assets/sr58-group-meeting-v8-style-template.pptx](assets/sr58-group-meeting-v8-style-template.pptx), read [references/group-meeting-ppt-template-patterns.md](references/group-meeting-ppt-template-patterns.md), and copy [assets/sr58-group-meeting-v8-style-template-page-plan.md](assets/sr58-group-meeting-v8-style-template-page-plan.md).
+运行本目录 `scripts/qa_group_meeting_pptx.py <演示文稿.pptx> --page-plan <逐页计划.md>`，处理错误和警告，再逐页渲染检查遮挡、溢出、字号、图表和来源是否一致。结构校验通过不代表已完成视觉检查。交付可编辑文件、讲稿和实际检查结果；若当前工具无法保存模板结构或渲染，明确说明受影响部分。
 
-For layout selection read [references/ppt-layout-system.md](references/ppt-layout-system.md). Choose `claim`, `evidence-screenshot`, `mechanism-map`, `process-flow`, `architecture`, `case`, or `reflection`; record text/visual area ratios and the split check. A page that needs two summaries, has two cognitive objects, more than 12 diagram nodes, or more than three branches must be split unless the page plan records a reviewed exception.
+### 需要配套公开成果时
 
-For any flowchart, mechanism map, architecture, or case loop, read [references/logic-diagram-style.md](references/logic-diagram-style.md). Use short nodes, stable numbering, one dominant path, explicit human gates, meaningful loops, and fixed red/blue/black arrow semantics.
+用户要求随报告提供开源材料时，整理可公开的源文件、数据获取说明、环境、最小复现命令、许可证、引用和已知限制，写入 README。用干净目录验证演示或复现入口，保留实际结果。不把未发表数据、凭据或私有模板放入公开包；本地整理完成后，实际上传或发布仍按用户授权执行。软件安装包与部署任务按项目发布约定处理。
 
-For every page, record the kicker, conclusion title, primary cognitive type, layout pattern, its one-sentence `SR58-SUMMARY`, evidence, `[级别]` + color style, visual contract, split check, deletion/demotion list, and red count in [assets/ppt-page-plan.md](assets/ppt-page-plan.md). The deck draft is incomplete without this page plan.
+## 交付什么
 
-## Human revision retrospective
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：演示文稿：听众 / 时长 / 主线 / 逐页计划 / 结论与来源 / 可编辑文件 / 讲稿 / 渲染检查。
 
-When the user supplies an AI draft and a human-revised deck or PDF, read [references/human-revision-retrospective.md](human-revision-retrospective.md). Compare page mapping, layout, title numbering, text density, color semantics, diagram style, evidence order, and cognitive-object splitting. Record one-off preferences separately from candidate and stable rules. Do not store private source files, local paths, credentials, or restricted project evidence in this repository.
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-## Template and presentation-tool rules
+## 怎么检查
 
-If no private template is supplied, use the bundled v8 de-identified template above. When a private template is supplied, preserve its geometry and replace only content/formatting as authorized; do not copy that private source into this repository.
+交付实际可打开的演示文稿；每页结论有来源，图表和引用准确，版式与可读性检查有实际结果；发布或公开分享另按用户授权执行。
 
-If the user supplied a PPTX template, work on a copy and inspect its masters/layouts before writing. Never overwrite the source. The user’s explicit font-size and red/blue/black contract overrides inherited template styles for content; preserve layout geometry and decoration while adding explicit run formatting. Do not commit private templates, credentials, restricted figures, or machine-specific paths. If the local presentation tool cannot preserve PPTX structure, deliver the page plan and source mapping, and record the blocker instead of claiming template fidelity.
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-When Python is available, run `python skills/sr-talk-open-source/scripts/qa_group_meeting_pptx.py <deck.pptx> --page-plan <page-plan.md>`. Fix all `ERROR` values; inspect and resolve or explicitly justify every `WARN`. Then render/inspect slides for overflow, readability, template fidelity, layout pattern, diagram semantics, and claim agreement.
+## 需要用户决定时
 
-## Deliverable
+需要重点核对：听众、时长、公开范围和科学结论。可以直接制作本地草稿；公开分享前确认范围。
 
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture and [assets/ppt-page-plan.md](assets/ppt-page-plan.md) when a deck is requested. Name each artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, and human verdicts explicit.
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
 
-Use this template: 发布包：audience / presentation mode / three messages / evidence coverage / cognitive-object page plan / per-page summary sentence / slides / demo / README / license / privacy checklist
-
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
-
-Recommended optional adapters: `nature-paper2ppt`, `nature-figure`, `nature-data`, `k-dense/scientific-writing`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
-
-## Completion gate
-
-受众主线清楚，证据覆盖可追踪，每页有唯一认知对象、结构化编号、结论式页题和一句证据边界内的总结性话；排版布局、逻辑图、字体字号和红/蓝/黑语义通过检查或如实记录阻塞；人工修改已按规则复盘（如有）；demo 可运行，证据与引用准确，许可隐私审查完成且发布获授权。
-
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
-
-## Routing after closure
-
-Likely next Skill(s): `$sr-stage-archive`, `$sr-weekly-meeting`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

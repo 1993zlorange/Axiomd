@@ -1,25 +1,33 @@
 ---
 name: sr-research-shared
-description: Internal shared-reference package for SR doctoral research skills, defining work contracts, human-AI authority, weekly evidence loops, and optional third-party adapters. Do not invoke as a standalone research workflow; load only the reference requested by an SR router or leaf skill.
-metadata:
-  short-description: Shared contracts for the SR research skill family
+description: "将散乱的研究笔记、结果与来源整理成可读、可检查的记录，或检查已有记录是否缺少依据和适用范围。"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+# 研究记录整理
 
-# SR Research Shared References
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-如需保存共享契约加载记录，使用本目录的 [中文空白模板](assets/output-template.md)；本包仍不可作为独立科研工作流调用。
+## 什么时候用
 
-Use this package only as a dependency of another SR Skill.
+将散乱的研究笔记、结果与来源整理成可读、可检查的记录，或检查已有记录是否缺少依据和适用范围。用户不必点名技能或指定负责人。
 
-- Load [references/research-contract.md](references/research-contract.md) at the start and close of a leaf workflow.
-- Load [references/body-writing-standard.md](references/body-writing-standard.md) before drafting or rewriting any achievement card or workflow handoff.
-- Load [references/human-ai-collaboration.md](references/human-ai-collaboration.md) when authority, permission, scientific judgment, ethics, privacy, resources, submission, or release matters.
-- Load [references/weekly-loop.md](references/weekly-loop.md) for weekly planning, acceptance, and group-meeting preparation.
-- Load [references/four-agent-workflows.md](references/four-agent-workflows.md) for four-agent ownership, twelve numbered workflows, achievement-card rules, and structured handoffs.
-- Load [references/project-lead-orchestration.md](references/project-lead-orchestration.md) when the research project lead must inventory a project, determine its evidence-backed stage, recommend the next work portfolio, or dispatch and accept work from the four research agents.
-- Load [references/source-adapters.md](references/source-adapters.md) only when an installed third-party Skill may be composed into the current leaf workflow.
-- Return to the requesting SR Skill for task logic, output template, and completion criteria.
-- Each closed SR leaf produces its own dated card named `YYYYMMDD-内容简述-成果卡.md` in the mapped project aspect folder, with the SR ID in frontmatter. Workflow transfer, pause, blockage, or closure produces a dated handoff using the same convention; never create aggregate workflow cards.
-- Project-lead assessment is read-only by default. It may recommend delegation, but it must not start specialist work unless the user explicitly asks it to execute the recommendation.
+## 先看什么
+
+读取当前问题和直接相关的已有材料，明确来源、时间范围和缺项。
+
+## 怎么做
+
+1. 读取用户指定记录与原始材料，保留来源，不改变研究事实。
+2. 分开事实、作者主张、观测、解释、假设和计划，指出矛盾或缺失。
+3. 按问题、做法、结果、来源、限制和下一步组织内容，删除不适用的管理字段。
+4. 核对数字、时间、版本和来源链接，保留未知与未验证状态。
+
+这里检查记录是否完整清楚，不替代实验结果真实性审查。负责人姓名、工作流编号和人工签名默认可省略；项目有明确要求时保留。
+
+## 交付什么
+
+用本目录 [结果模板](assets/output-template.md) 组织内容；需要保存时写入项目已有成果目录，命名为 `YYYYMMDD-内容简述-研究记录.md`。简单问题直接回复，删除不适用部分。
+
+## 怎么检查
+
+关键结论有可定位来源，事实与推测分开，不能支持的说法明确。未运行的检查如实说明。已有授权继续有效，不因模板要求追加签名或额外技能调用。

@@ -1,27 +1,28 @@
-# Optional Third-Party Skill Adapters
+# 方法来源与本地使用
 
-SR leaf Skills own the work contract and evidence gate. Third-party Skills are optional implementation aids, not scientific authorities.
+原来的外部技能适配调用已取消。研究技能直接包含所需步骤，本文件只记录维护时核对的来源，不是运行前置阅读。
 
-## Routing aliases
+2026-10-22 核对当前可访问的上游主分支：
 
-- Nature Skills: academic search, reader, paper card, experiment log, data availability, statistics, figures, writing, polishing, reviewer, response, paper-to-PPT.
-- K-Dense Scientific Agent Skills: hypothesis generation, experimental design, exploratory data analysis, statistical analysis, scientific visualization, scientific writing, peer review, mathematical modeling, poster generation.
-- Academic Research Skills: deep research, academic paper, academic paper reviewer, academic pipeline.
-- Research Paper Writing: story-first manuscript structure, reverse outline, claim–evidence alignment, adversarial review.
-- Tencent BrowserSkill: optional local browser bridge for reading user-authorized, already logged-in research pages; use only with the dedicated [authenticated browser retrieval reference](browser-skill-literature-search.md).
+| 来源 | 页面声明版本 | 本地吸收的内容 |
+|---|---|---|
+| K-Dense hypothesis-generation | 2.4，2026-10-01 | 区分假设与发现、竞争解释和可区分预测 |
+| K-Dense experimental-design | 1.5，2026-09-30 | 对照、随机化、区组及重复单位 |
+| K-Dense exploratory-data-analysis | 1.4，2026-09-30 | 数据缺失、异常和泄漏检查 |
+| K-Dense statistical-analysis | 2.0，2026-10-01 | 待估计量、独立样本单位、效应量和不确定性 |
+| K-Dense scientific-visualization | 1.4，2026-10-01 | 保留原始数据和变换、诚实视觉编码、检查实际导出 |
+| K-Dense scientific-writing | 2.3，2026-10-01 | 主张有依据、写作与核实分开 |
+| K-Dense peer-review | 2.4，2026-10-01 | 可定位问题、方法和统计审查 |
+| Nature academic-search / reader / paper2ppt | 2.0.0 | 来源定位、元数据核实、从原文到论证与图表 |
+| Nature reviewer | 0.1.0 草稿 | 从原始材料提出具体质疑 |
+| Academic Research deep-research / academic-paper / academic-paper-reviewer | 2.12.1 / 3.3.1 / 1.11.1 | 问题与证据分开、写作及回复可核查 |
+| Academic Research academic-pipeline | 3.23.1，2026-10-16 | 最终主张与证据一致性复查；未采用多技能编排 |
 
-## Invocation conditions
+来源目录：
+- https://github.com/K-Dense-AI/scientific-agent-skills/tree/main/skills
+- https://github.com/yniantongtian-oss/nature-skills/tree/main/skills
+- https://github.com/Imbad0202/academic-research-skills
 
-Invoke an adapter only when all are true:
+页面声明版本与正文标签可能不同；这里仅记录取到的版本，不能保证未来不变。旧别名 nature-literature-pipeline、nature-paper-card、nature-ref-verifier 和 mathematical-modeling 的预期路径返回 404，未当作已核验来源。保留本地已有方法并取消这些悬空调用。
 
-1. The selected SR leaf explicitly needs that capability.
-2. The upstream Skill is actually installed and its exact version/source is known.
-3. Its license permits the intended use and redistribution.
-4. Its network, filesystem, subprocess, credential, and external-action permissions fit the work contract.
-5. Its output will be checked through the SR leaf's completion gate.
-
-Do not default to high-risk download/search automation. In the 2026-09-08 local scan, `nature-academic-search` and `nature-downloader` required restricted treatment; treat later versions as untrusted until rescanned. A clean scan is not proof of safety.
-
-When no adapter is installed, perform the leaf workflow using available local tools and disclose the limitation.
-
-BrowserSkill is a runtime capability rather than a scientific authority. Treat its page reads as `observation` evidence, preserve the source URL and timestamp, and never treat the browser session as permission to extract credentials or bypass site controls.
+没有复制或运行上游脚本、自动安装依赖、固定多人流程或引用来源中的外部服务要求。维护时再核对来源；日常使用无需联网更新技能。

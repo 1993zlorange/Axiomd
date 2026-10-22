@@ -1,54 +1,33 @@
 ---
 name: sr-doctoral-research
-description: Route a doctoral research request to one focused ScienceResearch leaf skill across problem framing, literature, hypotheses, methods, experiments, analysis, papers, and weekly progress. Use when the user asks what research work to do next, requests an end-to-end research workflow, or has not named a specific SR leaf skill. Do not perform the leaf task inside this router.
-metadata:
-  short-description: Route doctoral work to one evidence-led SR skill
+description: "当研究想法模糊、材料分散或不知道先解决什么时，判断当前主要问题并给出一个具体可执行的下一步。"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+# 研究任务定位
 
-# SR Doctoral Research Router
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-如需保存路由记录，使用本目录的 [中文空白模板](assets/output-template.md)，文件名遵循 `YYYYMMDD-内容简述-路由记录.md`。
+## 什么时候用
 
-Select the smallest work package that can close the current highest-value uncertainty. This Skill routes; the selected leaf Skill performs the work.
+当研究想法模糊、材料分散或不知道先解决什么时，判断当前主要问题并给出一个具体可执行的下一步。用户不必点名技能或指定负责人。
 
-## Routing protocol
+## 先看什么
 
-1. Read [manifest.json](manifest.json). It contains only routing metadata and leaf paths.
-2. Detect these axes from the request and supplied project context:
-   - `aspect`: problem, literature, idea, method, experiment, analysis, paper, or progress.
-   - `intent`: explore, decide, design, execute, diagnose, communicate, or review.
-   - `state`: proposed, ready, running, blocked, evidence-ready, or closed.
-   - `time_horizon`: today, this week, milestone, or manuscript cycle.
-3. Identify one primary leaf. Prefer the work package whose deliverable would change the next scientific decision. State one line: `Detected: aspect=...; intent=...; primary=$sr-...; human checkpoint=...`.
-4. Read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md), then read only the selected leaf `SKILL.md` from the path in the manifest.
-5. Load other shared references only when triggered:
-   - Human/AI authority is unclear or the task changes scope, resources, claims, ethics, privacy, collaboration, submission, or release: read [../sr-research-shared/references/human-ai-collaboration.md](../sr-research-shared/references/human-ai-collaboration.md).
-   - The user asks for a weekly plan, weekly review, or group meeting: read [../sr-research-shared/references/weekly-loop.md](../sr-research-shared/references/weekly-loop.md) and use `$sr-weekly-meeting` after leaf outputs are checked.
-   - A leaf recommends a third-party capability: read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before invoking it.
-6. Return control to the selected leaf. Do not synthesize its substantive deliverable from this router.
+读取当前问题和直接相关的已有材料，明确来源、时间范围和缺项。
 
-## Selection rules
+## 怎么做
 
-- Choose one primary Skill per work contract. A secondary Skill must consume the primary Skill's named output.
-- Do not force a linear march through all 68 Skills. Research may loop from analysis back to hypothesis, method, or data.
-- If the request names a leaf explicitly, validate its prerequisites and use it directly.
-- If two Skills appear plausible, choose the one producing the earlier missing artifact. Example: use data-split before main-comparison when the split is not frozen.
-- Use progress Skills only to manage scientific work; they do not replace literature, experiments, analysis, or human scientific decisions.
+1. 阅读问题陈述与已有材料，分清希望知道什么和目前已经知道什么。
+2. 判断缺口属于问题定义、文献、假设、方法、实验、分析还是表达，说明依据。
+3. 比较少量可能的下一步，优先选择能以最小成本改变研究判断的一项。
+4. 给出该项工作的输入、具体动作、预期结果和检查方法；材料不足时明确假设。
 
-## Router output
+本技能只输出研究定位与行动建议，不把请求转给其他技能，不自动开展实验。它适用于尚未确定任务的起点；已有明确工作计划时直接按计划执行。
 
-```yaml
-routing:
-  aspect: ""
-  intent: ""
-  state: ""
-  primary_skill: "sr-..."
-  reason: ""
-  prerequisite_artifacts: []
-  optional_secondary_skill: null
-  human_checkpoint: ""
-```
+## 交付什么
 
-If the necessary project context is absent, ask only for the one missing decision that changes routing. Otherwise proceed with explicit assumptions.
+用本目录 [结果模板](assets/output-template.md) 组织内容；需要保存时写入项目已有成果目录，命名为 `YYYYMMDD-内容简述-研究记录.md`。简单问题直接回复，删除不适用部分。
+
+## 怎么检查
+
+关键结论有可定位来源，事实与推测分开，不能支持的说法明确。未运行的检查如实说明。已有授权继续有效，不因模板要求追加签名或额外技能调用。

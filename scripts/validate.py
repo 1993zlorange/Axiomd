@@ -152,7 +152,7 @@ def validate_agents(errors: list[str], profiles: dict[str, dict], manifest: dict
                 if skill not in profiles[profile_name].get("skills", []):
                     fail(errors, f"{profile_name} includes {path.stem} but omits configured skill {skill}")
         instructions = str(data.get("developer_instructions", ""))
-        if "User-facing interaction standard:" not in instructions:
+        if "沟通方式：" not in instructions:
             fail(errors, f"{path.name} missing user-facing interaction standard")
         for skill in known_skills:
             if re.search(r"(?<![A-Za-z0-9_-])" + re.escape(skill) + r"(?![A-Za-z0-9_-])", instructions):

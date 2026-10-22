@@ -1,7 +1,7 @@
 interface:
-  display_name: "SR-科研共享契约"
-  short_description: "为 SR 分项 Skill 提供证据、权限与周循环共享定义"
-  default_prompt: "Use $sr-research-shared only through an SR router or leaf skill to load the exact shared research contract needed."
+  display_name: "研究记录整理"
+  short_description: "将散乱的研究笔记、结果与来源整理成可读、可检查的记录，或检查已有记录是否缺少依据和适用范围。"
+  default_prompt: "请用 $sr-research-shared 完成研究记录整理，保留来源和结论限制。"
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

@@ -1,4 +1,7 @@
 interface:
-  display_name: "通用软件发布管理"
-  short_description: "准备受控版本候选、发布说明、烟测和回滚记录"
-  default_prompt: "使用 $pr-rl-01-software-project-release-management 在明确授权范围内准备当前项目发布。"
+  display_name: "软件发布准备"
+  short_description: "准备本地发布包、版本说明、安装验证和回滚方案；适用于打包、发布候选及用户已授权的发布任务。"
+  default_prompt: "请用 $pr-rl-01-software-project-release-management 完成软件发布准备，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

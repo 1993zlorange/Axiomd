@@ -14,7 +14,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "docs" / "pr-sr-interaction-standard.md"
-REFERENCE = "Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates."
+REFERENCE = "沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。"
 
 
 def skill_directories() -> list[Path]:
@@ -29,6 +29,11 @@ def skill_directories() -> list[Path]:
 
 def insert_reference(path: Path) -> bool:
     text = path.read_text(encoding="utf-8")
+    old_reference = "Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates."
+    if old_reference in text:
+        text = text.replace(old_reference, REFERENCE)
+        path.write_text(text, encoding="utf-8", newline="\n")
+        return True
     if REFERENCE in text:
         return False
     lines = text.splitlines()

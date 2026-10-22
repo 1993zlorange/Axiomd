@@ -4,7 +4,7 @@
 
 **Axiom Agents：治理型 Codex 智能体与技能栈**
 
-![Agents](https://img.shields.io/badge/agents-10-111827) ![Skills](https://img.shields.io/badge/skills-96-0ea5e9) ![Profiles](https://img.shields.io/badge/profiles-3-8b5cf6) ![License](https://img.shields.io/badge/license-MIT-2ea44f)
+![Agents](https://img.shields.io/badge/agents-10-111827) ![Skills](https://img.shields.io/badge/skills-95-0ea5e9) ![Profiles](https://img.shields.io/badge/profiles-3-8b5cf6) ![License](https://img.shields.io/badge/license-MIT-2ea44f)
 
 [一键安装](#一键安装) · [安装档案](#安装档案) · [Agent 索引](#agent-索引) · [使用方式](#使用方式) · [完整资产索引](docs/asset-index.md) · [English](README_EN.md)
 
@@ -18,7 +18,7 @@ Axiom 的完整定位是 **Axiom Agents：治理型 Codex 智能体与技能栈*
 
 ## 你能用它做什么
 
-如果你要在 Codex 里启动软件项目或推进科研工作，可以直接安装 Axiom Agents。它会把 **10 个智能体** 和 **96 个 Skill** 安装到你的 Codex 环境中，让你不需要手动复制文件，也不用自己判断每类任务应该交给哪个角色。
+如果你要在 Codex 里启动软件项目或推进科研工作，可以直接安装 Axiom Agents。它会把 **10 个智能体** 和 **95 个 Skill** 安装到你的 Codex 环境中，让你不需要手动复制文件，也不用自己判断每类任务应该交给哪个角色。
 
 安装后，你可以：
 
@@ -87,13 +87,17 @@ python scripts/validate.py
 
 `CODEX_HOME` 已设置时，安装器使用该目录；也可以用 `--codex-home /path/to/codex-home` 覆盖。
 
+## PR/SR 使用方式
+
+直接用中文描述任务即可，不必点名技能或指定负责人。技能提供独立流程和本地模板；周报与时间线统一为科研进展整理，PPT 统一为学术演示文稿制作。功能边界、来源核对和旧入口迁移见 [PR/SR 维护说明](docs/pr-sr-maintenance.md)。
+
 ## 安装档案
 
 | 档案 | Agent | 核心 Skill | 可选 Skill | 适用场景 |
 | --- | ---: | ---: | ---: | --- |
 | `ai4programming` | 5 | 18 | 6 | 通用软件项目：需求、架构、实现、测试、发布、浏览器验证 |
-| `ai4science` | 6 | 80 | 1 | 科研项目：项目监理、科研负责人、PI、方法、实验、批判评审 |
-| `all`（默认） | 10 | 96 | 0 | 两个项目全集，并包含条件兼容与路由便利技能 |
+| `ai4science` | 6 | 79 | 1 | 科研项目：项目监理、科研负责人、PI、方法、实验、批判评审 |
+| `all`（默认） | 10 | 95 | 0 | 两个项目全集，并包含条件兼容与路由便利技能 |
 
 选择档案：
 
@@ -246,7 +250,7 @@ skills/
 ```text
 axiom/
 ├── agents/                     # 10 个 Codex Agent TOML
-├── skills/                     # 96 个 Skill 目录
+├── skills/                     # 95 个 Skill 目录
 ├── profiles/                   # 3 个安装档案
 ├── scripts/
 │   ├── install.py              # 跨平台安装 / 校验 / 卸载

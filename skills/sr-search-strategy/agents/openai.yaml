@@ -1,7 +1,7 @@
 interface:
-  display_name: "SR-检索式设计与试检索"
-  short_description: "SR-检索式设计、登录态检索与 Zotero 批量导出"
-  default_prompt: "Use $sr-search-strategy to create a reproducible search protocol, achievement card, and a validated Zotero-importable RIS file for the records actually collected; use an explicitly authorized BrowserSkill session when login is required."
+  display_name: "检索式设计与试检索"
+  short_description: "检索式设计与试检索，说明做法、结果、来源和仍需核实的问题"
+  default_prompt: "请用 $sr-search-strategy 完成检索式设计与试检索，给出可检查的结果和必要说明。"
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

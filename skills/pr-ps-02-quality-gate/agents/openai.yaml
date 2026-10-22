@@ -1,0 +1,7 @@
+interface:
+  display_name: "交付质量检查"
+  short_description: "按变更影响检查代码、文档、数据或实验交付质量；用于提交、交付前的集中复查。"
+  default_prompt: "请用 $pr-ps-02-quality-gate 完成交付质量检查，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

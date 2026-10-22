@@ -1,0 +1,7 @@
+interface:
+  display_name: "工作方法改进评估"
+  short_description: "汇总一段时间内的实际问题和使用结果，判断哪些规则或技能值得保留、合并、改进或删除。"
+  default_prompt: "请用 $pr-ps-08-evolution-review 完成工作方法改进评估，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

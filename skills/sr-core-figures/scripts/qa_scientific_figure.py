@@ -25,7 +25,6 @@ REQUIRED_FIELDS = (
     "caption",
     "export_status",
     "export_files",
-    "advisor_review",
 )
 PLACEHOLDER = re.compile(r"<[^>]*>|TBD|TODO|N/A\b", re.IGNORECASE)
 LOCAL_PATH = re.compile(r"(?:^|[\s\"'])[(?:]?[A-Za-z]:[\\/]", re.IGNORECASE)
@@ -185,8 +184,6 @@ def validate(path: Path, figure: Path | None) -> tuple[list[str], list[str], int
     review = as_values(data.get("advisor_review"))
     if review and review[0] not in {"pending", "accepted", "revise"}:
         errors.append("advisor_review must be pending, accepted, or revise")
-    elif review != ["accepted"]:
-        warnings.append("advisor_review has not been accepted")
 
     panel_logic = " ".join(as_values(data.get("panel_logic"))).lower()
     if panel_logic and "single" not in panel_logic and "panel" not in panel_logic:

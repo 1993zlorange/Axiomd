@@ -1,55 +1,49 @@
 ---
 name: sr-collaboration-interface
-description: "SR-多人接口协调：多人或系统之间需要冻结字段、单位、目录、版本、样例和验收接口时。Use for this specific doctoral research work package after routing; do not use as a generic end-to-end research assistant."
+description: "多人接口协调：多人或系统之间需要固定字段、单位、目录、版本、样例和核对接口时。"
 metadata:
   sr-id: "SR-63"
   aspect: "项目推进与下一步计划"
-  short-description: "SR-多人接口协调"
+  short-description: "多人接口协调"
 ---
 
-Before any user-facing reply, read and apply [AGENTS.md](AGENTS.md). These rules govern chat wording; they do not override professional methods, safety requirements, or approved output templates.
+<!-- 由 sr-doctoral-research/catalog.json 生成；请修改目录或本地专业补充后重新生成。 -->
 
-<!-- Generated from sr-doctoral-research/catalog.json; edit the catalog, not this file. -->
+# 多人接口协调
 
-# SR-多人接口协调
+沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。
 
-Use this leaf Skill when: 多人或系统之间需要冻结字段、单位、目录、版本、样例和验收接口时
+## 什么时候用
 
-Before starting, read [../sr-research-shared/references/research-contract.md](../sr-research-shared/references/research-contract.md) and [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md). Obtain or reconstruct the `human_baseline`, then return the work contract. Do not skip directly to a polished answer.
+多人或系统之间需要固定字段、单位、目录、版本、样例和核对接口时。按用户的任务自然使用，不要求用户说出技能名，也不要求指定负责人姓名。
 
-## Doctoral old-school workflow
+## 先看什么
 
-1. 让生产者与消费者共同列接口需求
-2. 冻结字段、单位、目录、版本和样例
-3. 双方评审正常、边界和错误样例
-4. 执行契约测试并记录每次变更
+先读用户提供的材料和项目中与这项任务直接相关的文件，明确要回答的问题、已有结果和当前限制。已有手算、草图或研究笔记可以作为比较依据；没有时直接开展工作，不补造人工判断，也不要求用户先完成一套表格。
 
-The old-school pass is the researcher's unaided reading, hand calculation, sketch, inspection, or small manual check. Preserve it as an artifact or concise note so AI output can be compared against independent human judgment.
+## 怎么做
 
-## Human–AI collaboration
+1. 让生产者与消费者共同列接口需求。
+2. 固定字段、单位、目录、版本和样例。
+3. 双方评审正常、边界和错误样例。
+4. 执行契约测试并记录每次变更。
 
-**AI role:** 生成接口文档、样例、契约测试草案和影响分析。
+## 交付什么
 
-**Human intervention:** 博士生组织双方确认、处理冲突和批准破坏性变更。
+使用本目录的 [结果模板](assets/output-template.md)。专业内容包括：接口说明：生产方 / 使用方 / 字段 / 单位 / 版本 / 样例 / 测试 / 变更。
 
-Pause at that intervention point with options, evidence, uncertainty, and a recommendation. Do not infer approval from silence.
+简单问题直接在对话中给出结果；需要保存时，使用项目已有成果目录，文件名为 `YYYYMMDD-内容简述-成果卡.md`。先写结论，再写做法、结果、依据和仍不确定的地方。模板中不适用的表格可以删去，不能用空表代替实际工作。
 
-## Deliverable
+## 怎么检查
 
-Use [assets/output-template.md](assets/output-template.md) as the blank document architecture. Name the artifact `YYYYMMDD-内容简述-文档类型.扩展名`; keep the SR ID in frontmatter and keep evidence, conclusion boundaries, and human verdicts explicit.
+字段、样例和接口测试一致，变更有版本、影响与迁移办法；涉及他人系统的破坏性操作先确认权限。
 
-Use this template: 接口契约：producer / consumer / schema / unit / version / example / test / change
+核对关键数字、来源位置、计算或运行结果；明确哪些是事实、解释、假设和计划。缺少输入时完成能做的部分，并说明缺什么、影响什么。没有运行的实验不能写成已完成，没有证据的推断不能写成结论。
 
-本地 [assets/output-template.md](assets/output-template.md) 是强制的记录骨架；正文必须执行 [../sr-research-shared/references/body-writing-standard.md](../sr-research-shared/references/body-writing-standard.md) 的十条写作标准。上面的一行结构只提示专业交付物。
+## 需要用户决定时
 
-Recommended optional adapters: `k-dense/mathematical-modeling`, `academic-research-skills/academic-pipeline`. Read [../sr-research-shared/references/source-adapters.md](../sr-research-shared/references/source-adapters.md) before using any adapter. Missing adapters are not a blocker; disclose the manual/local fallback.
+需要重点核对：组织双方确认、处理冲突和批准破坏性变更。
 
-## Completion gate
+已有明确要求或授权就继续；仅当缺失信息会改变研究方向、费用、公开范围或不可逆操作时再提问。普通分析、草稿和本地验证可以直接交付；用户确认是独立状态，不是每项工作的前置签名。需要确认时用推荐、理由和代价说清楚，不从沉默推定同意。
 
-生产者消费者共同签认，样例和契约测试通过，变更有版本、影响与迁移方案。
-
-Also require traceable evidence, an explicit conclusion boundary, and the applicable human verdict in the shared closure record. If the gate fails, return `revise`, `pause`, or `reject`; never mark the package complete because a template was filled.
-
-## Routing after closure
-
-Likely next Skill(s): `$sr-resource-scheduling`, `$sr-task-decomposition`, `$sr-blocker-resolution`. Treat these as candidates, not a forced sequence; route according to the new highest-value unknown.
+本技能已包含完成任务所需的方法。按需使用本目录资料和现有工具，不加载其他技能，不自动安装扩展，也不自动启动下一项研究工作。

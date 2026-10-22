@@ -1,7 +1,7 @@
 interface:
-  display_name: "SR-Rebuttal与修订"
-  short_description: "SR-Rebuttal与修订：古法首轮、人机协作、证据验收"
-  default_prompt: "Use $sr-rebuttal-revision to complete SR-Rebuttal与修订 with my human baseline, a reviewable artifact, explicit human checkpoints, and an evidence-based closure record."
+  display_name: "审稿回复与修订"
+  short_description: "审稿回复与修订，说明做法、结果、来源和仍需核实的问题"
+  default_prompt: "请用 $sr-rebuttal-revision 完成审稿回复与修订，给出可检查的结果和必要说明。"
 
 policy:
-  allow_implicit_invocation: false
+  allow_implicit_invocation: true

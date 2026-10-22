@@ -67,7 +67,7 @@ def yaml_quote(value: str) -> str:
 def build_short_description(display_name: str, description: str) -> str:
     candidate = description.strip().replace("\n", " ")
     if len(candidate) < 25:
-        candidate = f"{display_name}：{candidate}，用于当前项目的受控工作流程。"
+        candidate = f"{display_name}：{candidate}，给出可检查的结果与必要说明。"
     return candidate[:64]
 
 
@@ -86,33 +86,33 @@ description: {description}
 
 # {display_name}
 
-## 职责与边界
+## 什么时候用
 
 <说明本 Skill 的唯一工作结果、适用范围和明确非目标。>
 
-## 前置输入
+## 先看什么
 
 - <项目规则、批准基线、输入文件和权限。>
 
-## 执行流程
+## 怎么做
 
 1. <检查现状和输入契约。>
 2. <执行最小可回滚动作。>
 3. <验证正常、边界和失败行为。>
 
-## 输出与失败边界
+## 交付什么
 
 - 输出：<产物、状态和证据。>
 - 阻塞：<权限、依赖、冲突或证据不足条件。>
 - 回滚：<恢复方式。>
 {output_section}
-## 验证
+## 怎么检查
 
 - <项目可复现的验证命令或审查方法。>
 
 ## 权限
 
-不自动提交、推送、发布、删除、覆盖、读取凭据或写入外部系统；需要这些动作时单独取得明确授权。
+按用户任务自然使用，不要求用户点名或指定负责人。必要方法写在本目录，不递归调用其他技能。已有授权继续有效；超出范围的发布、费用和不可逆操作执行前确认。
 """
 
 
@@ -160,7 +160,7 @@ def main() -> int:
             f"  display_name: {yaml_quote(args.display_name)}\n"
             f"  short_description: {yaml_quote(build_short_description(args.display_name, args.description))}\n"
             f"  default_prompt: {yaml_quote(f'使用 ${skill_name} 完成已批准的工作。')}\n"
-            "\npolicy:\n  allow_implicit_invocation: false\n"
+            "\npolicy:\n  allow_implicit_invocation: true\n"
         )
         (target_root / "agents" / "openai.yaml").write_text(openai_yaml, encoding="utf-8", newline="\n")
         if template_name:
@@ -169,7 +169,7 @@ title: "<{args.display_name}输出标题>"
 document_id: "<稳定文档 ID>"
 produced_at: "YYYY-MM-DD"
 status: "草稿"
-owner: "<责任人>"
+owner: ""  # 可选，可填负责角色
 ---
 
 # <{args.display_name}输出标题>

@@ -1,0 +1,7 @@
+interface:
+  display_name: "跨项目方法迁移"
+  short_description: "把其他项目的规则、模板、技能或工具适配到当前项目并小范围验证；用于复用已有方法。"
+  default_prompt: "请用 $pr-ps-07-transfer-pilot 完成跨项目方法迁移，说明实际结果和验证情况。"
+
+policy:
+  allow_implicit_invocation: true

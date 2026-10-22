@@ -4,7 +4,7 @@ This map is generated from each agent TOML's `[[skills.config]]` entries and ski
 
 ## `pr-ar-00-project-architect`
 
-负责基于已批准需求和证据设计、评审并维护可实现、可验证、可追溯的软件架构与详细设计。
+软件架构师：把需求转成可实现、可验证的架构和详细设计。
 
 **Configured skills**
 
@@ -12,12 +12,11 @@ This map is generated from each agent TOML's `[[skills.config]]` entries and ski
 
 **Referenced in instructions**
 
-- `pr-ar-01-project-architect`
-- `pr-pm-02-project-manager`
+- None.
 
 ## `pr-en-00-engineer`
 
-全栈实现负责人：按目标项目批准的需求和设计实现、验证并交付软件；仅在目标项目明确适用时调用领域专用能力。
+软件工程师：实现、修复并验证软件功能。
 
 **Configured skills**
 
@@ -25,14 +24,11 @@ This map is generated from each agent TOML's `[[skills.config]]` entries and ski
 
 **Referenced in instructions**
 
-- `playwright`
-- `pr-ar-01-project-architect`
-- `pr-en-01-fullstack-design-engineer`
-- `pr-en-02-senior-engineer`
+- None.
 
 ## `pr-pm-00-project-manager`
 
-负责软件、数据和科研项目的需求澄清、范围控制、交付协调、对齐审计和受控发布；按目标项目规则选择领域能力。
+项目需求与文档负责人：整理需求、计划、用户说明与真实进度。
 
 **Configured skills**
 
@@ -40,16 +36,11 @@ This map is generated from each agent TOML's `[[skills.config]]` entries and ski
 
 **Referenced in instructions**
 
-- `pr-pm-01-project-manager-socratic-discovery`
-- `pr-pm-02-project-manager`
-- `pr-pm-03-project-alignment-audit`
-- `pr-rl-01-software-project-release-management`
-- `scienceresearch-pm-reporting`
-- `scienceresearch-release-management`
+- None.
 
 ## `pr-ps-00-project-supervisor`
 
-全局项目监理：在软件、数据和科研项目的所有项目相关操作前后执行治理监控，维护需求、日志、反思、命名、文件归属、质量门禁以及 Skill 和脚本工具生命周期。
+项目工作检查员：检查要求是否遗漏、结果是否可用、验证是否充分。
 
 **Configured skills**
 
@@ -69,7 +60,7 @@ This map is generated from each agent TOML's `[[skills.config]]` entries and ski
 
 ## `pr-qa-00-project-test`
 
-独立验证当前项目的需求、接口、数据和用户路径，报告可复现缺陷；仅在目标项目明确适用时使用领域专用测试能力。
+软件测试员：验证软件的实际功能并报告可复现问题。
 
 **Configured skills**
 
@@ -77,13 +68,11 @@ This map is generated from each agent TOML's `[[skills.config]]` entries and ski
 
 **Referenced in instructions**
 
-- `playwright`
-- `pr-qa-01-software-project-functional-qa`
-- `scienceresearch-functional-qa`
+- None.
 
 ## `sr-critical-reviewer`
 
-ScienceResearch 批判性评审员：独立挑战问题、差距、最近邻与机制，并审计结果完整性、归因和投稿风险。
+研究评审员：质疑研究问题、方法、证据与科学主张，报告具体风险。
 
 **Configured skills**
 
@@ -105,7 +94,7 @@ ScienceResearch 批判性评审员：独立挑战问题、差距、最近邻与�
 
 ## `sr-experimenter`
 
-ScienceResearch 实验员：负责最小证伪、资源预算、数据质控、实验矩阵、复现记录、分析与核心图表。
+研究实验员：准备数据、设计与执行实验、分析结果并制作科研图表。
 
 **Configured skills**
 
@@ -135,7 +124,7 @@ ScienceResearch 实验员：负责最小证伪、资源预算、数据质控、�
 
 ## `sr-method-builder`
 
-ScienceResearch 方法构建者：负责文献证据、假设与知识树、数学模型、架构、实现契约和方法实验写作。
+研究方法设计员：整理文献、提出可检验假设并设计数学模型和方法。
 
 **Configured skills**
 
@@ -169,12 +158,12 @@ ScienceResearch 方法构建者：负责文献证据、假设与知识树、数�
 
 ## `sr-principal-investigator`
 
-ScienceResearch 首席研究员：负责研究问题与范围、阶段门控、资源路线决策、论文主张与成果交付。
+研究方向负责人：明确研究问题、选择方向并解释结论范围。
 
 **Configured skills**
 
 - `sr-research-shared`
-- `sr-weekly-meeting`
+- `sr-progress-narrative`
 - `sr-scenario-needs`
 - `sr-problem-formalization`
 - `sr-scope-convergence`
@@ -200,7 +189,7 @@ ScienceResearch 首席研究员：负责研究问题与范围、阶段门控、�
 
 ## `sr-research-project-lead`
 
-ScienceResearch 科研项目负责人：从项目文件夹中的工作包成效卡、交接书和原始证据判断研究阶段，形成 P0/P1 建议，在明确授权后编排四个专业科研 Agent，并可将已核验记录整理成导师可读的科研进展叙事。
+科研进展负责人：从已有材料说明研究做到哪里、还缺什么和下一步建议。
 
 **Configured skills**
 
