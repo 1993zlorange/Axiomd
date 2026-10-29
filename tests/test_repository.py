@@ -555,17 +555,22 @@ class RepositoryTests(unittest.TestCase):
                 encoding="utf-8",
             )
             creator = ps_root / "scripts" / "ps_01_create_governance_document.py"
+            entry_file = project / "entry.json"
+            entry_file.write_text(json.dumps({"entry_id": "pilot", "event_key": "writing-pilot", "requirement_id": "TASK-1",
+                "content": "已补充必要说明。", "impact": "读者可以查阅实际结果。", "status": "completed"}), encoding="utf-8")
             created_requirement = run(
-                str(creator), "--project-root", str(project), "--type", "requirement", "--summary", "写作标准试点", "--write"
+                str(creator), "--project-root", str(project), "--type", "requirement", "--summary", "写作标准试点", "--entry-file", str(entry_file), "--write"
             )
             self.assertEqual(created_requirement.returncode, 0, created_requirement.stdout + created_requirement.stderr)
+            entry_file.write_text(json.dumps({"entry_id": "supervisor-pilot", "event_key": "supervisor-pilot", "requirement_id": "TASK-1",
+                "content": "核对实际交付范围。", "impact": "避免遗漏用户要求。", "status": "completed"}), encoding="utf-8")
             created_supervision = run(
-                str(creator), "--project-root", str(project), "--type", "supervision", "--summary", "写作标准试点", "--write"
+                str(creator), "--project-root", str(project), "--type", "supervision", "--summary", "写作标准试点", "--entry-file", str(entry_file), "--write"
             )
             self.assertEqual(created_supervision.returncode, 0, created_supervision.stdout + created_supervision.stderr)
 
-            requirement_file = next((management / "requirements").glob("*-写作标准试点-需求记录.md"))
-            supervision_file = next((management / "supervision").glob("*-写作标准试点-监督记录.md"))
+            requirement_file = next((management / "requirements").glob("*-用户要求-需求记录.md"))
+            supervision_file = next((management / "supervision").glob("*-项目监督-监督记录.md"))
             self.assertIn('writing_level: "A"', requirement_file.read_text(encoding="utf-8"))
             self.assertIn('writing_level: "B"', supervision_file.read_text(encoding="utf-8"))
 

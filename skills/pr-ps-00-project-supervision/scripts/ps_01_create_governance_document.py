@@ -3,11 +3,16 @@
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
 import tomllib
 from datetime import datetime
 from pathlib import Path
+
+from daily_records import (
+    RecordError, SHANGHAI, append_record, canonical_type, policy_from_config, record_target,
+)
 
 
 SKILL_ROOT = Path(__file__).resolve().parent.parent
@@ -48,9 +53,10 @@ class ProjectConfigError(ValueError):
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="按项目配置生成中文治理文档。")
     parser.add_argument("--project-root", required=True, type=Path, help="包含 AGENTS.md 的项目根目录。")
-    parser.add_argument("--type", required=True, choices=sorted(DOCUMENT_TYPES), help="治理文档类型。")
-    parser.add_argument("--summary", required=True, help="用于文件名的简短内容说明。")
-    parser.add_argument("--write", action="store_true", help="实际写入；省略时只预览。")
+    parser.add_argument("--type", required=True, help="规范记录类型或中文别名；script-api为实体文档。")
+    parser.add_argument("--summary", required=True, help="日记录条目标题，不参与日文件名；API说明仍为对象名。")
+    parser.add_argument("--entry-file", type=Path, help="含真实条目内容的JSON；日记录实际写入必需。")
+    parser.add_argument("--write", action="store_true", help="实际安全追加；省略时只预览，绝不创建占位。")
     return parser.parse_args()
 
 
@@ -136,6 +142,22 @@ def main() -> int:
         if not project_root.is_dir():
             raise ProjectConfigError("--project-root 必须是目录。")
         config = load_project_config(project_root)
+        if args.type != "script-api":
+            policy = policy_from_config(project_root, config)
+            kind = canonical_type(args.type, policy)
+            if args.entry_file is None:
+                if args.write:
+                    raise RecordError("日记录没有真实条目；请提供--entry-file，不创建空白日文件")
+                target = record_target(project_root, config, policy, kind, datetime.now(SHANGHAI))
+                print(f"目标：{target}\n仅预览；提供真实条目JSON及--write后追加。")
+                return 0
+            payload = json.loads(args.entry_file.read_text(encoding="utf-8-sig"))
+            if not isinstance(payload, dict):
+                raise RecordError("条目JSON必须是对象")
+            target, changed = append_record(project_root, config, kind, args.summary, payload, write=args.write)
+            print(f"目标：{target}")
+            print("预览完成；未写入。" if not args.write else "已追加日记录。" if changed else "相同事件已记录；未重复写入。")
+            return 0
         template, target = build_target(project_root, config, args.type, args.summary)
         if not template.is_file():
             raise ProjectConfigError(f"全局模板不存在：{template.name}")
@@ -162,6 +184,9 @@ def main() -> int:
     except ProjectConfigError as exc:
         print(f"项目配置错误：{exc}", file=sys.stderr)
         return 3
+    except (RecordError, json.JSONDecodeError) as exc:
+        print(f"记录输入或冲突：{exc}", file=sys.stderr)
+        return 4
     except OSError as exc:
         print(f"写入失败：{exc}", file=sys.stderr)
         return 5

@@ -17,6 +17,8 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+from daily_records import SCHEMA, entry_blocks, validate_daily
+
 
 ID_RE = re.compile(r"(?<![A-Za-z0-9])[A-Z][A-Z0-9]*(?:-[A-Za-z0-9]+)+(?![A-Za-z0-9])")
 PATH_RE = re.compile(r"(?:[A-Za-z]:)?[\\/][A-Za-z0-9_.-]+(?:[\\/][A-Za-z0-9_.-]+)+|\b[A-Za-z0-9_.-]+[\\/][A-Za-z0-9_.-]+\.[A-Za-z0-9]+\b")
@@ -110,6 +112,16 @@ def strip_parentheses(text: str) -> str:
 def validate_document(path: Path, requested_level: str | None) -> tuple[list[str], list[str], dict[str, object]]:
     text = path.read_text(encoding="utf-8")
     frontmatter, body = split_frontmatter(text)
+    if frontmatter_value(frontmatter, "schema_version") == SCHEMA:
+        errors = validate_daily(text)
+        # 每条均需有实际内容和影响，不能由第一条的完整章节掩盖后续空条目。
+        blocks = entry_blocks(text) if not errors else []
+        for metadata, entry in blocks:
+            for heading in ["### 1. 背景一句话", "### 2. 研究内容", "### 3. 研究影响"]:
+                match = re.search(re.escape(heading) + r"[ \t]*\r?\n(.*?)(?=\n### |\Z)", entry, re.DOTALL)
+                if not match or not match.group(1).strip():
+                    errors.append(f'{metadata["entry_id"]}：缺少实际章节内容：{heading}')
+        return errors, [], {"format": SCHEMA, "entries": len(blocks), "level": frontmatter_value(frontmatter, "writing_level")}
     level = requested_level or infer_level(path, frontmatter)
     errors: list[str] = []
     warnings: list[str] = []

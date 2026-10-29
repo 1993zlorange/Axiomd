@@ -14,8 +14,10 @@ Exit codes:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 
@@ -69,7 +71,7 @@ def strip_comments(text: str) -> str:
 
 
 def section_text(body: str, heading: str) -> str:
-    match = re.search(re.escape(heading) + r"\s*\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
+    match = re.search(re.escape(heading) + r"[ \t]*\r?\n(.*?)(?=\n## |\Z)", body, re.DOTALL)
     return match.group(1) if match else ""
 
 
@@ -118,6 +120,8 @@ def parenthesis_metrics(text: str) -> tuple[int, int]:
 
 def validate(path: Path) -> tuple[list[str], list[str], dict[str, object]]:
     text = path.read_text(encoding="utf-8")
+    if frontmatter_value(split_frontmatter(text)[0], "schema_version") == "daily-record/1.0":
+        return validate_daily_entries(text)
     if "## 要解决的问题" in text:
         return validate_simple(text)
     frontmatter, full_body = split_frontmatter(text)
@@ -292,6 +296,55 @@ def validate_simple(text: str) -> tuple[list[str], list[str], dict[str, object]]
     if "不能支持" not in body:
         errors.append("缺少结论适用范围")
     return errors, warnings, {"format": "简明记录", "named_reviewer_required": False}
+
+
+def validate_daily_entries(text: str) -> tuple[list[str], list[str], dict[str, object]]:
+    """逐条验证科研日记录；历史单条格式仍由原校验路径读取。"""
+    fm, _ = split_frontmatter(text)
+    errors, warnings = [], []
+    fields = {key: frontmatter_value(fm, key) for key in ["project_id", "record_date", "record_type", "timezone"]}
+    if not all(fields.values()) or fields["timezone"] != "Asia/Shanghai":
+        errors.append("日记录缺少项目、日期、类型或上海时区")
+    entries = list(re.finditer(r"^<!-- daily-entry (\{.*\}) -->\s*$", text, re.MULTILINE))
+    if not entries or len(entries) != text.count("<!-- daily-entry "):
+        errors.append("日记录没有完整条目边界")
+    ids, events = set(), set()
+    for index, match in enumerate(entries):
+        try:
+            item = json.loads(match.group(1))
+            if not isinstance(item, dict):
+                raise ValueError()
+        except (json.JSONDecodeError, ValueError):
+            errors.append(f"条目{index + 1}的元数据无效")
+            continue
+        identity = str(item.get("entry_id", ""))
+        event = (str(item.get("event_key", "")), str(item.get("attempt_id", "1")))
+        prefix = identity or f"条目{index + 1}"
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,79}", identity) or identity in ids:
+            errors.append(prefix + "：缺少唯一条目ID")
+        if not event[0] or event in events:
+            errors.append(prefix + "：事件身份缺失或重复")
+        ids.add(identity)
+        events.add(event)
+        if fields["record_type"] in {"achievement", "成果卡"} and not item.get("sr_id"):
+            errors.append(prefix + "：缺少独立SR身份")
+        if not item.get("status"):
+            errors.append(prefix + "：缺少独立状态")
+        try:
+            stamp = datetime.fromisoformat(str(item.get("recorded_at", "")))
+            if stamp.tzinfo is None or stamp.astimezone(timezone(timedelta(hours=8))).date().isoformat() != fields["record_date"]:
+                raise ValueError()
+        except ValueError:
+            errors.append(prefix + "：记录日与带时区时间不一致")
+        end = entries[index + 1].start() if index + 1 < len(entries) else len(text)
+        body = text[match.end():end]
+        if f'<a id="entry-{identity}"></a>' not in body:
+            errors.append(prefix + "：条目锚点缺失")
+        # 缺失来源的第二条不能借第一条的表格通过。
+        entry_errors, entry_warnings, _ = validate_simple(body)
+        errors.extend(prefix + "：" + e for e in entry_errors)
+        warnings.extend(prefix + "：" + w for w in entry_warnings)
+    return errors, warnings, {"format": "科研日记录", "entries": len(entries)}
 
 
 def main() -> int:

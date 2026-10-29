@@ -13,6 +13,12 @@ Before changing agents or skills:
 
 The installer is safety-critical. Preserve path validation, staged activation, backups, verification, and uninstall behavior.
 
+## Record ownership and approved execution
+
+Process records use one writable file per project, Asia/Shanghai record day, and canonical record type. Task, role, stage, directory, and format do not split that identity. Keep independent entries and stable anchors, deduplicate events across days, preserve revisions, and serialize writes. Create no empty daily files or routine bundles of management documents. Source code, fixed inputs, raw runs, signed originals, and formal entity documents retain their own identities; exports are read-only. Do not relocate historical records or release snapshots to enforce a new policy.
+
+Scientific progress reports show research-point-linked performance work; ordinary implementation checks remain internal. Prefer analyzing existing results, then the smallest necessary performance comparison. Necessary fixes, recovery, remaining units and summaries within an approved objective continue without repeating authorization; new scientific conditions, resource limits or external permissions pause only the affected branch.
+
 ## PR/SR interaction guides
 
 The PR/SR skill-local `AGENTS.md` files are generated from `docs/pr-sr-interaction-standard.md`. To update them, edit that canonical file, run `python scripts/generate_pr_sr_interaction_guides.py`, then run `python scripts/generate_pr_sr_interaction_guides.py --check`. Do not edit individual generated copies directly.

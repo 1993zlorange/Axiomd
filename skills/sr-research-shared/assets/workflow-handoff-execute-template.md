@@ -1,8 +1,15 @@
----
-title: "<工作简要>交接记录"
+<!-- 单条交接模板：只在真实交接时填入08目录当天唯一交接书日文件，不按工作流/Agent另建文件。 -->
+
+```yaml
+entry_id: "<稳定条目ID>"
+event_key: "<事件身份>"
 created_at: "YYYY-MM-DD HH:mm:ss"
 status: "draft"
----
+cards_read: []
+handoffs_read: []
+```
+
+<!-- 读取项使用项目相对文件#entry-ID，接收者验证文件与锚点。交接不终止同一已授权目标内的剩余工作。 -->
 
 # 交接结论
 

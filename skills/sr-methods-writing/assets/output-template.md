@@ -1,10 +1,15 @@
----
-title: "<内容简述>成果卡"
+<!-- 单条科研结果模板：填入项目08目录的当天唯一成果卡日文件；此处元数据属于条目，不是整个日文件的状态。 -->
+
+```yaml
+entry_id: "<稳定条目ID>"
+event_key: "<事件身份>"
 sr_id: "SR-51"
 skill: "sr-methods-writing"
 produced_at: "YYYY-MM-DD"
 status: "draft"
----
+```
+
+<!-- 写入器将元数据放入daily-entry块，并建立entry-ID锚点；不复制第二个文件级frontmatter。每个叶任务保留独立条目，引用原始产物，不复制工程证据。 -->
 
 <!-- 状态可用 draft（草稿）、partial（部分完成）、blocked（受阻）、completed（已完成）。既有系统的 accepted 表示已确认，不能自动写入。负责人姓名和人工判定不是必填项。简单回答无需另存记录；不适用的表格可以删除。 -->
 
