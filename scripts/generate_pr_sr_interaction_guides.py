@@ -65,7 +65,7 @@ def write_guides() -> tuple[int, int]:
     for name in REPORT_SKILLS:
         target = ROOT / "skills" / name / "references/group-meeting-reporting.md"
         target.parent.mkdir(exist_ok=True)
-        target.write_text(REPORT_SOURCE.read_text(encoding="utf-8"), encoding="utf-8")
+        target.write_bytes(REPORT_SOURCE.read_bytes())
     canonical = CANONICAL.read_text(encoding="utf-8")
     directories = skill_directories()
     changed_guides = 0

@@ -119,7 +119,7 @@
     },
     "pr-ar-01-project-architect": {
       "description": "把明确的软件需求变成可以实现和验证的结构、接口、数据与迁移方案；适用于新系统设计、现有系统调整和设计评审。",
-      "hash": "dcf9c8f202dfbb5701b59e92650060bec311e6bff923b44f93a2c156a61a3fca",
+      "hash": "736c35a54d0107d6ac5ce3f2d3d35b723e094750745e65857218c6f6277752e2",
       "profiles": [
         "ai4programming",
         "all"
@@ -128,7 +128,7 @@
     },
     "pr-en-01-fullstack-design-engineer": {
       "description": "制作或改进网页、表单、仪表盘及前后端交互；以用户可以完成的操作为交付目标。纯后端问题不需要界面设计调研。",
-      "hash": "d65ab57677a9a2931fa00d76ffb3c3b014f524b6306720adec3715b3659aced4",
+      "hash": "a024a04e5a28f0bfe97ea9c05d7927d7c04a7dbc0cecb51c2a3d47545cfa1c6a",
       "profiles": [
         "ai4programming",
         "all"
@@ -137,7 +137,7 @@
     },
     "pr-en-02-senior-engineer": {
       "description": "按现有需求和设计实现功能、修复缺陷、重构、迁移或审查代码；适用于后端、脚本、数据处理和通用工程任务。",
-      "hash": "c6ce989a4db35c165af636b13697d42ce74c1950a35d3a3017391835ad4d987d",
+      "hash": "dbf44f2d60a4f7f197f5201d08550ec5a71d649b687200644578ec41f76bb620",
       "profiles": [
         "ai4programming",
         "all"
@@ -146,7 +146,7 @@
     },
     "pr-pm-01-project-manager-socratic-discovery": {
       "description": "通过已有材料和少量关键问题弄清谁遇到什么问题、希望得到什么结果；用于想法模糊、目标冲突或方案先于问题的请求。",
-      "hash": "74914ce34233e0883c743908e62ae88f046ac874acf8d627684e6b4ead150390",
+      "hash": "5be20f58e8995c91f55d4fa36c8c8942dc74e3ef7edff9670f6a52550dbc4859",
       "profiles": [
         "ai4programming",
         "all"
@@ -155,7 +155,7 @@
     },
     "pr-pm-02-project-manager": {
       "description": "编写需求说明、实施计划、功能介绍、用户手册或项目状态说明；用于把已有目标和材料整理成可执行、可验证的文档。",
-      "hash": "1142bcef8ae79924a63006d31e236a8af5172cd1f9fb9ff871689a5b8166aa5a",
+      "hash": "d35a889013e316a75769bdeea0c59b7e1ba3ebe3d398fceea36d31aa70099f90",
       "profiles": [
         "ai4programming",
         "all"
@@ -164,7 +164,7 @@
     },
     "pr-pm-03-project-alignment-audit": {
       "description": "比较现有需求、设计、实现、测试及文档，找出不一致并提出纠正建议；适用于偏差检查和阶段复核。",
-      "hash": "371769b41a4567589732d648c4e24619b7d3e61bd63c997d55df813a11a5e4a4",
+      "hash": "31ab8966974d9cd01323c955dac5b45de55001c6226c7d3c17884b4e61484e61",
       "profiles": [
         "ai4programming",
         "all"
@@ -173,7 +173,7 @@
     },
     "pr-ps-00-project-supervision": {
       "description": "检查项目工作是否漏掉用户要求、文件安排或必要验证；用于用户要求整体复核，或项目已有明确检查规则的场景。",
-      "hash": "5c38b2fe879410cf303cc4ab2ab0332357d55f12c521a5d2e4a73725075f8205",
+      "hash": "14326fd6c3ba27dd4b952fc36b13decf3de2632c515011a7ecc09dde128cd7b0",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -183,7 +183,7 @@
     },
     "pr-ps-01-project-governance": {
       "description": "在新请求或范围变化时简要记录目标、文件位置、权限和完成标准；用于需要留存任务安排的项目。",
-      "hash": "93ca3286c02c389511e263ea17bd6a658a7f400016d705fc53f18ad7b0133869",
+      "hash": "baccebc028fc3489d750a4eaa9d60c630b4a35ef39c90efc66fb94b2f36bcf7b",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -193,7 +193,7 @@
     },
     "pr-ps-02-quality-gate": {
       "description": "按变更影响检查代码、文档、数据或实验交付质量；用于提交、交付前的集中复查。",
-      "hash": "0666b4df65d109a6be28692082d40a693148c18e2439455ff5ebd957d1d7b181",
+      "hash": "6d9bb55a42c75dacbe0bba81907d2fc6647a43ed8c2b2cc2381b4d5c3d93e055",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -203,7 +203,7 @@
     },
     "pr-ps-03-project-logging": {
       "description": "在一次操作或运行结束后记录实际改变和验证结果；用于项目要求留痕或用户要求记录工作。",
-      "hash": "123f191531f68a936882a0bdfabdf3e8feb36f97c39422f71c5750d85eb5da30",
+      "hash": "0c500556d45013928d88ceeea82869744eb7918429b9ac8536e8431c4f0de7db",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -213,7 +213,7 @@
     },
     "pr-ps-04-reflection-loop": {
       "description": "对已发生的缺陷、重复错误或用户指出的问题分析原因并提出改进；用于有具体证据的问题复盘。",
-      "hash": "8501f75f6133559b718c51eb49dde2e0ca926af11a1096954f558c9d8db5c577",
+      "hash": "b98692316c42bc652de8588b8f3d09cce6f603c3e51d529aa05c9b15cb38e706",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -223,7 +223,7 @@
     },
     "pr-ps-05-skill-authoring": {
       "description": "创建、改写、合并或完善技能的说明、流程、模板和工具；适用于已有重复需求或用户明确要求编写技能的任务。",
-      "hash": "286cdd772ba5222043fe4be89431319258dcaa1cc84eeb02b0487b8ddb2583f7",
+      "hash": "4c612d468e3d55e92f0b6904ea3eee157650a13a0bdb219d31506902ee6459d3",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -233,7 +233,7 @@
     },
     "pr-ps-06-script-tool-authoring": {
       "description": "为可重复操作编写或审查脚本，并提供中文使用说明；适用于批处理、校验、转换和项目辅助工具。",
-      "hash": "303b3d8071b59a12b42c686a7da9dc59bb4620a2bf3c3454cb76153fe51d9500",
+      "hash": "18a8fbf163d3e91acc49c683c1f9cd549740804706f7666ba00089bbe15ee173",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -243,7 +243,7 @@
     },
     "pr-ps-07-transfer-pilot": {
       "description": "把其他项目的规则、模板、技能或工具适配到当前项目并小范围验证；用于复用已有方法。",
-      "hash": "a05816cdb5e8aa7f78f3e2b4422dad5f6cb4be1b432826df5018bf5b62747fc5",
+      "hash": "6a20545455d218ba4efc2c76ebd6b6de0a34b18a7b33922c4181e97839da5465",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -253,7 +253,7 @@
     },
     "pr-ps-08-evolution-review": {
       "description": "汇总一段时间内的实际问题和使用结果，判断哪些规则或技能值得保留、合并、改进或删除。",
-      "hash": "9ce84745abef0e39e52493fdd60a055570ba3a21921a8c49046c1136d8653b3e",
+      "hash": "aadce26c5b67b10026199eec86f252d85f4fd67d0da291b1d1d47ba0f729c4ca",
       "profiles": [
         "ai4programming",
         "ai4science",
@@ -263,7 +263,7 @@
     },
     "pr-ps-09-daily-log-summary": {
       "description": "读取指定日志目录，按文件名前缀日期生成中文日报；支持单日、日期区间或全部日期。",
-      "hash": "dea3f5778b51e380a61c8dc935347fb0dd907d6ce471f4b476db7383ca05342c",
+      "hash": "0a5b674af2b33cd0a9ae765b0c7d4ae52ce1df2c8794b58923c0a074686b5c1c",
       "profiles": [
         "all"
       ],
@@ -273,7 +273,7 @@
     },
     "pr-qa-01-software-project-functional-qa": {
       "description": "独立验证软件功能、用户路径和错误处理，报告可复现问题；适用于功能检查、回归和交付前测试。",
-      "hash": "37b4b552c5a4ba31866d28cee2a18400c4872dd27c9f1d019f4cd3bbfeba2b03",
+      "hash": "80de92a7b375d19e78145b4fe05f01c618e2813e00f14108ba4c307fb3afd755",
       "profiles": [
         "ai4programming",
         "all"
@@ -282,7 +282,7 @@
     },
     "pr-rl-01-software-project-release-management": {
       "description": "准备本地发布包、版本说明、安装验证和回滚方案；适用于打包、发布候选及用户已授权的发布任务。",
-      "hash": "ccdefd88356a153c0c1957da7b914a1a7865c219fdc5d4dac257f17911c7f77d",
+      "hash": "6ff95c735c1160cfffd96c50c3ce05abe0ff54ad57a5ffdb7746fba985dfe54e",
       "profiles": [
         "ai4programming",
         "all"
@@ -341,7 +341,7 @@
     },
     "sr-ablation-study": {
       "description": "消融实验：需要验证各方法组件的必要性、增益和声称机制时。",
-      "hash": "5fac8b9f626802d4342da2eb276dd49dbc1401582afa6ab6bf1e2d07537ca03f",
+      "hash": "2bbb59302001e554da002960130289debcb296c0548cbd6d3d6caaa662dc9245",
       "profiles": [
         "ai4science",
         "all"
@@ -350,7 +350,7 @@
     },
     "sr-abstract-introduction": {
       "description": "摘要与引言重写：核心证据已稳定，需要用具体问题、精确缺口、方法、定量结果和有边界贡献重写摘要或引言时。",
-      "hash": "d2a192214a3184e0988aa7f02420d9fa731a8b1e826c7d25452b7bf4cd527f96",
+      "hash": "11695bb98a0a56e3e1959500a7147c083554a8d8482fb4f5a1ac58e0ea449cf1",
       "profiles": [
         "ai4science",
         "all"
@@ -359,7 +359,7 @@
     },
     "sr-algorithm-implementation-plan": {
       "description": "算法伪代码与实现计划：公式或方法需要转成可编码步骤、接口、不变量、复杂度和测试计划时。",
-      "hash": "f5c53c764f450273fdd5f8138408e6a122f9c07f7297320ff120229211681934",
+      "hash": "8ccf9d996130e4b11419601c8fd160103fa856c17ee3de072daf9e32e9e69c05",
       "profiles": [
         "ai4science",
         "all"
@@ -368,7 +368,7 @@
     },
     "sr-baseline-landscape": {
       "description": "对照方法与基准调研：需要选择公平、可运行且能代表低中强水平的比较基线时。",
-      "hash": "fe162aacf6aa5214a5ba9c41b333421ec609aee04659ca795c9d4f4967227642",
+      "hash": "a7eb2d1b1590b66e620f8538d5eedee115a404aa7952809d77334174abeec018",
       "profiles": [
         "ai4science",
         "all"
@@ -377,7 +377,7 @@
     },
     "sr-baseline-reproduction": {
       "description": "对照方法复现：需要在本地复现论文或官方基线并解释与报告值的差异时。",
-      "hash": "831fb5286dfaf499555823d4fd111ab524e51ea10edde189c83a191140e7dfe5",
+      "hash": "a4303622cb46ff3d1718169ae662ace825afe5d24a66bd01230882d3378caa8e",
       "profiles": [
         "ai4science",
         "all"
@@ -386,7 +386,7 @@
     },
     "sr-baseline-unification": {
       "description": "对照方法统一实现：多个基线需要在同一数据、训练循环、预算、评价和日志接口下公平实现时。",
-      "hash": "99aa76a0be3fb8d20c60f71a648cc122c7db9d6f8a73d5d1425626f816268a7b",
+      "hash": "530c3b1af64fcb8c46b4c65e2e014e86951950fb5d7a44e058b82da520f8408e",
       "profiles": [
         "ai4science",
         "all"
@@ -395,7 +395,7 @@
     },
     "sr-blocker-resolution": {
       "description": "受阻原因定位与清除：“进展慢”需要转成具体阻塞、根因、所需输入、负责角色（可不填姓名）和期限时。",
-      "hash": "9dda46b8752aac760d5c7c98e7e645f218d5121de461cdf43b1a954ec132b03a",
+      "hash": "44a5b7cf527cab38b49b3fc7b7536d548e0a0e3a0a2abeba1ed07ae63835f69a",
       "profiles": [
         "ai4science",
         "all"
@@ -404,7 +404,7 @@
     },
     "sr-cause-tree": {
       "description": "候选原因树：同一异常有多个候选原因，需要用差异预测和实验逐步排除时。",
-      "hash": "481913aa3f42ebf46bd8df1f65492a61536a909158012849053452ddaf8f5a4a",
+      "hash": "6ded32956651aa57ff1f588f439658f3f5863757faabdd0dbc1355f4fcc1f26d",
       "profiles": [
         "ai4science",
         "all"
@@ -413,7 +413,7 @@
     },
     "sr-challenge-insight-tree": {
       "description": "挑战与解释树：需要把领域挑战追到根因，并把洞见、方法和证据连成可验证链时。",
-      "hash": "20f78dfc3b974a40746403df8d8290b7b4a50f1589a02b2bf5cfbc120909b38a",
+      "hash": "810a95aa9b6caeb222894f4b9f94fe9bac607164d3182bcb3c74d3b3cca44fce",
       "profiles": [
         "ai4science",
         "all"
@@ -422,7 +422,7 @@
     },
     "sr-claim-boundary-decision": {
       "description": "结论边界与决策：需要把全部证据映射到可说、不可说和下一步继续、修改、暂停或转向决定时。",
-      "hash": "bbae6b284dd19015ce41d6a0ac1502b7f0da738a7bd1cb3cd39fa2984baf114f",
+      "hash": "14019435cd056bf3b40f166a266e0e0ef2c0f68535c6eb1ed48296529939b271",
       "profiles": [
         "ai4science",
         "all"
@@ -431,7 +431,7 @@
     },
     "sr-collaboration-interface": {
       "description": "多人接口协调：多人或系统之间需要固定字段、单位、目录、版本、样例和核对接口时。",
-      "hash": "b9afe06ca5b585123c4c50da875c305b4d4966f0d2cbc334bc6ac58955668302",
+      "hash": "2496b1d6b43f50e89939d932e999079a3d528b0f1441e884c817f98b81c5be65",
       "profiles": [
         "ai4science",
         "all"
@@ -440,7 +440,7 @@
     },
     "sr-core-claim-alignment": {
       "description": "一句话主张与贡献对齐：论文写作前需要确定读者最终应相信什么，并让每项贡献绑定证据时。",
-      "hash": "1326f912d5124fff9746ecfbbccaaf6bc55c345c081944ef9fac584b9a001af3",
+      "hash": "dafc5188e724c27cfb4c5c836a7fdcb182e5fdce859ccb0308cb74a1f6e6f302",
       "profiles": [
         "ai4science",
         "all"
@@ -449,7 +449,7 @@
     },
     "sr-core-figures": {
       "description": "核心图表制作：需要为科研数据、导师汇报或论文制作一图一结论的核心图，诚实呈现原始点、不确定性、单位和图例，或需要生成/修改可编辑的科研 draw.io 示意图、方法流程图、技术路线图和机制图时。",
-      "hash": "eccfe66d4fd6ed8c371c6764b54fc9de41266e57526871903454c5db2930744f",
+      "hash": "a0899e37fe12b2efd25f9f3304a08c1a105963d154adf399d50abde8cee9c249",
       "profiles": [
         "ai4science",
         "all"
@@ -458,7 +458,7 @@
     },
     "sr-core-hypothesis": {
       "description": "核心假设撰写：需要把观察或差距转成带机制、预测、竞争解释和证伪判据的科学假设时。",
-      "hash": "1c1acfc2a6e3667b3d2b23973edc5655e3e8f7787fe9e11b95aaa1cd8b74ea0b",
+      "hash": "bd6dd1b38f8951e83718f887381ad09a2a3218bd4b19ea6d876b0cd2abf301de",
       "profiles": [
         "ai4science",
         "all"
@@ -467,7 +467,7 @@
     },
     "sr-data-generation-qc": {
       "description": "数据生成与质量检查：需要生成实验或仿真数据并检查收敛、单位、范围、缺失、重复和失败样本时。",
-      "hash": "4e485ec9e1fee071546500ca97bf03e626017cd339c00cb44506c7213e3a228b",
+      "hash": "e39c619a8ab65933df7fdd25bd69443a037bb1bdd73ba0a8a244c470e935ceb2",
       "profiles": [
         "ai4science",
         "all"
@@ -476,7 +476,7 @@
     },
     "sr-data-schema-freeze": {
       "description": "数据接口与结构确定：数据字段、形状、单位、坐标、编码、缺失规则或版本需要固定时。",
-      "hash": "5c4ab98b038d0c0f9f06ffa293923159472d4cdaf52be9fe1a58ca40fb6ee10c",
+      "hash": "f48a7926f1b92ddedcaf9e9caa4f3b71f4a8c47110396557341e392c52242848",
       "profiles": [
         "ai4science",
         "all"
@@ -485,7 +485,7 @@
     },
     "sr-data-split": {
       "description": "数据划分设计：训练验证测试或 ID/分布外泛化划分需要匹配目标主张并排除泄漏时。",
-      "hash": "199ebcc1658748e589637f040b42bb8e74607c8c8eb2cbb80574fed255bda35c",
+      "hash": "7de483ee538251f1e1ec2517c9f3bc91eda15c0e493a19996fa550003a22f2f1",
       "profiles": [
         "ai4science",
         "all"
@@ -494,7 +494,7 @@
     },
     "sr-dataflow-architecture": {
       "description": "数据流与系统架构设计：需要把数据来源、处理、模型、评价、存储和模块责任连成可实现数据流时。",
-      "hash": "29684f1529905cd2c81ef43560a768abde7133bea4c8973ac3e46ccd88e2c049",
+      "hash": "b2d81ffc023a5e7719c6aa84776e125802311dd0d24617fb3927d3be2496935d",
       "profiles": [
         "ai4science",
         "all"
@@ -503,7 +503,7 @@
     },
     "sr-doctoral-research": {
       "description": "当研究想法模糊、材料分散或不知道先解决什么时，判断当前主要问题并给出一个具体可执行的下一步。",
-      "hash": "b3a45745664fc64eb87ba02523c8e41e3f79dc8f91f2faba88977aa75935e4d0",
+      "hash": "22e9ec03930eacdb01269cdd32c2e623ca962d2606bcceeeec2b29e3e5cb38ee",
       "profiles": [
         "all"
       ],
@@ -513,7 +513,7 @@
     },
     "sr-efficiency-resources": {
       "description": "效率与资源实验：需要量化数据生成、训练、推理、显存、能耗或端到端精度成本权衡时。",
-      "hash": "66823cf08a3e5a0e6f0fa37ee7c52ce2f44976419c2408d7a74764db8c507f3a",
+      "hash": "fc9667a03fa1da882edc57b28a518ee7158ddc29dadc865fbc1389e741a62e47",
       "profiles": [
         "ai4science",
         "all"
@@ -522,7 +522,7 @@
     },
     "sr-error-decomposition": {
       "description": "误差来源分解：总误差需要拆成数据、离散、优化、近似、数值或评价来源并排序时。",
-      "hash": "52c82ba612a63f57dcd7db38420e81e94c079a75af3ccc4787656501ea63f5ac",
+      "hash": "d9683811af8e67248771ff83536ed3b93460cd114b6e91219955a77d1ce33189",
       "profiles": [
         "ai4science",
         "all"
@@ -531,7 +531,7 @@
     },
     "sr-experiments-writing": {
       "description": "实验部分写作：实验已完成，需要按问题、设置、结果、解释、边界和复现信息组织章节时。",
-      "hash": "908b5f289113b83e78e04a08c75ed7fb5c97982333371c0040013702faa669eb",
+      "hash": "579f9d87b2bc1250ff83df854440d7f668fddc080034c4d1786cb1aa950a7661",
       "profiles": [
         "ai4science",
         "all"
@@ -540,7 +540,7 @@
     },
     "sr-exploratory-experiment": {
       "description": "探索性实验：需要在简化 setting 中一次验证一个机制，决定是否进入正式主实验时。",
-      "hash": "4ea33cf70b37f4d94b12fb5d215192c2f790e1420bb226f4010cb82920b97951",
+      "hash": "ff44e8f0c8b4c875352850de2bf4a6e18bc757b744fe227649cdc23f5694062b",
       "profiles": [
         "ai4science",
         "all"
@@ -549,7 +549,7 @@
     },
     "sr-failure-fallback": {
       "description": "失效与备用方案设计：方法可能出现数值、数据、分布外泛化、资源或接口失效，需要提前设计触发器与回退时。",
-      "hash": "09793435a779520945288859ffba1e050f0688926d76b69d8e9fc712e242b7f0",
+      "hash": "300c24a9ecf79289b469d934cf2b20d1d758145e56d7885fda18ead2661c70fc",
       "profiles": [
         "ai4science",
         "all"
@@ -558,7 +558,7 @@
     },
     "sr-generalization-ood": {
       "description": "泛化实验：需要区分跨参数、跨几何、跨类别、跨设备或其他分布外泛化泛化主张时。",
-      "hash": "dad469b01d270c9a5b691c2979aaae6b0e1c136219dbd5dd252378dd237a3435",
+      "hash": "d645e73d4079231458f1c71991ea81cd722c088d7ad888e23a0678949067a7fc",
       "profiles": [
         "ai4science",
         "all"
@@ -567,7 +567,7 @@
     },
     "sr-good-failure-cases": {
       "description": "成功与失败案例分析：需要用代表性成功、普通和失败案例理解模型行为与误差模式时。",
-      "hash": "30d107dbe778fddcd35b40fa6468184f42f9b4e7ddd1ab054e8a3b4efd745086",
+      "hash": "b73ddeec7b6d5d09a5d9942c2d555d3e9bf708316ace63a38433a857ff05c9ff",
       "profiles": [
         "ai4science",
         "all"
@@ -576,7 +576,7 @@
     },
     "sr-idea-decomposition": {
       "description": "研究想法分解：研究想法含多个机制、增强模块和工程组件，需要收敛最小研究版本时。",
-      "hash": "d5ff5f0dbdf302c5693ff13587c5cb069b4f23c03e7bfd4742d60ccad92830e2",
+      "hash": "8f775ce2f0a1e08fa2449c5b5db5f5cd52e95c284625d6989e2f084ebbd35efc",
       "profiles": [
         "ai4science",
         "all"
@@ -585,7 +585,7 @@
     },
     "sr-idea-prioritization": {
       "description": "研究想法优先级评审：多个研究想法或路线竞争，需要按价值、新颖性、可证伪性、数据、成本和风险排序时。",
-      "hash": "a3cbdc694899aaeae91a2ec2169f9bf088ed72a7e0cbb72cd5b51ffe8b46513c",
+      "hash": "7b2cd87d2aae182faa276b3b944e540f84f19e2237ac646597e0b70bd1704c5f",
       "profiles": [
         "ai4science",
         "all"
@@ -594,7 +594,7 @@
     },
     "sr-internal-review": {
       "description": "内部审稿：稿件或成果包需要在投稿前从创新、技术、实验和表达四个角度找拒稿风险时。",
-      "hash": "1a815d5e036af19b960ff3bab1ba0e2585d299fdce4420412cc74511afbeb198",
+      "hash": "298102175145fd0aa51d51ec2d93c8838f3e1aec52379717b55a755d03f236c6",
       "profiles": [
         "ai4science",
         "all"
@@ -603,7 +603,7 @@
     },
     "sr-last-week-acceptance": {
       "description": "上周任务核对：新一周开始或组会前，需要按上周承诺和完成标准检查真实交付物时。",
-      "hash": "6b287819b392173aba364da84159475e6b1166fec662830e6e04f9a863d3fd82",
+      "hash": "fc19186431243490185a586514362d1e6026203730a9f1a770ced17894f0be6a",
       "profiles": [
         "ai4science",
         "all"
@@ -612,7 +612,7 @@
     },
     "sr-literature-screening": {
       "description": "核心文献筛选：检索结果需要去重、初筛、全文复筛、留下可审计排除理由，或把符合筛选标准纳入的文献批量导入 Zotero 时。",
-      "hash": "eb58e79b3b99974fbf1dcc3b0b31eebb15bf7decab072ba16d929ba795e240a6",
+      "hash": "81b0b94d7916129371c1f4e0ecff6186f5b77f25752d6878edf39eea97d6231a",
       "profiles": [
         "ai4science",
         "all"
@@ -621,7 +621,7 @@
     },
     "sr-literature-tree": {
       "description": "方法谱系树：文献堆积但缺少可解释的领域分类、继承关系和方法演化结构时。",
-      "hash": "2614dfb582489c17690e47b36102e0af969419a34675a3448afd67fa483fad18",
+      "hash": "3cba0489258bd08eec875fa90ebd3d7b46c8be1368aa0d2ac0308f8f91a5ad05",
       "profiles": [
         "ai4science",
         "all"
@@ -630,7 +630,7 @@
     },
     "sr-main-comparison": {
       "description": "主对比实验：假设和实验协议已固定，需要与低、主流和强基线做公平正式比较时。",
-      "hash": "a552860d8db737996172413745a4391ff6c35e752a71e12ab380eabc3ae06e4c",
+      "hash": "ef34d63b577d34da4c4164ed6afdeac5d8ecec76c5e8e9df08f843c715128f1d",
       "profiles": [
         "ai4science",
         "all"
@@ -639,7 +639,7 @@
     },
     "sr-mathematical-model": {
       "description": "数学模型定义：需要统一符号并明确映射、损失、约束、训练和推理公式时。",
-      "hash": "79836c341a71174c17d4273be10dcf61c3d6db7f0bc0754a5bb93f11d7abac3f",
+      "hash": "899510620cafc5fc6cbf004bd1fce0f37f1ffe51c5a50c21a723b8efc4d70726",
       "profiles": [
         "ai4science",
         "all"
@@ -648,7 +648,7 @@
     },
     "sr-mechanism-counterexample": {
       "description": "机制推演与反例构造：需要从机制导出预测、用极端条件和反例挑战研究想法时。",
-      "hash": "c59ac9c629a112355165e808a4306b66789c760539a4ff26ceb9bb9b12b0845f",
+      "hash": "c248e17fda102bbb810e78f43eb74dc210130e77c6d2791745a1ab22c17777b4",
       "profiles": [
         "ai4science",
         "all"
@@ -657,7 +657,7 @@
     },
     "sr-mechanism-validation": {
       "description": "机制验证：性能差异之外还需要用中间量、残差、守恒、探针或对照支持声称机制时。",
-      "hash": "3ea8731f3192a5b465697103362c9d2cee1ba80d130b105cf3c5c1f57e0b3c8d",
+      "hash": "ea8e40d54805db6bb7a12753126b47a660074f73f1a8bfeae61ae8c3090c8df4",
       "profiles": [
         "ai4science",
         "all"
@@ -666,7 +666,7 @@
     },
     "sr-methods-writing": {
       "description": "方法部分写作：符号、方法和实现已固定，需要写可理解、可复现且不过度包装的方法章节时。",
-      "hash": "4e7f7cb2ad7159f52bfd40e0ebed056c59d1ab3ac99d226790d2de4f8b493d74",
+      "hash": "b012ece9fa615ec751989d86c60d62f09b9ce52de92031fb00dce05b8a38aca4",
       "profiles": [
         "ai4science",
         "all"
@@ -675,7 +675,7 @@
     },
     "sr-milestone-evidence-gate": {
       "description": "里程碑与阶段检查：进入下一阶段前需要设置数据、基线、机制、性能或写作证据门槛时。",
-      "hash": "0eec50d60b0832d6f4553e03281e94b7c853168476ea2b1472f5a4eb83de2953",
+      "hash": "88cb83859b3d63340dbef7c03270d5a3c53c6236f57f3ce99dadcff1439ba56d",
       "profiles": [
         "ai4science",
         "all"
@@ -684,7 +684,7 @@
     },
     "sr-minimal-diagnostic": {
       "description": "最小诊断实验：需要用最低成本、单一改动区分两个主要原因时。",
-      "hash": "ba5f7001a381a6e8f2e4464f30fc95e8b64fd800f19e671379193213d62a4436",
+      "hash": "b86d380684c567cadc428c4c6ad15fb396a3dca2d14660d2ead9eb8c6d225b04",
       "profiles": [
         "ai4science",
         "all"
@@ -693,7 +693,7 @@
     },
     "sr-minimal-falsification": {
       "description": "最小证伪实验设计：需要用最低成本实验决定假设继续、修改或停止，而非直接做大规模实验时。",
-      "hash": "c53e7f8413d289805c9e22cdcf8399e5e70186a52e3ec5a07a454bb843e35247",
+      "hash": "837b72418396ce62047e4531b1f921d2d0e19812abaaacccb946ba04dc27b300",
       "profiles": [
         "ai4science",
         "all"
@@ -702,7 +702,7 @@
     },
     "sr-module-challenge-mapping": {
       "description": "模块—挑战对应设计：方法模块较多，需要证明每个模块解决哪个挑战并预设消融时。",
-      "hash": "dc8c9809d545cca804ca89af22ca9bbe2a8a60bc8fee31ea5c46dd5ceae9387c",
+      "hash": "74dbd315048ca8b78fd0edae2ee2adcd7dae0c9f662cbfd0675e23ef2ea75904",
       "profiles": [
         "ai4science",
         "all"
@@ -711,7 +711,7 @@
     },
     "sr-nearest-neighbor-difference": {
       "description": "最近邻差异分析：已有研究想法需要与最接近工作逐维比较并确认哪些部分不构成创新时。",
-      "hash": "5446dc7311475ee811878cc84a0640b0649b3dc87fb48497d92ba2b579ac070c",
+      "hash": "07f79f04ed55196d61d6fb5bb188d75b597762c0b33170e3f11e255b5f3eeaf9",
       "profiles": [
         "ai4science",
         "all"
@@ -720,7 +720,7 @@
     },
     "sr-novelty-tree": {
       "description": "创新空间分析：需要按问题、表示、模型、训练、评价或应用层定位创新空间时。",
-      "hash": "54ba1a15c49a26c87558a7ed6592c4b4ec594ee23350553e8120b0429254c124",
+      "hash": "b094908b5b133ef1e67c37f9095f1ebf8a905698122795e44b7c83855dceab86",
       "profiles": [
         "ai4science",
         "all"
@@ -729,7 +729,7 @@
     },
     "sr-observation-anomaly": {
       "description": "观察与异常提炼：数据、实验或阅读中出现异常现象，需要先保存事实再形成问题时。",
-      "hash": "464d489e7a5a06dfbee7b39b0eb08c5bb968ecea5f2c7040064fd5d1df23ceb3",
+      "hash": "2c20fdea91b2068e8e7eb4750984b209dc2b33e64cadf8b96600beba27d01738",
       "profiles": [
         "ai4science",
         "all"
@@ -738,7 +738,7 @@
     },
     "sr-paper-evidence-card": {
       "description": "单篇深读与证据卡片：需要深读一篇关键论文并区分作者主张、直接证据、局限与可复现信息时。",
-      "hash": "17f1660dde2287e380157ca0b898655323b37f249a194548ab3e5df16b39d50b",
+      "hash": "497a6fb0fc045ba948a78c97cd8b5658858b810c67a6331392541758d7dfdf65",
       "profiles": [
         "ai4science",
         "all"
@@ -747,7 +747,7 @@
     },
     "sr-paper-storyline": {
       "description": "论文故事线设计：已有证据但稿件按代码模块或时间顺序堆积，需要形成问题到影响的论证主线时。",
-      "hash": "83947792cb0f9783b0538a8f2754672287ee864a281cafaf24698ad4a5871da8",
+      "hash": "b7e4d79f3c50809cf8e28f6a5df285b71d5d6b91ebf0882ca68bd691983679b1",
       "profiles": [
         "ai4science",
         "all"
@@ -756,7 +756,7 @@
     },
     "sr-problem-formalization": {
       "description": "问题形式化：自然语言问题需要转成变量、映射、目标、约束与可测指标时。",
-      "hash": "33776ce89c55f506661f0925212a5dbcd91555ca83ea9e134f92229ba1bbb518",
+      "hash": "54cba327ce095a3dc6afbd0239f7a2673304098a8c2e9b6a7280429c8da418b1",
       "profiles": [
         "ai4science",
         "all"
@@ -765,7 +765,7 @@
     },
     "sr-progress-narrative": {
       "description": "把已有研究材料整理为周报、组会文字稿、阶段总结或研究时间线，说明做了什么、得到了什么以及下一步。",
-      "hash": "c4aec15468d4e252bc7da456c0973b021b3edaa52ee5f61520da4279afd2f597",
+      "hash": "7ef493dba577223cb7d9974481915d40959eaae5429e58f6d94c905920a36428",
       "profiles": [
         "ai4science",
         "all"
@@ -774,7 +774,7 @@
     },
     "sr-quantitative-analysis": {
       "description": "总体定量分析：主结果需要均值、方差、区间、效应量、检验和实际阈值解释时。",
-      "hash": "b38bd447e929994686df8bb84c36dfa9dad98184056975b39f8955cc738f6ab2",
+      "hash": "58ce1da7a0debe44496a06d0b998855058b334a2f958a0967eb27547731b64ea",
       "profiles": [
         "ai4science",
         "all"
@@ -783,7 +783,7 @@
     },
     "sr-rebuttal-revision": {
       "description": "审稿回复与修订：审稿意见已拆解，需要逐点回复、补证据、修改稿件并闭环追踪时。",
-      "hash": "73a38db9de7c27c289fa3af399aa5552c320aa877a9ec20e672c9e4ecf5224f4",
+      "hash": "3bc805d25ba7c6b2c348e1a45f8a7c95a7cfc94c14b3b4728815ba86928a8986",
       "profiles": [
         "ai4science",
         "all"
@@ -792,7 +792,7 @@
     },
     "sr-reproducible-run": {
       "description": "可复现实验封装：实验需要保存代码、数据、环境、配置、种子、命令和输出并从空目录重跑时。",
-      "hash": "1b1f2cb386b4a98377b4a144aa52cfb82b0d8a8892c263bbb24e2be404be2e9c",
+      "hash": "afc166802e5b2d39a0373c4e136953992bc864d9559e0fc2247502e3eb4d06ae",
       "profiles": [
         "ai4science",
         "all"
@@ -801,7 +801,7 @@
     },
     "sr-research-question-review": {
       "description": "研究问题评审：研究问题准备固定、需要从创新性、可证伪性、边界和资源角度接受挑战时。",
-      "hash": "2aba4049307705be72a555f7721a4c386c263e80b5f98633426978305e9ed413",
+      "hash": "18c11768f70bb107eeb053e854376e951c5aff4a825503573c833107e175be36",
       "profiles": [
         "ai4science",
         "all"
@@ -810,7 +810,7 @@
     },
     "sr-research-shared": {
       "description": "将散乱的研究笔记、结果与来源整理成可读、可检查的记录，或检查已有记录是否缺少依据和适用范围。",
-      "hash": "817c1fd9b0cc3e5688beaa57edeec1d7aeaf1b9d420f9c2f4c6c9a1e9f6355ac",
+      "hash": "3798f2ce18258c2d57057a35f20a9ce84c56c8405c124a026ef98313c096e28f",
       "profiles": [
         "ai4science",
         "all"
@@ -819,7 +819,7 @@
     },
     "sr-resource-budget": {
       "description": "复杂度与资源预算：需要估算样本、GPU、CPU、仿真、存储、人时并设置缩减与停止条件时。",
-      "hash": "e567d571909f5463f08d1ca7419424ec32937f72e638618f8696d77fbc400e9e",
+      "hash": "c072eb98e250a526067af6353452c3f4c676c29b3f98424909eb6906187fe16e",
       "profiles": [
         "ai4science",
         "all"
@@ -828,7 +828,7 @@
     },
     "sr-resource-scheduling": {
       "description": "资源与运行调度：GPU、仿真、存储、人力或设备有限，需要按研究价值安排队列和停止条件时。",
-      "hash": "635f049f49e0bdf2abc7b6ff88490f63750efe15b735d8c9b2296ed2ecdf37e7",
+      "hash": "5217973cb00f1557adda66762ed056951736e3057054eda8d9ff0cc7bc6e53df",
       "profiles": [
         "ai4science",
         "all"
@@ -837,7 +837,7 @@
     },
     "sr-result-integrity": {
       "description": "结果完整性检查：分析前需要核对运行数、配置、日志、退出状态、模型保存点和评价脚本是否完整时。",
-      "hash": "2206b0c9cb67d2551d27938439fd610d7ccda1c71dbf121bb4b7803873004cd1",
+      "hash": "29bcac8c6f3e99308007a3c1b73e7d89b7797b69cddaf3bcb5aa7f9d1861284f",
       "profiles": [
         "ai4science",
         "all"
@@ -846,7 +846,7 @@
     },
     "sr-review-comment-analysis": {
       "description": "审稿意见拆解：收到审稿意见，需要逐条识别表面问题、真实诉求、证据缺口和回应风险时。",
-      "hash": "5873e187c4f591977d17d8dfbd125a11846bdaf4daea4b442b95c2c82f69bab4",
+      "hash": "9137db64400dcbf7f6c89c8349c4d92f9f9fdaf88f7a15aa6008bce3700c3976",
       "profiles": [
         "ai4science",
         "all"
@@ -855,7 +855,7 @@
     },
     "sr-risk-contingency": {
       "description": "风险登记与预案：需要管理数据、方法、算力、合作、时间、伦理或投稿风险及备用方案时。",
-      "hash": "15ff543fda4179d1a4a3eebca40d96dda8368349bbe33015e2fee4224e15955b",
+      "hash": "f657ac1385ff00927fba5df8b3f295431501b724aec19b9937b3cdca89ecf0b3",
       "profiles": [
         "ai4science",
         "all"
@@ -864,7 +864,7 @@
     },
     "sr-route-retrospective": {
       "description": "路线复盘与优先级调整：新证据改变原假设、任务价值或关键路径，需要继续、暂停、放弃或转向时。",
-      "hash": "ae2c651341c939663cdec5b2010205469d353aa54254ef65d21108fe67a7e8bf",
+      "hash": "60601364ab6739a2b95a3b79ca90c4ba39c788259df312e43b9731fabb8bbe6d",
       "profiles": [
         "ai4science",
         "all"
@@ -873,7 +873,7 @@
     },
     "sr-scenario-needs": {
       "description": "场景与需求定义：课题来源、真实使用场景、对象、输入输出或约束尚不清楚时。",
-      "hash": "6e1a3b610f0e0d63ea187e3823a705804b3e7459fc3d04f0b1c787e951dbc9fd",
+      "hash": "1d74355e5406789cde38d7ec355982157812f83d462e92b2a85a3417d00cb08c",
       "profiles": [
         "ai4science",
         "all"
@@ -882,7 +882,7 @@
     },
     "sr-scope-convergence": {
       "description": "研究边界收敛：课题范围过大、变量过多或博士主线与资源不匹配时。",
-      "hash": "f35e0fb557dc4aafeb35479d89a1b4a28df274c04c35778451394a66d014ac06",
+      "hash": "e8bc0e1081dd2f5c53139b6f911cdc92d0da4c588a51c8bfaf072020ae677cef",
       "profiles": [
         "ai4science",
         "all"
@@ -891,7 +891,7 @@
     },
     "sr-search-strategy": {
       "description": "检索式设计与试检索：需要系统检索某一研究问题、建立可复跑检索协议、降低漏检与噪声，或把实际采集的候选文献批量导入 Zotero 时；若数据库需要登录，可在用户明确授权下复用其浏览器中的现有登录会话读取检索页面。",
-      "hash": "6a01f70216d94fe8c6c0de6006b417a39927f80a9895720e9c013de88439f1d5",
+      "hash": "c58c0744be4c1be5a2c74c6f205397ba5c74641a7059cc24c16400536b0b8c5f",
       "profiles": [
         "ai4science",
         "all"
@@ -900,7 +900,7 @@
     },
     "sr-sensitivity-robustness": {
       "description": "敏感性与鲁棒性实验：需要知道模型对超参、噪声、数据量或物理扰动的稳定区和失效阈值时。",
-      "hash": "7313b9385bf4d5929a29361391cb8a046d69d31ff810a4532f556f52828643f5",
+      "hash": "bf248a3f45f86c03139cf671b87738d6512ddbccf482307705e7aac2d6a33ced",
       "profiles": [
         "ai4science",
         "all"
@@ -909,7 +909,7 @@
     },
     "sr-slice-analysis": {
       "description": "分组与切片分析：总体均值可能掩盖不同几何、参数、类别、难度或数据来源上的差异时。",
-      "hash": "fd67cbeb99419fb5aaea5a6f81874889d02e773e56bf080580687a9688bd6d77",
+      "hash": "9e577dc4bd9311732da9f4904d87981f1a66ca01b96909b49477376328414326",
       "profiles": [
         "ai4science",
         "all"
@@ -918,7 +918,7 @@
     },
     "sr-solution-gap-analysis": {
       "description": "现有方案差距分析：需要证明现有方法在同一条件下存在可验证不足，而不是泛泛声称研究空白时。",
-      "hash": "58fc4a3fa832932ee23141aea99e8a5f0bc4193aa97995911e6495d4bd4f8518",
+      "hash": "23f0cb41ecd71c5f501eb7b60296d14ae5d9cbd75da935d30086c2648be5b5b2",
       "profiles": [
         "ai4science",
         "all"
@@ -927,7 +927,7 @@
     },
     "sr-stage-archive": {
       "description": "阶段归档：阶段结束、路线暂停、论文提交或交接前，需要整理可接续的数据、代码、配置、结果、失败和未决问题时。",
-      "hash": "b840d562b2082e760eed94ed483d68fe9ea0e358440a6198efe000cd5c1476ee",
+      "hash": "97a7f1d6a3adc92920c54008b22233166e32447e1372a3b6b60b47215ed15153",
       "profiles": [
         "ai4science",
         "all"
@@ -936,7 +936,7 @@
     },
     "sr-talk-open-source": {
       "description": "学术演示文稿制作：需要将论文、项目文档或研究进展制作成学术报告、答辩、文献分享或组会演示文稿时；本技能是 PR/SR 中唯一的 PPT 制作入口。",
-      "hash": "72b01c0e521f5ae49abb749d9c8a5e6c07faddc993b7357c487ece8ebda51b57",
+      "hash": "09918c1e92e8ec8b28c4180d45889fa2aa4ffe6512af6726e8efa20d0526a4d1",
       "profiles": [
         "ai4science",
         "all"
@@ -945,7 +945,7 @@
     },
     "sr-task-decomposition": {
       "description": "研究任务拆解：里程碑或研究目标太大，需要拆成一至三天可完成、可核对且有依赖的任务时。",
-      "hash": "55159cc0f6fb9bc9bf4f16bc5a520818344e8ef68fcbacc901f4a6048a860deb",
+      "hash": "7e84c5eb3b5940f745084db81962b2eaf86b5e46439c1aa4e71ab78aa027e01b",
       "profiles": [
         "ai4science",
         "all"
@@ -954,7 +954,7 @@
     },
     "sr-value-feasibility": {
       "description": "价值与可行性评估：需要决定课题是否值得做、能否做以及最低成本验证是什么时。",
-      "hash": "46ab2e6f5099d66b3b34c225a764a6044bbf8622ad2c9978753b1e6e5a8aa230",
+      "hash": "c0edefb1dce6f364a49b04d27f5bfcd7a45ea5533b98757cba433ec5ab3d10e8",
       "profiles": [
         "ai4science",
         "all"
@@ -963,7 +963,7 @@
     },
     "sr-weekly-literature-update": {
       "description": "周度文献增量更新：已有文献基线后需要每周增量发现会改变当前判断的新工作时。",
-      "hash": "62fd4bd2d75f2f4b05dd75e13aeb5d321a5bfcfdfa06752cc0df10f583055445",
+      "hash": "bb8008d4d380243c32fb888661fdf62fba0247ffed8bfc9f7bcf093af0366720",
       "profiles": [
         "ai4science",
         "all"
@@ -972,7 +972,7 @@
     },
     "sr-weekly-plan": {
       "description": "周计划制定：需要从关键未知量制定下一周一个首要任务、最多两个后续任务的可核对科研计划时。",
-      "hash": "110f3f8ea269282c0a78df7307cb3b1b2cc435159356a422fa3c04487f45f2e7",
+      "hash": "957a4ea8da27338b7678c5c138a96a313e76ee491788d8cbe336f76e8da8a704",
       "profiles": [
         "ai4science",
         "all"

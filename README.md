@@ -312,3 +312,8 @@ axiom/
 ## 许可证
 
 [MIT License](LICENSE)。安装与分发本仓库不会授予任何第三方服务、数据、模型或商业 API 的使用权限。
+
+
+## 创建项目与读者交付候选版
+
+使用[scripts/create_project.py](scripts/create_project.py)与[项目创建说明](docs/项目创建说明.md)，从相同reader-delivery/2.1.0-rc1组合选择科研或软件根模板。仅在实际成果形成后补齐四份可读说明，不继承模板维护记录和虚假结果。当前验证范围为脚本型科研和软件小项目，其他能力尚需验证。
