@@ -13,6 +13,41 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 SCHEMA = "daily-record/1.0"
+LOG_CONTRACT = "group-meeting/1.0"
+RESEARCH_KINDS = {"literature", "method", "performance", "analysis", "writing", "research_blocker"}
+RESEARCH_FIELDS = ("research_question", "actions", "result", "interpretation", "limitations", "next_step")
+GUIDE_LIMITS = {1: 14, 2: 16, 3: 17, 4: 14, 5: 14, 6: 15, 7: 14}
+ENGINEERING_PROCESS = re.compile(r'pytest|\bruff\b|\bmypy\b|代码正确性|工程检查|单元测试|静态检查|语法检查|SHA-?256|哈希对账|登记路径|角色交接|附录[：:]?管理|需求登记|登记需求|流程登记|哈希核对|校验和对账|(?:建立|生成|创建)(?:工作契约|成果卡|管理报告)|(?:测试|检查)通过数', re.I)
+
+
+def validate_research_log(item: dict) -> list[str]:
+    """核对汇报内容结构；不以字段齐全代替科学内容复核。"""
+    errors = []
+    if item.get("report_contract") != LOG_CONTRACT:
+        errors.append("科研日志缺少组会汇报约定")
+    if item.get("work_kind") not in RESEARCH_KINDS:
+        errors.append("工程或管理事项不能进入科研日志")
+    for key in (*RESEARCH_FIELDS, "research_point", "research_source"):
+        if not isinstance(item.get(key), str) or not item[key].strip():
+            errors.append("科研汇报缺少" + key)
+    visible = '\n'.join(str(item.get(key, '')) for key in RESEARCH_FIELDS)
+    if ENGINEERING_PROCESS.search(visible):
+        errors.append("科研正文含工程过程，请仅保留科研影响")
+    questions = item.get("guide_questions")
+    if not isinstance(questions, list) or not questions:
+        errors.append("科研日志缺少组会问题对应")
+    else:
+        for question in questions:
+            match = re.fullmatch(r"4\.([1-7])\.Q([1-9][0-9]?)", str(question))
+            if not match or int(match[2]) > GUIDE_LIMITS[int(match[1])]:
+                errors.append("组会问题编号无效：" + str(question))
+    if not isinstance(item.get("evidence"), list) or not item["evidence"]:
+        errors.append("科研日志缺少实际来源")
+    if item.get("work_kind") in {"performance", "analysis"}:
+        for key in ("comparison_conditions", "metrics"):
+            if not isinstance(item.get(key), str) or not item[key].strip():
+                errors.append("性能汇报缺少" + key)
+    return errors
 SHANGHAI = timezone(timedelta(hours=8), "Asia/Shanghai")
 SAFE_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,79}\Z")
 MARKER = re.compile(r"^<!-- daily-entry (\{.*\}) -->\s*$", re.MULTILINE)
@@ -210,11 +245,16 @@ def validate_daily(text: str) -> list[str]:
                 errors.append(prefix + "：时间缺少有效时区")
         if kind == "log":
             if fields.get("record_profile") == "research":
+                if item.get("report_contract") or str(fields.get("record_date", "")) >= "2026-10-30":
+                    errors.extend(prefix + "：" + error for error in validate_research_log(item))
+                    if ENGINEERING_PROCESS.search(body):
+                        errors.append(prefix + '：科研正文含工程过程')
                 if not item.get("research_point") or not item.get("research_source"):
                     errors.append(prefix + "：科研日志缺研究要点及出处")
             elif not item.get("requirement_id"):
                 errors.append(prefix + "：项目日志缺需求/任务对应")
-        if kind == "achievement" and not item.get("sr_id"):
+        if (kind == "achievement" and not item.get("sr_id") and not item.get("task_skill")
+            and not item.get("skill") and str(fields.get("record_date", "")) >= "2026-10-30"):
             errors.append(prefix + "：科研结果缺SR身份")
     return errors
 
@@ -302,6 +342,8 @@ def writer_lock(root: Path, config: dict, timeout: float = 5):
 
 
 def prepare_entry(summary: str, payload: dict, now: datetime) -> tuple[dict, str]:
+    if payload.get("report_contract") == LOG_CONTRACT:
+        payload = dict(payload, content=payload.get("result", ""), impact=payload.get("interpretation", ""))
     for key in ["entry_id", "event_key", "content", "impact", "status"]:
         if not isinstance(payload.get(key), str) or not payload[key].strip():
             raise RecordError("条目必须提供真实的" + key)
@@ -315,7 +357,9 @@ def prepare_entry(summary: str, payload: dict, now: datetime) -> tuple[dict, str
             raise RecordError("条目正文不能注入日记录边界")
     metadata = {key: payload[key] for key in ["entry_id", "event_key", "status", "sr_id", "agent", "workflow", "workflow_id",
         "requirement_id", "research_point", "research_source", "revision_of", "cards_read", "handoffs_read",
-        "human_verdict", "scientific_accepted"] if key in payload}
+        "human_verdict", "scientific_accepted", "task_skill", "skill", "report_contract", "work_kind", "guide_questions",
+        "research_question", "actions", "result", "interpretation", "limitations", "next_step",
+        "comparison_conditions", "metrics", "evidence"] if key in payload}
     metadata["attempt_id"] = str(payload.get("attempt_id", "1"))
     metadata["recorded_at"] = now.astimezone(SHANGHAI).isoformat()
     metadata["occurred_at"] = str(payload.get("occurred_at", metadata["recorded_at"]))
@@ -333,6 +377,24 @@ def prepare_entry(summary: str, payload: dict, now: datetime) -> tuple[dict, str
     if any("<!-- daily-entry" in x or '<a id="entry-' in x for x in evidence):
         raise RecordError("证据不能注入日记录边界")
     body += '\n'.join('- ' + x for x in evidence) + '\n'
+    if payload.get("report_contract") == LOG_CONTRACT:
+        errors = validate_research_log(payload)
+        if ENGINEERING_PROCESS.search(summary + '\n' + str(payload.get('comparison_conditions', '')) + '\n' + str(payload.get('metrics', ''))):
+            errors.append('科研标题或比较字段含工程过程')
+        if errors:
+            raise RecordError('；'.join(errors))
+        body = f'<a id="entry-{payload["entry_id"]}"></a>\n## {summary}\n\n'
+        body += '**研究问题：** ' + payload['research_point'] + '\n\n'
+        questions = json.loads((Path(__file__).resolve().parent.parent / 'references/group-meeting-questions.json').read_text(encoding='utf-8'))
+        body += '**本项汇报说明：** ' + '；'.join(questions[q] for q in payload['guide_questions']) + '\n\n'
+        for label, key in [('要解决什么问题', 'research_question'), ('做了什么', 'actions'), ('得到了什么结果', 'result'),
+                           ('这说明什么', 'interpretation'), ('还有什么不足', 'limitations'), ('下一步做什么', 'next_step')]:
+            body += '**' + label + '：** ' + payload[key] + '\n\n'
+        if payload.get('comparison_conditions'):
+            body += '**比较条件：** ' + str(payload['comparison_conditions']) + '\n\n'
+        if payload.get('metrics'):
+            body += '**指标：** ' + str(payload['metrics']) + '\n\n'
+        body += '**来源：** ' + '；'.join(f'[材料{i+1}]({p})' for i, p in enumerate(evidence)) + '\n'
     return metadata, body
 
 
@@ -341,9 +403,37 @@ def append_record(root: Path, config: dict, kind: str, summary: str, payload: di
     now = now or datetime.now(SHANGHAI)
     policy = policy_from_config(root, config)
     kind = canonical_type(kind, policy)
+    allowed = policy.get('enabled_daily_types')
+    effective = policy.get('minimal_records_effective_date', '2026-10-30')
+    if policy.get('process_record_profile') == 'minimal' and now.astimezone(SHANGHAI).date().isoformat() >= effective:
+        if not isinstance(allowed, list) or set(allowed) != {'requirement', 'log'} or len(allowed) != 2:
+            raise RecordError('精简记录模式缺少有效的enabled_daily_types')
+        if kind not in allowed:
+            raise RecordError('精简模式不生成该类过程文件；范围/决定写需求，科研进展写日志，接续及检查保留已有运行记录。此限制不停止已授权工作。')
+    if kind == "log" and policy["profile"] == "research" and now.astimezone(SHANGHAI).date().isoformat() >= "2026-10-30":
+        payload = dict(payload, report_contract=LOG_CONTRACT)
+        errors = validate_research_log(payload)
+        if errors:
+            raise RecordError('；'.join(errors))
+        for reference in [payload['research_source'], *payload['evidence']]:
+            source = inside(root, reference.split('#', 1)[0])
+            if not source.is_file():
+                raise RecordError('科研来源不存在：' + reference)
+            if '#' in reference:
+                anchor = reference.split('#', 1)[1]
+                source_text = source.read_text(encoding='utf-8-sig')
+                headings = re.findall(r'^#{1,6}\s+(.+)$', source_text, re.M)
+                slugs = {re.sub(r'[^\w\-\s]', '', h.strip().lower()).replace(' ', '-') for h in headings}
+                if not re.search(r'id=[\"\']' + re.escape(anchor) + r'[\"\']', source_text) and anchor not in slugs:
+                    raise RecordError('科研来源锚点不存在：' + reference)
     target = record_target(root, config, policy, kind, now)
     day = now.astimezone(SHANGHAI).date().isoformat()
     metadata, body = prepare_entry(summary, payload, now)
+    if kind == "log" and policy["profile"] == "research" and payload.get("report_contract") == LOG_CONTRACT:
+        for reference in payload['evidence']:
+            relative, sep, anchor = reference.partition('#')
+            link = Path(os.path.relpath(inside(root, relative), target.parent)).as_posix()
+            body = body.replace('](' + reference + ')', '](' + link + (sep + anchor if sep else '') + ')')
     header = {"schema_version": SCHEMA, "project_id": policy["project_id"], "record_date": day,
               "record_type": kind, "record_profile": policy["profile"], "timezone": "Asia/Shanghai",
               "writing_level": TYPES[kind][3]}

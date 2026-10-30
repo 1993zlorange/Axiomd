@@ -63,6 +63,7 @@ def iter_files(root: Path) -> list[Path]:
         p
         for p in root.rglob("*")
         if p.is_file() and not p.is_symlink() and not p.name.startswith("~$")
+        and "__pycache__" not in p.relative_to(root).parts and p.suffix not in {".pyc", ".pyo"}
     )
 
 

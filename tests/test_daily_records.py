@@ -268,3 +268,81 @@ class DailyRecordTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class ResearchReportingTests(unittest.TestCase):
+    setUp = DailyRecordTests.setUp
+    payload = DailyRecordTests.payload
+    def research(self, **updates):
+        value = self.payload(report_contract=daily.LOG_CONTRACT, work_kind="method", research_point="选择方法",
+            research_source="source.md", guide_questions=["4.3.Q13"], research_question="哪种路线适合研究目标？",
+            actions="比较两条方法路线的假设和代价。", result="得到共同适用条件及差异。",
+            interpretation="尚不能认定一条路线普遍更优。", limitations="缺少跨场景性能比较。",
+            next_step="先固定最必要比较的条件。", evidence=["source.md"])
+        value.update(updates)
+        return value
+
+    def test_engineering_and_missing_questions_rejected_without_file(self):
+        self.config["record_profile"] = "research"
+        (self.root / "source.md").write_text("研究方案", encoding="utf-8")
+        for change in [{"work_kind":"engineering"},{"guide_questions":["4.4.Q99"]}, {"result":""}]:
+            with self.assertRaises(daily.RecordError):
+                daily.append_record(self.root,self.config,"log","科研工作",self.research(**change),
+                    now=datetime(2026,10,30,8,tzinfo=timezone.utc),write=True)
+        self.assertFalse((self.root / "achieve").exists())
+
+    def test_method_needs_no_performance_metrics_and_roundtrips_mapping(self):
+        self.config["record_profile"] = "research"
+        (self.root / "source.md").write_text("研究方案", encoding="utf-8")
+        p,_=daily.append_record(self.root,self.config,"log","方法取舍",self.research(),
+            now=datetime(2026,10,30,8,tzinfo=timezone.utc),write=True)
+        text=p.read_text(encoding="utf-8")
+        self.assertNotIn("附录：管理信息",text)
+        self.assertFalse(daily.validate_daily(text))
+        self.assertEqual(daily.entry_blocks(text)[0][0]["work_kind"],"method")
+        self.assertIn("../../../source.md",text)
+
+    def test_performance_requires_conditions_and_metrics_and_no_engineering_body(self):
+        for change in [{"work_kind":"performance"},{"actions":"pytest检查通过"}]:
+            self.assertTrue(daily.validate_research_log(self.research(**change)))
+
+    def test_non_sr_writing_achievement_uses_real_skill(self):
+        self.config["record_profile"]="research"
+        p,_=daily.append_record(self.root,self.config,"achievement","论文论证进展",
+            self.payload(task_skill="scientific-writing"), now=self.now,write=True)
+        self.assertFalse(daily.validate_daily(p.read_text(encoding="utf-8")))
+
+    def test_method_optional_comparison_has_no_keyerror(self):
+        metadata,body=daily.prepare_entry("方法取舍",self.research(comparison_conditions="相同数据与预算"),self.now)
+        self.assertIn("相同数据与预算",body)
+        self.assertIn("推荐哪条路线，主要理由是什么？",body)
+        self.assertNotIn("4.3.Q13",body)
+
+    def test_engineering_title_and_result_are_rejected(self):
+        with self.assertRaises(daily.RecordError):
+            daily.prepare_entry("pytest和角色交接完成",self.research(),self.now)
+        self.assertTrue(daily.validate_research_log(self.research(result="静态检查和单元测试完成，代码正确性已检查。")))
+
+    def test_legacy_non_sr_writing_does_not_block_project(self):
+        self.config["record_profile"]="research"
+        p,_=daily.append_record(self.root,self.config,"achievement","写作进展",self.payload(skill="scientific-writing"),now=self.now,write=True)
+        daily.append_record(self.root,self.config,"achievement","写作修订",self.payload("revision",revision_of="one"),now=self.now,write=True)
+        self.assertFalse(daily.validate_daily(p.read_text(encoding="utf-8")))
+
+
+class MinimalRecordTests(unittest.TestCase):
+    setUp = DailyRecordTests.setUp
+    payload = DailyRecordTests.payload
+    def test_minimal_blocks_disabled_kind_before_writing(self):
+        (self.root / "registry.json").write_text(json.dumps({"record_policy":{"project_id":"test","profile":"software","types":{},"process_record_profile":"minimal","enabled_daily_types":["requirement","log"],"minimal_records_effective_date":"2026-10-30"}}),encoding="utf-8")
+        self.config["record_policy_registry"]="registry.json"
+        for kind in ["supervision","quality","cost","change","reflection","achievement","handoff","work-contract"]:
+            with self.assertRaises(daily.RecordError):
+                daily.append_record(self.root,self.config,kind,"不应生成",self.payload(),now=datetime(2026,10,30,8,tzinfo=timezone.utc),write=True)
+        self.assertFalse((self.root / "achieve").exists())
+
+    def test_minimal_rejects_extra_whitelisted_process_kind(self):
+        (self.root / "registry.json").write_text(json.dumps({"record_policy":{"project_id":"test","profile":"software","types":{},"process_record_profile":"minimal","enabled_daily_types":["requirement","log","change"]}}),encoding="utf-8")
+        self.config["record_policy_registry"]="registry.json"
+        with self.assertRaises(daily.RecordError):
+            daily.append_record(self.root,self.config,"change","不得生成",self.payload(),now=datetime(2026,10,30,8,tzinfo=timezone.utc),write=True)

@@ -15,6 +15,9 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL = ROOT / "docs" / "pr-sr-interaction-standard.md"
 REFERENCE = "沟通方式见 [AGENTS.md](AGENTS.md)：先说结果，用中文解释步骤、依据和限制。"
+REPORT_SOURCE = ROOT / "skills/sr-research-shared/references/group-meeting-reporting.md"
+REPORT_SKILLS = ("pr-ps-03-project-logging", "pr-ps-09-daily-log-summary", "sr-progress-narrative")
+QUESTION_SOURCE = ROOT / "skills/sr-research-shared/references/group-meeting-questions.json"
 
 
 def skill_directories() -> list[Path]:
@@ -55,6 +58,14 @@ def insert_reference(path: Path) -> bool:
 
 
 def write_guides() -> tuple[int, int]:
+    for name in (*REPORT_SKILLS, "pr-ps-00-project-supervision"):
+        target = ROOT / "skills" / name / "references/group-meeting-questions.json"
+        target.parent.mkdir(exist_ok=True)
+        target.write_bytes(QUESTION_SOURCE.read_bytes())
+    for name in REPORT_SKILLS:
+        target = ROOT / "skills" / name / "references/group-meeting-reporting.md"
+        target.parent.mkdir(exist_ok=True)
+        target.write_text(REPORT_SOURCE.read_text(encoding="utf-8"), encoding="utf-8")
     canonical = CANONICAL.read_text(encoding="utf-8")
     directories = skill_directories()
     changed_guides = 0
@@ -72,6 +83,14 @@ def write_guides() -> tuple[int, int]:
 def check() -> int:
     canonical = CANONICAL.read_text(encoding="utf-8")
     failures: list[str] = []
+    for name in (*REPORT_SKILLS, "pr-ps-00-project-supervision"):
+        target = ROOT / "skills" / name / "references/group-meeting-questions.json"
+        if not target.is_file() or target.read_bytes() != QUESTION_SOURCE.read_bytes():
+            failures.append(f"outdated reporting questions: {name}")
+    for name in REPORT_SKILLS:
+        target = ROOT / "skills" / name / "references/group-meeting-reporting.md"
+        if not target.is_file() or target.read_bytes() != REPORT_SOURCE.read_bytes():
+            failures.append(f"outdated reporting reference: {name}")
     directories = skill_directories()
     if not directories:
         failures.append("no PR/SR skills found")
